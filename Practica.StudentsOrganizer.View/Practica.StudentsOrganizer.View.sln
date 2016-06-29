@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentsOrganizer.View", "Practica.StudentsOrganizer.View\Practica.StudentsOrganizer.View.csproj", "{4863A01F-B1DC-4061-A0D6-9E6EB82941CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentsOrganizer.Model", "Practica.StudentsOrganizer.Model\Practica.StudentsOrganizer.Model.csproj", "{10A5F810-8FB5-4103-BE81-F3C3F5FBC2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentsOrganizer.Control", "Practica.StudentsOrganizer.Control\Practica.StudentsOrganizer.Control.csproj", "{0A10274B-722A-47B0-8036-C4BCCD9CA1C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4863A01F-B1DC-4061-A0D6-9E6EB82941CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4863A01F-B1DC-4061-A0D6-9E6EB82941CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4863A01F-B1DC-4061-A0D6-9E6EB82941CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4863A01F-B1DC-4061-A0D6-9E6EB82941CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10A5F810-8FB5-4103-BE81-F3C3F5FBC2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A5F810-8FB5-4103-BE81-F3C3F5FBC2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A5F810-8FB5-4103-BE81-F3C3F5FBC2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A5F810-8FB5-4103-BE81-F3C3F5FBC2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A10274B-722A-47B0-8036-C4BCCD9CA1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A10274B-722A-47B0-8036-C4BCCD9CA1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A10274B-722A-47B0-8036-C4BCCD9CA1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A10274B-722A-47B0-8036-C4BCCD9CA1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
