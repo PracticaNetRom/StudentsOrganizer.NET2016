@@ -5,6 +5,13 @@ CREATE TABLE eveniment(
 	Departament varchar(30),
 	Task varchar(60),
 );
+DROP TABLE login;
+CREATE TABLE login(
+	NumeUtilizator varchar(20),
+	ParolaUtilizator varchar(20),
+	Roll varchar(20),
+);
+
 
 DROP TABLE student;
 CREATE TABLE student(
@@ -40,12 +47,14 @@ alter table student_event_occurence add constraint FK_student_event_occurence_ev
 alter table student_period_event add constraint FK_student_event_occurence_student_period_event foreign key(IdStudentOccurence) references student_event_occurence(Id);
 
 
-
+SELECT * FROM login;
 SELECT * FROM student;
 SELECT * FROM eveniment;
 SELECT * FROM student_period_event;
 SELECT * FROM student_event_occurence;
 
+INSERT INTO login(NumeUtilizator,ParolaUtilizator,Roll) VALUES('Dragos','Puscu','ADMIN');
+INSERT INTO login(NumeUtilizator,ParolaUtilizator,Roll) VALUES('admin','admin','Client');
 
 INSERT INTO student_period_event(IdStudent,IdStudentOccurence) VALUES('1','2');
 INSERT INTO student_period_event(IdStudent,IdStudentOccurence) VALUES('2','1');
