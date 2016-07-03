@@ -9,36 +9,36 @@ namespace Practica.StudentsOrganizer.Model
 {
     class StudentDAO
     {
-        public studentBO Stud(int IdStudent)
+        public studentBO GetStud(int Id)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice5;" +
             "Integrated Security=SSPI;";
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select FirstName.student,LastName.student from student where IdStudent=" + IdStudent;
-            cmd.Connection = conn;
+            SqlCommand cmS = new SqlCommand();
+            cmS.CommandText = "select FirstName.student,LastName.student,Gender.student,BirtDate.student,Email.student,PhoneNumber.student,PhoneHomeNumber.student,Faculty.student,FacultyStartYear.student,Remarks.student from student where IdStudent=" + Id;
+            cmS.Connection = conn;
+
 
             conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader reader = cmS.ExecuteReader();
 
             if (reader.Read())
             {
                 if (reader.HasRows)//intoarce daca sunt sau nu randuri de citit
                 {
-                    studentBO Stud = new studentBO();
-                    Stud.IdStudent = reader["IdStudent"].INTEGER.parseInt();
-                    Stud.FirstName = reader["FirstName"].ToString();
-                    Stud.LastName = reader["LastName"].ToString();
-                    Stud.Gender = reader["Gender"].ToString();
-                    Stud.BirtDate = reader["BirtDate"].INTEGER.parseInt();
-                    Stud.Email = reader["Email"].ToString();
-                    Stud.PhoneNumbers = reader["PhoneNumbers"].INTEGER.parseInt();
-                    Stud.PhoneHomeNumbers = reader["PhoneHomeNumbers"].INTEGER.parseInt();
-                    Stud.Faculty = reader["Faculty"].ToString();
-                    Stud.FacultyStarYear = reader["FacultyStartYear"].INTEGER.parseInt();
-                    Stud.Remarks = reader["Remarks"].ToString();
-                    return Stud;
+                    studentBO GetStud = new studentBO();
+                    GetStud.FirstName = reader["FirstName"].ToString();
+                    GetStud.LastName = reader["LastName"].ToString();
+                    GetStud.Gender = reader["Gender"].ToString();
+                    GetStud.BirtDate = reader["BirtDate"].INTEGER.parseInt();
+                    GetStud.Email = reader["Email"].ToString();
+                    GetStud.PhoneNumbers = reader["PhoneNumbers"].INTEGER.parseInt();
+                    GetStud.PhoneHomeNumbers = reader["PhoneHomeNumbers"].INTEGER.parseInt();
+                    GetStud.Faculty = reader["Faculty"].ToString();
+                    GetStud.FacultyStarYear = reader["FacultyStartYear"].INTEGER.parseInt();
+                    GetStud.Remarks = reader["Remarks"].ToString();
+                    return GetStud;
                 }
             }
             return null;

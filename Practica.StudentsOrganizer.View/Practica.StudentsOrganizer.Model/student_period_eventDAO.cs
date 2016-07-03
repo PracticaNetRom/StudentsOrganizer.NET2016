@@ -17,7 +17,7 @@ namespace Practica.StudentsOrganizer.Model
             "Initial Catalog=NetRom.Practice5;" +
             "Integrated Security=SSPI;";
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select FirstName.student,LastName.student from student where IdStudent=" + Id;
+            cmd.CommandText = "select IdStudent.student_period_event,IdStudentOccurence.student_period_event from student_period_event where IdStudent=" + Id;
             cmd.Connection = conn;
 
             conn.Open();

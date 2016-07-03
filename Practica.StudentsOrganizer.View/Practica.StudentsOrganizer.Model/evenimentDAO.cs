@@ -10,14 +10,14 @@ namespace Practica.StudentsOrganizer.Model
 {
     class evenimentDAO
     {
-        public evenimentBO Event(int IdEvent)
+        public evenimentBO Event(int Id)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice5;" +
             "Integrated Security=SSPI;";
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select FirstName.student,LastName.student from student where IdStudent=" + IdEvent;
+            cmd.CommandText = "select IdEvent.eveniment,EventName.eveniment,Departament.eveniment,Task.eveniment from eveniment where IdEvent=" + Id;
             cmd.Connection = conn;
 
             conn.Open();
