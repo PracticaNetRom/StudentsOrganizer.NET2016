@@ -17,9 +17,14 @@ namespace Practica.StudentsOrganizer
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=netsrv-db01\\sql2014;" +
+            /*"Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice4;" +
+            "Integrated Security=SSPI;";*/
+
+            "Data Source=ROXXANA\\SQLEXPRESS;" +
+            "Initial Catalog=PracticaNETROM;" +
             "Integrated Security=SSPI;";
+
             conn.Open();
 
             if(conn.State == System.Data.ConnectionState.Open)

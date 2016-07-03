@@ -29,3 +29,5 @@ Insert INTO Stud_Event_Occurence (
 StudentsId, 
 Event_OccurenceId)
 values (1, 2);
+
+select *from Stud_Event_Occurence;

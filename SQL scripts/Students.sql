@@ -8,16 +8,13 @@ CREATE TABLE Students(
    Gender varchar (30)  NOT NULL,
    Birth_Date date NOT NULL,
    Email varchar(30) NOT NULL,
-   Phone_number int NOT NULL,
+   Phone_Number varchar(30) NOT NULL,
    Faculty varchar (100)  NOT NULL,
    Faculty_Start_Year int NOT NULL,
    Remarks varchar(100)
   
          
 );
-
-
-
 
 
 INSERT INTO Students ( 

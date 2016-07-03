@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\Student_DAO.cs" />
+    <Compile Include="BO\Events_BO.cs" />
+    <Compile Include="BO\Event_Occurence_BO.cs" />
+    <Compile Include="BO\Stud_Event_Occurence_BO.cs" />
+    <Compile Include="DAO\Events_DAO.cs" />
+    <Compile Include="DAO\Event_Occurence_DAO.cs" />
+    <Compile Include="DAO\Students_DAO.cs" />
+    <Compile Include="DAO\Stud_Event_Occurence_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Students_BO.cs" />
+    <Compile Include="BO\Students_BO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

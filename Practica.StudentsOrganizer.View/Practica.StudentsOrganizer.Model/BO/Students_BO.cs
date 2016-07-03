@@ -13,10 +13,12 @@ namespace Practica.StudentsOrganizer.Model
         public string Last_Name { get; set; }
         public string Gender { get; set; }
         public DateTime Birth_Date { get; set; }
-        //public string Email 
-        //public string Phone_Number
-        //public string Faculty 
-        
+        public string Email { get; set; }
+        public string Phone_Number { get; set; }
+        public string Faculty { get; set; }
+        public int Faculty_Start_Year { get; set; }
+        public string Remarks { get; set; }
+
 
     }
 }
