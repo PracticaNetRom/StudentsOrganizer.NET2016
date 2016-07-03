@@ -19,7 +19,7 @@ namespace Practica.StudentsOrganizer.Model
         public string PhoneNumbers { get; set; }
         public string PhoneHomeNumbers { get; set; }
         public int FacultyStarYear { get; set; }
-        public int Faculty { get; set; }
+        public string Faculty { get; set; }
         public string Remarks{ get; set; }
     }
 }

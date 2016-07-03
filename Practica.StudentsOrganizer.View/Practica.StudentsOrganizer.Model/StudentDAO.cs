@@ -9,14 +9,14 @@ namespace Practica.StudentsOrganizer.Model
 {
     class StudentDAO
     {
-        public studentBO Stud(int Id)
+        public studentBO Stud(int IdStudent)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice5;" +
             "Integrated Security=SSPI;";
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select FirstName.student,LastName.student from student where IdStudent=" + Id;
+            cmd.CommandText = "select FirstName.student,LastName.student from student where IdStudent=" + IdStudent;
             cmd.Connection = conn;
 
             conn.Open();
@@ -27,8 +27,17 @@ namespace Practica.StudentsOrganizer.Model
                 if (reader.HasRows)//intoarce daca sunt sau nu randuri de citit
                 {
                     studentBO Stud = new studentBO();
+                    Stud.IdStudent = reader["IdStudent"].INTEGER.parseInt();
                     Stud.FirstName = reader["FirstName"].ToString();
                     Stud.LastName = reader["LastName"].ToString();
+                    Stud.Gender = reader["Gender"].ToString();
+                    Stud.BirtDate = reader["BirtDate"].INTEGER.parseInt();
+                    Stud.Email = reader["Email"].ToString();
+                    Stud.PhoneNumbers = reader["PhoneNumbers"].INTEGER.parseInt();
+                    Stud.PhoneHomeNumbers = reader["PhoneHomeNumbers"].INTEGER.parseInt();
+                    Stud.Faculty = reader["Faculty"].ToString();
+                    Stud.FacultyStarYear = reader["FacultyStartYear"].INTEGER.parseInt();
+                    Stud.Remarks = reader["Remarks"].ToString();
                     return Stud;
                 }
             }
