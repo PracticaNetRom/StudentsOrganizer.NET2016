@@ -30,7 +30,7 @@ namespace Practice.StudentsOrganizer.Model
 
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT FirstName, LastName FROM Students where ID = " + ID;
+            cmd.CommandText = "SELECT FirstName, LastName,Gender,BirthDate,Email,PhoneNumber,Faculty,FacultyStartYear,Remarks FROM Students where ID = " + ID;
 
             reader = cmd.ExecuteReader();
 
@@ -41,8 +41,15 @@ namespace Practice.StudentsOrganizer.Model
                 if(reader.HasRows == true)
                 {
                 
-                    student.FirstName = reader.GetString(reader.GetOrdinal("FirstName"));
-                    student.LastName = reader.GetString(reader.GetOrdinal("LastName"));
+                    student.firstName = reader.GetString(reader.GetOrdinal("FirstName"));
+                    student.lastName = reader.GetString(reader.GetOrdinal("LastName"));
+                    student.gender = reader.GetString(reader.GetOrdinal("Gender"));
+                    student.email = reader.GetString(reader.GetOrdinal("Email"));
+                    student.phoneNumber = reader.GetString(reader.GetOrdinal("PhoneNumber"));
+                    student.faculty = reader.GetString(reader.GetOrdinal("Faculty"));
+                    student.facultyStartYear = reader.GetString(reader.GetOrdinal("FacultyStratYear"));
+                    student.remarks = reader.GetString(reader.GetOrdinal("Remarks"));
+
                 }
             }
 
