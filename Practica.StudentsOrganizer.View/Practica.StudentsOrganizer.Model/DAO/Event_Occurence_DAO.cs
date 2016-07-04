@@ -33,9 +33,9 @@ namespace Practica.StudentsOrganizer.Model.DAO
                 if (reader.HasRows)
                 {
                     Event_Occurence_BO Ev_Occ = new Event_Occurence_BO();
-                    Ev_Occ.EventsId = reader["EventId"];
-                    Ev_Occ.Start = reader["Start"];
-                    Ev_Occ.Finish = reader["Finish"];
+                    Ev_Occ.EventsId = Convert.ToInt32(reader["EventId"]);
+                    Ev_Occ.Start = Convert.ToDateTime(reader["Start"]);
+                    Ev_Occ.Finish = Convert.ToDateTime(reader["Finish"]);
 
                     return Ev_Occ;
                 }

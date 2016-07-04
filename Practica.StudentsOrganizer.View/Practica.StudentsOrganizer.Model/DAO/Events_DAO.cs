@@ -33,7 +33,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
             {
                 if (reader.HasRows)
                 {
-                    Events_BO Event = new Events_BO(int ID);
+                    Events_BO Event = new Events_BO();
                     Event.Event_Name = reader["Event_Name"].ToString();
                     Event.Technology = reader["Technology"].ToString();
                     Event.Task = reader["Task"].ToString();

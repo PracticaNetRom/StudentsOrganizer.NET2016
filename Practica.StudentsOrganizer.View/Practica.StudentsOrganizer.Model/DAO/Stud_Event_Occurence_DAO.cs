@@ -32,10 +32,11 @@ namespace Practica.StudentsOrganizer.Model.DAO
             {
                 if (reader.HasRows)
                 {
-                    Stud_Event_Occurence_BO Stud_Ev_Occ = new Stud_Event_Occurence_BO;
+                    Stud_Event_Occurence_BO Stud_Ev_Occ = new Stud_Event_Occurence_BO();
 
-                    Stud_Ev_Occ.StudentsId = reader["StudentsId"];
-                    Stud_Ev_Occ.Event_OccurenceId = reader["Event_OccurenceId"];
+                    //Stud_Ev_Occ.StudentsId = reader.GetInt32(reader.GetOrdinal("StudentsId"));
+                    Stud_Ev_Occ.StudentsId = Convert.ToInt32(reader["StudentsId"]);
+                    Stud_Ev_Occ.Event_OccurenceId =Convert.ToInt32(reader["Event_OccurenceId"]);
 
                     return Stud_Ev_Occ;
                 }
