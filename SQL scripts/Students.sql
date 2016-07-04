@@ -16,7 +16,10 @@ CREATE TABLE Students(
          
 );
 
-
+DECLARE @First_Name VARCHAR(50) = 'Rox'
+DECLARE @Last_Name varchar(30) = 'Marin'
+DECLARE @Gender Varchar (30) = 'Female'
+Declare @Birth_
 INSERT INTO Students ( 
 First_Name ,
 Last_Name, 
@@ -26,7 +29,7 @@ Email,
 Phone_number, 
 Faculty, 
 Faculty_Start_Year)
-VALUES ( 'Roxana Alina',
+VALUES ( @First_Name ,
  'Marin', 
  'Female', 
 '1994-06-22', 
