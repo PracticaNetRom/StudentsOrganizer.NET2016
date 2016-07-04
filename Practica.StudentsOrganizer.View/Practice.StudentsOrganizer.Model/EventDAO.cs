@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Practice.StudentsOrganizer.Model
 {
-    class EventDAO
+  public  class EventDAO
     {
-        public Event getEventByID(int ID)
+        public EventBO getEventByID(int ID)
         {
             SqlDataReader reader;
             EventBO Event = new EventBO();

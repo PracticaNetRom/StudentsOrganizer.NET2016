@@ -43,8 +43,6 @@
     <Compile Include="Class1.cs" />
     <Compile Include="EventBO.cs" />
     <Compile Include="EventDAO.cs" />
-    <Compile Include="Event_intermediateDAO.cs" />
-    <Compile Include="Event_intermediateBO.cs" />
     <Compile Include="Event_occurenceBO.cs" />
     <Compile Include="Event_occurenceDAO.cs" />
     <Compile Include="StudentBO.cs" />

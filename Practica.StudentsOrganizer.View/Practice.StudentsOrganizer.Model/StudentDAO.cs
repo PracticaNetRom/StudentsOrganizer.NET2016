@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace Practice.StudentsOrganizer.Model
 {
-    class StudentDAO
+   public class StudentDAO
     {
-        public Student getStudentByID(int ID)
+        
+
+        public StudentBO getStudentByID(int ID)
         {
             SqlDataReader reader;
             StudentBO student = new StudentBO();
@@ -44,10 +47,11 @@ namespace Practice.StudentsOrganizer.Model
                     student.firstName = reader.GetString(reader.GetOrdinal("FirstName"));
                     student.lastName = reader.GetString(reader.GetOrdinal("LastName"));
                     student.gender = reader.GetString(reader.GetOrdinal("Gender"));
+                    student.birthDate = reader.GetDateTime(reader.GetOrdinal("BirthDate"));
                     student.email = reader.GetString(reader.GetOrdinal("Email"));
                     student.phoneNumber = reader.GetString(reader.GetOrdinal("PhoneNumber"));
                     student.faculty = reader.GetString(reader.GetOrdinal("Faculty"));
-                    student.facultyStartYear = reader.GetString(reader.GetOrdinal("FacultyStratYear"));
+                    student.facultyStartYear = reader.GetInt32(reader.GetOrdinal("FacultyStratYear"));
                     student.remarks = reader.GetString(reader.GetOrdinal("Remarks"));
 
                 }
@@ -56,6 +60,35 @@ namespace Practice.StudentsOrganizer.Model
             return student;
 
 
+        }
+
+        public void  addStudent(StudentBO student)
+        {
+        
+            string insertSql = @"INSERT INTO Students(FirstName,LastName,Gender,BirthDate,Email,PhoneNumber,Faculty,FacultyStartYear,Remarks)
+                     Values(@FirstName,@LastName,@Gender,@BirthDate,@Email,@PhoneNumber,@Faculty,@FacultyStartYear,@Remarks)";
+
+            using (var conn = new SqlConnection(@"Data Source = netsrv-db01\sql2014; 
+                                                Initial Catalog=NetRom.Practice2; 
+                                                Integrated Security=SSPI;"))
+            {
+                using (var com = new SqlCommand(insertSql, conn))
+                {
+                    
+                    com.Parameters.AddWithValue("@FirstName", student.firstName);
+                    com.Parameters.AddWithValue("@LastName", student.lastName);
+                    com.Parameters.AddWithValue("@Gender", student.gender);
+                    com.Parameters.AddWithValue("@BirthDate", student.birthDate);
+                    com.Parameters.AddWithValue("@Email", student.email);
+                    com.Parameters.AddWithValue("@PhoneNumber", student.phoneNumber);
+                    com.Parameters.AddWithValue("@Faculty", student.faculty);
+                    com.Parameters.AddWithValue("@FacultyStartYear", student.facultyStartYear);
+                    com.Parameters.AddWithValue("@Remarks", student.remarks);
+
+                    conn.Open();
+                    com.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

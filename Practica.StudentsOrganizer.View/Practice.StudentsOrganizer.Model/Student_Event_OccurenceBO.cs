@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Practice.StudentsOrganizer.Model
 {
-    class Student_Event_OccurenceBO
+  public  class Student_Event_OccurenceBO
     {
         public int ID { get; set; }
         public int ID_student { get; set; }
