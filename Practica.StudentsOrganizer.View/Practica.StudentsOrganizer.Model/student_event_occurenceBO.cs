@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Practica.StudentsOrganizer.Model
 {
-    class student_event_occurenceBO
+   public class student_event_occurenceBO
     {
         public int Id { get; set; }
         public int IdEvent { get; set; }

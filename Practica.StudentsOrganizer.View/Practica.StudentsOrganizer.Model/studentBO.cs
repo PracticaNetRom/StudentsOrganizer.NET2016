@@ -14,7 +14,7 @@ namespace Practica.StudentsOrganizer.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Gender { get; set; }
-        public DateTime BirtDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public string Email { get; set; }
         public string PhoneNumbers { get; set; }
         public string PhoneHomeNumbers { get; set; }

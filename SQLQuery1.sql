@@ -21,8 +21,8 @@ CREATE TABLE student(
 	Gender varchar(1),
 	BirthDate date,
 	Email varchar(50),
-	PhoneNumbers integer,
-	PhoneHomeNumbers integer,
+	PhoneNumbers varchar(30),
+	PhoneHomeNumbers varchar(30),
 	FacultyStartYear integer,
 	Faculty varchar(50),
 	Remarks varchar(100),
@@ -52,6 +52,13 @@ SELECT * FROM student;
 SELECT * FROM eveniment;
 SELECT * FROM student_period_event;
 SELECT * FROM student_event_occurence;
+
+DECLARE @FirstName varchar(30)='Dragos'
+DECLARE @LastName varchar(20)='Puscu'
+
+
+
+
 
 INSERT INTO login(NumeUtilizator,ParolaUtilizator,Roll) VALUES('Dragos','Puscu','ADMIN');
 INSERT INTO login(NumeUtilizator,ParolaUtilizator,Roll) VALUES('admin','admin','Client');

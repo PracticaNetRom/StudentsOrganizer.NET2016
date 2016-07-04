@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Practica.StudentsOrganizer.Model
 {
-    class evenimentDAO
+    public class evenimentDAO
     {
         public evenimentBO Event(int Id)
         {
@@ -28,7 +28,7 @@ namespace Practica.StudentsOrganizer.Model
                 if (reader.HasRows)//intoarce daca sunt sau nu randuri de citit
                 {
                     evenimentBO Event = new evenimentBO();
-                    Event.IdEvent = reader["IdEvent"].INTEGER.parseInt();
+                    Event.IdEvent = Convert.ToInt32(reader["IdEvent"]);
                     Event.EventName = reader["EventName"].ToString();
                     Event.Departament = reader["Departament"].ToString();
                     Event.Task = reader["Task"].ToString();

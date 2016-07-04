@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Practica.StudentsOrganizer.Model
 {
-    class student_period_eventDAO
+    public class student_period_eventDAO
     {
         public student_period_eventBO Stud_Period_Event(int Id)
         {
@@ -28,8 +28,8 @@ namespace Practica.StudentsOrganizer.Model
                 if (reader.HasRows)//intoarce daca sunt sau nu randuri de citit
                 {
                     student_period_eventBO Stud_Period_Event = new student_period_eventBO();
-                    Stud_Period_Event.IdStudent = reader["IdStudent"].INTEGER.parseInt();
-                    Stud_Period_Event.IdStudentOccurence = reader["IdStudentOccurence"].INTEGER.parseInt();
+                    Stud_Period_Event.IdStudent = reader.GetInt32(reader.GetOrdinal("IdStudent"));
+                    Stud_Period_Event.IdStudentOccurence = Convert.ToInt32(reader["IdStudentOccurence"]);
                     return Stud_Period_Event;
                 }
     }
