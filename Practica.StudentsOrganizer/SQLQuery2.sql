@@ -1,6 +1,6 @@
 DROP TABLE Student;
 CREATE TABLE Student (
-	id integer PRIMARY KEY,
+	id INT PRIMARY KEY IDENtity(1,1),
 	firstName varchar(40),
 	lastName varchar(40),
 	gender varchar(1),
@@ -15,7 +15,7 @@ ADD PRIMARY KEY (id)
 
 DROP TABLE Eveniment;
 CREATE TABLE Eveniment(
-	id integer PRIMARY KEY NOT NULL,
+	id INT PRIMARY KEY IDENtity(1,1),
 	eventName varchar(40),
 	task varchar(60),
 	departamentOrTehnology varchar(40) );
@@ -26,7 +26,7 @@ ADD PRIMARY KEY (id)
 
 DROP TABLE EventOccurence;
 CREATE TABLE EventOccurence(
-	id integer PRIMARY KEY ,
+	id INT PRIMARY KEY IDENtity(1,1) ,
 	idEvent integer,
 	startData date,
 	endData date); 
@@ -34,9 +34,11 @@ CREATE TABLE EventOccurence(
 
 DROP TABLE StudentEventOccurence;
 CREATE TABLE StudentEventOccurence(
-	id int PRIMARY KEY,
+	id INT PRIMARY KEY IDENtity(1,1),
 	idStudent integer,
 	idEventOccurence integer);
+
+DECLARE @firstName VARCHAR(40) = 'ion'
 
 
 INSERT INTO Student(id, firstName, lastName, gender, birthDate, email, phoneNumber, faculty, facultyStartYear, remarks)

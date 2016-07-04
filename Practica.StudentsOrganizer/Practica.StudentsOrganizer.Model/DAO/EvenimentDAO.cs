@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Practica.StudentsOrganizer.Model.DAO
 {
-    class EvenimentDAO
+    public class EvenimentDAO
     {
         public EvenimentBO GetEveniment (int id)
             {
@@ -32,7 +32,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
                 if (reader.HasRows)
                 {
                     EvenimentBO eveniment = new EvenimentBO();
-                    //eveniment.id = reader["id"].();
+                    eveniment.id = Convert.ToInt32(reader["id"]);
                     eveniment.eventName = reader["eventName"].ToString();
                     eveniment.task = reader["task"].ToString();
                     eveniment.departamentOrTehnology = reader["departamentOrTehnology"].ToString();
