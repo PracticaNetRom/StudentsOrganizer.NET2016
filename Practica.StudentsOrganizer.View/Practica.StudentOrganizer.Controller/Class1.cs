@@ -8,5 +8,6 @@ namespace Practica.StudentOrganizer.Controller
 {
     public class Class1
     {
+
     }
 }

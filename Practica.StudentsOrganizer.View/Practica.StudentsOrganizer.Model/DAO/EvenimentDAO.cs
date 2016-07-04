@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practica.StudentsOrganizer.Model
+namespace Practica.StudentsOrganizer.Model.DAO
 {
-    public class Class1
+    class EvenimentDAO
     {
-        
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practica.StudentsOrganizer.Model
+namespace Practica.StudentsOrganizer.Model.BO
 {
-    public class Class1
+    class EvenimentBO
     {
-        
     }
 }
