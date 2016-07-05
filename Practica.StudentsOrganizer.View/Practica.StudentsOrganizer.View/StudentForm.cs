@@ -22,20 +22,86 @@ namespace Practica.StudentsOrganizer.View
         {
             StudentBO std = new StudentBO();
             Model.StudentDAO dao = new Model.StudentDAO();
-            std.FirstName = txtFirstName.Text;
-            std.LastName = txtLastName.Text;
-            std.Gender = txtGender.Text;
-            std.BirthDate = BirthDate.Value;
-            std.Email = txtEmail.Text;
-            std.PhoneNumber = txtPhoneNumber.Text;
-            std.Faculty = txtFaculty.Text;
-            std.FacultyStartYear = Convert.ToInt32(maskedTxtFacultyStartYear.Text);
-            std.Remarks = txtRemarks.Text;
+            
+
+                if (string.IsNullOrEmpty(txtFirstName.Text))
+                {
+                    MessageBox.Show("Please enter student's first name!");
+                }
+                else
+                {
+                    std.FirstName = txtFirstName.Text;
+                }
+
+                if (string.IsNullOrEmpty(txtLastName.Text))
+                {
+                    MessageBox.Show("Please enter student's last name!");
+                }
+                else
+                {
+                    std.LastName = txtLastName.Text;
+                }
+
+                if (string.IsNullOrEmpty(checkedListBoxGender.Text))
+                {
+                    MessageBox.Show("Please enter student's gender!");
+                }
+                else
+                {
+                    std.Gender = checkedListBoxGender.Text;
+                }
+
+                std.BirthDate = BirthDate.Value;
+
+                if (string.IsNullOrEmpty(txtEmail.Text))
+                {
+                    MessageBox.Show("Please enter student's Email!");
+                }
+                else
+                {
+                    std.Email = txtEmail.Text;
+                }
+
+                if (string.IsNullOrEmpty(txtPhoneNumber.Text))
+                {
+                    MessageBox.Show("Please enter student's phone number!");
+                }
+                else
+                {
+                    std.PhoneNumber = txtPhoneNumber.Text;
+                }
+
+                if (string.IsNullOrEmpty(txtFaculty.Text))
+                {
+                    MessageBox.Show("Please enter student's faculty!");
+                }
+                else
+                {
+                    std.Faculty = txtFaculty.Text;
+                }
+
+                if (string.IsNullOrEmpty(maskedTxtFacultyStartYear.Text))
+                {
+                    MessageBox.Show("Please enter student's faculty start year!");
+                }
+                else
+                {
+                    std.FacultyStartYear = Convert.ToInt32(maskedTxtFacultyStartYear.Text);
+                }
+
+                std.Remarks = txtRemarks.Text;
 
             dao.AddStudent(std);
+
+            MessageBox.Show("Student successfully added!")
+        }
+        
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+
         }
 
-        private void StudentForm_Load(object sender, EventArgs e)
+        private void checkedListBoxGender_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

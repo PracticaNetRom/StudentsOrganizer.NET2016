@@ -40,13 +40,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtGender = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtFaculty = new System.Windows.Forms.TextBox();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.BirthDate = new System.Windows.Forms.DateTimePicker();
             this.maskedTxtFacultyStartYear = new System.Windows.Forms.MaskedTextBox();
+            this.checkedListBoxGender = new System.Windows.Forms.CheckedListBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtFirstName
@@ -61,9 +62,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "First name:";
+            this.label1.Text = "*First name:";
             // 
             // btnAddStudent
             // 
@@ -80,9 +81,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Last name:";
+            this.label2.Text = "*Last name:";
             // 
             // txtLastName
             // 
@@ -96,54 +97,54 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 119);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Gender:";
+            this.label3.Text = "*Gender:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 157);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Birth date:";
+            this.label4.Text = "*Birth date:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 193);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Email:";
+            this.label5.Text = "*Email:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 228);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Phone number:";
+            this.label6.Text = "*Phone number:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 266);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Faculty:";
+            this.label7.Text = "*Faculty:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(11, 303);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.Size = new System.Drawing.Size(94, 13);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Faculty start year:";
+            this.label8.Text = "*Faculty start year:";
             // 
             // label9
             // 
@@ -153,13 +154,6 @@
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 11;
             this.label9.Text = "Remarks:";
-            // 
-            // txtGender
-            // 
-            this.txtGender.Location = new System.Drawing.Point(101, 116);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(100, 20);
-            this.txtGender.TabIndex = 12;
             // 
             // txtEmail
             // 
@@ -205,18 +199,40 @@
             this.maskedTxtFacultyStartYear.Size = new System.Drawing.Size(100, 20);
             this.maskedTxtFacultyStartYear.TabIndex = 20;
             // 
+            // checkedListBoxGender
+            // 
+            this.checkedListBoxGender.FormattingEnabled = true;
+            this.checkedListBoxGender.Items.AddRange(new object[] {
+            "F",
+            "M"});
+            this.checkedListBoxGender.Location = new System.Drawing.Point(101, 111);
+            this.checkedListBoxGender.Name = "checkedListBoxGender";
+            this.checkedListBoxGender.Size = new System.Drawing.Size(38, 34);
+            this.checkedListBoxGender.TabIndex = 21;
+            this.checkedListBoxGender.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxGender_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(14, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(125, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "All * fields are mandatory!";
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 488);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.checkedListBoxGender);
             this.Controls.Add(this.maskedTxtFacultyStartYear);
             this.Controls.Add(this.BirthDate);
             this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.txtFaculty);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtGender);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -251,12 +267,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtGender;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.TextBox txtFaculty;
         private System.Windows.Forms.TextBox txtRemarks;
         private System.Windows.Forms.DateTimePicker BirthDate;
         private System.Windows.Forms.MaskedTextBox maskedTxtFacultyStartYear;
+        private System.Windows.Forms.CheckedListBox checkedListBoxGender;
+        private System.Windows.Forms.Label label10;
     }
 }

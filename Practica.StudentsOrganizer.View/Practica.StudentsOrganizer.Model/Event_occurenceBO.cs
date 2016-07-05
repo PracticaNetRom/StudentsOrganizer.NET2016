@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practica.StudentsOrganizer.Model
+{
+    class Event_OccurenceBO
+    {
+        public int Id { get; set; }
+
+        public int Id_event { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+    }
+}

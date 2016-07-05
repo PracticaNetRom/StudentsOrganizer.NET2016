@@ -41,6 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="EventBO.cs" />
+    <Compile Include="EventDAO.cs" />
+    <Compile Include="Event_OccurenceBO.cs" />
+    <Compile Include="Event_OccurenceDAO.cs" />
+    <Compile Include="Std_Event_OccurenceBO.cs" />
     <Compile Include="StudentDAO.cs" />
     <Compile Include="StudentBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
