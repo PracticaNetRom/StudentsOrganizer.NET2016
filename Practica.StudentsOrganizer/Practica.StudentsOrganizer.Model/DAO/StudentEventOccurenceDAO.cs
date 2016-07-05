@@ -13,12 +13,11 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public StudentEventOccurenceBO GetStudentEventOccurence (int id)
         {
             SqlConnection conn = new SqlConnection();
-            
             conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
-            
+           
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select id, idStudent, idEventOccurence from StudentEventOccurence where ID = " + id;
@@ -36,13 +35,37 @@ namespace Practica.StudentsOrganizer.Model.DAO
                     studentEventOccurence.idStudent = Convert.ToInt32 (reader["idStudent"]);
                     studentEventOccurence.idEvenOccurence = Convert.ToInt32(reader["idEventOccurence"]);
 
-
                     return studentEventOccurence;
                 }
             }
 
             return null;
+        }
 
+
+        public void AddSdtEvenOcc(StudentEventOccurenceBO stdEventOccuAdd)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = netsrv-db01\\sql2014;" +
+            "Initial Catalog = NetRom.Practice3;" +
+            "Integrated Security = SSPI;";
+
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"INSERT INTO StudentEventOccurence(
+                                idStudent, 
+                                idEvenOccurence)
+                                VALUES(@paramIdStudent, 
+                                @paramIdEvenOccurence)";
+
+            cmd.Connection = conn;
+            conn.Open();
+
+            cmd.Parameters.AddWithValue("@paramIdStudent", stdEventOccuAdd.idStudent);
+            cmd.Parameters.AddWithValue("@paramIdEventOccurence", stdEventOccuAdd.idEvenOccurence);
+
+            cmd.ExecuteNonQuery();
         }
     }
 }

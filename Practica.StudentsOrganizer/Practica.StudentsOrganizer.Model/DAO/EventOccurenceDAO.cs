@@ -13,13 +13,12 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public EventOccurenceBO GetEventOccurence (int id)
         {
             SqlConnection conn = new SqlConnection();
-            
             conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
             
-
+           
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select id, idEvent, startData, endData from EventOccurence where ID = " + id;
             cmd.Connection = conn;
@@ -42,7 +41,35 @@ namespace Practica.StudentsOrganizer.Model.DAO
             }
 
             return null;
+        }
 
+
+        public void AddEventOccurence(EventOccurenceBO eventOccuAdd)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = netsrv-db01\\sql2014;" +
+            "Initial Catalog = NetRom.Practice3;" +
+            "Integrated Security = SSPI;";
+
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"INSERT INTO EventOccurence(
+                                idEvent, 
+                                startData, 
+                                endData)
+                                VALUES(@paramIdEvent, 
+                                @paramStartData, 
+                                @paramEndData)";
+
+            cmd.Connection = conn;
+            conn.Open();
+
+            cmd.Parameters.AddWithValue("@paramIdEvent", eventOccuAdd.idEvent);
+            cmd.Parameters.AddWithValue("@paramStartData", eventOccuAdd.startData);
+            cmd.Parameters.AddWithValue("@paramEndData", eventOccuAdd.endData);
+
+            cmd.ExecuteNonQuery();
         }
     }
 }

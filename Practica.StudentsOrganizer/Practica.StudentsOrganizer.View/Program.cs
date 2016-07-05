@@ -17,6 +17,7 @@ namespace Practica.StudentsOrganizer.View
         [STAThread]
         static void Main()
         {
+            
             /*
             StudentBO stdBO = new StudentBO();
             stdBO.id = 5;
@@ -34,23 +35,31 @@ namespace Practica.StudentsOrganizer.View
             stdDAO.AddStudent(stdBO);
 
             SqlConnection conn = new SqlConnection();
-
             conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
-
+     
             conn.Open();
 
             if (conn.State == System.Data.ConnectionState.Open)
             {
                 MessageBox.Show("S-a conectat cu succes!");
             }
+            else
+            {
+                MessageBox.Show("Eroare!");
+            }
             */
-
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AddStudentForm());
+            Application.Run(new AddEvenimentForm());
+            Application.Run(new AddEventOccurenceForm());
+            Application.Run(new AddStudentEventOccurence());
+
+           
         }
     }
 }

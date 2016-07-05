@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEvenimentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEvenimentForm.Designer.cs">
+      <DependentUpon>AddEvenimentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEventOccurenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEventOccurenceForm.Designer.cs">
+      <DependentUpon>AddEventOccurenceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStudentEventOccurence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStudentEventOccurence.Designer.cs">
+      <DependentUpon>AddStudentEventOccurence.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +72,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEvenimentForm.resx">
+      <DependentUpon>AddEvenimentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEventOccurenceForm.resx">
+      <DependentUpon>AddEventOccurenceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStudentEventOccurence.resx">
+      <DependentUpon>AddStudentEventOccurence.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>

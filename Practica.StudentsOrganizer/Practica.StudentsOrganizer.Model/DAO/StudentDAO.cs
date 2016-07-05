@@ -17,7 +17,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
-            
+
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select firstName, lastName, gender, birthDate, email,phoneNumber, faculty, facultyStartYear, remarks from Student where ID = " + id;
@@ -57,9 +57,9 @@ namespace Practica.StudentsOrganizer.Model.DAO
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
+           
 
             SqlCommand cmd = new SqlCommand();
-
             cmd.CommandText = @"INSERT INTO Student(
                                 firstName, 
                                 lastName, 
@@ -94,14 +94,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.Parameters.AddWithValue("@paramRemarks", studentAdd.remarks);
 
             cmd.ExecuteNonQuery();
-          
-
-
-
-
-
-
-
+    
         }
 
     }
