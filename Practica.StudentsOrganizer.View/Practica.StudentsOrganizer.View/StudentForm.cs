@@ -21,7 +21,7 @@ namespace Practica.StudentsOrganizer.View
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
             StudentBO std = new StudentBO();
-            Model.StudentDAO dao = new Model.StudentDAO();
+            StudentDAO dao = new StudentDAO();
             
 
                 if (string.IsNullOrEmpty(txtFirstName.Text))
@@ -93,7 +93,7 @@ namespace Practica.StudentsOrganizer.View
 
             dao.AddStudent(std);
 
-            MessageBox.Show("Student successfully added!")
+            MessageBox.Show("Student successfully added!");
         }
         
         private void StudentForm_Load(object sender, EventArgs e)

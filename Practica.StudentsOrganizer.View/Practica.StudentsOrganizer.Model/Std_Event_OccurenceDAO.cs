@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Practica.StudentsOrganizer.Model
 {
-    public class Event_OccurenceDAO
+    public class Std_Event_OccurenceDAO
     {
-        public Event_OccurenceBO getEvent_OccurenceById(int Id)
+        public Std_Event_OccurenceBO getStd_Event_OccurenceById(int Id)
         {
-            Event_OccurenceBO event_occ = new Event_OccurenceBO();
+            Std_Event_OccurenceBO std_ev_occ = new Std_Event_OccurenceBO();
             //conexiunea cu baza de date
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
@@ -22,7 +22,7 @@ namespace Practica.StudentsOrganizer.Model
             //conexiunea la command
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT Id_event, [Start date], [End date] FROM dbo.Event_Occurence WHERE Id= " + Id;
+            cmd.CommandText = "SELECT Id_Student, Id_Event FROM dbo.Std_Event_Occurence WHERE Id= " + Id;
 
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -33,16 +33,17 @@ namespace Practica.StudentsOrganizer.Model
                 if (reader.HasRows == true)
                 {
 
-                    event_occ.Id_event = reader.GetInt32(reader.GetOrdinal("Id_event"));
-                    event_occ.StartDate = reader.GetDateTime(reader.GetOrdinal("[Start date]"));
-                    event_occ.EndDate = reader.GetDateTime(reader.GetOrdinal("[End date]"));
+
+                    std_ev_occ.Id_Student = reader.GetString(reader.GetOrdinal("Id_Student"));
+                    std_ev_occ.Id_Event = reader.GetString(reader.GetOrdinal("Id_Event"));
+
                 }
             }
 
-            return event_occ;
+            return std_ev_occ;
         }
 
-        public void AddEvent_Occurence(Event_OccurenceBO ev_occ)
+        public void AddStd_Event_Occurence(Std_Event_OccurenceBO std_ev_occ)
         {
 
             //conexiunea cu baza de date
@@ -56,11 +57,11 @@ namespace Practica.StudentsOrganizer.Model
             //conexiunea la command
             cmd.Connection = conn;
 
-            cmd.CommandText = "INSERT INTO dbo.Event_Occurence (Id_event, [Start date], [End date]) VALUES (@Id_ev, @StartDate, @EndDate)";
+            cmd.CommandText = "INSERT INTO dbo.Std_Event_Occurence (Id_Student, Id_Event) VALUES (@Id_Student, @Id_Event)";
 
-            cmd.Parameters.AddWithValue("@Id_ev", ev_occ.Id_event);
-            cmd.Parameters.AddWithValue("@StartDate", ev_occ.StartDate);
-            cmd.Parameters.AddWithValue("@EndDate", ev_occ.EndDate);
+            cmd.Parameters.AddWithValue("@Id_Student", std_ev_occ.Id_Student);
+            cmd.Parameters.AddWithValue("@Id_Event", std_ev_occ.Id_Event);
+            
 
             conn.Open();
             cmd.ExecuteNonQuery();

@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventForm.Designer.cs">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event_OccurenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Event_OccurenceForm.Designer.cs">
+      <DependentUpon>Event_OccurenceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Std_Event_OccurenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Std_Event_OccurenceForm.Designer.cs">
+      <DependentUpon>Std_Event_OccurenceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentForm.cs">
@@ -54,6 +72,12 @@
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EventForm.resx">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Event_OccurenceForm.resx">
+      <DependentUpon>Event_OccurenceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Std_Event_OccurenceForm.resx">
+      <DependentUpon>Std_Event_OccurenceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
