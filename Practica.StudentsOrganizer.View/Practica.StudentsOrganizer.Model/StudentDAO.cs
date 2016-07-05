@@ -13,7 +13,7 @@ namespace Practica.StudentsOrganizer.Model
     {
         private object sqlDbType;
 
-        public studentBO GetStud(int Id)
+        public evenimentBO GetStud(int Id)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
@@ -31,7 +31,7 @@ namespace Practica.StudentsOrganizer.Model
             {
                 if (reader.HasRows)//intoarce daca sunt sau nu randuri de citit
                 {
-                    studentBO GetStud = new studentBO();
+                    evenimentBO GetStud = new evenimentBO();
                     GetStud.FirstName = reader["FirstName"].ToString();
                     GetStud.LastName = reader["LastName"].ToString();
                     GetStud.Gender = reader["Gender"].ToString();

@@ -38,6 +38,34 @@ namespace Practica.StudentsOrganizer.Model
             return null;
 
         }
+        public void AddEvent(evenimentBO EventAdd)
+        {
+
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            "Initial Catalog=NetRom.Practice5;" +
+            "Integrated Security=SSPI;";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"INSERT into eveniment(
+                                IdEvent,
+                                EventName,
+                                Departament,
+                                Task) " +
+                                " VALUES (@IdEvent,@EventName,@Departament,@Task);";
+            cmd.Connection = conn;
+            cmd.Parameters.Add("@IdEvent", SqlDbType.Int).Value = EventAdd.IdEvent;
+            cmd.Parameters.Add("@EventName", SqlDbType.VarChar, 20).Value = EventAdd.EventName;
+            cmd.Parameters.Add("@Departament", SqlDbType.VarChar, 30).Value = EventAdd.Departament;
+            cmd.Parameters.Add("@Task", SqlDbType.VarChar,60).Value = EventAdd.Task;
+
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+        }
+
+
     }
 }
 

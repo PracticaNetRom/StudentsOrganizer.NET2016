@@ -38,5 +38,27 @@ namespace Practica.StudentsOrganizer.Model
             return null;
 
         }
+        public void AddStudent_event_occurence(student_event_occurenceBO student_event_occurenceAdd)
+        {
+
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            "Initial Catalog=NetRom.Practice5;" +
+            "Integrated Security=SSPI;";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"INSERT into student_event_occurence(
+                                DataStart,
+                                DataEnd,
+                               ) " +
+                                " VALUES (@Id,@IdEvent,@DataStart,@DataEnd);";
+            cmd.Connection = conn;
+            cmd.Parameters.Add("@DataStart", SqlDbType.DateTime).Value = student_event_occurenceAdd.DataStart;
+            cmd.Parameters.Add("@DataEnd", SqlDbType.DateTime).Value = student_event_occurenceAdd.DataEnd;
+
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }
