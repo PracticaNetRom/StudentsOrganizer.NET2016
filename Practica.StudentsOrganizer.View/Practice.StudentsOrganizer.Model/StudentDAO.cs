@@ -20,7 +20,7 @@ namespace Practice.StudentsOrganizer.Model
 
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source = netsrv-db01\\sql2014;" +
+            "Data Source = ANDRA;" + //  netsrv-db01\\sql2014
             "Initial Catalog=NetRom.Practice2;" +
             "Integrated Security=SSPI;";
             conn.Open();
@@ -68,10 +68,10 @@ namespace Practice.StudentsOrganizer.Model
             string insertSql = @"INSERT INTO Students(FirstName,LastName,Gender,BirthDate,Email,PhoneNumber,Faculty,FacultyStartYear,Remarks)
                      Values(@FirstName,@LastName,@Gender,@BirthDate,@Email,@PhoneNumber,@Faculty,@FacultyStartYear,@Remarks)";
 
-            using (var conn = new SqlConnection(@"Data Source = netsrv-db01\sql2014; 
+            using (var conn = new SqlConnection(@"Data Source = ANDRA; 
                                                 Initial Catalog=NetRom.Practice2; 
                                                 Integrated Security=SSPI;"))
-            {
+            {                                   // netsrv-db01\sql2014
                 using (var com = new SqlCommand(insertSql, conn))
                 {
                     

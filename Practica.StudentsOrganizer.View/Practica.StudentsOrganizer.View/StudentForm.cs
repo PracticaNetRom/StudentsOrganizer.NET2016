@@ -26,9 +26,10 @@ namespace Practica.StudentsOrganizer.View
         private void addStudent_Click(object sender, EventArgs e)
         {
             StudentBO std = new StudentBO();
+
             std.firstName = txtFirstName.Text;
             std.lastName = txtLastName.Text;
-            std.gender = txtGender.Text;
+            std.gender = comboBoxGender.Text;
             std.birthDate = dateTimeBirthDate.Value;
             std.email = txtEmail.Text;
             std.phoneNumber = txtPhoneNumber.Text;
@@ -39,7 +40,29 @@ namespace Practica.StudentsOrganizer.View
             StudentDAO dao = new StudentDAO();
 
             dao.addStudent(std);
+
+            MessageBox.Show("Student added");
+
+            txtFirstName.Clear();
+            txtLastName.Clear();
+           // comboBoxGender.Clear();
+            //dateTimeBirthDate
+            txtEmail.Clear();
+            txtPhoneNumber.Clear();
+            txtFaculty.Clear();
+            maskedTextBoxFacultyStartYear.Clear();
+            txtRemarks.Clear();
             
+        }
+
+        private void Show(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void dropDownButtonGender_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
