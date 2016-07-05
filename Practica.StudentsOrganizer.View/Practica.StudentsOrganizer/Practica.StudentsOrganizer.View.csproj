@@ -46,16 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEventForm.Designer.cs">
+      <DependentUpon>AddEventForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationTablesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationTablesForm.Designer.cs">
+      <DependentUpon>OperationTablesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowEventsForm.Designer.cs">
+      <DependentUpon>ShowEventsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowStudentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowStudentsForm.Designer.cs">
+      <DependentUpon>ShowStudentsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEventForm.resx">
+      <DependentUpon>AddEventForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationTablesForm.resx">
+      <DependentUpon>OperationTablesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,7 +104,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ShowEventsForm.resx">
+      <DependentUpon>ShowEventsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowStudentsForm.resx">
+      <DependentUpon>ShowStudentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,6 +134,30 @@
       <Project>{5d7406b8-c50f-4978-b380-374be92edbc6}</Project>
       <Name>Practica.StudentsOrganizer.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add to table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete from table.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

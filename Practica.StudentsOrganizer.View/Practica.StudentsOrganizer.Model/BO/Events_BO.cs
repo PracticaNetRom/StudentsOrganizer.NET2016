@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Practica.StudentsOrganizer.Model.BO
 {
-    class Events_BO
+   public class Events_BO
     {
        
             public int ID { get; set; }

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Model.DAO;
+using Practica.StudentsOrganizer.Model.BO;
 
 namespace Practica.StudentsOrganizer
 {
@@ -17,6 +18,15 @@ namespace Practica.StudentsOrganizer
         [STAThread]
         static void Main()
         {
+
+            Events_BO Ev = new Events_BO();
+            Events_DAO EvDAO = new Events_DAO();
+           
+            Ev.Event_Name = "Shadowday";
+            Ev.Technology = "All";
+            Ev.Task = "ndjininvi";
+            EvDAO.AddEvent(Ev);
+
             /*Students_BO Std = new Students_BO();
             Std.First_Name = "Maria";
             Std.Last_Name = "Popescu";
@@ -26,15 +36,15 @@ namespace Practica.StudentsOrganizer
             Std.Phone_Number = "0756023048";
             Std.Faculty = "Ace";
             Std.Faculty_Start_Year = 2014;
-            Std.Remarks = "hjgfjuehfuheuhfie";
+            Std.Remarks = "hjgfjuehfuheuhfie";*/
 
 
-
+            /*Students_BO Std = new Students_BO();
             Students_DAO Std_DAO = new Students_DAO();
-            Std_DAO.AddStudent(Std);
+            Std_DAO.GetStudent_ById(3);*/
 
 
-            SqlConnection conn = new SqlConnection();
+            /*SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
             "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice4;" +
@@ -44,16 +54,16 @@ namespace Practica.StudentsOrganizer
             "Initial Catalog=PracticaNETROM;" +
             "Integrated Security=SSPI;";*/
 
-           /* conn.Open();
+            /* conn.Open();
 
-            if (conn.State == System.Data.ConnectionState.Open)
-            {
-                MessageBox.Show("ok");
-            };
-            */
+             if (conn.State == System.Data.ConnectionState.Open)
+             {
+                 MessageBox.Show("ok");
+             };
+             */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddStudentForm());
+            Application.Run(new Login());
         }
     }
 }

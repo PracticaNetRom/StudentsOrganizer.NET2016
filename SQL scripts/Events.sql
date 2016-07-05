@@ -10,9 +10,9 @@ CREATE TABLE Events(
 );
 
 
-insert into Events ( Event_Name, Technology, Task)
+insert into Events (Event_Name, Technology, Task)
 Values ('Netrom Summer Camp', 'DotNet', 'Application');
-insert into Events ( Event_Name, Technology, Task)
+insert into Events (ID, Event_Name, Technology, Task)
 Values ('Internship', 'Java', 'Application');
 
 select *from Events;

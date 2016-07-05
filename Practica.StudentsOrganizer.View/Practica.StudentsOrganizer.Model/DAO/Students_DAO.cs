@@ -55,17 +55,18 @@ namespace Practica.StudentsOrganizer.Model.DAO
             
         }
 
-        public void AddStudent(Students_BO Stud)
+        public void AddStudent(Students_BO StudI)
         {
+         
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-             "Data Source=netsrv-db01\\sql2014;" +
-             "Initial Catalog=NetRom.Practice4;" +
-             "Integrated Security=SSPI;";
+            /*"Data Source=netsrv-db01\\sql2014;" +
+            "Initial Catalog=NetRom.Practice4;" +
+            "Integrated Security=SSPI;";*/
 
-            /*"Data Source=ROXXANA\\SQLEXPRESS;" +
-           "Initial Catalog=PracticaNETROM;" +
-           "Integrated Security=SSPI;";*/
+           "Data Source=ROXXANA\\SQLEXPRESS;" +
+          "Initial Catalog=PracticaNETROM;" +
+          "Integrated Security=SSPI;";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Students ( 
@@ -91,22 +92,84 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.Connection = conn;
          
 
-            cmd.Parameters.Add("@First_Name", SqlDbType.VarChar, 30).Value = Stud.First_Name;
-            cmd.Parameters.Add("@Last_Name", SqlDbType.VarChar, 30).Value = Stud.Last_Name;
-            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 15).Value = Stud.Gender;
-            cmd.Parameters.Add("@Birth_Date", SqlDbType.Date ).Value = Stud.Birth_Date;
-            cmd.Parameters.Add("@Email", SqlDbType.VarChar, 30 ).Value = Stud.Email;
-            cmd.Parameters.Add("@Phone_number", SqlDbType.VarChar, 30).Value = Stud.Phone_Number;
-            cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 100 ).Value = Stud.Faculty;
-            cmd.Parameters.Add("@Faculty_Start_Year", SqlDbType.VarChar).Value = Stud.Faculty_Start_Year;
-            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = Stud.Remarks;
+            cmd.Parameters.Add("@First_Name", SqlDbType.VarChar, 30).Value = StudI.First_Name;
+            cmd.Parameters.Add("@Last_Name", SqlDbType.VarChar, 30).Value = StudI.Last_Name;
+            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 15).Value = StudI.Gender;
+            cmd.Parameters.Add("@Birth_Date", SqlDbType.Date ).Value = StudI.Birth_Date;
+            cmd.Parameters.Add("@Email", SqlDbType.VarChar, 30 ).Value = StudI.Email;
+            cmd.Parameters.Add("@Phone_number", SqlDbType.VarChar, 30).Value = StudI.Phone_Number;
+            cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 100 ).Value = StudI.Faculty;
+            cmd.Parameters.Add("@Faculty_Start_Year", SqlDbType.VarChar).Value = StudI.Faculty_Start_Year;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudI.Remarks;
 
             
             conn.Open();
             cmd.ExecuteNonQuery();
+            
 
 
 
+
+        }
+
+        public void DeleteStd_ByFirstName (Students_BO DelStud)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                 "Data Source=ROXXANA\\SQLEXPRESS;" +
+            "Initial Catalog=PracticaNETROM;" +
+            "Integrated Security=SSPI;";
+            /*"Data Source=netsrv-db01\\sql2014;" +
+            "Initial Catalog=NetRom.Practice4;" +
+            "Integrated Security=SSPI;";*/
+            
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "DELETE from Students where First_Name =" + DelStud.First_Name;
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+
+        }
+
+        public void UpdateStud(Students_BO StudUp )
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                 "Data Source=ROXXANA\\SQLEXPRESS;" +
+            "Initial Catalog=PracticaNETROM;" +
+            "Integrated Security=SSPI;";
+            /*"Data Source=netsrv-db01\\sql2014;" +
+            "Initial Catalog=NetRom.Practice4;" +
+            "Integrated Security=SSPI;";*/
+
+
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"UPDATE Students SET  
+                                    First_Name = @First_Name ,
+                                    Last_Name = @Last_Name, 
+                                    Gender = @Gender, 
+                                    Birth_Date = @Birth_Date, 
+                                    Email = @Email, 
+                                    Phone_number = @Phone_number, 
+                                    Faculty = @Faculty, 
+                                    Faculty_Start_Year = @Faculty_Start_Year,
+                                    Remarks =  @Remarks )";
+
+            cmd.Connection = conn;
+
+            cmd.Parameters.Add("@First_Name", SqlDbType.VarChar, 30).Value = StudUp.First_Name;
+            cmd.Parameters.Add("@Last_Name", SqlDbType.VarChar, 30).Value = StudUp.Last_Name;
+            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 15).Value = StudUp.Gender;
+            cmd.Parameters.Add("@Birth_Date", SqlDbType.Date).Value = StudUp.Birth_Date;
+            cmd.Parameters.Add("@Email", SqlDbType.VarChar, 30).Value = StudUp.Email;
+            cmd.Parameters.Add("@Phone_number", SqlDbType.VarChar, 30).Value = StudUp.Phone_Number;
+            cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 100).Value = StudUp.Faculty;
+            cmd.Parameters.Add("@Faculty_Start_Year", SqlDbType.VarChar).Value = StudUp.Faculty_Start_Year;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudUp.Remarks;
+            
+            conn.Open();
+            cmd.ExecuteNonQuery();
 
         }
     }

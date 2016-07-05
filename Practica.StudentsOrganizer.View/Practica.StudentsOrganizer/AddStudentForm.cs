@@ -1,3 +1,4 @@
+﻿
 ﻿using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Model.DAO;
 using System;
@@ -42,12 +43,27 @@ namespace Practica.StudentsOrganizer
             NewStudent.Email = txtEmail.Text;
             NewStudent.Phone_Number = txtPhone.Text;
             NewStudent.Faculty = txtFaculty.Text;
-            NewStudent.Faculty_Start_Year = Convert.ToInt32(txtFacultyStartYear.Text);
+            NewStudent.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
             NewStudent.Remarks = txtRemarks.Text;
 
             NewStudent_DAO.AddStudent(NewStudent);
+            
 
+        }
 
+        private void maskedFaculty_Start_Year_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if( !Char.IsDigit(ch) && ch!=8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ShowStudentsButton_Click(object sender, EventArgs e)
+        {
+            ShowStudentsForm ret = new ShowStudentsForm();
+            ret.Show();
         }
     }
 }
