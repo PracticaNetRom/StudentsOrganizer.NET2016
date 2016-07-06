@@ -38,7 +38,7 @@ namespace Practica.StudentsOrganizer.View
             stdBO.firstName = txtFirstName.Text;
             stdBO.lastName = txtLastName.Text;
             stdBO.gender = comboBoxGender.Text;
-            stdBO.birthDate = Convert.ToDateTime(dateTimeBirthDate.Text);
+            stdBO.birthDate = dateTimeBirthDate.DateTime;
             stdBO.email = txtEmail.Text;
             stdBO.phoneNumber = txtPhoneNumber.Text;
             stdBO.faculty = txtFaculty.Text;
@@ -51,6 +51,7 @@ namespace Practica.StudentsOrganizer.View
             if (string.IsNullOrEmpty(txtFirstName.Text))
             {
                 MessageBox.Show("Please enter student's FIRST NAME!");
+                return;
             }
             else
             {
@@ -61,6 +62,7 @@ namespace Practica.StudentsOrganizer.View
             if (string.IsNullOrEmpty(txtLastName.Text))
             {
                 MessageBox.Show("Please enter student's LAST NAME!");
+                return;
             }
             else
             {
@@ -74,6 +76,7 @@ namespace Practica.StudentsOrganizer.View
             if(string.IsNullOrEmpty(dateTimeBirthDate.Text))
             {
                 MessageBox.Show("Please enter student's BIRTH DATE!");
+                return;
             }
             else
             {
@@ -84,6 +87,7 @@ namespace Practica.StudentsOrganizer.View
             if(string.IsNullOrEmpty(txtEmail.Text))
             {
                 MessageBox.Show("Please enter student's EMAIL");
+                return;
             }
             else
             {
@@ -97,6 +101,7 @@ namespace Practica.StudentsOrganizer.View
             if(string.IsNullOrEmpty(txtFaculty.Text))
             {
                 MessageBox.Show("Please enter student's FACULTY!");
+                return;
             }
             else
             {
@@ -107,6 +112,7 @@ namespace Practica.StudentsOrganizer.View
             if(string.IsNullOrEmpty(txtFacultyStartYear.Text))
             {
                 MessageBox.Show("Please enter student's FACULTY START YEAR!");
+                return;
             }
             else
             {
@@ -120,17 +126,37 @@ namespace Practica.StudentsOrganizer.View
             stdDAO.AddStudent(stdBO);
 
 
-            txtFirstName.Clear();
-            txtLastName.Clear();
-            comboBoxGender.Enabled = false;
-            comboBoxGender.Enabled = false;
-            dateTimeBirthDate.Enabled = false;
-            txtEmail.Clear();
-            txtPhoneNumber.Clear();
-            txtFaculty.Clear();
-            txtFacultyStartYear.Clear();
-            txtRemarks.Clear();
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            comboBoxGender.Text = string.Empty;
+            comboBoxGender.Text = string.Empty;
+            dateTimeBirthDate.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtPhoneNumber.Text = string.Empty;
+            txtFaculty.Text = string.Empty;
+            txtFacultyStartYear.Text = string.Empty;
+            txtRemarks.Text = string.Empty;
         }
+
+
+        public void PopulateStudent(StudentBO s)
+        {
+            txtFirstName.Text = s.firstName;
+            txtLastName.Text = s.lastName;
+            comboBoxGender.Text = s.gender;
+            dateTimeBirthDate.DateTime = s.birthDate;
+            txtEmail.Text = s.email;
+            txtPhoneNumber.Text = s.phoneNumber;
+            txtFaculty.Text = s.faculty;
+            txtFacultyStartYear.Text = Convert.ToString(s.facultyStartYear);
+            txtRemarks.Text = s.remarks;
+
+        }
+
+
+  
+
+       
 
         private void dateTimeBirthDate_ValueChanged(object sender, EventArgs e)
         {

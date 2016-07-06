@@ -54,10 +54,10 @@ namespace Practica.StudentsOrganizer.View
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddStudentForm());
-            Application.Run(new AddEvenimentForm());
-            Application.Run(new AddEventOccurenceForm());
-            Application.Run(new AddStudentEventOccurence());
+            Application.Run(new MainForm());
+            //Application.Run(new AddEvenimentForm());
+            //Application.Run(new AddEventOccurenceForm());
+            //Application.Run(new AddStudentEventOccurence());
 
            
         }

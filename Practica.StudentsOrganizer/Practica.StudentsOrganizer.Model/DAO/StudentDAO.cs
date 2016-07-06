@@ -1,6 +1,7 @@
 ﻿using Practica.StudentsOrganizer.Model.BO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
+           
 
             if (reader.Read() == true)
             {
@@ -95,6 +96,25 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
             cmd.ExecuteNonQuery();
     
+        }
+
+
+        public DataTable GetAllStudents()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = netsrv-db01\\sql2014;" +
+            "Initial Catalog = NetRom.Practice3;" +
+            "Integrated Security = SSPI;";
+
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapetr = new SqlDataAdapter("SELECT * FROM Student",conn);
+
+            adapetr.Fill(dt);
+
+            return dt;
+
         }
 
     }
