@@ -1,5 +1,6 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -27,24 +28,19 @@ namespace Practica.StudentsOrganizer.Model
 
             SqlDataReader reader=cmd.ExecuteReader();
 
-            reader.Read();
-
             if(reader.Read() == true)
             {
                 if(reader.HasRows == true)
                 {
-
-                    
-                    student.FirstName = reader.GetString(reader.GetOrdinal("[First name]"));
-                    student.LastName = reader.GetString(reader.GetOrdinal("[Last name]"));
+                    student.FirstName = reader.GetString(reader.GetOrdinal("First name"));
+                    student.LastName = reader.GetString(reader.GetOrdinal("Last name"));
                     student.Gender = reader.GetString(reader.GetOrdinal("Gender"));
-                    student.BirthDate = reader.GetDateTime(reader.GetOrdinal("[Birth date]"));
+                    student.BirthDate = reader.GetDateTime(reader.GetOrdinal("Birth date"));
                     student.Email = reader.GetString(reader.GetOrdinal("Email"));
-                    student.PhoneNumber = reader.GetString(reader.GetOrdinal("[Phone number]"));
+                    student.PhoneNumber = reader.GetString(reader.GetOrdinal("Phone number"));
                     student.Faculty = reader.GetString(reader.GetOrdinal("Faculty"));
-                    student.FacultyStartYear = reader.GetInt32(reader.GetOrdinal("[Faculty start year]"));
-                    student.FirstName = reader.GetString(reader.GetOrdinal("Remarks"));
-
+                    student.FacultyStartYear = reader.GetInt32(reader.GetOrdinal("Faculty start year"));
+                    student.Remarks = reader.GetString(reader.GetOrdinal("Remarks"));
                 }
             }
 
@@ -82,5 +78,62 @@ namespace Practica.StudentsOrganizer.Model
             cmd.ExecuteNonQuery();
         }
 
+        public DataTable GetAllStudents()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+
+            DataTable item = new DataTable();
+
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM dbo.Students", conn);
+
+            adapter.Fill(item);
+
+            return item;
+
+        }
+
+
+        public void UpdateStudent(StudentBO s)
+        {
+
+            //conexiunea cu baza de date
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+            //conn.Open();
+
+            //sql command
+            SqlCommand cmd = new SqlCommand();
+
+            //conexiunea la command
+            cmd.Connection = conn;
+
+            cmd.CommandText = @"UPDATE dbo.Students 
+
+                           SET [First name]=@FirstN,
+                               [Last name]=@LastN,
+                               Gender=@Gender,
+                               [Birth date]=@Birth,
+                               Email=@Email,
+                               [Phone number]=@Number,
+                               Faculty=@Faculty,
+                               [Faculty start year]=@FacultyStartY,
+                               Remarks=@Remarks'
+                               WHERE Id=@Id";
+
+            cmd.Parameters.AddWithValue("@FirstN", s.FirstName);
+            cmd.Parameters.AddWithValue("@LastN", s.LastName);
+            cmd.Parameters.AddWithValue("@Gender", s.Gender);
+            cmd.Parameters.AddWithValue("@Birth", s.BirthDate);
+            cmd.Parameters.AddWithValue("@Email", s.Email);
+            cmd.Parameters.AddWithValue("@Number", s.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Faculty", s.Faculty);
+            cmd.Parameters.AddWithValue("@FacultyStartY", s.FacultyStartYear);
+            cmd.Parameters.AddWithValue("@Remarks", s.Remarks);
+            cmd.Parameters.AddWithValue("@Id", s.Id);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
     }
 }

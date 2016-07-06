@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,8 +35,8 @@ namespace Practica.StudentsOrganizer.Model
                 {
 
 
-                    std_ev_occ.Id_Student = reader.GetString(reader.GetOrdinal("Id_Student"));
-                    std_ev_occ.Id_Event = reader.GetString(reader.GetOrdinal("Id_Event"));
+                    std_ev_occ.Id_Student = reader.GetInt32(reader.GetOrdinal("Id_Student"));
+                    std_ev_occ.Id_Event = reader.GetInt32(reader.GetOrdinal("Id_Event"));
 
                 }
             }

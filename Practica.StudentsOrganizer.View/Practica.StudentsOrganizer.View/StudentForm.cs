@@ -13,9 +13,13 @@ namespace Practica.StudentsOrganizer.View
 {
     public partial class StudentForm : Form
     {
+        public StudentBO Student { get; set; }
+
         public StudentForm()
         {
             InitializeComponent();
+            BirthDate.Properties.MaxValue = DateTime.Now;
+            BirthDate.Properties.MinValue = DateTime.Now.AddYears(-100);
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
@@ -27,6 +31,7 @@ namespace Practica.StudentsOrganizer.View
                 if (string.IsNullOrEmpty(txtFirstName.Text))
                 {
                     MessageBox.Show("Please enter student's first name!");
+                    return;
                 }
                 else
                 {
@@ -36,26 +41,29 @@ namespace Practica.StudentsOrganizer.View
                 if (string.IsNullOrEmpty(txtLastName.Text))
                 {
                     MessageBox.Show("Please enter student's last name!");
+                    return;
                 }
                 else
                 {
                     std.LastName = txtLastName.Text;
                 }
 
-                if (string.IsNullOrEmpty(checkedListBoxGender.Text))
+                if (string.IsNullOrEmpty(Gender.Text))
                 {
                     MessageBox.Show("Please enter student's gender!");
+                    return;
                 }
                 else
                 {
-                    std.Gender = checkedListBoxGender.Text;
+                    std.Gender = Gender.Text;
                 }
 
-                std.BirthDate = BirthDate.Value;
+                std.BirthDate = BirthDate.DateTime;
 
                 if (string.IsNullOrEmpty(txtEmail.Text))
                 {
                     MessageBox.Show("Please enter student's Email!");
+                    return;
                 }
                 else
                 {
@@ -65,6 +73,7 @@ namespace Practica.StudentsOrganizer.View
                 if (string.IsNullOrEmpty(txtPhoneNumber.Text))
                 {
                     MessageBox.Show("Please enter student's phone number!");
+                    return;
                 }
                 else
                 {
@@ -74,19 +83,21 @@ namespace Practica.StudentsOrganizer.View
                 if (string.IsNullOrEmpty(txtFaculty.Text))
                 {
                     MessageBox.Show("Please enter student's faculty!");
+                    return;
                 }
                 else
                 {
                     std.Faculty = txtFaculty.Text;
                 }
 
-                if (string.IsNullOrEmpty(maskedTxtFacultyStartYear.Text))
+                if (string.IsNullOrEmpty(txtFacultyStartYear.Text))
                 {
                     MessageBox.Show("Please enter student's faculty start year!");
+                    return;
                 }
                 else
                 {
-                    std.FacultyStartYear = Convert.ToInt32(maskedTxtFacultyStartYear.Text);
+                    std.FacultyStartYear = Convert.ToInt32(txtFacultyStartYear.Text);
                 }
 
                 std.Remarks = txtRemarks.Text;
@@ -95,15 +106,10 @@ namespace Practica.StudentsOrganizer.View
 
             MessageBox.Show("Student successfully added!");
         }
-        
+
         private void StudentForm_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void checkedListBoxGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            txtFirstName.Text = Student.FirstName;
         }
     }
 }
