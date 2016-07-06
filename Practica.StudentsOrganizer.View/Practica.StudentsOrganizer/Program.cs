@@ -19,13 +19,13 @@ namespace Practica.StudentsOrganizer
         static void Main()
         {
 
-            Events_BO Ev = new Events_BO();
+            /*Events_BO Ev = new Events_BO();
             Events_DAO EvDAO = new Events_DAO();
            
             Ev.Event_Name = "Shadowday";
             Ev.Technology = "All";
             Ev.Task = "ndjininvi";
-            EvDAO.AddEvent(Ev);
+            EvDAO.AddEvent(Ev);*/
 
             /*Students_BO Std = new Students_BO();
             Std.First_Name = "Maria";
@@ -63,7 +63,7 @@ namespace Practica.StudentsOrganizer
              */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new ShowStudentsForm());
         }
     }
 }

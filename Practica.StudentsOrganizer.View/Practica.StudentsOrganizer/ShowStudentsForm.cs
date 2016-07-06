@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Practica.StudentsOrganizer.Model;
+using Practica.StudentsOrganizer.Model.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,29 +22,46 @@ namespace Practica.StudentsOrganizer
 
         private void ShowStudentsButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            /*"Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice4;" +
-            "Integrated Security=SSPI;";*/
+            Students_DAO Std_DAO = new Students_DAO();
+            gridControl1.DataSource = Std_DAO.GetAllStudents();
+        }
 
-           "Data Source=ROXXANA\\SQLEXPRESS;" +
-          "Initial Catalog=PracticaNETROM;" +
-          "Integrated Security=SSPI;";
-            SqlCommand cmd = new SqlCommand();
-            // cmd.CommandText = @"Select First_Name Last_Name Gender Birth_Date Email Phone_number
-            //  Faculty Faculty_Start_Year Remarks from Students";
-            SqlDataAdapter sda = new SqlDataAdapter(@"Select ID First_Name Last_Name Gender Birth_Date Email 
-                                        Phone_Number Faculty Faculty_Start_Year Remarks from Students", conn);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            dataGridView1.DataSource = dt;
+
+        private void ShowStudentsForm_Load(object sender, EventArgs e)
+        {
+            Students_DAO Std_DAO = new Students_DAO();
+            gridControl1.DataSource = Std_DAO.GetAllStudents();
         }
 
         private void Add_Stud_Button_Click(object sender, EventArgs e)
         {
-            AddStudentForm Add_Std_Form = new AddStudentForm();
-            Add_Std_Form.Show();
+            AddStudentForm Add_Std_Form = new AddStudentForm(null);
+
+            Add_Std_Form.ShowDialog();
+        }
+
+        
+        private void Edit_Stud_Button_Click(object sender, EventArgs e)
+        {
+            AddStudentForm Add_Std_Form = new AddStudentForm((Students_BO)gridView1.GetFocusedRow());
+            //trimite un student din lista
+            Add_Std_Form.ShowDialog();
+
+            //Students_BO EditStudent = new Students_BO();
+            //Students_DAO EditStudent_DAO = new Students_DAO();
+
+
+            //EditStudent.First_Name = txtFirst_Name.Text;
+            //EditStudent.Last_Name = txtLast_Name.Text;
+            //EditStudent.Gender = comboGender.Text;
+            //EditStudent.Birth_Date = dateBirth_Date.DateTime;
+            //EditStudent.Email = txtEmail.Text;
+            //EditStudent.Phone_Number = txtPhone.Text;
+            //EditStudent.Faculty = txtFaculty.Text;
+            //EditStudent.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
+            //EditStudent.Remarks = txtRemarks.Text;
+
+            //EditStudent_DAO.UpdateStud(EditStudent);
         }
     }
 }

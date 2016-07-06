@@ -15,13 +15,13 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            /* "Data Source=netsrv-db01\\sql2014;" +
+             "Data Source=netsrv-db01\\sql2014;" +
              "Initial Catalog=NetRom.Practice4;" +
-             "Integrated Security=SSPI;";*/
+             "Integrated Security=SSPI;";
 
-            "Data Source=ROXXANA\\SQLEXPRESS;" +
+            /*"Data Source=ROXXANA\\SQLEXPRESS;" +
            "Initial Catalog=PracticaNETROM;" +
-           "Integrated Security=SSPI;";
+           "Integrated Security=SSPI;";*/
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "Select Event_Name Technology Task from Events where ID = " + ID;
@@ -50,13 +50,13 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            /*"Data Source=netsrv-db01\\sql2014;" +
+            "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice4;" +
-            "Integrated Security=SSPI;";*/
+            "Integrated Security=SSPI;";
 
-           "Data Source=ROXXANA\\SQLEXPRESS;" +
-          "Initial Catalog=PracticaNETROM;" +
-          "Integrated Security=SSPI;";
+            /*"Data Source=ROXXANA\\SQLEXPRESS;" +
+           "Initial Catalog=PracticaNETROM;" +
+           "Integrated Security=SSPI;";*/
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Events ( 
