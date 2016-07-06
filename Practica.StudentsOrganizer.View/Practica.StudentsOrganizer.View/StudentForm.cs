@@ -22,11 +22,41 @@ namespace Practica.StudentsOrganizer.View
         {
             studentBO NewStudentBO = new studentBO();
             StudentDAO NewStudentDAO = new StudentDAO();
-        
+            if (textFirstName.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus FistName!!");
+                return;
+            }
+
+            if (textLastName.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus LastName");
+                return;
+            }
+
+            if (textBirthDate.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus BirthDate");
+                return;
+            }
+
+            if (textPhoneNumbers.Text=="")
+            {
+                MessageBox.Show("Nu ati introdus PhoneNumbers");
+                return;
+            }
+
+            if (textFaculty.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus Faculty");
+                return;
+            }
+
+
             NewStudentBO.FirstName = textFirstName.Text;
             NewStudentBO.LastName = textFirstName.Text;
             NewStudentBO.Gender = textGender.Text;
-            NewStudentBO.BirthDate = Convert.ToDateTime(textBirthDate.Text);
+            NewStudentBO.BirthDate = textBirthDate.DateTime;
             NewStudentBO.Email = textEmail.Text;
             NewStudentBO.PhoneNumbers = textPhoneNumbers.Text;
             NewStudentBO.PhoneHomeNumbers = textPhoneHomeNumbers.Text;
@@ -35,6 +65,22 @@ namespace Practica.StudentsOrganizer.View
             NewStudentBO.Remarks = textRemarks.Text;
 
             NewStudentDAO.AddStud(NewStudentBO);
+
+        }
+
+        private void buttonEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textFaculty_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

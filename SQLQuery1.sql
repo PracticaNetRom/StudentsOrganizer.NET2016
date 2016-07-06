@@ -57,6 +57,7 @@ DECLARE @FirstName varchar(30)='Dragos'
 DECLARE @LastName varchar(20)='Puscu'
 
 
+UPDATE student Set FirstName='Viorel', LastName='Bogdan' WHERE IdStudent='1';
 
 
 

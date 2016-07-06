@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Save = new System.Windows.Forms.Button();
-            this.textFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textLastName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,32 +38,30 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textGender = new System.Windows.Forms.TextBox();
-            this.textBirthDate = new System.Windows.Forms.TextBox();
-            this.textEmail = new System.Windows.Forms.TextBox();
-            this.textPhoneNumbers = new System.Windows.Forms.TextBox();
-            this.textPhoneHomeNumbers = new System.Windows.Forms.TextBox();
-            this.textFacultyStartYear = new System.Windows.Forms.TextBox();
-            this.textFaculty = new System.Windows.Forms.TextBox();
-            this.textRemarks = new System.Windows.Forms.TextBox();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.textFirstName = new DevExpress.XtraEditors.TextEdit();
+            this.textLastName = new DevExpress.XtraEditors.TextEdit();
+            this.textGender = new DevExpress.XtraEditors.TextEdit();
+            this.textBirthDate = new DevExpress.XtraEditors.DateEdit();
+            this.textEmail = new DevExpress.XtraEditors.TextEdit();
+            this.textPhoneNumbers = new DevExpress.XtraEditors.TextEdit();
+            this.textPhoneHomeNumbers = new DevExpress.XtraEditors.TextEdit();
+            this.textFacultyStartYear = new DevExpress.XtraEditors.TextEdit();
+            this.textFaculty = new DevExpress.XtraEditors.TextEdit();
+            this.textRemarks = new DevExpress.XtraEditors.TextEdit();
+            this.newstud = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.textFirstName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textLastName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textGender.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBirthDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBirthDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textPhoneNumbers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textPhoneHomeNumbers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textFacultyStartYear.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textFaculty.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textRemarks.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Save
-            // 
-            this.Save.Location = new System.Drawing.Point(230, 511);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(153, 50);
-            this.Save.TabIndex = 0;
-            this.Save.Text = "Save";
-            this.Save.UseVisualStyleBackColor = true;
-            this.Save.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textFirstName
-            // 
-            this.textFirstName.Location = new System.Drawing.Point(177, 85);
-            this.textFirstName.Name = "textFirstName";
-            this.textFirstName.Size = new System.Drawing.Size(206, 20);
-            this.textFirstName.TabIndex = 1;
             // 
             // label1
             // 
@@ -85,13 +80,6 @@
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "LastName";
-            // 
-            // textLastName
-            // 
-            this.textLastName.Location = new System.Drawing.Point(177, 110);
-            this.textLastName.Name = "textLastName";
-            this.textLastName.Size = new System.Drawing.Size(206, 20);
-            this.textLastName.TabIndex = 4;
             // 
             // label3
             // 
@@ -165,67 +153,107 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "Remarks";
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(323, 519);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 42);
+            this.btnSave.TabIndex = 21;
+            this.btnSave.Text = "Save";
+            // 
+            // textFirstName
+            // 
+            this.textFirstName.Location = new System.Drawing.Point(177, 85);
+            this.textFirstName.Name = "textFirstName";
+            this.textFirstName.Size = new System.Drawing.Size(206, 20);
+            this.textFirstName.TabIndex = 22;
+            // 
+            // textLastName
+            // 
+            this.textLastName.Location = new System.Drawing.Point(177, 110);
+            this.textLastName.Name = "textLastName";
+            this.textLastName.Size = new System.Drawing.Size(206, 20);
+            this.textLastName.TabIndex = 23;
+            // 
             // textGender
             // 
-            this.textGender.Location = new System.Drawing.Point(177, 138);
+            this.textGender.Location = new System.Drawing.Point(177, 136);
             this.textGender.Name = "textGender";
             this.textGender.Size = new System.Drawing.Size(206, 20);
-            this.textGender.TabIndex = 13;
+            this.textGender.TabIndex = 24;
             // 
             // textBirthDate
             // 
-            this.textBirthDate.Location = new System.Drawing.Point(177, 164);
+            this.textBirthDate.EditValue = null;
+            this.textBirthDate.Location = new System.Drawing.Point(177, 162);
             this.textBirthDate.Name = "textBirthDate";
+            this.textBirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textBirthDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.textBirthDate.Size = new System.Drawing.Size(206, 20);
-            this.textBirthDate.TabIndex = 14;
+            this.textBirthDate.TabIndex = 25;
             // 
             // textEmail
             // 
-            this.textEmail.Location = new System.Drawing.Point(177, 191);
+            this.textEmail.Location = new System.Drawing.Point(177, 188);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(206, 20);
-            this.textEmail.TabIndex = 15;
+            this.textEmail.TabIndex = 26;
             // 
             // textPhoneNumbers
             // 
-            this.textPhoneNumbers.Location = new System.Drawing.Point(177, 217);
+            this.textPhoneNumbers.Location = new System.Drawing.Point(177, 219);
             this.textPhoneNumbers.Name = "textPhoneNumbers";
             this.textPhoneNumbers.Size = new System.Drawing.Size(206, 20);
-            this.textPhoneNumbers.TabIndex = 16;
+            this.textPhoneNumbers.TabIndex = 27;
             // 
             // textPhoneHomeNumbers
             // 
-            this.textPhoneHomeNumbers.Location = new System.Drawing.Point(177, 244);
+            this.textPhoneHomeNumbers.Location = new System.Drawing.Point(177, 246);
             this.textPhoneHomeNumbers.Name = "textPhoneHomeNumbers";
             this.textPhoneHomeNumbers.Size = new System.Drawing.Size(206, 20);
-            this.textPhoneHomeNumbers.TabIndex = 17;
+            this.textPhoneHomeNumbers.TabIndex = 28;
             // 
             // textFacultyStartYear
             // 
             this.textFacultyStartYear.Location = new System.Drawing.Point(177, 272);
             this.textFacultyStartYear.Name = "textFacultyStartYear";
+            this.textFacultyStartYear.Properties.Mask.EditMask = "d";
+            this.textFacultyStartYear.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textFacultyStartYear.Properties.MaxLength = 4;
             this.textFacultyStartYear.Size = new System.Drawing.Size(206, 20);
-            this.textFacultyStartYear.TabIndex = 18;
+            this.textFacultyStartYear.TabIndex = 29;
             // 
             // textFaculty
             // 
             this.textFaculty.Location = new System.Drawing.Point(177, 299);
             this.textFaculty.Name = "textFaculty";
             this.textFaculty.Size = new System.Drawing.Size(206, 20);
-            this.textFaculty.TabIndex = 19;
+            this.textFaculty.TabIndex = 30;
+            this.textFaculty.EditValueChanged += new System.EventHandler(this.textFaculty_EditValueChanged);
             // 
             // textRemarks
             // 
             this.textRemarks.Location = new System.Drawing.Point(177, 326);
             this.textRemarks.Name = "textRemarks";
             this.textRemarks.Size = new System.Drawing.Size(206, 20);
-            this.textRemarks.TabIndex = 20;
+            this.textRemarks.TabIndex = 31;
+            // 
+            // newstud
+            // 
+            this.newstud.Location = new System.Drawing.Point(177, 35);
+            this.newstud.Name = "newstud";
+            this.newstud.Size = new System.Drawing.Size(62, 13);
+            this.newstud.TabIndex = 32;
+            this.newstud.Text = "New Student";
             // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 573);
+            this.Controls.Add(this.newstud);
             this.Controls.Add(this.textRemarks);
             this.Controls.Add(this.textFaculty);
             this.Controls.Add(this.textFacultyStartYear);
@@ -234,6 +262,9 @@
             this.Controls.Add(this.textEmail);
             this.Controls.Add(this.textBirthDate);
             this.Controls.Add(this.textGender);
+            this.Controls.Add(this.textLastName);
+            this.Controls.Add(this.textFirstName);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -242,25 +273,30 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textLastName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textFirstName);
-            this.Controls.Add(this.Save);
             this.Name = "StudentForm";
             this.Text = "StudentForm";
+            this.Load += new System.EventHandler(this.StudentForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.textFirstName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textLastName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textGender.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBirthDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBirthDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textPhoneNumbers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textPhoneHomeNumbers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textFacultyStartYear.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textFaculty.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textRemarks.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.TextBox textFirstName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textLastName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -269,13 +305,17 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textGender;
-        private System.Windows.Forms.TextBox textBirthDate;
-        private System.Windows.Forms.TextBox textEmail;
-        private System.Windows.Forms.TextBox textPhoneNumbers;
-        private System.Windows.Forms.TextBox textPhoneHomeNumbers;
-        private System.Windows.Forms.TextBox textFacultyStartYear;
-        private System.Windows.Forms.TextBox textFaculty;
-        private System.Windows.Forms.TextBox textRemarks;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.TextEdit textFirstName;
+        private DevExpress.XtraEditors.TextEdit textLastName;
+        private DevExpress.XtraEditors.TextEdit textGender;
+        private DevExpress.XtraEditors.DateEdit textBirthDate;
+        private DevExpress.XtraEditors.TextEdit textEmail;
+        private DevExpress.XtraEditors.TextEdit textPhoneNumbers;
+        private DevExpress.XtraEditors.TextEdit textPhoneHomeNumbers;
+        private DevExpress.XtraEditors.TextEdit textFacultyStartYear;
+        private DevExpress.XtraEditors.TextEdit textFaculty;
+        private DevExpress.XtraEditors.TextEdit textRemarks;
+        private DevExpress.XtraEditors.LabelControl newstud;
     }
 }
