@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer.Model.DAO
 {
@@ -17,13 +18,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice4;" +
-            "Integrated Security=SSPI;";
-
-            /*"Data Source=ROXXANA\\SQLEXPRESS;" +
-           "Initial Catalog=PracticaNETROM;" +
-           "Integrated Security=SSPI;";*/
+             "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "Select First_Name Last_Name Gender Birth_Date Email Phone_number" + 
@@ -62,13 +58,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice4;" +
-            "Integrated Security=SSPI;";
-
-            /*"Data Source=ROXXANA\\SQLEXPRESS;" +
-           "Initial Catalog=PracticaNETROM;" +
-           "Integrated Security=SSPI;";*/
+              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"Select ID, First_Name, Last_Name, Gender, Birth_Date, Email, Phone_number,
@@ -102,6 +93,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
 
         }
+
         
 
         public void AddStudent(Students_BO StudI)
@@ -109,13 +101,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
          
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice4;" +
-            "Integrated Security=SSPI;";
-
-            /* "Data Source=ROXXANA\\SQLEXPRESS;" +
-            "Initial Catalog=PracticaNETROM;" +
-            "Integrated Security=SSPI;";*/
+              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
 
             SqlCommand cmd = new SqlCommand();
               cmd.CommandText = @"INSERT INTO Students ( 
@@ -148,7 +135,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
               cmd.Parameters.Add("@Email", SqlDbType.VarChar, 30 ).Value = StudI.Email;
               cmd.Parameters.Add("@Phone_number", SqlDbType.VarChar, 30).Value = StudI.Phone_Number;
               cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 100 ).Value = StudI.Faculty;
-              cmd.Parameters.Add("@Faculty_Start_Year", SqlDbType.VarChar).Value = StudI.Faculty_Start_Year;
+              cmd.Parameters.Add("@Faculty_Start_Year", SqlDbType.Int).Value = StudI.Faculty_Start_Year;
               cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudI.Remarks;
 
 
@@ -163,20 +150,28 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
           public void DeleteStd_ByFirstName (Students_BO DelStud)
           {
-              SqlConnection conn = new SqlConnection();
-              conn.ConnectionString =
-            /* "Data Source=ROXXANA\\SQLEXPRESS;" +
-        "Initial Catalog=PracticaNETROM;" +
-        "Integrated Security=SSPI;";*/
-        "Data Source=netsrv-db01\\sql2014;" +
-        "Initial Catalog=NetRom.Practice4;" +
-        "Integrated Security=SSPI;";
+            //   SqlConnection conn = new SqlConnection();
+            //   conn.ConnectionString =
+            // "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+            //// "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "DELETE from Students where First_Name =" + DelStud.First_Name;
-            cmd.Connection = conn;
-            conn.Open();
-            cmd.ExecuteNonQuery();
+            // SqlCommand cmd = new SqlCommand();
+            // cmd.CommandText = "DELETE from Students ";
+
+            // cmd.Connection = conn;
+            // conn.Open();
+            // cmd.ExecuteNonQuery();
+            SqlCommand cmd;
+            SqlConnection con = new SqlConnection("Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;");
+            con.Close();
+            cmd = new SqlCommand("DELETE FROM Students", con);
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                MessageBox.Show("Successful.");
+            }
+            con.Close();
 
         }
 
@@ -184,12 +179,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            /*"Data Source=ROXXANA\\SQLEXPRESS;" +
-       "Initial Catalog=PracticaNETROM;" +
-       "Integrated Security=SSPI;";*/
-       "Data Source=netsrv-db01\\sql2014;" +
-       "Initial Catalog=NetRom.Practice4;" +
-       "Integrated Security=SSPI;";
+            "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
+            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
 
 
 

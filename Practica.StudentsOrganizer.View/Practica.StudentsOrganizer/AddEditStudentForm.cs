@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer
 {
-    public partial class AddStudentForm : Form
+    public partial class AddEditStudentForm : Form
     {
         Students_BO StudReceived;
-        public AddStudentForm(Students_BO Stud)
+        public AddEditStudentForm(Students_BO Stud)
         {
             StudReceived = Stud;
             InitializeComponent();
@@ -27,6 +27,14 @@ namespace Practica.StudentsOrganizer
             if(StudReceived != null)
             {
                 txtFirst_Name.Text = StudReceived.First_Name;
+                txtLast_Name.Text = StudReceived.Last_Name;
+                comboGender.Text = StudReceived.Gender;
+                dateBirth_Date.DateTime = StudReceived.Birth_Date;
+                txtEmail.Text = StudReceived.Email;
+                txtPhone.Text = StudReceived.Phone_Number.ToString(); ;
+                txtFaculty.Text = StudReceived.Faculty.ToString(); ;
+                maskedFaculty_Start_Year.Text = StudReceived.Faculty_Start_Year.ToString();
+                txtRemarks.Text = StudReceived.Remarks;
 
             }
         }
@@ -36,14 +44,10 @@ namespace Practica.StudentsOrganizer
 
         }
 
-        
-
-        
-
         private void SaveStudentButton_Click(object sender, EventArgs e)
         {
             Students_DAO Student_DAO = new Students_DAO();
-            if (StudReceived == null)
+            if (StudReceived == null)//Add
             {
                 Students_BO NewStudent = new Students_BO();
                 
@@ -59,8 +63,9 @@ namespace Practica.StudentsOrganizer
 
                 Student_DAO.AddStudent(NewStudent);
             }
-            else
+            else //Edit
             {
+                
                 StudReceived.First_Name = txtFirst_Name.Text;
                 StudReceived.Last_Name = txtLast_Name.Text;
                 StudReceived.Gender = comboGender.Text;

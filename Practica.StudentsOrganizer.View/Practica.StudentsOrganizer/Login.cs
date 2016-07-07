@@ -22,18 +22,10 @@ namespace Practica.StudentsOrganizer
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=netsrv-db01\\sql2014;" +
-             "Initial Catalog=NetRom.Practice4;" +
-             "Integrated Security=SSPI;";
-
-            /* "Data Source=ROXXANA\\SQLEXPRESS;" +
-           "Initial Catalog=PracticaNETROM;" +
-           "Integrated Security=SSPI;";*/
+            "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
             conn.Open();
             SqlCommand cmd = new SqlCommand("Select *from Login where Username = '" + txtUsername.Text + "'and Password = '" + txtPassword.Text + "'", conn);
-            //cmd.CommandText = "Select *from Login where Username = '" + txtUsername.Text + "'and Password = '" + txtPassword.Text +"'",conn);
-            //cmd.Connection = conn;
-            //conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             int count = 0;
             while (reader.Read())
@@ -43,7 +35,7 @@ namespace Practica.StudentsOrganizer
             if(count == 1)
             {
                 MessageBox.Show("Welcome!");
-                OperationTablesForm Op1 = new OperationTablesForm();
+               MainForm Op1 = new MainForm();
                 Op1.Show();
 
             }

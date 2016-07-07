@@ -1,6 +1,7 @@
 ﻿using Practica.StudentsOrganizer.Model.BO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -8,19 +9,14 @@ using System.Threading.Tasks;
 
 namespace Practica.StudentsOrganizer.Model.DAO
 {
-    class Event_Occurence_DAO
+    public class Event_Occurence_DAO
     {
         public Event_Occurence_BO GetEvOcc_ById(int ID)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            /* "Data Source=netsrv-db01\\sql2014;" +
-             "Initial Catalog=NetRom.Practice4;" +
-             "Integrated Security=SSPI;";*/
-
-            "Data Source=ROXXANA\\SQLEXPRESS;" +
-           "Initial Catalog=PracticaNETROM;" +
-           "Integrated Security=SSPI;";
+             "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
+            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "Select EventsId Start Finish from Event_Occurence where ID = " + ID;
@@ -44,5 +40,98 @@ namespace Practica.StudentsOrganizer.Model.DAO
             return null;
 
         }
+
+
+        public List<Event_Occurence_BO> GetAllEO()
+        {
+            List<Event_Occurence_BO> ListToReturn = new List<Event_Occurence_BO>();
+
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"Select ID, EventsId, Start, Finish from Event_Occurence";
+            cmd.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            //reader.Read() true a reusit sa citeasca, false nu a gasit informatii
+            while (reader.Read())
+            {
+                if (reader.HasRows)
+                {
+                    Event_Occurence_BO EO = new Event_Occurence_BO();
+                    EO.ID = Convert.ToInt32(reader["ID"]);
+                    EO.EventsId = Convert.ToInt32(reader["EventsId"]);
+                    EO.Start = Convert.ToDateTime(reader["Start"]);
+                    EO.Finish = Convert.ToDateTime(reader["Finish"]);
+
+                    ListToReturn.Add(EO);
+                }
+            }
+
+            return ListToReturn;
+
+
+
+        }
+
+        public void AddEO(Event_Occurence_BO StudEO)
+        {
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"INSERT INTO Event_Occurence (  
+                                      EventsId, 
+                                      Start, 
+                                      Finish)
+                                      VALUES ( @EventsId ,
+                                      @Start,
+                                      @Finish)";
+
+            cmd.Connection = conn;
+
+
+            cmd.Parameters.Add("@EventsId", SqlDbType.Int).Value = StudEO.EventsId;
+            cmd.Parameters.Add("@Start", SqlDbType.Date).Value = StudEO.Start;
+            cmd.Parameters.Add("@Finish", SqlDbType.Date).Value = StudEO.Finish;
+
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+
+        }
+        public void UpdateEO (Event_Occurence_BO EOUp)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
+            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
+
+
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"UPDATE Event_Occurence SET  
+                                    EventsId = @EventsId ,
+                                    Start = @Start, 
+                                    Finish = @Finish 
+                                     WHERE ID = @ID";
+
+            cmd.Connection = conn;
+            cmd.Parameters.Add("ID", SqlDbType.Int).Value = EOUp.ID;
+            cmd.Parameters.Add("EventsId", SqlDbType.Int).Value = EOUp.EventsId;
+            cmd.Parameters.Add("@Start", SqlDbType.Date).Value = EOUp.Start;
+            cmd.Parameters.Add("@Finish", SqlDbType.Date).Value = EOUp.Finish;
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
+       
     }
 }

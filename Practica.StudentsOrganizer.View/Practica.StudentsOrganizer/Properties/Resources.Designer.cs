@@ -73,6 +73,16 @@ namespace Practica.StudentsOrganizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_from_table {
             get {
                 object obj = ResourceManager.GetObject("delete from table", resourceCulture);
@@ -106,6 +116,16 @@ namespace Practica.StudentsOrganizer.Properties {
         internal static System.Drawing.Bitmap ok {
             get {
                 object obj = ResourceManager.GetObject("ok", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pizza_icon {
+            get {
+                object obj = ResourceManager.GetObject("pizza-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

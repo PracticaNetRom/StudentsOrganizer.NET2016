@@ -63,7 +63,7 @@ namespace Practica.StudentsOrganizer
              */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShowStudentsForm());
+            Application.Run(new Login());
         }
     }
 }

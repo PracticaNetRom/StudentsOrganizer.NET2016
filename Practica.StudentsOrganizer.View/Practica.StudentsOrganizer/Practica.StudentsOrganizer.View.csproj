@@ -62,23 +62,17 @@
     <Compile Include="AddEventForm.Designer.cs">
       <DependentUpon>AddEventForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddStudentForm.cs">
+    <Compile Include="AddEditStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStudentForm.Designer.cs">
-      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    <Compile Include="AddEditStudentForm.Designer.cs">
+      <DependentUpon>AddEditStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OperationTablesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OperationTablesForm.Designer.cs">
-      <DependentUpon>OperationTablesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,23 +82,32 @@
     <Compile Include="ShowEventsForm.Designer.cs">
       <DependentUpon>ShowEventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShowStudentsForm.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowStudentsForm.Designer.cs">
-      <DependentUpon>ShowStudentsForm.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestEO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestEO.Designer.cs">
+      <DependentUpon>TestEO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testSEOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testSEOForm.Designer.cs">
+      <DependentUpon>testSEOForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddEventForm.resx">
       <DependentUpon>AddEventForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddStudentForm.resx">
-      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddEditStudentForm.resx">
+      <DependentUpon>AddEditStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OperationTablesForm.resx">
-      <DependentUpon>OperationTablesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -120,8 +123,14 @@
     <EmbeddedResource Include="ShowEventsForm.resx">
       <DependentUpon>ShowEventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowStudentsForm.resx">
-      <DependentUpon>ShowStudentsForm.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestEO.resx">
+      <DependentUpon>TestEO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testSEOForm.resx">
+      <DependentUpon>testSEOForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -169,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete from table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizza-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
