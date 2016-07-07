@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Practica.StudentsOrganizer.Model
 {
     public class EventDAO
-    {
+    {      
        public EventBO  getEventById(int Id)
         {
             EventBO e = new EventBO();

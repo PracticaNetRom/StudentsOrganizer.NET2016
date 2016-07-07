@@ -19,5 +19,7 @@ namespace Practica.StudentsOrganizer.Model
         public int FacultyStartYear { get; set; }
         public string Remarks { get; set; }
 
+        //  public EventBO Event { get; set; }
+
     }
 }
