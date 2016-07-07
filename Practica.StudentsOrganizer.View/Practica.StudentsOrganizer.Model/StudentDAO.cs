@@ -151,17 +151,17 @@ namespace Practica.StudentsOrganizer.Model
                                 FacultyStartYear=@FacultyStartYear,
                                 Remarks=@Remarks Where IdStundent=@IdStundent";
             cmd.Connection = conn;
-            cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = StudAdd.IdStudent;
-            cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 30).Value = StudAdd.FirstName;
-            cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 30).Value = StudAdd.LastName;
-            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 1).Value = StudAdd.Gender;
-            cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime).Value = StudAdd.BirthDate;
-            cmd.Parameters.Add("@Email", SqlDbType.VarChar, 50).Value = StudAdd.Email;
-            cmd.Parameters.Add("@PhoneNumbers", SqlDbType.VarChar, 30).Value = StudAdd.PhoneNumbers;
-            cmd.Parameters.Add("@PhoneHomeNumbers", SqlDbType.VarChar, 30).Value = StudAdd.PhoneHomeNumbers;
-            cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 50).Value = StudAdd.Faculty;
-            cmd.Parameters.Add("@FacultyStartYear", SqlDbType.Int).Value = StudAdd.FacultyStarYear;
-            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudAdd.Remarks;
+            cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = StudUp.IdStudent;
+            cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 30).Value = StudUp.FirstName;
+            cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 30).Value = StudUp.LastName;
+            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 1).Value = StudUp.Gender;
+            cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime).Value = StudUp.BirthDate;
+            cmd.Parameters.Add("@Email", SqlDbType.VarChar, 50).Value = StudUp.Email;
+            cmd.Parameters.Add("@PhoneNumbers", SqlDbType.VarChar, 30).Value = StudUp.PhoneNumbers;
+            cmd.Parameters.Add("@PhoneHomeNumbers", SqlDbType.VarChar, 30).Value = StudUp.PhoneHomeNumbers;
+            cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 50).Value = StudUp.Faculty;
+            cmd.Parameters.Add("@FacultyStartYear", SqlDbType.Int).Value = StudUp.FacultyStarYear;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudUp.Remarks;
 
             conn.Open();
 

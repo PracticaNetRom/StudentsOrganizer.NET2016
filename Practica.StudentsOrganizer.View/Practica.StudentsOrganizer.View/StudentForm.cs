@@ -13,8 +13,10 @@ namespace Practica.StudentsOrganizer.View
 {
     public partial class StudentForm : Form
     {
+        //studentBO StudReceived;
         public StudentForm()
         {
+           // StudReceived = Stud;
             InitializeComponent();
         }
 
@@ -53,19 +55,21 @@ namespace Practica.StudentsOrganizer.View
             }
 
 
-            NewStudentBO.FirstName = textFirstName.Text;
-            NewStudentBO.LastName = textFirstName.Text;
-            NewStudentBO.Gender = textGender.Text;
-            NewStudentBO.BirthDate = textBirthDate.DateTime;
-            NewStudentBO.Email = textEmail.Text;
-            NewStudentBO.PhoneNumbers = textPhoneNumbers.Text;
-            NewStudentBO.PhoneHomeNumbers = textPhoneHomeNumbers.Text;
-            NewStudentBO.FacultyStarYear =Convert.ToInt32(textFacultyStartYear.Text);
-            NewStudentBO.Faculty = textFaculty.Text;
-            NewStudentBO.Remarks = textRemarks.Text;
+                NewStudentBO.FirstName = textFirstName.Text;
+                NewStudentBO.LastName = textFirstName.Text;
+                NewStudentBO.Gender = textGender.Text;
+                NewStudentBO.BirthDate = textBirthDate.DateTime;
+                NewStudentBO.Email = textEmail.Text;
+                NewStudentBO.PhoneNumbers = textPhoneNumbers.Text;
+                NewStudentBO.PhoneHomeNumbers = textPhoneHomeNumbers.Text;
+                NewStudentBO.FacultyStarYear = Convert.ToInt32(textFacultyStartYear.Text);
+                NewStudentBO.Faculty = textFaculty.Text;
+                NewStudentBO.Remarks = textRemarks.Text;
 
-            NewStudentDAO.AddStud(NewStudentBO);
-
+                NewStudentDAO.AddStud(NewStudentBO);
+            
+ 
+            
         }
 
         private void buttonEdit1_EditValueChanged(object sender, EventArgs e)
@@ -74,11 +78,6 @@ namespace Practica.StudentsOrganizer.View
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textFaculty_EditValueChanged(object sender, EventArgs e)
         {
 
         }

@@ -77,7 +77,7 @@
             this.gridControlStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlStudent.Location = new System.Drawing.Point(37, 101);
+            this.gridControlStudent.Location = new System.Drawing.Point(37, 107);
             this.gridControlStudent.MainView = this.gridView1;
             this.gridControlStudent.Name = "gridControlStudent";
             this.gridControlStudent.Size = new System.Drawing.Size(535, 281);

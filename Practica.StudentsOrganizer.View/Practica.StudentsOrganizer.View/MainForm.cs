@@ -37,7 +37,8 @@ namespace Practica.StudentsOrganizer.View
 
         private void btnEditStudent_Click(object sender, EventArgs e)
         {
-
+            StudentForm btnEditStudent = new StudentForm();
+            btnEditStudent.ShowDialog();
         }
     }
 }
