@@ -66,9 +66,11 @@ namespace Practica.StudentsOrganizer.View
 
             eventDAO.AddEveniment(eventBO);
 
-            txtEventName.Clear();
-            txtTask.Clear();
-            comboBoxDepart.Enabled = false;
+            MessageBox.Show("Event successfully added!");
+
+            txtEventName.Text = string.Empty;
+            txtTask.Text = string.Empty;
+            comboBoxDepart.Text = string.Empty;
 
         }
     }

@@ -12,12 +12,21 @@ namespace Practica.StudentsOrganizer.Model.DAO
     {
         public StudentEventOccurenceBO GetStudentEventOccurence (int id)
         {
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = PC\\SQL;" +
+            "Initial Catalog = master;" +
+            "Integrated Security = SSPI;";
+
+
+            /*
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
-           
+            */
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select id, idStudent, idEventOccurence from StudentEventOccurence where ID = " + id;
@@ -45,11 +54,20 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
         public void AddSdtEvenOcc(StudentEventOccurenceBO stdEventOccuAdd)
         {
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = PC\\SQL;" +
+            "Initial Catalog = master;" +
+            "Integrated Security = SSPI;";
+
+            /*
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
+            */
 
 
             SqlCommand cmd = new SqlCommand();

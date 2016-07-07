@@ -42,13 +42,13 @@ DECLARE @firstName VARCHAR(40) = 'ion'
 
 
 INSERT INTO Student(firstName, lastName, gender, birthDate, email, phoneNumber, faculty, facultyStartYear, remarks)
-		VALUES('Ion', 'Popescu', 'M', '2/4/1995', 'popescu@yahoo.com', '02517', 'Automatica', '2014', 'Abilitati de dezvoltare personala rapida');
+		VALUES('Ion', 'Popescu', 'M', '2/4/1995', 'popescu@yahoo.com', '0251765398', 'Automatica', '2014', 'Abilitati de dezvoltare personala rapida');
 INSERT INTO Student(firstName, lastName, gender, birthDate, email, phoneNumber, faculty, facultyStartYear, remarks)
-		VALUES('Dana', 'Ionescu', 'F', '5/8/1996', 'ionescudana@yahoo.com', '02543', 'Universitate', '2015', 'Nicio remarca');
+		VALUES('Dana', 'Ionescu', 'F', '5/8/1996', 'ionescudana@yahoo.com', '0254309432', 'Universitate', '2015', 'Nicio remarca');
 INSERT INTO Student(firstName, lastName, gender, birthDate, email, phoneNumber, faculty, facultyStartYear, remarks)
-		VALUES('Corina', 'Florescu', 'F', '7/12/1995', 'florescu@yahoo.com', '0243', 'Universitate', '2014', 'Bune cunostinte de C#');
+		VALUES('Corina', 'Florescu', 'F', '7/12/1995', 'florescu@yahoo.com', '0243057354', 'Universitate', '2014', 'Bune cunostinte de C#');
 INSERT INTO Student(firstName, lastName, gender, birthDate, email, phoneNumber, faculty, facultyStartYear, remarks) 
-		VALUES('Florian', 'Dumitrescu', 'M', '9/10/1995', 'dumi@yahoo.com', '0987', 'Automatica', '2014', 'Impresionante abilitati intelectuale');
+		VALUES('Florian', 'Dumitrescu', 'M', '9/10/1995', 'dumi@yahoo.com', '0987068362', 'Automatica', '2014', 'Impresionante abilitati intelectuale');
 
 
 INSERT INTO Eveniment(eventName, task, departamentOrTehnology) 

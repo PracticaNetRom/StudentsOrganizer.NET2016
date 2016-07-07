@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtEventName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.buttonSaveEvent = new System.Windows.Forms.Button();
+            this.txtEventName = new System.Windows.Forms.TextBox();
             this.txtTask = new System.Windows.Forms.TextBox();
+            this.buttonSaveEvent = new System.Windows.Forms.Button();
             this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -59,13 +59,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Event Name";
             // 
-            // txtEventName
-            // 
-            this.txtEventName.Location = new System.Drawing.Point(172, 71);
-            this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(232, 20);
-            this.txtEventName.TabIndex = 2;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -88,25 +81,30 @@
             this.label4.Text = "Department or Technology";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // buttonSaveEvent
+            // txtEventName
             // 
-            this.buttonSaveEvent.BackColor = System.Drawing.Color.FloralWhite;
-            this.buttonSaveEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveEvent.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonSaveEvent.Location = new System.Drawing.Point(194, 245);
-            this.buttonSaveEvent.Name = "buttonSaveEvent";
-            this.buttonSaveEvent.Size = new System.Drawing.Size(88, 39);
-            this.buttonSaveEvent.TabIndex = 6;
-            this.buttonSaveEvent.Text = "SAVE";
-            this.buttonSaveEvent.UseVisualStyleBackColor = false;
-            this.buttonSaveEvent.Click += new System.EventHandler(this.button1_Click);
+            this.txtEventName.Location = new System.Drawing.Point(172, 71);
+            this.txtEventName.Name = "txtEventName";
+            this.txtEventName.Size = new System.Drawing.Size(232, 20);
+            this.txtEventName.TabIndex = 10;
             // 
             // txtTask
             // 
             this.txtTask.Location = new System.Drawing.Point(172, 105);
             this.txtTask.Name = "txtTask";
             this.txtTask.Size = new System.Drawing.Size(232, 20);
-            this.txtTask.TabIndex = 8;
+            this.txtTask.TabIndex = 11;
+            // 
+            // buttonSaveEvent
+            // 
+            this.buttonSaveEvent.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.buttonSaveEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSaveEvent.Location = new System.Drawing.Point(193, 262);
+            this.buttonSaveEvent.Name = "buttonSaveEvent";
+            this.buttonSaveEvent.Size = new System.Drawing.Size(100, 40);
+            this.buttonSaveEvent.TabIndex = 12;
+            this.buttonSaveEvent.Text = "SAVE";
+            this.buttonSaveEvent.UseVisualStyleBackColor = false;
             // 
             // comboBoxDepart
             // 
@@ -114,13 +112,14 @@
             this.comboBoxDepart.Items.AddRange(new object[] {
             "C",
             "C++",
+            "C#",
             "Java",
             "iOS",
             "Android"});
-            this.comboBoxDepart.Location = new System.Drawing.Point(249, 135);
+            this.comboBoxDepart.Location = new System.Drawing.Point(260, 136);
             this.comboBoxDepart.Name = "comboBoxDepart";
             this.comboBoxDepart.Size = new System.Drawing.Size(44, 21);
-            this.comboBoxDepart.TabIndex = 9;
+            this.comboBoxDepart.TabIndex = 13;
             this.comboBoxDepart.Text = "C#";
             // 
             // AddEvenimentForm
@@ -130,11 +129,11 @@
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(484, 341);
             this.Controls.Add(this.comboBoxDepart);
-            this.Controls.Add(this.txtTask);
             this.Controls.Add(this.buttonSaveEvent);
+            this.Controls.Add(this.txtTask);
+            this.Controls.Add(this.txtEventName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtEventName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddEvenimentForm";
@@ -148,11 +147,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button buttonSaveEvent;
+        private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.TextBox txtTask;
+        private System.Windows.Forms.Button buttonSaveEvent;
         private System.Windows.Forms.ComboBox comboBoxDepart;
     }
 }

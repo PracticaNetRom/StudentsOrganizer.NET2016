@@ -4,37 +4,41 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Practica.StudentsOrganizer.View
 {
-    public partial class AddStudentForm : Form
+    public partial class UpdateStudentForm : Form
     {
-        public AddStudentForm()
+        private StudentBO studentBO;
+
+        public UpdateStudentForm()
         {
             InitializeComponent();
-            dateTimeBirthDate.Properties.MaxValue = DateTime.Now;
-            dateTimeBirthDate.Properties.MinValue = DateTime.Now.AddYears(-50);
         }
 
-        private void txtLastName_TextChanged(object sender, EventArgs e)
+        public UpdateStudentForm(StudentBO studentBO)
+        {
+            this.studentBO = studentBO;
+        }
+
+        private void txtFirstName_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void butnUpdate_Click(object sender, EventArgs e)
         {
+            
             StudentBO stdBO = new StudentBO();
             //stdBO.id = 6;
             stdBO.firstName = txtFirstName.Text;
@@ -75,7 +79,7 @@ namespace Practica.StudentsOrganizer.View
             stdBO.gender = comboBoxGender.Text;
 
 
-            if(string.IsNullOrEmpty(dateTimeBirthDate.Text))
+            if (string.IsNullOrEmpty(dateTimeBirthDate.Text))
             {
                 MessageBox.Show("Please enter student's BIRTH DATE!");
                 return;
@@ -86,7 +90,7 @@ namespace Practica.StudentsOrganizer.View
             }
 
 
-            if(string.IsNullOrEmpty(txtEmail.Text))
+            if (string.IsNullOrEmpty(txtEmail.Text))
             {
                 MessageBox.Show("Please enter student's EMAIL");
                 return;
@@ -100,7 +104,7 @@ namespace Practica.StudentsOrganizer.View
             stdBO.phoneNumber = txtPhoneNumber.Text;
 
 
-            if(string.IsNullOrEmpty(txtFaculty.Text))
+            if (string.IsNullOrEmpty(txtFaculty.Text))
             {
                 MessageBox.Show("Please enter student's FACULTY!");
                 return;
@@ -111,7 +115,7 @@ namespace Practica.StudentsOrganizer.View
             }
 
 
-            if(string.IsNullOrEmpty(txtFacultyStartYear.Text))
+            if (string.IsNullOrEmpty(txtFacultyStartYear.Text))
             {
                 MessageBox.Show("Please enter student's FACULTY START YEAR!");
                 return;
@@ -121,11 +125,13 @@ namespace Practica.StudentsOrganizer.View
                 stdBO.facultyStartYear = Convert.ToInt32(txtFacultyStartYear.Text);
             }
 
+
             stdBO.remarks = txtRemarks.Text;
 
-            stdDAO.AddStudent(stdBO);
 
-            MessageBox.Show("Student successfully added!");
+            //stdDAO.updateStudent(stdBO);
+
+            MessageBox.Show("Student successfully updated!");
 
             txtFirstName.Text = string.Empty;
             txtLastName.Text = string.Empty;
@@ -137,11 +143,11 @@ namespace Practica.StudentsOrganizer.View
             txtFaculty.Text = string.Empty;
             txtFacultyStartYear.Text = string.Empty;
             txtRemarks.Text = string.Empty;
+
+            this.Close();
         }
 
-
         
-        /*
         public void PopulateStudent(StudentBO s)
         {
             txtFirstName.Text = s.firstName;
@@ -154,62 +160,16 @@ namespace Practica.StudentsOrganizer.View
             txtFacultyStartYear.Text = Convert.ToString(s.facultyStartYear);
             txtRemarks.Text = s.remarks;
 
+
         }
+
         
-        */
-
-
-        private void dateTimeBirthDate_ValueChanged(object sender, EventArgs e)
+        private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void AddStudentForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFaculty_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_EditValueChanged(object sender, EventArgs e)
+        private void txtEmail_TextChanged(object sender, EventArgs e)
         {
 
         }

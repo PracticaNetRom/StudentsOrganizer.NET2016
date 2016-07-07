@@ -15,9 +15,18 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
+            "Data Source = PC\\SQL;" +
+            "Initial Catalog = master;" +
+            "Integrated Security = SSPI;";
+
+
+            /*
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
+            */
 
 
             SqlCommand cmd = new SqlCommand();
@@ -50,15 +59,25 @@ namespace Practica.StudentsOrganizer.Model.DAO
          
         }
 
-     
+
         public void AddStudent (StudentBO studentAdd)
         {
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = PC\\SQL;" +
+            "Initial Catalog = master;" +
+            "Integrated Security = SSPI;";
+
+
+            /*
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
-           
+            */
+
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Student(
@@ -103,10 +122,18 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
+            "Data Source = PC\\SQL;" +
+            "Initial Catalog = master;" +
+            "Integrated Security = SSPI;";
+
+        
+            /*
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
             "Data Source = netsrv-db01\\sql2014;" +
             "Initial Catalog = NetRom.Practice3;" +
             "Integrated Security = SSPI;";
-
+            */
 
             DataTable dt = new DataTable();
             SqlDataAdapter adapetr = new SqlDataAdapter("SELECT * FROM Student",conn);
@@ -114,8 +141,74 @@ namespace Practica.StudentsOrganizer.Model.DAO
             adapetr.Fill(dt);
 
             return dt;
-
         }
 
+
+        public void updateStudent(StudentBO stdUpdate)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = PC\\SQL;" +
+            "Initial Catalog = master;" +
+            "Integrated Security = SSPI;";
+
+            SqlCommand updateCmd = new SqlCommand();
+ 
+            updateCmd.CommandText = @"UPDATE Student Set(
+                                firstName = @pFirstName,
+                                lastName = @pLastName, 
+                                gender = @pGender,
+                                birthDate = @pBirthDate,
+                                email = @pEmail,
+                                phoneNumber = @pPhoneNumber,
+                                faculty  = @pFaculty, 
+                                facultyStartYear = @pFacultyStartYear,
+                                remarks = @pRemarks 
+                                Where id = @Id)";
+
+            updateCmd.Connection = conn;
+            conn.Open();
+
+            updateCmd.Parameters.Add("@pFirstName", SqlDbType.VarChar, 40).Value = stdUpdate.firstName;
+            updateCmd.Parameters.Add("@pLastName", SqlDbType.VarChar, 40).Value = stdUpdate.lastName;
+            updateCmd.Parameters.Add("@pGender", SqlDbType.VarChar, 1).Value = stdUpdate.gender;
+            updateCmd.Parameters.Add("@pBirthDate", SqlDbType.Date).Value = stdUpdate.birthDate;
+            updateCmd.Parameters.Add("@pEmail", SqlDbType.VarChar, 30).Value = stdUpdate.email;
+            updateCmd.Parameters.Add("@pPhoneNumber", SqlDbType.VarChar, 30).Value = stdUpdate.phoneNumber;
+            updateCmd.Parameters.Add("@pFaculty", SqlDbType.VarChar, 30).Value = stdUpdate.faculty;
+            updateCmd.Parameters.Add("@pFacultyStartYear", SqlDbType.Int).Value = stdUpdate.facultyStartYear;
+            updateCmd.Parameters.Add("@pRemarks", SqlDbType.VarChar, 200).Value = stdUpdate.remarks;
+
+           
+        }
+
+
+        public void DeleteStudent(StudentBO idStud)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = PC\\SQL;" +
+            "Initial Catalog = master;" +
+            "Integrated Security = SSPI;";
+
+
+            /*
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source = netsrv-db01\\sql2014;" +
+            "Initial Catalog = NetRom.Practice3;" +
+            "Integrated Security = SSPI;";
+            */
+
+
+            SqlCommand deleteCmd = new SqlCommand();
+
+            deleteCmd.CommandText = "DELETE FROM Student WHERE id =" + idStud.id;
+
+            deleteCmd.Connection = conn;
+
+            //deleteCmd.Parameters.Add("@id", SqlDbType.NChar, 5, "id").SourceVersion = DataRowVersion.Original;
+        }
     }
+
 }
