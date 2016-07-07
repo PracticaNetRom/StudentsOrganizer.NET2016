@@ -44,6 +44,18 @@ namespace Practica.StudentsOrganizer.View
             StudentForm stdForm = new StudentForm();
             stdForm.Student = st;
             stdForm.Show();
+            
+        }
+
+
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int selectedRow = gridView1.FocusedRowHandle;
+            int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "Id"));
+
+            StudentDAO dao = new StudentDAO();
+            dao.DeleteStudent(Id);
         }
     }
 }

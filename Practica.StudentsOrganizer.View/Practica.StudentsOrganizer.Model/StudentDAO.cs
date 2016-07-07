@@ -10,6 +10,9 @@ namespace Practica.StudentsOrganizer.Model
 {
     public class StudentDAO
     {
+
+        EventBO Event = new EventBO();
+
      public StudentBO   getStudentById(int Id)
         {
             StudentBO student = new StudentBO();
@@ -134,6 +137,22 @@ namespace Practica.StudentsOrganizer.Model
 
             conn.Open();
             cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteStudent(int Id)
+        {
+            //conexiunea cu baza de date
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+            //conn.Open();
+
+            //sql command
+            SqlCommand cmd = new SqlCommand();
+
+            //conexiunea la command
+            cmd.Connection = conn;
+
+            cmd.CommandText = "DELETE * FROM dbo.Students WHERE Id=" + Id;
         }
     }
 }
