@@ -26,10 +26,19 @@ namespace Practica.StudentsOrganizer.View
             gridControl1.DataSource = dt;
         }
 
+        public void RefreshForm()
+        {
+            StudentDAO dao = new StudentDAO();
+            DataTable dt = dao.GetAllStudents();
+            gridControl1.DataSource = dt;
+        }
+
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             StudentForm stdForm = new StudentForm();
-            stdForm.Show();
+            stdForm.ShowDialog();
+            
+            RefreshForm();
         }
 
         private void btnOpen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -43,8 +52,10 @@ namespace Practica.StudentsOrganizer.View
 
             StudentForm stdForm = new StudentForm();
             stdForm.Student = st;
-            stdForm.Show();
-            
+            stdForm.ShowDialog();
+
+            RefreshForm();
+
         }
 
 
@@ -56,6 +67,8 @@ namespace Practica.StudentsOrganizer.View
 
             StudentDAO dao = new StudentDAO();
             dao.DeleteStudent(Id);
+           
+            RefreshForm();
         }
     }
 }

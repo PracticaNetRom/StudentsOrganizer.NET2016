@@ -235,6 +235,7 @@
             this.btnAddStudent.Size = new System.Drawing.Size(75, 23);
             this.btnAddStudent.TabIndex = 33;
             this.btnAddStudent.Text = "Add";
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // StudentForm
             // 
@@ -290,7 +291,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private DevExpress.XtraEditors.TextEdit txtFirstName;
         private DevExpress.XtraEditors.TextEdit txtLastName;
         private DevExpress.XtraEditors.DateEdit BirthDate;
         private DevExpress.XtraEditors.TextEdit txtEmail;
@@ -300,5 +300,6 @@
         private DevExpress.XtraEditors.TextEdit txtFacultyStartYear;
         private DevExpress.XtraEditors.TextEdit txtRemarks;
         private DevExpress.XtraEditors.SimpleButton btnAddStudent;
+        public DevExpress.XtraEditors.TextEdit txtFirstName;
     }
 }

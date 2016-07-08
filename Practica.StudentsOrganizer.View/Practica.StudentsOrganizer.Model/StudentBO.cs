@@ -20,6 +20,7 @@ namespace Practica.StudentsOrganizer.Model
         public string Remarks { get; set; }
 
         //  public EventBO Event { get; set; }
+        //  public Event_OccurenceBO Event_Occ { get; set; }
 
     }
 }

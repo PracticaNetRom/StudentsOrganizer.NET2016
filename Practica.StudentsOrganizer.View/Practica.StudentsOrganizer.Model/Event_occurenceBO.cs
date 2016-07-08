@@ -15,5 +15,7 @@ namespace Practica.StudentsOrganizer.Model
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
+
+        // public EventBO Event { get; set; }
     }
 }

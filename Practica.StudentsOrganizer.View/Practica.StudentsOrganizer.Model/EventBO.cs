@@ -16,7 +16,5 @@ namespace Practica.StudentsOrganizer.Model
 
         public string Department_Technology { get; set; }
 
-        //  public Event_OccurenceBO Ev_Occ { get; set; }
-
     }
 }
