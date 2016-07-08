@@ -14,10 +14,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public Event_Occurence_BO GetEvOcc_ById(int ID)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-             "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
-            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "Select EventsId Start Finish from Event_Occurence where ID = " + ID;
             cmd.Connection = conn;
@@ -48,10 +45,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"Select ID, EventsId, Start, Finish from Event_Occurence";
             cmd.Connection = conn;
@@ -82,10 +76,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Event_Occurence (  
                                       EventsId, 
@@ -110,11 +101,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public void UpdateEO (Event_Occurence_BO EOUp)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
-            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
-
-
+            conn.ConnectionString = Connection.ConnValue;
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"UPDATE Event_Occurence SET  

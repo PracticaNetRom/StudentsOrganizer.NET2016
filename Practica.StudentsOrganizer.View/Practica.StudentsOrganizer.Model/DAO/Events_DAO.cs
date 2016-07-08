@@ -14,15 +14,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public Events_BO GetEvent_ById(int ID)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-             "Data Source=netsrv-db01\\sql2014;" +
-             "Initial Catalog=NetRom.Practice4;" +
-             "Integrated Security=SSPI;";
-
-            /*"Data Source=ROXXANA\\SQLEXPRESS;" +
-           "Initial Catalog=PracticaNETROM;" +
-           "Integrated Security=SSPI;";*/
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "Select Event_Name Technology Task from Events where ID = " + ID;
             cmd.Connection = conn;
@@ -52,10 +44,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"Select ID, Event_Name, Technology, Task from Events ";
             cmd.Connection = conn;
@@ -85,10 +74,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public void AddEvent(Events_BO EventI)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-           "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Events ( 
                                     Event_Name ,
@@ -112,10 +98,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public void UpdateEvent(Events_BO EventUp)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
-            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
-            
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"UPDATE Students SET  
                                     Event_Name = @Event_Name ,

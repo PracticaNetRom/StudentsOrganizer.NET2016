@@ -1,4 +1,6 @@
-﻿using Practica.StudentsOrganizer.Model;
+﻿using DevExpress.XtraEditors;
+using Practica.StudentsOrganizer.Control;
+using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -13,24 +15,34 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainForm
     {
+        private CtrlMainForm Controler;
+        public SimpleButton _show_Students_Button
+        {
+            get
+            {
+                return Show_Students_Button;
+            }
+        }
+        public SimpleButton _add_Stud_Button { get; }
+        public SimpleButton _edit_Stud_Button { get; }
+        public SimpleButton _del_Stud_Button { get; }
+        public SimpleButton _eventsButton { get; }
+
         public MainForm()
         {
+            Controler = new CtrlMainForm();
+
             InitializeComponent();
         }
-
-       
-
-
+        
         private void ShowStudentsForm_Load(object sender, EventArgs e)
         {
             Students_DAO Std_DAO = new Students_DAO();
             gridControl1.DataSource = Std_DAO.GetAllStudents();
         }
-
         
-
         private void Show_Students_Button_Click(object sender, EventArgs e)
         {
             Students_DAO Std_DAO = new Students_DAO();
@@ -51,7 +63,8 @@ namespace Practica.StudentsOrganizer
 
         private void Del_Stud_Button_Click(object sender, EventArgs e)
         {
-            Students_BO Del_Stud = new Students_BO();
+            Students_BO Del_Stud;
+            Del_Stud = ((Students_BO)gridView1.GetFocusedRow());
             Students_DAO Del_Stud_DAO = new Students_DAO();
             Del_Stud_DAO.DeleteStd_ByFirstName(Del_Stud);
         }

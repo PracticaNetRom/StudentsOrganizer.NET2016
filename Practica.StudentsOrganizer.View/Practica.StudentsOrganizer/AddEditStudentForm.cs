@@ -1,5 +1,6 @@
 ﻿
-﻿using Practica.StudentsOrganizer.Model;
+using Practica.StudentsOrganizer.Model;
+using Practica.StudentsOrganizer.Model.BO;
 using Practica.StudentsOrganizer.Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,22 @@ namespace Practica.StudentsOrganizer
 
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
-            if(StudReceived != null)
+            Events_DAO Ev_DAO = new Events_DAO();
+            List<Events_BO> events = Ev_DAO.GetAllEvents();
+            Event_Occurence_DAO EO_DAO = new Event_Occurence_DAO();
+            List<Event_Occurence_BO> EO_BO = EO_DAO.GetAllEO();
+
+            //foreach(Events_BO ev in events)
+            //{
+            //    comboBoxEdit1.Properties.Items.Add(ev);
+            //}
+
+            lookUpEdit1.Properties.DataSource = events;
+            lookUpEdit2.Properties.DataSource = EO_BO;
+
+
+
+            if (StudReceived != null)
             {
                 txtFirst_Name.Text = StudReceived.First_Name;
                 txtLast_Name.Text = StudReceived.Last_Name;

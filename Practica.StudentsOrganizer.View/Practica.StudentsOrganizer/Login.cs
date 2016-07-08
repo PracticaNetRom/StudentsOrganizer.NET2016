@@ -22,8 +22,8 @@ namespace Practica.StudentsOrganizer
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
+            //"Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
+             "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
             conn.Open();
             SqlCommand cmd = new SqlCommand("Select *from Login where Username = '" + txtUsername.Text + "'and Password = '" + txtPassword.Text + "'", conn);
             SqlDataReader reader = cmd.ExecuteReader();

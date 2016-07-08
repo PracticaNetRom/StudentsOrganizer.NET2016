@@ -17,10 +17,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public Students_BO GetStudent_ById(int ID)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-             "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "Select First_Name Last_Name Gender Birth_Date Email Phone_number" + 
                               "Faculty Faculty_Start_Year Remarks from Students where ID = " + ID;
@@ -57,10 +54,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"Select ID, First_Name, Last_Name, Gender, Birth_Date, Email, Phone_number,
                               Faculty, Faculty_Start_Year, Remarks from Students ";
@@ -100,10 +94,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
          
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
               cmd.CommandText = @"INSERT INTO Students ( 
                                       First_Name ,
@@ -150,39 +141,29 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
           public void DeleteStd_ByFirstName (Students_BO DelStud)
           {
-            //   SqlConnection conn = new SqlConnection();
-            //   conn.ConnectionString =
-            // "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            //// "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
-            // SqlCommand cmd = new SqlCommand();
-            // cmd.CommandText = "DELETE from Students ";
-
-            // cmd.Connection = conn;
-            // conn.Open();
-            // cmd.ExecuteNonQuery();
+            
             SqlCommand cmd;
-            SqlConnection con = new SqlConnection("Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;");
-            con.Close();
-            cmd = new SqlCommand("DELETE FROM Students", con);
-            con.Open();
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = Connection.ConnValue;
+            conn.Close();
+            cmd = new SqlCommand("DELETE FROM Students WHERE ID = @ID", conn);
+            conn.Open();
+
+            //Students_BO DelStud = new Students_BO();
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = DelStud.ID;
             int i = cmd.ExecuteNonQuery();
             if (i > 0)
             {
                 MessageBox.Show("Successful.");
             }
-            con.Close();
+            conn.Close();
 
         }
 
         public void UpdateStud(Students_BO StudUp )
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
-            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
-
-
+            conn.ConnectionString = Connection.ConnValue;
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"UPDATE Students SET  

@@ -14,13 +14,10 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public List<Stud_Event_Occurence_DAO> GetAllSEO()
         {
             List<Stud_Event_Occurence_BO> ListToReturn = new List<Stud_Event_Occurence_BO>();
-
-
+           
+            List<Stud_Event_Occurence_DAO> ListSEO_DAO = new List<Stud_Event_Occurence_DAO>();
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"Select ID, StudentsId, Event_OccurenceId from Stud_Event_Occurence";
             cmd.Connection = conn;
@@ -41,24 +38,16 @@ namespace Practica.StudentsOrganizer.Model.DAO
                 }
             }
 
-            return ListToReturn;
+            return ListSEO_DAO;
 
 
 
         }
-    }
-
-
-        
-       
         public void AddSEO(Stud_Event_Occurence_BO StudSEO)
         {
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-            // "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
-
+            conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Stud_Event_Occurence ( 
                                       Event_OccurenceId ,
@@ -81,11 +70,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public void UpdateSEO(Stud_Event_Occurence_BO SEOUp)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source=ROXXANA\\SQLEXPRESS;" + "Initial Catalog=PracticaNETROM;" + "Integrated Security=SSPI;";
-            //"Data Source=netsrv-db01\\sql2014;" +"Initial Catalog=NetRom.Practice4;" + "Integrated Security=SSPI;";
-
-
+            conn.ConnectionString = Connection.ConnValue;
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"UPDATE Stud_Event_Occurence SET  
@@ -104,6 +89,12 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
         }
     }
+
+
+        
+       
+       
+   
 
    
 }

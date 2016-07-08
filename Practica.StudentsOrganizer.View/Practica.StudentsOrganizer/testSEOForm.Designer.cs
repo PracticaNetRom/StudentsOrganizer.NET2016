@@ -71,7 +71,7 @@
             this.Add_SEO_Button.Size = new System.Drawing.Size(103, 23);
             this.Add_SEO_Button.TabIndex = 13;
             this.Add_SEO_Button.Text = "Add SEO";
-            this.Add_SEO_Button.Click += new System.EventHandler(this.Add_SEO_Button_Click);
+           // this.Add_SEO_Button.Click += new System.EventHandler(this.Add_SEO_Button_Click);
             // 
             // Show_SEO_Button
             // 
