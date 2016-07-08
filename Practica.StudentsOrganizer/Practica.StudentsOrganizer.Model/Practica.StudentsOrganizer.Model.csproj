@@ -44,6 +44,7 @@
     <Compile Include="BO\EventOccurenceBO.cs" />
     <Compile Include="BO\StudentEventOccurenceBO.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ConnString.cs" />
     <Compile Include="DAO\EvenimentDAO.cs" />
     <Compile Include="DAO\EventOccurenceDAO.cs" />
     <Compile Include="DAO\StudentDAO.cs" />

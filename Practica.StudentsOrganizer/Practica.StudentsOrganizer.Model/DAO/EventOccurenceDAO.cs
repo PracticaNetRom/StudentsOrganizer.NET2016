@@ -13,20 +13,17 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public EventOccurenceBO GetEventOccurence (int id)
         {
 
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = PC\\SQL;" +
-            "Initial Catalog = master;" +
-            "Integrated Security = SSPI;";
+            //SqlConnection conn = new SqlConnection();
+            //conn.ConnectionString =
+            //"Data Source = PC\\SQL;" +
+            //"Initial Catalog = master;" +
+            //"Integrated Security = SSPI;";
 
 
-            /*
+            
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = netsrv-db01\\sql2014;" +
-            "Initial Catalog = NetRom.Practice3;" +
-            "Integrated Security = SSPI;";
-            */
+            conn.ConnectionString = ConnString.Value;
+
 
 
             SqlCommand cmd = new SqlCommand();
@@ -57,20 +54,18 @@ namespace Practica.StudentsOrganizer.Model.DAO
         public void AddEventOccurence(EventOccurenceBO eventOccuAdd)
         {
 
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = PC\\SQL;" +
-            "Initial Catalog = master;" +
-            "Integrated Security = SSPI;";
+            //SqlConnection conn = new SqlConnection();
+            //conn.ConnectionString =
+            //"Data Source = PC\\SQL;" +
+            //"Initial Catalog = master;" +
+            //"Integrated Security = SSPI;";
 
 
-            /*
+            
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = netsrv-db01\\sql2014;" +
-            "Initial Catalog = NetRom.Practice3;" +
-            "Integrated Security = SSPI;";
-            */
+            conn.ConnectionString = ConnString.Value;
+
+            
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO EventOccurence(

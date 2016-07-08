@@ -73,5 +73,10 @@ namespace Practica.StudentsOrganizer.View
             comboBoxDepart.Text = string.Empty;
 
         }
+
+        private void AddEvenimentForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

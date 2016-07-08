@@ -15,18 +15,14 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = PC\\SQL;" +
-            "Initial Catalog = master;" +
-            "Integrated Security = SSPI;";
+            conn.ConnectionString = ConnString.Value;
+          
 
 
             /*
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = netsrv-db01\\sql2014;" +
-            "Initial Catalog = NetRom.Practice3;" +
-            "Integrated Security = SSPI;";
+            conn.ConnectionString = 
+            
             */
 
             SqlCommand cmd = new SqlCommand();
@@ -58,10 +54,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = PC\\SQL;" +
-            "Initial Catalog = master;" +
-            "Integrated Security = SSPI;";
+            conn.ConnectionString = ConnString.Value;
+
 
 
             /*

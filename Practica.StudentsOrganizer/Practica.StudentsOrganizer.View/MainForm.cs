@@ -21,9 +21,7 @@ namespace Practica.StudentsOrganizer.View
 
         private void buttonUpdateStd_Click(object sender, EventArgs e)
         {
-            UpdateStudentForm stdForm = new UpdateStudentForm();
-            stdForm.Show();
-
+            AddStudentForm stdForm = new AddStudentForm();
            
             StudentDAO stdselectDAO = new StudentDAO();
 
@@ -35,7 +33,9 @@ namespace Practica.StudentsOrganizer.View
 
             stdForm.PopulateStudent(stdSelectBO);
 
-          
+            stdForm.ShowDialog();
+
+            RefreshData();
         }
 
 
@@ -47,12 +47,7 @@ namespace Practica.StudentsOrganizer.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            StudentDAO studDAO = new StudentDAO();
-
-            DataTable dtret = new DataTable();
-            dtret = studDAO.GetAllStudents();
-
-            grdCtrlStudents.DataSource = dtret;
+            RefreshData();
 
         }
 
@@ -60,7 +55,10 @@ namespace Practica.StudentsOrganizer.View
         private void buttInsertStd_Click(object sender, EventArgs e)
         {
             AddStudentForm stdForm = new AddStudentForm();
-            stdForm.Show();
+
+            stdForm.ShowDialog();
+
+            RefreshData();
         }
 
 
@@ -70,10 +68,23 @@ namespace Practica.StudentsOrganizer.View
             int id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "id"));
             
             StudentDAO stdDelete = new StudentDAO();
-            stdDelete.DeleteStudent(idStud);
+            stdDelete.DeleteStudent(id);
 
             MessageBox.Show("Student successfully deleted!");
 
+            RefreshData();
+
+
+        }
+
+        private void RefreshData()
+        {
+            StudentDAO studDAO = new StudentDAO();
+
+            DataTable dtret = new DataTable();
+            dtret = studDAO.GetAllStudents();
+
+            grdCtrlStudents.DataSource = dtret;
         }
     }
 }

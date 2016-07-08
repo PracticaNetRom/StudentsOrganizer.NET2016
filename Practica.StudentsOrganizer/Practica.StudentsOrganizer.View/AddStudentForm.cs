@@ -1,5 +1,7 @@
-﻿using Practica.StudentsOrganizer.Model;
+﻿using Practica.StudentOrganizer.Controller.Interfaces;
+using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Model.DAO;
+using Practica.StudentsOrganizer.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +16,11 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer.View
 {
-    public partial class AddStudentForm : Form
-    {
+    public partial class AddStudentForm : Form, IAddStudentForm
+
+    {    
+ 
+
         public AddStudentForm()
         {
             InitializeComponent();
@@ -35,7 +40,17 @@ namespace Practica.StudentsOrganizer.View
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            StudentBO stdBO = new StudentBO();
+            StudentBO stdBO;
+            if (student == null)  //student nou
+            {
+                stdBO = new StudentBO();
+            }
+            else
+            {
+                stdBO = student;
+            }
+
+           
             //stdBO.id = 6;
             stdBO.firstName = txtFirstName.Text;
             stdBO.lastName = txtLastName.Text;
@@ -123,9 +138,20 @@ namespace Practica.StudentsOrganizer.View
 
             stdBO.remarks = txtRemarks.Text;
 
-            stdDAO.AddStudent(stdBO);
 
-            MessageBox.Show("Student successfully added!");
+            if (student == null)  //student nou
+            {
+                stdDAO.AddStudent(stdBO);
+                MessageBox.Show("Student successfully added!");
+            }
+            else
+            {
+                stdDAO.updateStudent(stdBO);
+                MessageBox.Show("Student successfully updated!");
+                this.Close();
+            }
+
+            
 
             txtFirstName.Text = string.Empty;
             txtLastName.Text = string.Empty;
@@ -140,8 +166,8 @@ namespace Practica.StudentsOrganizer.View
         }
 
 
+        StudentBO student;
         
-        /*
         public void PopulateStudent(StudentBO s)
         {
             txtFirstName.Text = s.firstName;
@@ -154,9 +180,11 @@ namespace Practica.StudentsOrganizer.View
             txtFacultyStartYear.Text = Convert.ToString(s.facultyStartYear);
             txtRemarks.Text = s.remarks;
 
+            student = s;
+
         }
         
-        */
+        
 
 
         private void dateTimeBirthDate_ValueChanged(object sender, EventArgs e)
@@ -210,6 +238,11 @@ namespace Practica.StudentsOrganizer.View
         }
 
         private void txtFirstName_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_EditValueChanged(object sender, EventArgs e)
         {
 
         }

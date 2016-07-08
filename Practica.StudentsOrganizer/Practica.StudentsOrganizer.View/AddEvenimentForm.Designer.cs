@@ -32,10 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEventName = new System.Windows.Forms.TextBox();
             this.txtTask = new System.Windows.Forms.TextBox();
             this.buttonSaveEvent = new System.Windows.Forms.Button();
             this.comboBoxDepart = new System.Windows.Forms.ComboBox();
+            this.txtEventName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -81,13 +81,6 @@
             this.label4.Text = "Department or Technology";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // txtEventName
-            // 
-            this.txtEventName.Location = new System.Drawing.Point(172, 71);
-            this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(232, 20);
-            this.txtEventName.TabIndex = 10;
-            // 
             // txtTask
             // 
             this.txtTask.Location = new System.Drawing.Point(172, 105);
@@ -122,22 +115,37 @@
             this.comboBoxDepart.TabIndex = 13;
             this.comboBoxDepart.Text = "C#";
             // 
+            // txtEventName
+            // 
+            this.txtEventName.FormattingEnabled = true;
+            this.txtEventName.Items.AddRange(new object[] {
+            "Intership",
+            "Practica",
+            "Academie",
+            "CodeGolf"});
+            this.txtEventName.Location = new System.Drawing.Point(172, 70);
+            this.txtEventName.Name = "txtEventName";
+            this.txtEventName.Size = new System.Drawing.Size(232, 21);
+            this.txtEventName.TabIndex = 14;
+            this.txtEventName.Text = "Practica";
+            // 
             // AddEvenimentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(484, 341);
+            this.Controls.Add(this.txtEventName);
             this.Controls.Add(this.comboBoxDepart);
             this.Controls.Add(this.buttonSaveEvent);
             this.Controls.Add(this.txtTask);
-            this.Controls.Add(this.txtEventName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddEvenimentForm";
             this.Text = "AddEvenimentForm";
+            this.Load += new System.EventHandler(this.AddEvenimentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,9 +157,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.TextBox txtTask;
         private System.Windows.Forms.Button buttonSaveEvent;
         private System.Windows.Forms.ComboBox comboBoxDepart;
+        private System.Windows.Forms.ComboBox txtEventName;
     }
 }
