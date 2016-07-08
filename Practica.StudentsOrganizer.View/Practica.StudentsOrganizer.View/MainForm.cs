@@ -39,14 +39,14 @@ namespace Practica.StudentsOrganizer.View
         private void btnOpen_ItemClick(object sender, EventArgs e)
         {
             int selectedRow = gridView1.FocusedRowHandle;
-            int ID = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
+            int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
 
-            StudentBO student = new StudentBO();
+            StudentBO st = new StudentBO();
             StudentDAO dao = new StudentDAO();
-            student = dao.getStudentByID(ID);
+            st = dao.getStudentByID(ID);
 
             StudentForm stdForm = new StudentForm();
-            stdForm.Student = student;
+            stdForm.Student = st;
             stdForm.Show();
         }
     }
