@@ -13,9 +13,11 @@ namespace Practica.StudentsOrganizer.Model
         public evenimentBO Event(int Id)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice5;" +
-            "Integrated Security=SSPI;";
+            /*  conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+              "Initial Catalog=NetRom.Practice5;" +
+              "Integrated Security=SSPI;";
+              */
+            conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "select IdEvent.eveniment,EventName.eveniment,Departament.eveniment,Task.eveniment from eveniment where IdEvent=" + Id;
             cmd.Connection = conn;
@@ -43,9 +45,10 @@ namespace Practica.StudentsOrganizer.Model
 
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            /*conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice5;" +
-            "Integrated Security=SSPI;";
+            "Integrated Security=SSPI;";*/
+            conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT into eveniment(
                                 IdEvent,

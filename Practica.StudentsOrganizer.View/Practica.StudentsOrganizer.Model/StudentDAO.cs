@@ -9,16 +9,19 @@ using System.Data;
 
 namespace Practica.StudentsOrganizer.Model
 {
-   public class StudentDAO
+    public class StudentDAO
     {
         private object sqlDbType;
 
         public studentBO GetStud(int Id)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice5;" +
-            "Integrated Security=SSPI;";
+            /* conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+             "Initial Catalog=NetRom.Practice5;" +
+             "Integrated Security=SSPI;";
+     */
+
+            conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "select FirstName.student,LastName.student,Gender.student,BirtDate.student,Email.student,PhoneNumber.student,PhoneHomeNumber.student,Faculty.student,FacultyStartYear.student,Remarks.student from student where IdStudent=" + Id;
             cmd.Connection = conn;
@@ -46,17 +49,19 @@ namespace Practica.StudentsOrganizer.Model
                 }
             }
             return null;
-        
+
         }
 
         public void AddStud(studentBO StudAdd)
         {
-            
+
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice5;" +
-            "Integrated Security=SSPI;";
+            /* conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+             "Initial Catalog=NetRom.Practice5;" +
+             "Integrated Security=SSPI;";
+             */
+            conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT into student(
                                 IdStudent,
@@ -75,10 +80,10 @@ namespace Practica.StudentsOrganizer.Model
             cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = StudAdd.IdStudent;
             cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 30).Value = StudAdd.FirstName;
             cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 30).Value = StudAdd.LastName;
-            cmd.Parameters.Add("@Gender", SqlDbType.VarChar,1).Value = StudAdd.Gender;
+            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 1).Value = StudAdd.Gender;
             cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime).Value = StudAdd.BirthDate;
             cmd.Parameters.Add("@Email", SqlDbType.VarChar, 50).Value = StudAdd.Email;
-            cmd.Parameters.Add("@PhoneNumbers", SqlDbType.VarChar,30).Value = StudAdd.PhoneNumbers;
+            cmd.Parameters.Add("@PhoneNumbers", SqlDbType.VarChar, 30).Value = StudAdd.PhoneNumbers;
             cmd.Parameters.Add("@PhoneHomeNumbers", SqlDbType.VarChar, 30).Value = StudAdd.PhoneHomeNumbers;
             cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 50).Value = StudAdd.Faculty;
             cmd.Parameters.Add("@FacultyStartYear", SqlDbType.Int).Value = StudAdd.FacultyStarYear;
@@ -89,16 +94,18 @@ namespace Practica.StudentsOrganizer.Model
             cmd.ExecuteNonQuery();
 
 
-            
+
         }
 
         public List<studentBO> GetAllStudent()
         {
             List<studentBO> ListStudent = new List<studentBO>();
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            /*conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice5;" +
             "Integrated Security=SSPI;";
+            */
+            conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "select * from student";
             cmd.Connection = conn;
@@ -107,7 +114,7 @@ namespace Practica.StudentsOrganizer.Model
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
-            while(reader.Read())
+            while (reader.Read())
             {
                 if (reader.HasRows)//intoarce daca sunt sau nu randuri de citit
                 {
@@ -135,9 +142,10 @@ namespace Practica.StudentsOrganizer.Model
 
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice5;" +
-            "Integrated Security=SSPI;";
+            //conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            //"Initial Catalog=NetRom.Practice5;" +
+            //"Integrated Security=SSPI;";
+            conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"Update student Set 
                                 FirstName=@FirstName,
@@ -151,17 +159,17 @@ namespace Practica.StudentsOrganizer.Model
                                 FacultyStartYear=@FacultyStartYear,
                                 Remarks=@Remarks Where IdStundent=@IdStundent";
             cmd.Connection = conn;
-            cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = StudAdd.IdStudent;
-            cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 30).Value = StudAdd.FirstName;
-            cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 30).Value = StudAdd.LastName;
-            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 1).Value = StudAdd.Gender;
-            cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime).Value = StudAdd.BirthDate;
-            cmd.Parameters.Add("@Email", SqlDbType.VarChar, 50).Value = StudAdd.Email;
-            cmd.Parameters.Add("@PhoneNumbers", SqlDbType.VarChar, 30).Value = StudAdd.PhoneNumbers;
-            cmd.Parameters.Add("@PhoneHomeNumbers", SqlDbType.VarChar, 30).Value = StudAdd.PhoneHomeNumbers;
-            cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 50).Value = StudAdd.Faculty;
-            cmd.Parameters.Add("@FacultyStartYear", SqlDbType.Int).Value = StudAdd.FacultyStarYear;
-            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudAdd.Remarks;
+            cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = StudUp.IdStudent;
+            cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 30).Value = StudUp.FirstName;
+            cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 30).Value = StudUp.LastName;
+            cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 1).Value = StudUp.Gender;
+            cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime).Value = StudUp.BirthDate;
+            cmd.Parameters.Add("@Email", SqlDbType.VarChar, 50).Value = StudUp.Email;
+            cmd.Parameters.Add("@PhoneNumbers", SqlDbType.VarChar, 30).Value = StudUp.PhoneNumbers;
+            cmd.Parameters.Add("@PhoneHomeNumbers", SqlDbType.VarChar, 30).Value = StudUp.PhoneHomeNumbers;
+            cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 50).Value = StudUp.Faculty;
+            cmd.Parameters.Add("@FacultyStartYear", SqlDbType.Int).Value = StudUp.FacultyStarYear;
+            cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudUp.Remarks;
 
             conn.Open();
 
@@ -171,5 +179,20 @@ namespace Practica.StudentsOrganizer.Model
 
         }
 
+        public void DeleteStud(studentBO StudDel)
+        {
+            SqlConnection conn = new SqlConnection();
+            // conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            //"Initial Catalog=NetRom.Practice5;" +
+            //"Integrated Security=SSPI;";
+            conn.ConnectionString = Connection.ConValue;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"Delete * from student where IdStudent=@IdStudent";
+            cmd.Connection = conn;
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+
+        }
     }
 }

@@ -31,11 +31,18 @@ namespace Practica.StudentsOrganizer.View
 
         private void btnNewStudent_Click(object sender, EventArgs e)
         {
-            StudentForm btnNewStudent = new StudentForm();
+            StudentForm btnNewStudent = new StudentForm(null);
             btnNewStudent.ShowDialog();
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)
+        {
+            studentBO student = (studentBO)gridView1.GetFocusedRow();
+            StudentForm btnEditStudent = new StudentForm(student);
+            btnEditStudent.ShowDialog();
+        }
+
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
         {
 
         }
