@@ -1,4 +1,5 @@
-﻿using Practice.StudentsOrganizer.Model;
+﻿using Practica.StudentOrganizer.Controller;
+using Practice.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +12,17 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer.View
 {
-    public partial class StudentForm : Form
+    public partial class StudentForm : Form,IStudentForm
     {
+         public StudentBO Student { get; set; }
+        private StudentController controller;
+
+          
         public StudentForm()
         {
             InitializeComponent();
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            controller = new StudentController(this);
         }
 
         private void addStudent_Click(object sender, EventArgs e)
@@ -30,7 +32,7 @@ namespace Practica.StudentsOrganizer.View
             std.firstName = txtFirstName.Text;
             std.lastName = txtLastName.Text;
             std.gender = comboBoxGender.Text;
-            std.birthDate = dateTimeBirthDate.Value;
+            std.birthDate = dateTimeBirthDate.DateTime;
             std.email = txtEmail.Text;
             std.phoneNumber = txtPhoneNumber.Text;
             std.faculty = txtFaculty.Text;
@@ -43,26 +45,30 @@ namespace Practica.StudentsOrganizer.View
 
             MessageBox.Show("Student added");
 
-            txtFirstName.Clear();
-            txtLastName.Clear();
+            //txtFirstName.Clear();
+           // txtLastName.Clear();
            // comboBoxGender.Clear();
             //dateTimeBirthDate
-            txtEmail.Clear();
-            txtPhoneNumber.Clear();
-            txtFaculty.Clear();
-            maskedTextBoxFacultyStartYear.Clear();
-            txtRemarks.Clear();
+           // txtEmail.Clear();
+            //txtPhoneNumber.Clear();
+            //txtFaculty.Clear();
+           // maskedTextBoxFacultyStartYear.Clear();
+           // txtRemarks.Clear();
             
         }
-
-        private void Show(string v)
+        private void StudentForm_Load(object sender,EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void dropDownButtonGender_Click(object sender, EventArgs e)
-        {
-
+            if(Student != null)
+            {
+                txtFirstName.Text = Student.firstName;
+                txtLastName.Text = Student.lastName;
+                comboBoxGender.Text = Student.gender;
+                dateTimeBirthDate.DateTime = Student.birthDate;
+                txtEmail.Text = Student.email;
+                txtPhoneNumber.Text = Student.phoneNumber;
+                txtFaculty.Text = Student.faculty;
+                txtRemarks.Text = Student.remarks;
+            }
         }
     }
 }

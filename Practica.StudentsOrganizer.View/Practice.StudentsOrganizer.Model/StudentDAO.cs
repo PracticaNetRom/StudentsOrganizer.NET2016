@@ -19,10 +19,8 @@ namespace Practice.StudentsOrganizer.Model
             // conexiunea cu baza de date
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = ANDRA;" + //  netsrv-db01\\sql2014
-            "Initial Catalog=NetRom.Practice2;" +
-            "Integrated Security=SSPI;";
+            conn.ConnectionString = ConectionString.Value;
+            
             conn.Open();
 
             //sql command
@@ -37,7 +35,7 @@ namespace Practice.StudentsOrganizer.Model
 
             reader = cmd.ExecuteReader();
 
-            reader.Read();
+           
 
             if (reader.Read() == true)
             {
@@ -64,35 +62,37 @@ namespace Practice.StudentsOrganizer.Model
 
         public void addStudent(StudentBO student)
         {
+            SqlCommand cmd = new SqlCommand();
 
-            string insertSql = @"INSERT INTO Students(FirstName,LastName,Gender,BirthDate,Email,PhoneNumber,Faculty,FacultyStartYear,Remarks)
-                     Values(@FirstName,@LastName,@Gender,@BirthDate,@Email,@PhoneNumber,@Faculty,@FacultyStartYear,@Remarks)";
-
-            using (var conn = new SqlConnection(@"Data Source = ANDRA; 
+            using (var conn = new SqlConnection(@"Data Source = netsrv-db01\sql2014; 
                                                 Initial Catalog=NetRom.Practice2; 
                                                 Integrated Security=SSPI;"))
-            {                                   // netsrv-db01\sql2014
-                using (var com = new SqlCommand(insertSql, conn))
-                {
+            {                                   
+                
+                cmd.CommandText = @"INSERT INTO Students(FirstName,LastName,Gender,BirthDate,Email,PhoneNumber,Faculty,FacultyStartYear,Remarks)
+                    Values(@FirstName,@LastName,@Gender,@BirthDate,@Email,@PhoneNumber,@Faculty,@FacultyStartYear,@Remarks)";
 
-                    com.Parameters.AddWithValue("@FirstName", student.firstName);
-                    com.Parameters.AddWithValue("@LastName", student.lastName);
-                    com.Parameters.AddWithValue("@Gender", student.gender);
-                    com.Parameters.AddWithValue("@BirthDate", student.birthDate);
-                    com.Parameters.AddWithValue("@Email", student.email);
-                    com.Parameters.AddWithValue("@PhoneNumber", student.phoneNumber);
-                    com.Parameters.AddWithValue("@Faculty", student.faculty);
-                    com.Parameters.AddWithValue("@FacultyStartYear", student.facultyStartYear);
-                    com.Parameters.AddWithValue("@Remarks", student.remarks);
+                cmd.Connection = conn;
 
+                cmd.Parameters.AddWithValue("@FirstName", student.firstName);
+                cmd.Parameters.AddWithValue("@LastName", student.lastName);
+                cmd.Parameters.AddWithValue("@Gender", student.gender);
+                cmd.Parameters.AddWithValue("@BirthDate", student.birthDate);
+                cmd.Parameters.AddWithValue("@Email", student.email);
+                cmd.Parameters.AddWithValue("@PhoneNumber", student.phoneNumber);
+                cmd.Parameters.AddWithValue("@Faculty", student.faculty);
+                cmd.Parameters.AddWithValue("@FacultyStartYear", student.facultyStartYear);
+                cmd.Parameters.AddWithValue("@Remarks", student.remarks);
 
-                }
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
             }
         }
         public DataTable GetAllStudents()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice2;" + "Integrated Security=SSPI;";
 
             DataTable item = new DataTable();
 
@@ -146,5 +146,23 @@ namespace Practice.StudentsOrganizer.Model
             conn.Open();
             cmd.ExecuteNonQuery();
         }
+        public void DeleteStudent(StudentBO student)
+        {
+            //conexiunea cu baza de date
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = ConectionString.Value;
+            //conn.Open();
+
+            //sql command
+            SqlCommand cmd = new SqlCommand();
+
+            //conexiunea la command
+            cmd.Connection = conn;
+
+            cmd.CommandText = "DELETE FROM Student WHERE ID=@ID";
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
+
     }
 }

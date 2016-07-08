@@ -28,34 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtLastName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtFaculty = new System.Windows.Forms.TextBox();
-            this.txtRemarks = new System.Windows.Forms.TextBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.dateTimeBirthDate = new System.Windows.Forms.DateTimePicker();
-            this.maskedTextBoxFacultyStartYear = new System.Windows.Forms.MaskedTextBox();
-            this.comboBoxGender = new System.Windows.Forms.ComboBox();
+            this.txtFirstName = new DevExpress.XtraEditors.TextEdit();
+            this.txtLastName = new DevExpress.XtraEditors.TextEdit();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
+            this.txtPhoneNumber = new DevExpress.XtraEditors.TextEdit();
+            this.txtFaculty = new DevExpress.XtraEditors.TextEdit();
+            this.txtRemarks = new DevExpress.XtraEditors.TextEdit();
+            this.comboBoxGender = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.maskedTextBoxFacultyStartYear = new DevExpress.XtraEditors.TextEdit();
+            this.dateTimeBirthDate = new DevExpress.XtraEditors.DateEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFaculty.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxGender.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskedTextBoxFacultyStartYear.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtFirstName.Location = new System.Drawing.Point(115, 8);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(100, 20);
-            this.txtFirstName.TabIndex = 0;
             // 
             // label1
             // 
@@ -66,7 +68,6 @@
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Fisrt Name";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -77,13 +78,6 @@
             this.label2.Size = new System.Drawing.Size(65, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Last Name";
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(115, 47);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtLastName.TabIndex = 3;
             // 
             // label3
             // 
@@ -105,13 +99,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Birth Date";
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(116, 170);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtEmail.TabIndex = 8;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -121,13 +108,6 @@
             this.label5.Size = new System.Drawing.Size(40, 15);
             this.label5.TabIndex = 9;
             this.label5.Text = "Email";
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(116, 206);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtPhoneNumber.TabIndex = 10;
             // 
             // label6
             // 
@@ -169,20 +149,6 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "Remarks";
             // 
-            // txtFaculty
-            // 
-            this.txtFaculty.Location = new System.Drawing.Point(116, 250);
-            this.txtFaculty.Name = "txtFaculty";
-            this.txtFaculty.Size = new System.Drawing.Size(100, 20);
-            this.txtFaculty.TabIndex = 15;
-            // 
-            // txtRemarks
-            // 
-            this.txtRemarks.Location = new System.Drawing.Point(115, 346);
-            this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(100, 20);
-            this.txtRemarks.TabIndex = 17;
-            // 
             // btnAddStudent
             // 
             this.btnAddStudent.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,87 +161,145 @@
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.addStudent_Click);
             // 
-            // dateTimeBirthDate
+            // txtFirstName
             // 
-            this.dateTimeBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeBirthDate.Location = new System.Drawing.Point(116, 133);
-            this.dateTimeBirthDate.Name = "dateTimeBirthDate";
-            this.dateTimeBirthDate.Size = new System.Drawing.Size(100, 20);
-            this.dateTimeBirthDate.TabIndex = 19;
+            this.txtFirstName.Location = new System.Drawing.Point(116, 12);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtFirstName.TabIndex = 25;
             // 
-            // maskedTextBoxFacultyStartYear
+            // txtLastName
             // 
-            this.maskedTextBoxFacultyStartYear.Location = new System.Drawing.Point(116, 297);
-            this.maskedTextBoxFacultyStartYear.Mask = "0000";
-            this.maskedTextBoxFacultyStartYear.Name = "maskedTextBoxFacultyStartYear";
-            this.maskedTextBoxFacultyStartYear.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBoxFacultyStartYear.TabIndex = 21;
+            this.txtLastName.Location = new System.Drawing.Point(115, 44);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtLastName.TabIndex = 26;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(115, 170);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.TabIndex = 28;
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.Location = new System.Drawing.Point(116, 211);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtPhoneNumber.TabIndex = 29;
+            // 
+            // txtFaculty
+            // 
+            this.txtFaculty.Location = new System.Drawing.Point(115, 250);
+            this.txtFaculty.Name = "txtFaculty";
+            this.txtFaculty.Size = new System.Drawing.Size(100, 20);
+            this.txtFaculty.TabIndex = 30;
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Location = new System.Drawing.Point(115, 346);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(100, 20);
+            this.txtRemarks.TabIndex = 31;
             // 
             // comboBoxGender
             // 
-            this.comboBoxGender.FormattingEnabled = true;
-            this.comboBoxGender.Items.AddRange(new object[] {
+            this.comboBoxGender.Location = new System.Drawing.Point(115, 84);
+            this.comboBoxGender.Name = "comboBoxGender";
+            this.comboBoxGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxGender.Properties.DropDownRows = 2;
+            this.comboBoxGender.Properties.Items.AddRange(new object[] {
             "F",
             "M"});
-            this.comboBoxGender.Location = new System.Drawing.Point(115, 85);
-            this.comboBoxGender.Name = "comboBoxGender";
-            this.comboBoxGender.Size = new System.Drawing.Size(101, 21);
-            this.comboBoxGender.TabIndex = 23;
-            this.comboBoxGender.Text = "F";
+            this.comboBoxGender.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxGender.TabIndex = 33;
+            // 
+            // maskedTextBoxFacultyStartYear
+            // 
+            this.maskedTextBoxFacultyStartYear.Location = new System.Drawing.Point(119, 295);
+            this.maskedTextBoxFacultyStartYear.Name = "maskedTextBoxFacultyStartYear";
+            this.maskedTextBoxFacultyStartYear.Properties.Mask.EditMask = "\\d\\d\\d\\d";
+            this.maskedTextBoxFacultyStartYear.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.maskedTextBoxFacultyStartYear.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBoxFacultyStartYear.TabIndex = 35;
+            // 
+            // dateTimeBirthDate
+            // 
+            this.dateTimeBirthDate.EditValue = null;
+            this.dateTimeBirthDate.Location = new System.Drawing.Point(119, 128);
+            this.dateTimeBirthDate.Name = "dateTimeBirthDate";
+            this.dateTimeBirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimeBirthDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimeBirthDate.Size = new System.Drawing.Size(100, 20);
+            this.dateTimeBirthDate.TabIndex = 36;
             // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 542);
-            this.Controls.Add(this.comboBoxGender);
-            this.Controls.Add(this.maskedTextBoxFacultyStartYear);
             this.Controls.Add(this.dateTimeBirthDate);
-            this.Controls.Add(this.btnAddStudent);
+            this.Controls.Add(this.maskedTextBoxFacultyStartYear);
+            this.Controls.Add(this.comboBoxGender);
             this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.txtFaculty);
+            this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFirstName);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "StudentForm";
             this.Text = "StudentForm";
-            this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.TransparencyKey = System.Drawing.Color.Silver;
+            this.Load += new System.EventHandler(this.StudentForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFaculty.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxGender.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskedTextBoxFacultyStartYear.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtFaculty;
-        private System.Windows.Forms.TextBox txtRemarks;
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.DateTimePicker dateTimeBirthDate;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxFacultyStartYear;
-        private System.Windows.Forms.ComboBox comboBoxGender;
+        private DevExpress.XtraEditors.TextEdit txtFirstName;
+        private DevExpress.XtraEditors.TextEdit txtLastName;
+        private DevExpress.XtraEditors.TextEdit txtEmail;
+        private DevExpress.XtraEditors.TextEdit txtPhoneNumber;
+        private DevExpress.XtraEditors.TextEdit txtFaculty;
+        private DevExpress.XtraEditors.TextEdit txtRemarks;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxGender;
+        private DevExpress.XtraEditors.TextEdit maskedTextBoxFacultyStartYear;
+        private DevExpress.XtraEditors.DateEdit dateTimeBirthDate;
     }
 }
