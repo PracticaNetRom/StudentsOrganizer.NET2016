@@ -25,10 +25,48 @@ namespace Practica.StudentsOrganizer
                 return Show_Students_Button;
             }
         }
-        public SimpleButton _add_Stud_Button { get; }
-        public SimpleButton _edit_Stud_Button { get; }
-        public SimpleButton _del_Stud_Button { get; }
-        public SimpleButton _eventsButton { get; }
+        public SimpleButton _add_Stud_Button
+        {
+            get
+            {
+                return Add_Stud_Button;
+            }
+        }
+        public SimpleButton _edit_Stud_Button
+        {
+            get
+            {
+                return Edit_Stud_Button;
+            }
+        }
+        public SimpleButton _del_Stud_Button
+        {
+            get
+            {
+                return Del_Stud_Button;
+            }
+        }
+        public SimpleButton _eventsButton
+        {
+            get
+            {
+                return EventsButton;
+            }
+        }
+        public SimpleButton _eOButton
+        {
+            get
+            {
+                return EOButton;
+            }
+        }
+        public SimpleButton _sEOButton
+        {
+            get
+            {
+                return SEOButton;
+            }
+        }
 
         public MainForm()
         {

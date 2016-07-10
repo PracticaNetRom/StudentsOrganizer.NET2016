@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTask = new System.Windows.Forms.Label();
-            this.txtTech = new System.Windows.Forms.Label();
-            this.txtEventName = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Show_Ev_Button = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -39,40 +39,41 @@
             this.Edit_Ev_Button = new DevExpress.XtraEditors.SimpleButton();
             this.Add_Ev_Button = new DevExpress.XtraEditors.SimpleButton();
             this.txtTechnology = new DevExpress.XtraEditors.TextEdit();
-            this.txtTsk = new DevExpress.XtraEditors.TextEdit();
+            this.txtTask = new DevExpress.XtraEditors.TextEdit();
+            this.Del_Ev_Button = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEvName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTechnology.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTsk.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTask.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtTask
+            // label3
             // 
-            this.txtTask.AutoSize = true;
-            this.txtTask.Location = new System.Drawing.Point(177, 117);
-            this.txtTask.Name = "txtTask";
-            this.txtTask.Size = new System.Drawing.Size(31, 13);
-            this.txtTask.TabIndex = 25;
-            this.txtTask.Text = "Task";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(177, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Task";
             // 
-            // txtTech
+            // label2
             // 
-            this.txtTech.AutoSize = true;
-            this.txtTech.Location = new System.Drawing.Point(177, 94);
-            this.txtTech.Name = "txtTech";
-            this.txtTech.Size = new System.Drawing.Size(63, 13);
-            this.txtTech.TabIndex = 24;
-            this.txtTech.Text = "Technology";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(177, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Technology";
             // 
-            // txtEventName
+            // label1
             // 
-            this.txtEventName.AutoSize = true;
-            this.txtEventName.Location = new System.Drawing.Point(177, 73);
-            this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(66, 13);
-            this.txtEventName.TabIndex = 23;
-            this.txtEventName.Text = "Event Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(177, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Event Name";
             // 
             // Show_Ev_Button
             // 
@@ -142,19 +143,29 @@
             this.txtTechnology.Size = new System.Drawing.Size(100, 20);
             this.txtTechnology.TabIndex = 52;
             // 
-            // txtTsk
+            // txtTask
             // 
-            this.txtTsk.Location = new System.Drawing.Point(300, 126);
-            this.txtTsk.Name = "txtTsk";
-            this.txtTsk.Size = new System.Drawing.Size(100, 20);
-            this.txtTsk.TabIndex = 53;
+            this.txtTask.Location = new System.Drawing.Point(300, 126);
+            this.txtTask.Name = "txtTask";
+            this.txtTask.Size = new System.Drawing.Size(100, 20);
+            this.txtTask.TabIndex = 53;
+            // 
+            // Del_Ev_Button
+            // 
+            this.Del_Ev_Button.Location = new System.Drawing.Point(22, 223);
+            this.Del_Ev_Button.Name = "Del_Ev_Button";
+            this.Del_Ev_Button.Size = new System.Drawing.Size(103, 23);
+            this.Del_Ev_Button.TabIndex = 54;
+            this.Del_Ev_Button.Text = "Delete";
+            this.Del_Ev_Button.Click += new System.EventHandler(this.Del_Ev_Button_Click);
             // 
             // AddEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 282);
-            this.Controls.Add(this.txtTsk);
+            this.Controls.Add(this.Del_Ev_Button);
+            this.Controls.Add(this.txtTask);
             this.Controls.Add(this.txtTechnology);
             this.Controls.Add(this.SaveEv_Button);
             this.Controls.Add(this.txtEvName);
@@ -162,9 +173,9 @@
             this.Controls.Add(this.Add_Ev_Button);
             this.Controls.Add(this.Show_Ev_Button);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.txtTask);
-            this.Controls.Add(this.txtTech);
-            this.Controls.Add(this.txtEventName);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "AddEventForm";
             this.Text = "Events Form";
             this.Load += new System.EventHandler(this.AddEventForm_Load);
@@ -172,16 +183,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEvName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTechnology.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTsk.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTask.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label txtTask;
-        private System.Windows.Forms.Label txtTech;
-        private System.Windows.Forms.Label txtEventName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton Show_Ev_Button;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -190,6 +201,7 @@
         private DevExpress.XtraEditors.SimpleButton Edit_Ev_Button;
         private DevExpress.XtraEditors.SimpleButton Add_Ev_Button;
         private DevExpress.XtraEditors.TextEdit txtTechnology;
-        private DevExpress.XtraEditors.TextEdit txtTsk;
+        private DevExpress.XtraEditors.TextEdit txtTask;
+        private DevExpress.XtraEditors.SimpleButton Del_Ev_Button;
     }
 }

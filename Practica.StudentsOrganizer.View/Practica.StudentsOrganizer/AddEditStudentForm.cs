@@ -1,4 +1,7 @@
 ﻿
+using DevExpress.XtraEditors;
+using Practica.StudentsOrganizer.Control.Controlers;
+using Practica.StudentsOrganizer.Control.Interfaces;
 using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Model.BO;
 using Practica.StudentsOrganizer.Model.DAO;
@@ -14,11 +17,92 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer
 {
-    public partial class AddEditStudentForm : Form
+    public partial class AddEditStudentForm : Form, IaddEditStudetsForm
     {
+        private CtrlAddEditStudentsForm Controler;
+        public TextEdit _txtFirst_Name
+        {
+            get
+            {
+                return txtFirst_Name;
+            }
+        }
+        public TextEdit _txtLast_Name
+        {
+            get
+            {
+                return txtLast_Name;
+            }
+        }
+        public ComboBoxEdit _comboGender
+        {
+            get
+            {
+                return comboGender;
+            }
+        }
+        public DateEdit _dateBirth_Date
+        {
+            get
+            {
+                return dateBirth_Date;
+            }
+        }
+        public TextEdit _txtEmail
+        {
+            get
+            {
+                return txtEmail;
+            }
+        }
+        public TextEdit _txtPhone
+        {
+            get
+            {
+                return txtPhone;
+            }
+        }
+        public TextEdit _txtFaculty
+        {
+            get
+            {
+                return txtFaculty;
+            }
+        }
+        public TextEdit _maskedFaculty_Start_Year
+        {
+            get
+            {
+                return maskedFaculty_Start_Year;
+            }
+        }
+        public TextEdit _txtRemarks
+        {
+            get
+            {
+                return txtRemarks;
+            }
+        }
+        public LookUpEdit _lookUpEdit1
+        {
+            get
+            {
+                return lookUpEdit1;
+            }
+        }
+        public LookUpEdit _lookUpEdit2
+        {
+            get
+            {
+                return lookUpEdit2;
+            }
+        }
+
+
         Students_BO StudReceived;
         public AddEditStudentForm(Students_BO Stud)
         {
+            Controler = new CtrlAddEditStudentsForm();
             StudReceived = Stud;
             InitializeComponent();
         }
@@ -109,6 +193,11 @@ namespace Practica.StudentsOrganizer
         private void ShowstudentsBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dateBirth_Date_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

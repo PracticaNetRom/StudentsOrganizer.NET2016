@@ -10,10 +10,13 @@ namespace Practica.StudentsOrganizer.Control
     public interface IMainForm
     {
         SimpleButton _show_Students_Button { get; }
-        SimpleButton _add_Stud_Button { get;}
-        SimpleButton _edit_Stud_Button { get;}
-        SimpleButton _del_Stud_Button { get;}
-        SimpleButton _eventsButton { get;}
+        SimpleButton _add_Stud_Button { get; }
+        SimpleButton _edit_Stud_Button { get; }
+        SimpleButton _del_Stud_Button { get; }
+        SimpleButton _eventsButton { get; }
+        SimpleButton _eOButton { get; }
+        SimpleButton _sEOButton { get;}
+        //gridControl1
 
     }
 }

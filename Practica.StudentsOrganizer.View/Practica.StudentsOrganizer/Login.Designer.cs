@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Login_Button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            this.Login_Button = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -47,13 +49,6 @@
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Welcome!";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(269, 82);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(157, 20);
-            this.txtUsername.TabIndex = 2;
             // 
             // label2
             // 
@@ -73,13 +68,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Password";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(269, 108);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(157, 20);
-            this.txtPassword.TabIndex = 4;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -88,19 +76,6 @@
             this.label4.Size = new System.Drawing.Size(210, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Please enter your username and password.";
-            // 
-            // Login_Button
-            // 
-            this.Login_Button.Image = global::Practica.StudentsOrganizer.Properties.Resources.ok;
-            this.Login_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Login_Button.Location = new System.Drawing.Point(269, 134);
-            this.Login_Button.Name = "Login_Button";
-            this.Login_Button.Size = new System.Drawing.Size(62, 36);
-            this.Login_Button.TabIndex = 6;
-            this.Login_Button.Text = "Login";
-            this.Login_Button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Login_Button.UseVisualStyleBackColor = true;
-            this.Login_Button.Click += new System.EventHandler(this.Login_Button_Click);
             // 
             // pictureBox1
             // 
@@ -111,22 +86,47 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(269, 82);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(100, 20);
+            this.txtUsername.TabIndex = 8;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(269, 105);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 9;
+            // 
+            // Login_Button
+            // 
+            this.Login_Button.Location = new System.Drawing.Point(269, 142);
+            this.Login_Button.Name = "Login_Button";
+            this.Login_Button.Size = new System.Drawing.Size(75, 23);
+            this.Login_Button.TabIndex = 10;
+            this.Login_Button.Text = "Login_Button";
+            this.Login_Button.Click += new System.EventHandler(this.Login_Button_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 182);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.Login_Button);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Login";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,11 +136,11 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button Login_Button;
         private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.TextEdit txtUsername;
+        private DevExpress.XtraEditors.TextEdit txtPassword;
+        private DevExpress.XtraEditors.SimpleButton Login_Button;
     }
 }

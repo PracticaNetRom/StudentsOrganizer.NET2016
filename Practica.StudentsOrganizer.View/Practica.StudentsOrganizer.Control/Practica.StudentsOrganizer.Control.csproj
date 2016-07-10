@@ -42,8 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="CtrlMainForm.cs" />
-    <Compile Include="IMainForm.cs" />
+    <Compile Include="Controlers\CtrlAddEditStudentsForm.cs" />
+    <Compile Include="Controlers\CtrlLogin.cs" />
+    <Compile Include="Controlers\CtrlMainForm.cs" />
+    <Compile Include="Interfaces\IaddEditStudetsForm.cs" />
+    <Compile Include="Interfaces\ILoginForm.cs" />
+    <Compile Include="Interfaces\IMainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

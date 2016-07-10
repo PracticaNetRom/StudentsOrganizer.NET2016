@@ -73,5 +73,17 @@ namespace Practica.StudentsOrganizer
             gridControl1.DataSource = EO_DAO.GetAllEO();
 
         }
+
+        private void Del_EO_Button_Click(object sender, EventArgs e)
+        {
+            //Events_BO Del_Ev;
+            //Del_Ev = ((Events_BO)gridView1.GetFocusedRow());
+            //Events_DAO Del_ev_DAO = new Events_DAO();
+            //Del_ev_DAO.DeleteEV_ById(Del_Ev);
+            Event_Occurence_BO Del_EO;
+            Del_EO = ((Event_Occurence_BO)gridView1.GetFocusedRow());
+            Event_Occurence_DAO Del_EO_DAO = new Event_Occurence_DAO();
+            Del_EO_DAO.DeleteEO_ById(Del_EO);
+        }
     }
 }

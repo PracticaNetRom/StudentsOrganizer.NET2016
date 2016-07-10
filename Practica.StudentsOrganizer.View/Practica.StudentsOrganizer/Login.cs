@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using Practica.StudentsOrganizer.Control.Controlers;
+using Practica.StudentsOrganizer.Control.Interfaces;
+using Practica.StudentsOrganizer.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,19 +15,42 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer
 {
-    public partial class Login : Form
+    public partial class Login : Form, ILoginForm
     {
+        private CtrlLogin Controler;
+        public TextEdit _txtUsername
+        {
+            get
+            {
+                return txtUsername;
+            }
+        }
+        public TextEdit _txtPassword
+        {
+            get
+            {
+                return txtPassword;
+            }
+        }
+        //public ButtonEdit _Login_Button
+        //{
+        //    get
+        //    {
+        //        return Login_Button;
+        //    }
+        //}
+
         public Login()
         {
+            Controler = new CtrlLogin();
             InitializeComponent();
         }
 
         private void Login_Button_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            //"Data Source=ROXXANA\\SQLEXPRESS; Initial Catalog=PracticaNETROM; Integrated Security=SSPI;";
-             "Data Source=netsrv-db01\\sql2014; Initial Catalog=NetRom.Practice4; Integrated Security=SSPI;";
+            conn.ConnectionString = Connection.ConnValue;
+         
             conn.Open();
             SqlCommand cmd = new SqlCommand("Select *from Login where Username = '" + txtUsername.Text + "'and Password = '" + txtPassword.Text + "'", conn);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -32,10 +59,10 @@ namespace Practica.StudentsOrganizer
             {
                 count += 1;
             }
-            if(count == 1)
+            if (count == 1)
             {
                 MessageBox.Show("Welcome!");
-               MainForm Op1 = new MainForm();
+                MainForm Op1 = new MainForm();
                 Op1.Show();
 
             }
@@ -43,8 +70,8 @@ namespace Practica.StudentsOrganizer
             {
                 MessageBox.Show("Incorrect username or password.");
             }
-            txtUsername.Clear();
-            txtPassword.Clear();
+            
+            
         }
     }
 }

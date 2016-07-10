@@ -25,9 +25,9 @@ namespace Practica.StudentsOrganizer
             Events_DAO NewEvent_DAO = new Events_DAO();
 
 
-            NewEvent.Event_Name = txtEventName.Text;
-            NewEvent.Technology = txtTech.Text;
-            NewEvent.Task = txtTask.Text;
+            NewEvent.Event_Name = label1.Text;
+            NewEvent.Technology = label2.Text;
+            NewEvent.Task = label3.Text;
 
 
             NewEvent_DAO.AddEvent(NewEvent);
@@ -45,9 +45,9 @@ namespace Practica.StudentsOrganizer
 
             Events_BO NewEv = new Events_BO();
             
-            NewEv.Event_Name = txtEventName.Text;
+            NewEv.Event_Name = label1.Text;
             NewEv.Technology = txtTechnology.Text;
-            NewEv.Task = txtTask.Text;
+            NewEv.Task = label3.Text;
 
             Ev_DAO.AddEvent(NewEv);
         }
@@ -58,7 +58,7 @@ namespace Practica.StudentsOrganizer
             Events_BO Ev_Received;
             Ev_Received = (Events_BO)gridView1.GetFocusedRow();
 
-            txtEventName.Text = Ev_Received.Event_Name.ToString();
+            txtEvName.Text = Ev_Received.Event_Name.ToString();
             txtTechnology.Text = Ev_Received.Technology.ToString();
             txtTask.Text = Ev_Received.Task.ToString();
         }
@@ -69,7 +69,7 @@ namespace Practica.StudentsOrganizer
             Events_BO Ev_Received;
             Ev_Received = (Events_BO)gridView1.GetFocusedRow();
 
-            Ev_Received.Event_Name = txtEventName.Text;
+            Ev_Received.Event_Name = txtEvName.Text;
             Ev_Received.Technology = txtTechnology.Text;
             Ev_Received.Task = txtTask.Text;
 
@@ -80,6 +80,14 @@ namespace Practica.StudentsOrganizer
         {
             Events_DAO Ev_DAO = new Events_DAO();
             gridControl1.DataSource = Ev_DAO.GetAllEvents();
+        }
+
+        private void Del_Ev_Button_Click(object sender, EventArgs e)
+        {
+            Events_BO Del_Ev;
+            Del_Ev = ((Events_BO)gridView1.GetFocusedRow());
+            Events_DAO Del_ev_DAO = new Events_DAO();
+            Del_ev_DAO.DeleteEV_ById(Del_Ev);
         }
     }
 }

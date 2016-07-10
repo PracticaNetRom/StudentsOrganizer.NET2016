@@ -80,6 +80,7 @@
             this.Del_EO_Button.Size = new System.Drawing.Size(103, 23);
             this.Del_EO_Button.TabIndex = 26;
             this.Del_EO_Button.Text = "Delete EO";
+            this.Del_EO_Button.Click += new System.EventHandler(this.Del_EO_Button_Click);
             // 
             // Edit_EO_Button
             // 

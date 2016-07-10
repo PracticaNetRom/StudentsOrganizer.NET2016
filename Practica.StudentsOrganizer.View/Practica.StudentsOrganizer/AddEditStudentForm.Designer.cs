@@ -185,6 +185,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateBirth_Date.Size = new System.Drawing.Size(217, 20);
             this.dateBirth_Date.TabIndex = 27;
+            this.dateBirth_Date.EditValueChanged += new System.EventHandler(this.dateBirth_Date_EditValueChanged);
             // 
             // txtEmail
             // 
