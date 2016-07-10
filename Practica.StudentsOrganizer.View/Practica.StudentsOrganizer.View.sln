@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentsOrganizer.View", "Practica.StudentsOrganizer.View\Practica.StudentsOrganizer.View.csproj", "{D3AFCED3-D9A6-4B8E-BEB7-B5BF387E27CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentsOrganizer.View", "Practica.StudentsOrganizer.View\Practica.StudentsOrganizer.View.csproj", "{1EEFCC34-D6E3-4CE5-946C-262E822596CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.StudentsOrganizer.Model", "Practice.StudentsOrganizer.Model\Practice.StudentsOrganizer.Model.csproj", "{4BA00B1E-D5FD-4682-99F3-3F7C781DD652}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentsOrganizer.Model", "Practica.StudentsOrganizer.Model\Practica.StudentsOrganizer.Model.csproj", "{90DBE6E9-2F70-473A-A056-D679BAC305F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentOrganizer.Controller", "Practica.StudentOrganizer.Controller\Practica.StudentOrganizer.Controller.csproj", "{EAE69744-BC53-4EBA-B8BD-C86D51838D9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica.StudentsOrganizer.Controller", "Practica.StudentsOrganizer.Controller\Practica.StudentsOrganizer.Controller.csproj", "{4D4A48C5-ED44-4E5D-805E-039F41EEB33C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D3AFCED3-D9A6-4B8E-BEB7-B5BF387E27CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3AFCED3-D9A6-4B8E-BEB7-B5BF387E27CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3AFCED3-D9A6-4B8E-BEB7-B5BF387E27CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3AFCED3-D9A6-4B8E-BEB7-B5BF387E27CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BA00B1E-D5FD-4682-99F3-3F7C781DD652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BA00B1E-D5FD-4682-99F3-3F7C781DD652}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BA00B1E-D5FD-4682-99F3-3F7C781DD652}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BA00B1E-D5FD-4682-99F3-3F7C781DD652}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAE69744-BC53-4EBA-B8BD-C86D51838D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAE69744-BC53-4EBA-B8BD-C86D51838D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAE69744-BC53-4EBA-B8BD-C86D51838D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAE69744-BC53-4EBA-B8BD-C86D51838D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EEFCC34-D6E3-4CE5-946C-262E822596CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EEFCC34-D6E3-4CE5-946C-262E822596CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EEFCC34-D6E3-4CE5-946C-262E822596CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EEFCC34-D6E3-4CE5-946C-262E822596CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90DBE6E9-2F70-473A-A056-D679BAC305F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DBE6E9-2F70-473A-A056-D679BAC305F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DBE6E9-2F70-473A-A056-D679BAC305F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DBE6E9-2F70-473A-A056-D679BAC305F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4A48C5-ED44-4E5D-805E-039F41EEB33C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4A48C5-ED44-4E5D-805E-039F41EEB33C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4A48C5-ED44-4E5D-805E-039F41EEB33C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4A48C5-ED44-4E5D-805E-039F41EEB33C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

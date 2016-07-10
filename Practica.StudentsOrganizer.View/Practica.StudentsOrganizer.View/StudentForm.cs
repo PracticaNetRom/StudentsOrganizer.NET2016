@@ -1,5 +1,5 @@
-﻿using Practica.StudentOrganizer.Controller;
-using Practice.StudentsOrganizer.Model;
+﻿using Practica.StudentsOrganizer.Controller;
+using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,62 +12,208 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer.View
 {
-    public partial class StudentForm : Form,IStudentForm
+    public partial class StudentForm : Form, IStudentForm
     {
-         public StudentBO Student { get; set; }
         private StudentController controller;
+        public StudentBO Student { get; set; }
 
-          
         public StudentForm()
         {
             InitializeComponent();
 
             controller = new StudentController(this);
+
+            BirthDate.Properties.MaxValue = DateTime.Now;
+            BirthDate.Properties.MinValue = DateTime.Now.AddYears(-100);
         }
 
-        private void addStudent_Click(object sender, EventArgs e)
+        private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            StudentBO std = new StudentBO();
+            //StudentBO std = new StudentBO();
+            //StudentDAO dao = new StudentDAO();
 
-            std.firstName = txtFirstName.Text;
-            std.lastName = txtLastName.Text;
-            std.gender = comboBoxGender.Text;
-            std.birthDate = dateTimeBirthDate.DateTime;
-            std.email = txtEmail.Text;
-            std.phoneNumber = txtPhoneNumber.Text;
-            std.faculty = txtFaculty.Text;
-            std.facultyStartYear = Convert.ToInt32( maskedTextBoxFacultyStartYear.Text);
-            std.remarks = txtRemarks.Text;
+            //if (Student == null)    // Add
+            //{
+            //    if (string.IsNullOrEmpty(txtFirstName.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's first name!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        std.FirstName = txtFirstName.Text;
+            //    }
 
-            StudentDAO dao = new StudentDAO();
+            //    if (string.IsNullOrEmpty(txtLastName.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's last name!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        std.LastName = txtLastName.Text;
+            //    }
 
-            dao.addStudent(std);
+            //    if (string.IsNullOrEmpty(Gender.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's gender!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        std.Gender = Gender.Text;
+            //    }
 
-            MessageBox.Show("Student added");
+            //    std.BirthDate = BirthDate.DateTime;
 
-            //txtFirstName.Clear();
-           // txtLastName.Clear();
-           // comboBoxGender.Clear();
-            //dateTimeBirthDate
-           // txtEmail.Clear();
-            //txtPhoneNumber.Clear();
-            //txtFaculty.Clear();
-           // maskedTextBoxFacultyStartYear.Clear();
-           // txtRemarks.Clear();
+            //    if (string.IsNullOrEmpty(txtEmail.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's Email!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        std.Email = txtEmail.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(txtPhoneNumber.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's phone number!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        std.PhoneNumber = txtPhoneNumber.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(txtFaculty.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's faculty!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        std.Faculty = txtFaculty.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(txtFacultyStartYear.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's faculty start year!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        std.FacultyStartYear = Convert.ToInt32(txtFacultyStartYear.Text);
+            //    }
+
+            //    std.Remarks = txtRemarks.Text;
+
+            //    dao.AddStudent(std);
+
+            //    MessageBox.Show("Student successfully added!");
+
+            //    Close();
+            //}
+
+            //else   //Update
+            //{
+            //    if (string.IsNullOrEmpty(txtFirstName.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's first name!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Student.FirstName = txtFirstName.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(txtLastName.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's last name!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Student.LastName = txtLastName.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(Gender.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's gender!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Student.Gender = Gender.Text;
+            //    }
+
+            //    Student.BirthDate = BirthDate.DateTime;
+
+            //    if (string.IsNullOrEmpty(txtEmail.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's Email!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Student.Email = txtEmail.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(txtPhoneNumber.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's phone number!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Student.PhoneNumber = txtPhoneNumber.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(txtFaculty.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's faculty!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Student.Faculty = txtFaculty.Text;
+            //    }
+
+            //    if (string.IsNullOrEmpty(txtFacultyStartYear.Text))
+            //    {
+            //        MessageBox.Show("Please enter student's faculty start year!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Student.FacultyStartYear = Convert.ToInt32(txtFacultyStartYear.Text);
+            //    }
+
+            //    Student.Remarks = txtRemarks.Text;
+
+            //    dao.UpdateStudent(Student);
+
+            //    MessageBox.Show("Student successfully updated!");
+
+            //    Close();
+            //}
+
             
         }
-        private void StudentForm_Load(object sender,EventArgs e)
+
+        private void StudentForm_Load(object sender, EventArgs e)
         {
-            if(Student != null)
+            if (Student != null)
             {
-                txtFirstName.Text = Student.firstName;
-                txtLastName.Text = Student.lastName;
-                comboBoxGender.Text = Student.gender;
-                dateTimeBirthDate.DateTime = Student.birthDate;
-                txtEmail.Text = Student.email;
-                txtPhoneNumber.Text = Student.phoneNumber;
-                txtFaculty.Text = Student.faculty;
-                txtRemarks.Text = Student.remarks;
+                txtFirstName.Text = Student.FirstName;
+                txtLastName.Text = Student.LastName;
+                Gender.Text = Student.Gender;
+                BirthDate.DateTime = Student.BirthDate;
+                txtEmail.Text = Student.Email;
+                txtPhoneNumber.Text = Student.PhoneNumber;
+                txtFaculty.Text = Student.Faculty;
+                txtFacultyStartYear.Text = Convert.ToString(Student.FacultyStartYear);
+                txtRemarks.Text = Student.Remarks;
             }
         }
     }

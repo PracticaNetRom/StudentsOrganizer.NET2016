@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3AFCED3-D9A6-4B8E-BEB7-B5BF387E27CE}</ProjectGuid>
+    <ProjectGuid>{1EEFCC34-D6E3-4CE5-946C-262E822596CD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Practica.StudentsOrganizer.View</RootNamespace>
@@ -37,6 +37,7 @@
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -56,18 +57,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DevExpress\XtraBars\ItemClickEventArgs.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="EventForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EventForm.Designer.cs">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event_OccurenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Event_OccurenceForm.Designer.cs">
+      <DependentUpon>Event_OccurenceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Std_Event_OccurenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Std_Event_OccurenceForm.Designer.cs">
+      <DependentUpon>Std_Event_OccurenceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +89,12 @@
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EventForm.resx">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Event_OccurenceForm.resx">
+      <DependentUpon>Event_OccurenceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Std_Event_OccurenceForm.resx">
+      <DependentUpon>Std_Event_OccurenceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,13 +128,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Practica.StudentOrganizer.Controller\Practica.StudentOrganizer.Controller.csproj">
-      <Project>{eae69744-bc53-4eba-b8bd-c86d51838d9f}</Project>
-      <Name>Practica.StudentOrganizer.Controller</Name>
+    <ProjectReference Include="..\Practica.StudentsOrganizer.Controller\Practica.StudentsOrganizer.Controller.csproj">
+      <Project>{4d4a48c5-ed44-4e5d-805e-039f41eeb33c}</Project>
+      <Name>Practica.StudentsOrganizer.Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Practice.StudentsOrganizer.Model\Practice.StudentsOrganizer.Model.csproj">
-      <Project>{4ba00b1e-d5fd-4682-99f3-3f7c781dd652}</Project>
-      <Name>Practice.StudentsOrganizer.Model</Name>
+    <ProjectReference Include="..\Practica.StudentsOrganizer.Model\Practica.StudentsOrganizer.Model.csproj">
+      <Project>{90dbe6e9-2f70-473a-a056-d679bac305f0}</Project>
+      <Name>Practica.StudentsOrganizer.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

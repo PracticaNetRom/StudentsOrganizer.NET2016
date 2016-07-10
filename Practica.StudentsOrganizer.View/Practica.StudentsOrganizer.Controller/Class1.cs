@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practica.StudentOrganizer.Controller
+namespace Practica.StudentsOrganizer.Controller
 {
-    interface IStudentForm
+    public class Class1
     {
     }
 }

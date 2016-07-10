@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,15 +8,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using Practice.StudentsOrganizer.Model;
+using Practica.StudentsOrganizer.Model;
+using Practica.StudentsOrganizer.Controller;
 
 namespace Practica.StudentsOrganizer.View
 {
-    public partial class MainForm : DevExpress.XtraEditors.XtraForm
+    public partial class MainForm : DevExpress.XtraEditors.XtraForm,IMainForm
     {
+        private MainController controller;
+
         public MainForm()
         {
             InitializeComponent();
+
+            controller = new MainController(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -27,41 +31,49 @@ namespace Practica.StudentsOrganizer.View
             gridControl1.DataSource = dt;
         }
 
-      //DevExpress.XtraBars.ItemClickEventArgs e
-        
-
-        private void btnAdd_ItemClick(object sender, EventArgs e)
+        public void RefreshForm()
         {
-            StudentForm stdForm = new StudentForm();
-            stdForm.Show();
+           // StudentDAO dao = new StudentDAO();
+           // DataTable dt = dao.GetAllStudents();
+           // gridControl1.DataSource = dt;
         }
 
-        private void btnOpen_ItemClick(object sender, EventArgs e)
+        private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int selectedRow = gridView1.FocusedRowHandle;
-            int ID = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
-
-            StudentBO st = new StudentBO();
-            StudentDAO dao = new StudentDAO();
-            st = dao.getStudentByID(ID);
-
-            StudentForm stdForm = new StudentForm();
-            stdForm.Student = st;
-            stdForm.Show();
+           // StudentForm stdForm = new StudentForm();
+           // stdForm.ShowDialog();
+            
+           // RefreshForm();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnOpen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int selectedRow = gridView1.FocusedRowHandle;
-            int ID = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
+         //   int selectedRow = gridView1.FocusedRowHandle;
+          //  int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
 
-            StudentBO student = new StudentBO();
-            StudentDAO dao = new StudentDAO();
+           // StudentBO st = new StudentBO();
+         //   StudentDAO dao = new StudentDAO();
+          //  st=dao.getStudentById(Id);
 
-            dao.DeleteStudent(student);
+          //  StudentForm stdForm = new StudentForm();
+          //  stdForm.Student = st;
+          //  stdForm.ShowDialog();
+
+          //  RefreshForm();
+
+        }
 
 
 
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+          //  int selectedRow = gridView1.FocusedRowHandle;
+          //  int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
+
+          //  StudentDAO dao = new StudentDAO();
+           // dao.DeleteStudent(Id);
+           
+          //  RefreshForm();
         }
     }
 }
