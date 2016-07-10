@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="MainController.cs" />
     <Compile Include="IMainForm.cs" />
     <Compile Include="IStudentForm.cs" />
     <Compile Include="StudentController.cs" />

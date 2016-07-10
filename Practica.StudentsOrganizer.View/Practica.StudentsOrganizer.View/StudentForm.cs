@@ -29,6 +29,10 @@ namespace Practica.StudentsOrganizer.View
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
+
+            controller.Add_Update();
+            Close();
+
             //StudentBO std = new StudentBO();
             //StudentDAO dao = new StudentDAO();
 
@@ -203,18 +207,21 @@ namespace Practica.StudentsOrganizer.View
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-            if (Student != null)
-            {
-                txtFirstName.Text = Student.FirstName;
-                txtLastName.Text = Student.LastName;
-                Gender.Text = Student.Gender;
-                BirthDate.DateTime = Student.BirthDate;
-                txtEmail.Text = Student.Email;
-                txtPhoneNumber.Text = Student.PhoneNumber;
-                txtFaculty.Text = Student.Faculty;
-                txtFacultyStartYear.Text = Convert.ToString(Student.FacultyStartYear);
-                txtRemarks.Text = Student.Remarks;
-            }
+
+            controller.LoadStudentForm();
+
+            //if (Student != null)
+            //{
+            //    txtFirstName.Text = Student.FirstName;
+            //    txtLastName.Text = Student.LastName;
+            //    Gender.Text = Student.Gender;
+            //    BirthDate.DateTime = Student.BirthDate;
+            //    txtEmail.Text = Student.Email;
+            //    txtPhoneNumber.Text = Student.PhoneNumber;
+            //    txtFaculty.Text = Student.Faculty;
+            //    txtFacultyStartYear.Text = Convert.ToString(Student.FacultyStartYear);
+            //    txtRemarks.Text = Student.Remarks;
+            //}
         }
     }
 }
