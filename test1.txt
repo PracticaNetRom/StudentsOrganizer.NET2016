@@ -1,0 +1,29 @@
+   if (textFirstName.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus FistName!!");
+                return;
+            }
+
+            if (textLastName.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus LastName");
+                return;
+            }
+
+            if (textBirthDate.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus BirthDate");
+                return;
+            }
+
+            if (textPhoneNumbers.Text=="")
+            {
+                MessageBox.Show("Nu ati introdus PhoneNumbers");
+                return;
+            }
+
+            if (textFaculty.Text == "")
+            {
+                MessageBox.Show("Nu ati introdus Faculty");
+                return;
+            }

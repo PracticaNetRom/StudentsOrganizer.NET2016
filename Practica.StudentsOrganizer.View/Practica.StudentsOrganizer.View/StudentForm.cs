@@ -13,43 +13,55 @@ namespace Practica.StudentsOrganizer.View
 {
     public partial class StudentForm : Form
     {
+<<<<<<< HEAD
         //studentBO StudReceived;
         public StudentForm()
         {
            // StudReceived = Stud;
+=======
+        private studentBO student;
+        public StudentForm(studentBO stud)
+        {
+            this.student = stud;
+>>>>>>> origin/D.Puscu
             InitializeComponent();
+
+        }
+
+        private void CopyObjectInForm(studentBO student)
+        {
+            
+        }
+
+        private void CopyFormDataInObject(studentBO student)
+        {
+            student.FirstName = textFirstName.Text;
+            student.LastName = textFirstName.Text;
+            student.Gender = textGender.Text;
+            student.BirthDate = textBirthDate.DateTime;
+            student.Email = textEmail.Text;
+            student.PhoneNumbers = textPhoneNumbers.Text;
+            student.PhoneHomeNumbers = textPhoneHomeNumbers.Text;
+            student.FacultyStarYear = Convert.ToInt32(textFacultyStartYear.Text);
+            student.Faculty = textFaculty.Text;
+            student.Remarks = textRemarks.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            studentBO NewStudentBO = new studentBO();
-            StudentDAO NewStudentDAO = new StudentDAO();
-            if (textFirstName.Text == "")
-            {
-                MessageBox.Show("Nu ati introdus FistName!!");
-                return;
-            }
+            StudentDAO studDao = new StudentDAO();
 
-            if (textLastName.Text == "")
+            if (this.student == null)
             {
-                MessageBox.Show("Nu ati introdus LastName");
-                return;
-            }
+                student = new studentBO();
 
-            if (textBirthDate.Text == "")
-            {
-                MessageBox.Show("Nu ati introdus BirthDate");
-                return;
-            }
+                CopyFormDataInObject(student);
 
-            if (textPhoneNumbers.Text=="")
-            {
-                MessageBox.Show("Nu ati introdus PhoneNumbers");
-                return;
+                studDao.AddStud(student);                
             }
-
-            if (textFaculty.Text == "")
+            else
             {
+<<<<<<< HEAD
                 MessageBox.Show("Nu ati introdus Faculty");
                 return;
             }
@@ -70,6 +82,12 @@ namespace Practica.StudentsOrganizer.View
             
  
             
+=======
+                CopyFormDataInObject(student);
+
+                studDao.UpdateStud(student);
+            }
+>>>>>>> origin/D.Puscu
         }
 
         private void buttonEdit1_EditValueChanged(object sender, EventArgs e)
@@ -79,7 +97,10 @@ namespace Practica.StudentsOrganizer.View
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
+            if (this.student != null)
+            {
 
+            }
         }
     }
 }

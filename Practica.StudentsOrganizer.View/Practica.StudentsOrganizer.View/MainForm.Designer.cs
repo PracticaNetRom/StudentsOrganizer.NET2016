@@ -71,6 +71,7 @@
             this.btnDeleteStudent.Size = new System.Drawing.Size(161, 49);
             this.btnDeleteStudent.TabIndex = 2;
             this.btnDeleteStudent.Text = "DeleteStudent";
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // gridControlStudent
             // 

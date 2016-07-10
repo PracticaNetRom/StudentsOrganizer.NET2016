@@ -13,9 +13,11 @@ namespace Practica.StudentsOrganizer.Model
         public student_event_occurenceBO Stud_Event_Occurence(int Id)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            /*conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
             "Initial Catalog=NetRom.Practice5;" +
             "Integrated Security=SSPI;";
+            */
+            conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "select Id.student_event_occurence,IdEvent.student_event_occurence,DataStart.student_event_occurence,DataEnd.student_event_occurence from student_event_occurence where Id=" + Id;
             cmd.Connection = conn;
@@ -43,9 +45,11 @@ namespace Practica.StudentsOrganizer.Model
 
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
-            "Initial Catalog=NetRom.Practice5;" +
-            "Integrated Security=SSPI;";
+            /*  conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+              "Initial Catalog=NetRom.Practice5;" +
+              "Integrated Security=SSPI;";
+              */
+            conn.ConnectionString = Connection.ConValue; 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT into student_event_occurence(
                                 DataStart,
