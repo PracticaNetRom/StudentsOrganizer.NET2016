@@ -11,7 +11,7 @@ namespace Practica.StudentsOrganizer.Model
 {
     public class StudentDAO
     {
-        private object sqlDbType;
+        public object sqlDbType;
 
         public studentBO GetStud(int Id)
         {
@@ -179,7 +179,7 @@ namespace Practica.StudentsOrganizer.Model
 
         }
 
-        public void DeleteStud(studentBO StudDel)
+        public void DeleteStud_ByFirstName(studentBO DelStud)
         {
             SqlConnection conn = new SqlConnection();
             // conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
@@ -187,8 +187,16 @@ namespace Practica.StudentsOrganizer.Model
             //"Integrated Security=SSPI;";
             conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"Delete * from student where IdStudent=@IdStudent";
+            cmd.CommandText = @"Delete from student where IdStudent=@IdStudent";
             cmd.Connection = conn;
+
+            cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = DelStud.IdStudent;
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                MessageBox.Show("Succes!!");
+            }
+            conn.Close();
 
             conn.Open();
             cmd.ExecuteNonQuery();

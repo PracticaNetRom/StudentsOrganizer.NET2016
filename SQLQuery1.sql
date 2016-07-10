@@ -30,6 +30,7 @@ CREATE TABLE student(
 
 DROP TABLE student_period_event;
 CREATE TABLE student_period_event(
+	Id integer Primary key identitY(1,1),
 	IdStudent integer,
 	IdStudentOccurence integer,
 );
