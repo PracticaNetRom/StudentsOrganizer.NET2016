@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,17 @@ namespace Practica.StudentOrganizer.Controller.Interfaces
 {
     public interface IAddStudentForm
     {
+       // StudentBO Student { get; set; }
+
         TextEdit txtFirstName { get; }
         TextEdit txtLastName { get; }
-            
-           
-            /*
-            comboBoxGender
-            dateTimeBirthDate
-            txtEmail
-            txtPhoneNumber
-            txtFaculty
-            txtFacultyStartYear
-            txtRemarks
-            */
+        ComboBoxEdit comboBoxGender { get; }
+        DateEdit dateTimeBirthDate { get; }
+        TextEdit txtEmail { get; }
+        TextEdit txtPhoneNumber { get; }
+        TextEdit txtFaculty { get; }
+        TextEdit txtFacultyStartYear { get; }
+        TextEdit txtRemarks { get; }
+        
     }
 }

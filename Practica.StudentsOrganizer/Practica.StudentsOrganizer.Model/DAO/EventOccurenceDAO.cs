@@ -1,6 +1,7 @@
 ﻿using Practica.StudentsOrganizer.Model.BO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,19 +13,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
     {
         public EventOccurenceBO GetEventOccurence (int id)
         {
-
-            //SqlConnection conn = new SqlConnection();
-            //conn.ConnectionString =
-            //"Data Source = PC\\SQL;" +
-            //"Initial Catalog = master;" +
-            //"Integrated Security = SSPI;";
-
-
-            
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-
-
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select id, idEvent, startData, endData from EventOccurence where ID = " + id;
@@ -53,19 +43,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
         public void AddEventOccurence(EventOccurenceBO eventOccuAdd)
         {
-
-            //SqlConnection conn = new SqlConnection();
-            //conn.ConnectionString =
-            //"Data Source = PC\\SQL;" +
-            //"Initial Catalog = master;" +
-            //"Integrated Security = SSPI;";
-
-
-            
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-
-            
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO EventOccurence(
@@ -79,9 +58,9 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.Connection = conn;
             conn.Open();
 
-            cmd.Parameters.AddWithValue("@paramIdEvent", eventOccuAdd.idEvent);
-            cmd.Parameters.AddWithValue("@paramStartData", eventOccuAdd.startData);
-            cmd.Parameters.AddWithValue("@paramEndData", eventOccuAdd.endData);
+            cmd.Parameters.Add("@paramIdEvent", SqlDbType.Int).Value = eventOccuAdd.idEvent;
+            cmd.Parameters.Add("@paramStartData", SqlDbType.Date).Value = eventOccuAdd.startData;
+            cmd.Parameters.Add("@paramEndData", SqlDbType.Date).Value = eventOccuAdd.endData;
 
             cmd.ExecuteNonQuery();
         }

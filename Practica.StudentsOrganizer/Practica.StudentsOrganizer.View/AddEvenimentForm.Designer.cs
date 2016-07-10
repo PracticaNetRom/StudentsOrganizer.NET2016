@@ -98,6 +98,7 @@
             this.buttonSaveEvent.TabIndex = 12;
             this.buttonSaveEvent.Text = "SAVE";
             this.buttonSaveEvent.UseVisualStyleBackColor = false;
+            this.buttonSaveEvent.Click += new System.EventHandler(this.buttonSaveEvent_Click);
             // 
             // comboBoxDepart
             // 

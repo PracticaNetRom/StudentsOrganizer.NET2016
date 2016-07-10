@@ -1,4 +1,6 @@
-﻿using Practica.StudentOrganizer.Controller.Interfaces;
+﻿using DevExpress.XtraEditors;
+using Practica.StudentOrganizer.Controller.Controllers;
+using Practica.StudentOrganizer.Controller.Interfaces;
 using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Model.DAO;
 using Practica.StudentsOrganizer.View;
@@ -17,9 +19,82 @@ using System.Windows.Forms;
 namespace Practica.StudentsOrganizer.View
 {
     public partial class AddStudentForm : Form, IAddStudentForm
+    {
+        private AddStudentController controlerStd;
 
-    {    
- 
+
+        public TextEdit _txtFirstName
+        {
+            get
+            {
+                return txtFirstName;
+            }
+        }
+
+        public TextEdit _txtLastName
+        {
+            get
+            {
+                return txtLastName;
+            }
+        }
+
+        public ComboBoxEdit _comboBoxGender
+        {
+            get
+            {
+                return comboBoxGender;
+            }
+        }
+
+        public DateEdit _dateTimeBirthDate
+        {
+            get
+            {
+                return dateTimeBirthDate;
+            }
+        }
+
+        public TextEdit _txtEmail
+        {
+            get
+            {
+                return txtEmail;
+            }
+        }
+
+        public TextEdit _txtPhoneNumber
+        {
+            get
+            {
+                return txtPhoneNumber;
+            }
+        }
+
+        public TextEdit _txtFaculty
+        {
+            get
+            {
+                return txtFaculty;
+            }
+        }
+
+        public TextEdit _txtFacultyStartYear
+        {
+            get
+            {
+                return txtFacultyStartYear;
+            }
+        }
+
+        public TextEdit _txtRemarks
+        {
+            get
+            {
+                return txtRemarks;
+            }
+        }
+
 
         public AddStudentForm()
         {
@@ -40,7 +115,11 @@ namespace Practica.StudentsOrganizer.View
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            
+
+            /*
             StudentBO stdBO;
+            
             if (student == null)  //student nou
             {
                 stdBO = new StudentBO();
@@ -49,9 +128,10 @@ namespace Practica.StudentsOrganizer.View
             {
                 stdBO = student;
             }
-
+            
            
             //stdBO.id = 6;
+
             stdBO.firstName = txtFirstName.Text;
             stdBO.lastName = txtLastName.Text;
             stdBO.gender = comboBoxGender.Text;
@@ -163,11 +243,12 @@ namespace Practica.StudentsOrganizer.View
             txtFaculty.Text = string.Empty;
             txtFacultyStartYear.Text = string.Empty;
             txtRemarks.Text = string.Empty;
+            */
         }
 
 
-        StudentBO student;
-        
+       // StudentBO student;
+       /* 
         public void PopulateStudent(StudentBO s)
         {
             txtFirstName.Text = s.firstName;
@@ -184,7 +265,7 @@ namespace Practica.StudentsOrganizer.View
 
         }
         
-        
+      */  
 
 
         private void dateTimeBirthDate_ValueChanged(object sender, EventArgs e)
@@ -243,6 +324,11 @@ namespace Practica.StudentsOrganizer.View
         }
 
         private void txtEmail_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click_1(object sender, EventArgs e)
         {
 
         }

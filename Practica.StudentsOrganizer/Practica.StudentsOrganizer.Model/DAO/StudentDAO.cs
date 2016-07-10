@@ -13,21 +13,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
     {
         public StudentBO GetStudent (int id)
         {
-            //SqlConnection conn = new SqlConnection();
-            //conn.ConnectionString =
-            //"Data Source = PC\\SQL;" +
-            //"Initial Catalog = master;" +
-            //"Integrated Security = SSPI;";
-
-
-            
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = netsrv-db01\\sql2014;" +
-            "Initial Catalog = NetRom.Practice3;" +
-            "Integrated Security = SSPI;";
-            
-
+            conn.ConnectionString = ConnString.Value;
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select id, firstName, lastName, gender, birthDate, email,phoneNumber, faculty, facultyStartYear, remarks from Student where ID = " + id;
@@ -35,7 +22,6 @@ namespace Practica.StudentsOrganizer.Model.DAO
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
            
-
             if (reader.Read() == true)
             {
                 if (reader.HasRows)
@@ -57,26 +43,13 @@ namespace Practica.StudentsOrganizer.Model.DAO
             }
 
             return null;
-         
         }
 
 
         public void AddStudent (StudentBO studentAdd)
         {
-
-            //SqlConnection conn = new SqlConnection();
-            //conn.ConnectionString =
-            //"Data Source = PC\\SQL;" +
-            //"Initial Catalog = master;" +
-            //"Integrated Security = SSPI;";
-
-
-            
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-
-            
-
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Student(
@@ -113,24 +86,13 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.Parameters.AddWithValue("@paramRemarks", studentAdd.remarks);
 
             cmd.ExecuteNonQuery();
-    
         }
 
 
         public DataTable GetAllStudents()
-        {   /*
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = PC\\SQL;" +
-            "Initial Catalog = master;" +
-            "Integrated Security = SSPI;";
-            */
-        
-            
+        {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-
-            
 
             DataTable dt = new DataTable();
             SqlDataAdapter adapetr = new SqlDataAdapter("SELECT * FROM Student",conn);
@@ -145,7 +107,6 @@ namespace Practica.StudentsOrganizer.Model.DAO
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-
             SqlCommand updateCmd = new SqlCommand();
  
             updateCmd.CommandText = @"UPDATE Student Set
@@ -180,15 +141,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
 
         public void DeleteStudent(int id)
-        {   /*
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = PC\\SQL;" +
-            "Initial Catalog = master;" +
-            "Integrated Security = SSPI;";
-            */
-
-            
+        {   
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
 
@@ -201,7 +154,6 @@ namespace Practica.StudentsOrganizer.Model.DAO
             deleteCmd.Connection = conn;
 
             deleteCmd.ExecuteNonQuery();
-            //deleteCmd.Parameters.Add("@id", SqlDbType.NChar, 5, "id").SourceVersion = DataRowVersion.Original;
         }
     }
 

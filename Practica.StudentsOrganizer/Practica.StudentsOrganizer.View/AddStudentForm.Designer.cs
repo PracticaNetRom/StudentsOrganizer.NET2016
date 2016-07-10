@@ -42,22 +42,26 @@
             this.txtFirstName = new DevExpress.XtraEditors.TextEdit();
             this.txtLastName = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxGender = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.dateTimeBirthDate = new DevExpress.XtraEditors.DateEdit();
             this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.txtPhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtFaculty = new DevExpress.XtraEditors.TextEdit();
             this.txtFacultyStartYear = new DevExpress.XtraEditors.TextEdit();
             this.txtRemarks = new DevExpress.XtraEditors.TextEdit();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxEventName = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxTechnol = new System.Windows.Forms.ComboBox();
+            this.dateTimeBirthDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxGender.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFaculty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFacultyStartYear.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +69,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 53);
+            this.label1.Location = new System.Drawing.Point(29, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 16);
             this.label1.TabIndex = 0;
@@ -76,7 +80,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 82);
+            this.label2.Location = new System.Drawing.Point(29, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 16);
             this.label2.TabIndex = 2;
@@ -87,7 +91,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(24, 111);
+            this.label3.Location = new System.Drawing.Point(29, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 4;
@@ -99,7 +103,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(24, 137);
+            this.label4.Location = new System.Drawing.Point(29, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 6;
@@ -110,7 +114,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 163);
+            this.label5.Location = new System.Drawing.Point(29, 163);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 16);
             this.label5.TabIndex = 8;
@@ -122,7 +126,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 190);
+            this.label6.Location = new System.Drawing.Point(29, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 16);
             this.label6.TabIndex = 10;
@@ -134,7 +138,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(24, 219);
+            this.label7.Location = new System.Drawing.Point(29, 219);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 12;
@@ -145,7 +149,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 248);
+            this.label8.Location = new System.Drawing.Point(29, 248);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(135, 16);
             this.label8.TabIndex = 14;
@@ -156,7 +160,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(24, 278);
+            this.label9.Location = new System.Drawing.Point(29, 278);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 16);
             this.label9.TabIndex = 16;
@@ -168,7 +172,7 @@
             this.buttonSave.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.Color.Maroon;
-            this.buttonSave.Location = new System.Drawing.Point(225, 330);
+            this.buttonSave.Location = new System.Drawing.Point(230, 330);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(95, 33);
             this.buttonSave.TabIndex = 18;
@@ -182,19 +186,19 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Crimson;
-            this.label10.Location = new System.Drawing.Point(307, 9);
+            this.label10.Location = new System.Drawing.Point(256, 9);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(73, 20);
+            this.label10.Size = new System.Drawing.Size(230, 20);
             this.label10.TabIndex = 20;
-            this.label10.Text = "Student";
+            this.label10.Text = "Informations about Student";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtFirstName
             // 
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFirstName.Location = new System.Drawing.Point(170, 49);
+            this.txtFirstName.Location = new System.Drawing.Point(175, 49);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 20);
             this.txtFirstName.TabIndex = 24;
@@ -203,7 +207,7 @@
             // txtLastName
             // 
             this.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtLastName.Location = new System.Drawing.Point(170, 78);
+            this.txtLastName.Location = new System.Drawing.Point(175, 78);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 20);
             this.txtLastName.TabIndex = 25;
@@ -212,7 +216,7 @@
             // 
             this.comboBoxGender.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxGender.EditValue = "";
-            this.comboBoxGender.Location = new System.Drawing.Point(170, 108);
+            this.comboBoxGender.Location = new System.Drawing.Point(175, 107);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -223,23 +227,10 @@
             this.comboBoxGender.Size = new System.Drawing.Size(99, 20);
             this.comboBoxGender.TabIndex = 26;
             // 
-            // dateTimeBirthDate
-            // 
-            this.dateTimeBirthDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimeBirthDate.EditValue = null;
-            this.dateTimeBirthDate.Location = new System.Drawing.Point(170, 133);
-            this.dateTimeBirthDate.Name = "dateTimeBirthDate";
-            this.dateTimeBirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTimeBirthDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTimeBirthDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimeBirthDate.TabIndex = 27;
-            // 
             // txtEmail
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtEmail.Location = new System.Drawing.Point(170, 159);
+            this.txtEmail.Location = new System.Drawing.Point(175, 159);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
             this.txtEmail.TabIndex = 28;
@@ -248,7 +239,7 @@
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtPhoneNumber.Location = new System.Drawing.Point(170, 186);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(175, 186);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Properties.Mask.EditMask = "\\d?\\d?\\d?\\d?  \\d\\d\\d \\d\\d\\d";
             this.txtPhoneNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
@@ -258,7 +249,7 @@
             // txtFaculty
             // 
             this.txtFaculty.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFaculty.Location = new System.Drawing.Point(170, 212);
+            this.txtFaculty.Location = new System.Drawing.Point(175, 212);
             this.txtFaculty.Name = "txtFaculty";
             this.txtFaculty.Size = new System.Drawing.Size(200, 20);
             this.txtFaculty.TabIndex = 30;
@@ -266,7 +257,7 @@
             // txtFacultyStartYear
             // 
             this.txtFacultyStartYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFacultyStartYear.Location = new System.Drawing.Point(170, 244);
+            this.txtFacultyStartYear.Location = new System.Drawing.Point(175, 244);
             this.txtFacultyStartYear.Name = "txtFacultyStartYear";
             this.txtFacultyStartYear.Properties.Mask.BeepOnError = true;
             this.txtFacultyStartYear.Properties.Mask.EditMask = "d";
@@ -278,23 +269,86 @@
             // txtRemarks
             // 
             this.txtRemarks.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtRemarks.Location = new System.Drawing.Point(170, 274);
+            this.txtRemarks.Location = new System.Drawing.Point(175, 274);
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(200, 20);
             this.txtRemarks.TabIndex = 32;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(417, 107);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(92, 16);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Event Name";
+            this.label11.Click += new System.EventHandler(this.label11_Click_1);
+            // 
+            // comboBoxEventName
+            // 
+            this.comboBoxEventName.FormattingEnabled = true;
+            this.comboBoxEventName.Items.AddRange(new object[] {
+            "Code Golf",
+            "NetRom {Summer} Camp",
+            "Intership",
+            "NetRom Software Academy"});
+            this.comboBoxEventName.Location = new System.Drawing.Point(515, 107);
+            this.comboBoxEventName.Name = "comboBoxEventName";
+            this.comboBoxEventName.Size = new System.Drawing.Size(185, 21);
+            this.comboBoxEventName.TabIndex = 34;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(417, 137);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 16);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Department";
+            // 
+            // comboBoxTechnol
+            // 
+            this.comboBoxTechnol.FormattingEnabled = true;
+            this.comboBoxTechnol.Items.AddRange(new object[] {
+            ".NET",
+            "Java",
+            "PHP",
+            "iOS"});
+            this.comboBoxTechnol.Location = new System.Drawing.Point(515, 132);
+            this.comboBoxTechnol.Name = "comboBoxTechnol";
+            this.comboBoxTechnol.Size = new System.Drawing.Size(89, 21);
+            this.comboBoxTechnol.TabIndex = 36;
+            // 
+            // dateTimeBirthDate
+            // 
+            this.dateTimeBirthDate.EditValue = null;
+            this.dateTimeBirthDate.Location = new System.Drawing.Point(175, 136);
+            this.dateTimeBirthDate.Name = "dateTimeBirthDate";
+            this.dateTimeBirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimeBirthDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimeBirthDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimeBirthDate.TabIndex = 40;
             // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(705, 412);
+            this.ClientSize = new System.Drawing.Size(714, 412);
+            this.Controls.Add(this.dateTimeBirthDate);
+            this.Controls.Add(this.comboBoxTechnol);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.comboBoxEventName);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.txtFacultyStartYear);
             this.Controls.Add(this.txtFaculty);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.dateTimeBirthDate);
             this.Controls.Add(this.comboBoxGender);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
@@ -315,13 +369,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxGender.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFaculty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFacultyStartYear.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeBirthDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,11 +397,15 @@
         private DevExpress.XtraEditors.TextEdit txtFirstName;
         private DevExpress.XtraEditors.TextEdit txtLastName;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxGender;
-        private DevExpress.XtraEditors.DateEdit dateTimeBirthDate;
         private DevExpress.XtraEditors.TextEdit txtEmail;
         private DevExpress.XtraEditors.TextEdit txtPhoneNumber;
         private DevExpress.XtraEditors.TextEdit txtFaculty;
         private DevExpress.XtraEditors.TextEdit txtFacultyStartYear;
         private DevExpress.XtraEditors.TextEdit txtRemarks;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBoxEventName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBoxTechnol;
+        private DevExpress.XtraEditors.DateEdit dateTimeBirthDate;
     }
 }

@@ -9,18 +9,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Practica.StudentOrganizer.Controller.Controllers;
+using DevExpress.XtraEditors;
+using Practica.StudentOrganizer.Controller.Interfaces;
 
 namespace Practica.StudentsOrganizer.View
 {
-    public partial class MainForm : Form
-    {
+    public partial class MainForm : Form, IMainForm
+    { 
+        private MainFormController controlerMain;
+
+
+        public SimpleButton _buttInsertStd
+        {
+            get
+            {
+                return buttInsertStd;
+            }
+        }
+
+        public SimpleButton _buttonUpdateStd
+        {
+            get
+            {
+              return buttonUpdateStd;
+            }
+        }
+
+        public SimpleButton _buttDeleteStd
+        {
+            get
+            {
+                return buttDeleteStd;
+            }
+        }
+
+
         public MainForm()
         {
+          
             InitializeComponent();
         }
 
+
         private void buttonUpdateStd_Click(object sender, EventArgs e)
         {
+            
             AddStudentForm stdForm = new AddStudentForm();
            
             StudentDAO stdselectDAO = new StudentDAO();
@@ -36,6 +70,7 @@ namespace Practica.StudentsOrganizer.View
             stdForm.ShowDialog();
 
             RefreshData();
+            
         }
 
 
@@ -54,16 +89,17 @@ namespace Practica.StudentsOrganizer.View
 
         private void buttInsertStd_Click(object sender, EventArgs e)
         {
+            
             AddStudentForm stdForm = new AddStudentForm();
-
             stdForm.ShowDialog();
-
             RefreshData();
+            
         }
 
 
         private void buttDeleteStd_Click(object sender, EventArgs e)
         {
+            
             int selectedRow = gridView1.FocusedRowHandle;
             int id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "id"));
             
@@ -73,10 +109,11 @@ namespace Practica.StudentsOrganizer.View
             MessageBox.Show("Student successfully deleted!");
 
             RefreshData();
-
-
+            
         }
 
+
+        
         private void RefreshData()
         {
             StudentDAO studDAO = new StudentDAO();
@@ -86,5 +123,6 @@ namespace Practica.StudentsOrganizer.View
 
             grdCtrlStudents.DataSource = dtret;
         }
+        
     }
 }

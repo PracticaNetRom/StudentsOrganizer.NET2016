@@ -1,4 +1,8 @@
-﻿using Practica.StudentsOrganizer.Model.BO;
+﻿using DevExpress.XtraEditors;
+using Practica.StudentOrganizer.Controller.Controllers;
+using Practica.StudentOrganizer.Controller.Interfaces;
+using Practica.StudentsOrganizer.Model;
+using Practica.StudentsOrganizer.Model.BO;
 using Practica.StudentsOrganizer.Model.DAO;
 using System;
 using System.Collections.Generic;
@@ -75,6 +79,11 @@ namespace Practica.StudentsOrganizer.View
         }
 
         private void AddEvenimentForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSaveEvent_Click(object sender, EventArgs e)
         {
 
         }

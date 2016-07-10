@@ -12,19 +12,9 @@ namespace Practica.StudentsOrganizer.Model.DAO
     {
         public EvenimentBO GetEveniment (int id)
             {
-
-
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-          
-
-
-            /*
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = 
-            
-            */
-
+   
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select id, eventName, task, departamentOrTehnology from Eveniment where ID = " + id;
             cmd.Connection = conn;
@@ -52,20 +42,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
         public void AddEveniment(EvenimentBO evenimentAdd)
         {
-
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-
-
-
-            /*
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = netsrv-db01\\sql2014;" +
-            "Initial Catalog = NetRom.Practice3;" +
-            "Integrated Security = SSPI;";
-            */
-
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"INSERT INTO Eveniment(
@@ -82,7 +60,6 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.Parameters.AddWithValue("@paramEventName", evenimentAdd.eventName);
             cmd.Parameters.AddWithValue("@paramTask", evenimentAdd.task);
             cmd.Parameters.AddWithValue("@paramDepartamentOrTehnology", evenimentAdd.departamentOrTehnology);
-
 
             cmd.ExecuteNonQuery();
         }
