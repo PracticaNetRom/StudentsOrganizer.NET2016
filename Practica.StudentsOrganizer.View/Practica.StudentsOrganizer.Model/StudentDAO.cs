@@ -157,7 +157,7 @@ namespace Practica.StudentsOrganizer.Model
                                 PhoneHomeNumbers=@PhoneHomeNumbers,
                                 Faculty=@Faculty,
                                 FacultyStartYear=@FacultyStartYear,
-                                Remarks=@Remarks Where IdStundent=@IdStundent";
+                                Remarks=@Remarks Where IdStudent=@IdStudent";
             cmd.Connection = conn;
             cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = StudUp.IdStudent;
             cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 30).Value = StudUp.FirstName;
@@ -174,12 +174,9 @@ namespace Practica.StudentsOrganizer.Model
             conn.Open();
 
             cmd.ExecuteNonQuery();
-
-
-
         }
 
-        public void DeleteStud_ByFirstName(studentBO DelStud)
+        public void DeleteStud(studentBO DelStud)
         {
             SqlConnection conn = new SqlConnection();
             // conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
@@ -189,18 +186,13 @@ namespace Practica.StudentsOrganizer.Model
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"Delete from student where IdStudent=@IdStudent";
             cmd.Connection = conn;
+            conn.Open();
 
             cmd.Parameters.Add("@IdStudent", SqlDbType.Int).Value = DelStud.IdStudent;
-            int i = cmd.ExecuteNonQuery();
-            if (i > 0)
-            {
-                MessageBox.Show("Succes!!");
-            }
-            conn.Close();
 
-            conn.Open();
+          
             cmd.ExecuteNonQuery();
-
+            conn.Close();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Practica.StudentsOrganizer.Model
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"select IdStudent.student_period_event,IdStudentOccurence.student_period_event from student_period_event where IdStudent=@IdStudent";
+            cmd.CommandText = @"selec Id.student_period_event, IdStudent.student_period_event,IdStudentOccurence.student_period_event from student_period_event where IdStudent=@IdStudent";
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();

@@ -10,6 +10,7 @@ namespace Practica.StudentsOrganizer.Model
 {
    public class student_period_eventBO
     {
+        public int Id { get; set; }
         public int IdStudent { get; set; }
         public int IdStudentOccurence { get; set; }
     }

@@ -155,11 +155,12 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(323, 519);
+            this.btnSave.Location = new System.Drawing.Point(320, 519);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 42);
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // textFirstName
             // 
@@ -224,6 +225,7 @@
             this.textFacultyStartYear.Properties.MaxLength = 4;
             this.textFacultyStartYear.Size = new System.Drawing.Size(206, 20);
             this.textFacultyStartYear.TabIndex = 29;
+            this.textFacultyStartYear.EditValueChanged += new System.EventHandler(this.textFacultyStartYear_EditValueChanged);
             // 
             // textFaculty
             // 
@@ -231,7 +233,6 @@
             this.textFaculty.Name = "textFaculty";
             this.textFaculty.Size = new System.Drawing.Size(206, 20);
             this.textFaculty.TabIndex = 30;
-            this.textFaculty.EditValueChanged += new System.EventHandler(this.textFaculty_EditValueChanged);
             // 
             // textRemarks
             // 

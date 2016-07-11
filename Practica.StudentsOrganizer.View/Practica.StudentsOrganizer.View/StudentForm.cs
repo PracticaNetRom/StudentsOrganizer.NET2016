@@ -13,30 +13,18 @@ namespace Practica.StudentsOrganizer.View
 {
     public partial class StudentForm : Form
     {
-<<<<<<< HEAD
-        //studentBO StudReceived;
-        public StudentForm()
-        {
-           // StudReceived = Stud;
-=======
         private studentBO student;
+
         public StudentForm(studentBO stud)
         {
             this.student = stud;
->>>>>>> origin/D.Puscu
             InitializeComponent();
-
-        }
-
-        private void CopyObjectInForm(studentBO student)
-        {
-            
         }
 
         private void CopyFormDataInObject(studentBO student)
         {
             student.FirstName = textFirstName.Text;
-            student.LastName = textFirstName.Text;
+            student.LastName = textLastName.Text;
             student.Gender = textGender.Text;
             student.BirthDate = textBirthDate.DateTime;
             student.Email = textEmail.Text;
@@ -47,7 +35,30 @@ namespace Practica.StudentsOrganizer.View
             student.Remarks = textRemarks.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CopyObjectInData(studentBO student)
+        {
+            textFirstName.Text = student.FirstName;
+            textLastName.Text = student.LastName;
+            textGender.Text = student.Gender;
+            textBirthDate.DateTime = student.BirthDate;
+            textEmail.Text = student.Email;
+            textPhoneNumbers.Text = student.PhoneNumbers;
+            textPhoneHomeNumbers.Text = student.PhoneHomeNumbers;
+            textFacultyStartYear.Text = Convert.ToString(student.FacultyStarYear);
+            textFaculty.Text = student.Faculty;
+            textRemarks.Text = student.Remarks;
+
+        }
+
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+            if (this.student != null)
+            {
+                CopyObjectInData(student);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             StudentDAO studDao = new StudentDAO();
 
@@ -57,50 +68,19 @@ namespace Practica.StudentsOrganizer.View
 
                 CopyFormDataInObject(student);
 
-                studDao.AddStud(student);                
+                studDao.AddStud(student);
             }
             else
             {
-<<<<<<< HEAD
-                MessageBox.Show("Nu ati introdus Faculty");
-                return;
-            }
-
-
-                NewStudentBO.FirstName = textFirstName.Text;
-                NewStudentBO.LastName = textFirstName.Text;
-                NewStudentBO.Gender = textGender.Text;
-                NewStudentBO.BirthDate = textBirthDate.DateTime;
-                NewStudentBO.Email = textEmail.Text;
-                NewStudentBO.PhoneNumbers = textPhoneNumbers.Text;
-                NewStudentBO.PhoneHomeNumbers = textPhoneHomeNumbers.Text;
-                NewStudentBO.FacultyStarYear = Convert.ToInt32(textFacultyStartYear.Text);
-                NewStudentBO.Faculty = textFaculty.Text;
-                NewStudentBO.Remarks = textRemarks.Text;
-
-                NewStudentDAO.AddStud(NewStudentBO);
-            
- 
-            
-=======
-                CopyFormDataInObject(student);
-
+               
                 studDao.UpdateStud(student);
             }
->>>>>>> origin/D.Puscu
-        }
-
-        private void buttonEdit1_EditValueChanged(object sender, EventArgs e)
-        {
 
         }
 
-        private void StudentForm_Load(object sender, EventArgs e)
+        private void textFacultyStartYear_EditValueChanged(object sender, EventArgs e)
         {
-            if (this.student != null)
-            {
 
-            }
         }
     }
 }
