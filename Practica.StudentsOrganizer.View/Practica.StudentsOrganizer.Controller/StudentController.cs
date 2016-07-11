@@ -9,7 +9,7 @@ using DevExpress.XtraEditors;
 
 namespace Practica.StudentsOrganizer.Controller
 {
-    public class StudentController:IStudentForm
+    public class StudentController
     {
         private IStudentForm _form;
 
@@ -26,79 +26,79 @@ namespace Practica.StudentsOrganizer.Controller
 
             if (_form.Student == null)    // Add
             {
-                if (string.IsNullOrEmpty(_form.txtFirstName.Text))
+                if (string.IsNullOrEmpty(_form.TxtFirstName.Text))
                 {
                     MessageBox.Show("Please enter student's first name!");
                     return;
                 }
                 else
                 {
-                    std.FirstName = txtFirstName.Text;
+                    std.FirstName = _form.TxtFirstName.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtLastName.Text))
+                if (string.IsNullOrEmpty(_form.TxtLastName.Text))
                 {
                     MessageBox.Show("Please enter student's last name!");
                     return;
                 }
                 else
                 {
-                    std.LastName = txtLastName.Text;
+                    std.LastName = _form.TxtLastName.Text;
                 }
 
-                if (string.IsNullOrEmpty(Gender.Text))
+                if (string.IsNullOrEmpty(_form.gender.Text))
                 {
                     MessageBox.Show("Please enter student's gender!");
                     return;
                 }
                 else
                 {
-                    std.Gender = Gender.Text;
+                    std.Gender = _form.gender.Text;
                 }
 
-                std.BirthDate = BirthDate.DateTime;
+                std.BirthDate = _form.birthDate.DateTime;
 
-                if (string.IsNullOrEmpty(txtEmail.Text))
+                if (string.IsNullOrEmpty(_form.TxtEmail.Text))
                 {
                     MessageBox.Show("Please enter student's Email!");
                     return;
                 }
                 else
                 {
-                    std.Email = txtEmail.Text;
+                    std.Email = _form.TxtEmail.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtPhoneNumber.Text))
+                if (string.IsNullOrEmpty(_form.TxtPhoneNumber.Text))
                 {
                     MessageBox.Show("Please enter student's phone number!");
                     return;
                 }
                 else
                 {
-                    std.PhoneNumber = txtPhoneNumber.Text;
+                    std.PhoneNumber = _form.TxtPhoneNumber.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtFaculty.Text))
+                if (string.IsNullOrEmpty(_form.TxtFaculty.Text))
                 {
                     MessageBox.Show("Please enter student's faculty!");
                     return;
                 }
                 else
                 {
-                    std.Faculty = txtFaculty.Text;
+                    std.Faculty = _form.TxtFaculty.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtFacultyStartYear.Text))
+                if (string.IsNullOrEmpty(_form.TxtFacultyStartYear.Text))
                 {
                     MessageBox.Show("Please enter student's faculty start year!");
                     return;
                 }
                 else
                 {
-                    std.FacultyStartYear = Convert.ToInt32(txtFacultyStartYear.Text);
+                    std.FacultyStartYear = Convert.ToInt32(_form.TxtFacultyStartYear.Text);
                 }
 
-                std.Remarks = txtRemarks.Text;
+                std.Remarks = _form.TxtRemarks.Text;
 
                 dao.AddStudent(std);
 
@@ -109,81 +109,81 @@ namespace Practica.StudentsOrganizer.Controller
 
             else   //Update
             {
-                if (string.IsNullOrEmpty(txtFirstName.Text))
+                if (string.IsNullOrEmpty(_form.TxtFirstName.Text))
                 {
                     MessageBox.Show("Please enter student's first name!");
                     return;
                 }
                 else
                 {
-                    Student.FirstName = txtFirstName.Text;
+                    _form.Student.FirstName = _form.TxtFirstName.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtLastName.Text))
+                if (string.IsNullOrEmpty(_form.TxtLastName.Text))
                 {
                     MessageBox.Show("Please enter student's last name!");
                     return;
                 }
                 else
                 {
-                    Student.LastName = txtLastName.Text;
+                    _form.Student.LastName = _form.TxtLastName.Text;
                 }
 
-                if (string.IsNullOrEmpty(Gender.Text))
+                if (string.IsNullOrEmpty(_form.gender.Text))
                 {
                     MessageBox.Show("Please enter student's gender!");
                     return;
                 }
                 else
                 {
-                    Student.Gender = Gender.Text;
+                    _form.Student.Gender = _form.gender.Text;
                 }
 
-                Student.BirthDate = BirthDate.DateTime;
+                _form.Student.BirthDate = _form.birthDate.DateTime;
 
-                if (string.IsNullOrEmpty(txtEmail.Text))
+                if (string.IsNullOrEmpty(_form.TxtEmail.Text))
                 {
                     MessageBox.Show("Please enter student's Email!");
                     return;
                 }
                 else
                 {
-                    Student.Email = txtEmail.Text;
+                    _form.Student.Email = _form.TxtEmail.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtPhoneNumber.Text))
+                if (string.IsNullOrEmpty(_form.TxtPhoneNumber.Text))
                 {
                     MessageBox.Show("Please enter student's phone number!");
                     return;
                 }
                 else
                 {
-                    Student.PhoneNumber = txtPhoneNumber.Text;
+                    _form.Student.PhoneNumber = _form.TxtPhoneNumber.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtFaculty.Text))
+                if (string.IsNullOrEmpty(_form.TxtFaculty.Text))
                 {
                     MessageBox.Show("Please enter student's faculty!");
                     return;
                 }
                 else
                 {
-                    Student.Faculty = txtFaculty.Text;
+                    _form.Student.Faculty = _form.TxtFaculty.Text;
                 }
 
-                if (string.IsNullOrEmpty(txtFacultyStartYear.Text))
+                if (string.IsNullOrEmpty(_form.TxtFacultyStartYear.Text))
                 {
                     MessageBox.Show("Please enter student's faculty start year!");
                     return;
                 }
                 else
                 {
-                    Student.FacultyStartYear = Convert.ToInt32(txtFacultyStartYear.Text);
+                    _form.Student.FacultyStartYear = Convert.ToInt32(_form.TxtFacultyStartYear.Text);
                 }
 
-                Student.Remarks = txtRemarks.Text;
+                _form.Student.Remarks = _form.TxtRemarks.Text;
 
-                dao.UpdateStudent(Student);
+                dao.UpdateStudent(_form.Student);
 
                 MessageBox.Show("Student successfully updated!");
 

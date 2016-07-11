@@ -1,4 +1,5 @@
-﻿using Practica.StudentsOrganizer.Controller;
+﻿using DevExpress.XtraEditors;
+using Practica.StudentsOrganizer.Controller;
 using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,71 @@ namespace Practica.StudentsOrganizer.View
         private StudentController controller;
         public StudentBO Student { get; set; }
 
-        public StudentForm()
+        public TextEdit TxtFirstName
+        {
+            get
+            {
+                return txtFirstName;
+            }
+        }
+        public TextEdit TxtLastName
+        {
+            get
+            {
+                return txtLastName;
+            }
+        }
+        public TextEdit TxtFaculty
+        {
+            get
+            {
+                return txtFaculty;
+            }
+        }
+        public TextEdit TxtRemarks
+        {
+            get
+            {
+                return txtRemarks;
+            }
+        }
+        public TextEdit TxtEmail
+        {
+            get
+            {
+                return txtEmail;
+            }
+        }
+        public TextEdit TxtPhoneNumber
+        {
+            get
+            {
+                return txtPhoneNumber;
+            }
+        }
+        public ComboBoxEdit gender
+        {
+            get
+            {
+                return Gender;
+            }
+        }
+      public  DateEdit birthDate
+        {
+            get
+            {
+                return BirthDate;
+            }
+            
+        }
+        public TextEdit TxtFacultyStartYear
+        {
+            get
+            {
+                return TxtFacultyStartYear;
+            }
+        }
+public StudentForm()
         {
             InitializeComponent();
 
@@ -198,6 +263,7 @@ namespace Practica.StudentsOrganizer.View
             //    Close();
             //}
 
+            controller.Add_Update();
             
         }
 

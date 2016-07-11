@@ -4,59 +4,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Practica.StudentsOrganizer.Model;
+using DevExpress.XtraGrid.Views.Grid;
+using System.Windows.Forms;
+using System.Data;
 
 namespace Practica.StudentsOrganizer.Controller
 {
-   public class MainController : IMainForm
+   public class MainController 
     {
         private IMainForm _form;
+       // StudentBO Student { get; set; }
 
-        
-      
+
 
         public MainController(IMainForm form)
         {
             _form = form;
+        }
+        public void LoadMainForm()
+        {
+            StudentDAO dao = new StudentDAO();
+            DataTable dt = dao.GetAllStudents();
+            _form.GridControl1.DataSource = dt;
         }
 
         public void Refresh()
         {
             StudentDAO dao = new StudentDAO();
             DataTable dt = dao.GetAllStudents();
-            gridControl1.DataSource = dt;
+            _form.GridControl1.DataSource = dt;
         }
 
         public void Add()
         {
-            StudentForm stdForm = new StudentForm();
-            stdForm.ShowDialog();
+             IStudentForm studentForm =  _form.CreateAddStudentForm();
+            ((Form)studentForm).ShowDialog();
 
-            Refresh(); // RefreshForm();
+           
         }
         public void Open()
         {
-            int selectedRow = gridView1.FocusedRowHandle;
-            int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
+            int selectedRow = _form.GridView1.FocusedRowHandle;
+            int Id = Convert.ToInt32(_form.GridView1.GetRowCellValue(selectedRow, "ID"));
 
-            StudentBO st = new StudentBO();
-            StudentDAO dao = new StudentDAO();
-            st = dao.getStudentById(Id);
+             StudentBO st = new StudentBO();
+             StudentDAO dao = new StudentDAO();
+             st=dao.getStudentById(Id);
 
-            StudentForm stdForm = new StudentForm();
-            stdForm.Student = st;
-            stdForm.ShowDialog();
 
-            Refresh(); // RefreshForm();
+            IStudentForm studentForm = _form.CreateAddStudentForm();
+            studentForm.Student = st;
+            ((Form)studentForm).ShowDialog();
+
         }
         public void Delete()
         {
-            int selectedRow = gridView1.FocusedRowHandle;
-            int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "ID"));
 
-            StudentDAO dao = new StudentDAO();
-            dao.DeleteStudent(Id);
+            int selectedRow = _form.GridView1.FocusedRowHandle;
+            int Id = Convert.ToInt32(_form.GridView1.GetRowCellValue(selectedRow, "ID"));
 
-            Refresh(); // RefreshForm();
+             StudentDAO dao = new StudentDAO();
+            dao.DeleteStudent(Id);   
         }
     }
 }
