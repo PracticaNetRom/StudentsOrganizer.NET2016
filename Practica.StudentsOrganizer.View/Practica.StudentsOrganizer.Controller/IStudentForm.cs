@@ -11,15 +11,15 @@ namespace Practica.StudentsOrganizer.Controller
     public interface IStudentForm
     {
         StudentBO Student { get; set; }
-        TextEdit txtFirstName { get; set; }
-        TextEdit txtLastName { get; set; }
-        ComboBoxEdit Gender { get; set; }
-        DateEdit BirthDate { get; set; }
-        TextEdit txtEmail { get; set; }
-        TextEdit txtPhoneNumber { get; set; }
-        TextEdit txtFaculty { get; set; }
-        TextEdit txtFacultyStartYear { get; set; }
-        TextEdit txtRemarks { get; set; }
-
+        TextEdit TxtFirstName { get; }
+        TextEdit TxtLastName { get; }
+        ComboBoxEdit gender { get; }
+        DateEdit birthDate { get; }
+        TextEdit TxtEmail { get; }
+        TextEdit TxtPhoneNumber { get; }
+        TextEdit TxtFaculty { get; }
+        TextEdit TxtFacultyStartYear { get; }
+        TextEdit TxtRemarks { get; }
+        
     }
 }

@@ -234,7 +234,7 @@
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(75, 23);
             this.btnAddStudent.TabIndex = 33;
-            this.btnAddStudent.Text = "Add";
+            this.btnAddStudent.Text = "Save";
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // StudentForm

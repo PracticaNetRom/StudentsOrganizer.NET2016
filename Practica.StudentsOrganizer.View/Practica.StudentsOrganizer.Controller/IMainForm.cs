@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,11 @@ namespace Practica.StudentsOrganizer.Controller
 {
     public interface IMainForm
     {
-        SimpleButton btnAdd { get; set; }
-        SimpleButton btnOpen { get; set; }
-        SimpleButton btnDelete { get; set; }
-        GridControl gridControl1 { get; set; }
+        BarButtonItem BtnAdd { get; }
+        BarButtonItem BtnOpen { get; }
+        BarButtonItem BtnDelete { get; }
+        GridControl GridControl1 { get; }
+
+        IStudentForm CreateStudentForm();
     }
 }

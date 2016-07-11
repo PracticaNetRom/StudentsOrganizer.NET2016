@@ -10,41 +10,59 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Controller;
+using DevExpress.XtraGrid;
+using DevExpress.XtraBars;
 
 namespace Practica.StudentsOrganizer.View
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm, IMainForm
     {
+        public BarButtonItem BtnAdd {
+            get
+            {
+                return btnAdd;
+            }
+        }
+        public BarButtonItem BtnOpen {
+            get
+            {
+                return btnOpen;
+            }
+        }
+        public BarButtonItem BtnDelete {
+            get
+            {
+                return btnDelete;
+            }
+        }
+        public GridControl GridControl1 {
+            get
+            {
+                return gridControl1;
+            }
+        }
+
         private MainController controller;
+        
         public MainForm()
         {
             controller = new MainController(this);
             InitializeComponent();
         }
 
+        public IStudentForm CreateStudentForm()
+        {
+            return new StudentForm();
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-            controller.LoadMainForm();
-            //StudentDAO dao = new StudentDAO();
-            //DataTable dt = dao.GetAllStudents();
-            //gridControl1.DataSource = dt;
+            controller.RefreshStudents();
         }
-
-        public void RefreshForm()
-        {
-            controller.LoadMainForm();
-            //StudentDAO dao = new StudentDAO();
-            //DataTable dt = dao.GetAllStudents();
-            //gridControl1.DataSource = dt;
-        }
-
+        
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             controller.Add();
-            //StudentForm stdForm = new StudentForm();
-            //stdForm.ShowDialog();
-            
-            RefreshForm();
         }
 
         private void btnOpen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -61,7 +79,7 @@ namespace Practica.StudentsOrganizer.View
             //stdForm.Student = st;
             //stdForm.ShowDialog();
 
-            RefreshForm();
+           // RefreshForm();
 
         }
 
@@ -77,7 +95,7 @@ namespace Practica.StudentsOrganizer.View
             //StudentDAO dao = new StudentDAO();
             //dao.DeleteStudent(Id);
            
-            RefreshForm();
+           // RefreshForm();
         }
     }
 }

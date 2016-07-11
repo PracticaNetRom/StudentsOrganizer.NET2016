@@ -1,10 +1,13 @@
-﻿using Practica.StudentsOrganizer.Model;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using Practica.StudentsOrganizer.Controller;
+using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer.Controller
 {
@@ -16,46 +19,46 @@ namespace Practica.StudentsOrganizer.Controller
         {
             _form = form;
         }
-        public void LoadMainForm()
+        public void RefreshStudents()
         {
             StudentDAO dao = new StudentDAO();
             DataTable dt = dao.GetAllStudents();
-            _form.gridControl1.DataSource = dt;
+            _form.GridControl1.DataSource = dt;
         }
 
         public void Add()
         {
-            StudentForm stdForm = new StudentForm();
-            stdForm.ShowDialog();
+            IStudentForm studentForm = _form.CreateStudentForm();
+            ((Form)studentForm).ShowDialog();
 
-           // RefreshForm();
+            RefreshStudents();
         }
 
         public void Open()
         {
-            int selectedRow = gridView1.FocusedRowHandle;
-            int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "Id"));
+            int selectedRow = ((GridView)_form.GridControl1.MainView).FocusedRowHandle;
+            int Id = Convert.ToInt32(((GridView)_form.GridControl1.MainView).GetRowCellValue(selectedRow, "Id"));
 
             StudentBO st = new StudentBO();
             StudentDAO dao = new StudentDAO();
             st = dao.getStudentById(Id);
 
-            StudentForm stdForm = new StudentForm();
+            IStudentForm stdForm = _form.CreateStudentForm();
             stdForm.Student = st;
-            stdForm.ShowDialog();
+            ((Form)stdForm).ShowDialog();
 
-           // RefreshForm();
+            RefreshStudents();
         }
 
         public void Delete()
         {
-            int selectedRow = gridView1.FocusedRowHandle;
-            int Id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "Id"));
+            int selectedRow = ((GridView)_form.GridControl1.MainView).FocusedRowHandle;
+            int Id = Convert.ToInt32(((GridView)_form.GridControl1.MainView).GetRowCellValue(selectedRow, "Id"));
 
             StudentDAO dao = new StudentDAO();
             dao.DeleteStudent(Id);
 
-           // RefreshForm();
+            RefreshStudents();
         }
     }
 }
