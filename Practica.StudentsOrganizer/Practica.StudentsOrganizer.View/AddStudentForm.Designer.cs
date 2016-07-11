@@ -96,7 +96,6 @@
             this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Gender *";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -119,7 +118,7 @@
             this.label5.Size = new System.Drawing.Size(47, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "Email";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            
             // 
             // label6
             // 
@@ -131,7 +130,6 @@
             this.label6.Size = new System.Drawing.Size(110, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Phone Number";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -193,7 +191,6 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Informations about Student";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtFirstName
             // 
@@ -202,7 +199,6 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 20);
             this.txtFirstName.TabIndex = 24;
-            this.txtFirstName.EditValueChanged += new System.EventHandler(this.txtFirstName_EditValueChanged);
             // 
             // txtLastName
             // 
@@ -234,7 +230,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
             this.txtEmail.TabIndex = 28;
-            this.txtEmail.EditValueChanged += new System.EventHandler(this.txtEmail_EditValueChanged);
             // 
             // txtPhoneNumber
             // 
@@ -283,7 +278,6 @@
             this.label11.Size = new System.Drawing.Size(92, 16);
             this.label11.TabIndex = 33;
             this.label11.Text = "Event Name";
-            this.label11.Click += new System.EventHandler(this.label11_Click_1);
             // 
             // comboBoxEventName
             // 
@@ -365,7 +359,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AddStudentForm";
             this.Text = "AddStudentForm";
-            this.Load += new System.EventHandler(this.AddStudentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxGender.Properties)).EndInit();

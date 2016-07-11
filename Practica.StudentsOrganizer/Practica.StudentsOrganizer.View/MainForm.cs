@@ -12,15 +12,17 @@ using System.Windows.Forms;
 using Practica.StudentOrganizer.Controller.Controllers;
 using DevExpress.XtraEditors;
 using Practica.StudentOrganizer.Controller.Interfaces;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
 
 namespace Practica.StudentsOrganizer.View
 {
     public partial class MainForm : Form, IMainForm
     { 
-        private MainFormController controlerMain;
+        private MainFormController controllerMain;
 
 
-        public SimpleButton _buttInsertStd
+        public SimpleButton ButtInsertStd
         {
             get
             {
@@ -28,7 +30,7 @@ namespace Practica.StudentsOrganizer.View
             }
         }
 
-        public SimpleButton _buttonUpdateStd
+        public SimpleButton ButtonUpdateStd
         {
             get
             {
@@ -36,11 +38,27 @@ namespace Practica.StudentsOrganizer.View
             }
         }
 
-        public SimpleButton _buttDeleteStd
+        public SimpleButton ButtDeleteStd
         {
             get
             {
                 return buttDeleteStd;
+            }
+        }
+
+        public GridView GridView
+        {
+            get
+            {
+                return gridView1;
+            }
+        }
+        
+        public GridControl GrdCtrlStudents
+        {
+            get
+            {
+                return grdCtrlStudents;
             }
         }
 
@@ -51,34 +69,15 @@ namespace Practica.StudentsOrganizer.View
             InitializeComponent();
         }
 
+        public IAddStudentForm CreateAddForm()
+        {
+            return new AddStudentForm();
+        }
 
         private void buttonUpdateStd_Click(object sender, EventArgs e)
         {
-            
-            AddStudentForm stdForm = new AddStudentForm();
-           
-            StudentDAO stdselectDAO = new StudentDAO();
-
-            int idSelect;
-            idSelect = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id"));
-
-
-            StudentBO stdSelectBO = stdselectDAO.GetStudent(idSelect);
-
-            stdForm.PopulateStudent(stdSelectBO);
-
-            stdForm.ShowDialog();
-
-            RefreshData();
-            
+            controllerMain.Update();
         }
-
-
-        private void grdCtrlStudents_Click(object sender, EventArgs e)
-        {
-            
-        }
-
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -89,31 +88,17 @@ namespace Practica.StudentsOrganizer.View
 
         private void buttInsertStd_Click(object sender, EventArgs e)
         {
-            
-            AddStudentForm stdForm = new AddStudentForm();
-            stdForm.ShowDialog();
-            RefreshData();
-            
+            controllerMain.Add();          
         }
 
 
         private void buttDeleteStd_Click(object sender, EventArgs e)
         {
-            
-            int selectedRow = gridView1.FocusedRowHandle;
-            int id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "id"));
-            
-            StudentDAO stdDelete = new StudentDAO();
-            stdDelete.DeleteStudent(id);
-
-            MessageBox.Show("Student successfully deleted!");
-
-            RefreshData();
-            
+            controllerMain.Delete();           
         }
 
 
-        
+      /*  
         private void RefreshData()
         {
             StudentDAO studDAO = new StudentDAO();
@@ -123,6 +108,7 @@ namespace Practica.StudentsOrganizer.View
 
             grdCtrlStudents.DataSource = dtret;
         }
+        */
         
     }
 }

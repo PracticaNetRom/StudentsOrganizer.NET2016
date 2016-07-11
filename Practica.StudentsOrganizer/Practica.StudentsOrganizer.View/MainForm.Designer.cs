@@ -92,7 +92,6 @@
             this.grdCtrlStudents.TabIndex = 3;
             this.grdCtrlStudents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.grdCtrlStudents.Click += new System.EventHandler(this.grdCtrlStudents_Click);
             // 
             // gridView1
             // 

@@ -13,27 +13,27 @@ namespace Practica.StudentOrganizer.Controller.Controllers
 {
     public class MainFormController
     {
-        private object grdCtrlStudents;
-        private IMainForm _form;
+
+        private IMainForm mainForm;
 
         public MainFormController(IMainForm form)
         {
-            _form = form;
+            mainForm = form;
         }
        
 
         public void Add()
         {
-            AddStudentForm stdForm = new AddStudentForm();
-            stdForm.ShowDialog();
+            IAddStudentForm addForm = mainForm.CreateAddForm();
+            ((Form)addForm).ShowDialog();
             RefreshData();
         }
 
 
         public void Delete()
         {
-            int selectedRow = gridView1.FocusedRowHandle;
-            int id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRow, "id"));
+            int selectedRow = mainForm.GridView.FocusedRowHandle;
+            int id = Convert.ToInt32(mainForm.GridView.GetRowCellValue(selectedRow, "id"));
 
             StudentDAO stdDelete = new StudentDAO();
             stdDelete.DeleteStudent(id);
@@ -46,18 +46,18 @@ namespace Practica.StudentOrganizer.Controller.Controllers
 
         public void Update()
         {
-            AddStudentForm stdForm = new AddStudentForm();
+            IAddStudentForm updateForm = mainForm.CreateAddForm();
 
             StudentDAO stdselectDAO = new StudentDAO();
 
             int idSelect;
-            idSelect = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id"));
+            idSelect = Convert.ToInt32(mainForm.GridView.GetRowCellValue(mainForm.GridView.FocusedRowHandle, "id"));
 
             StudentBO stdSelectBO = stdselectDAO.GetStudent(idSelect);
 
-            stdForm.PopulateStudent(stdSelectBO);
+            updateForm.PopulateStudent(stdSelectBO);
 
-            stdForm.ShowDialog();
+           ((Form)updateForm).ShowDialog();
 
             RefreshData();
         }

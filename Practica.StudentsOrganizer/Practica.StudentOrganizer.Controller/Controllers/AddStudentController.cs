@@ -27,15 +27,15 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             StudentDAO stdDAO = new StudentDAO();
             
 
-            stdBO.firstName = _form.txtFirstName.Text;
-            stdBO.lastName = _form.txtLastName.Text;
-            stdBO.gender = _form.comboBoxGender.Text;
-            stdBO.birthDate = _form.dateTimeBirthDate.DateTime;
-            stdBO.email = _form.txtEmail.Text;
-            stdBO.phoneNumber = _form.txtPhoneNumber.Text;
-            stdBO.faculty = _form.txtFaculty.Text;
-            stdBO.facultyStartYear = Convert.ToInt32(_form.txtFacultyStartYear.Text);
-            stdBO.remarks = _form.txtRemarks.Text;
+            stdBO.firstName = _form.TxtFirstName.Text;
+            stdBO.lastName = _form.TxtLastName.Text;
+            stdBO.gender = _form.ComboBoxGender.Text;
+            stdBO.birthDate = _form.DateTimeBirthDate.DateTime;
+            stdBO.email = _form.TxtEmail.Text;
+            stdBO.phoneNumber = _form.TxtPhoneNumber.Text;
+            stdBO.faculty = _form.TxtFaculty.Text;
+            stdBO.facultyStartYear = Convert.ToInt32(_form.TxtFacultyStartYear.Text);
+            stdBO.remarks = _form.TxtRemarks.Text;
 
 
 
@@ -49,77 +49,77 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             }
 
 
-            if (string.IsNullOrEmpty(_form.txtFirstName.Text))
+            if (string.IsNullOrEmpty(_form.TxtFirstName.Text))
             {
                 MessageBox.Show("Please enter student's FIRST NAME!");
                 return;
             }
             else
             {
-                stdBO.firstName = _form.txtFirstName.Text;
+                stdBO.firstName = _form.TxtFirstName.Text;
             }
 
 
-            if (string.IsNullOrEmpty(_form.txtLastName.Text))
+            if (string.IsNullOrEmpty(_form.TxtLastName.Text))
             {
                 MessageBox.Show("Please enter student's LAST NAME!");
                 return;
             }
             else
             {
-                stdBO.lastName = _form.txtLastName.Text;
+                stdBO.lastName = _form.TxtLastName.Text;
             }
 
 
-            stdBO.gender = _form.comboBoxGender.Text;
+            stdBO.gender = _form.ComboBoxGender.Text;
 
 
-            if (string.IsNullOrEmpty(_form.dateTimeBirthDate.Text))
+            if (string.IsNullOrEmpty(_form.DateTimeBirthDate.Text))
             {
                 MessageBox.Show("Please enter student's BIRTH DATE!");
                 return;
             }
             else
             {
-                stdBO.birthDate = Convert.ToDateTime(_form.dateTimeBirthDate.Text);
+                stdBO.birthDate = Convert.ToDateTime(_form.DateTimeBirthDate.Text);
             }
 
-            if (string.IsNullOrEmpty(_form.txtEmail.Text))
+            if (string.IsNullOrEmpty(_form.TxtEmail.Text))
             {
                 MessageBox.Show("Please enter student's EMAIL");
                 return;
             }
             else
             {
-                stdBO.email = _form.txtEmail.Text;
+                stdBO.email = _form.TxtEmail.Text;
             }
 
 
-            stdBO.phoneNumber = _form.txtPhoneNumber.Text;
+            stdBO.phoneNumber = _form.TxtPhoneNumber.Text;
 
 
-            if (string.IsNullOrEmpty(_form.txtFaculty.Text))
+            if (string.IsNullOrEmpty(_form.TxtFaculty.Text))
             {
                 MessageBox.Show("Please enter student's FACULTY!");
                 return;
             }
             else
             {
-                stdBO.faculty = _form.txtFaculty.Text;
+                stdBO.faculty = _form.TxtFaculty.Text;
             }
 
 
-            if (string.IsNullOrEmpty(_form.txtFacultyStartYear.Text))
+            if (string.IsNullOrEmpty(_form.TxtFacultyStartYear.Text))
             {
                 MessageBox.Show("Please enter student's FACULTY START YEAR!");
                 return;
             }
             else
             {
-                stdBO.facultyStartYear = Convert.ToInt32(_form.txtFacultyStartYear.Text);
+                stdBO.facultyStartYear = Convert.ToInt32(_form.TxtFacultyStartYear.Text);
             }
 
-            stdBO.remarks = _form.txtRemarks.Text;
+            stdBO.remarks = _form.TxtRemarks.Text;
 
 
             if (student == null)      // Add
@@ -134,32 +134,32 @@ namespace Practica.StudentOrganizer.Controller.Controllers
                 // this.Close();
             }
 
-            _form.txtFirstName.Text = string.Empty;
-            _form.txtLastName.Text = string.Empty;
-            _form.comboBoxGender.Text = string.Empty;
-            _form.comboBoxGender.Text = string.Empty;
-            _form.dateTimeBirthDate.Text = string.Empty;
-            _form.txtEmail.Text = string.Empty;
-            _form.txtPhoneNumber.Text = string.Empty;
-            _form.txtFaculty.Text = string.Empty;
-            _form.txtFacultyStartYear.Text = string.Empty;
-            _form.txtRemarks.Text = string.Empty;
+            _form.TxtFirstName.Text = string.Empty;
+            _form.TxtLastName.Text = string.Empty;
+            _form.ComboBoxGender.Text = string.Empty;
+            _form.ComboBoxGender.Text = string.Empty;
+            _form.DateTimeBirthDate.Text = string.Empty;
+            _form.TxtEmail.Text = string.Empty;
+            _form.TxtPhoneNumber.Text = string.Empty;
+            _form.TxtFaculty.Text = string.Empty;
+            _form.TxtFacultyStartYear.Text = string.Empty;
+            _form.TxtRemarks.Text = string.Empty;
         }
 
-        StudentBO student;
+        public StudentBO student;
 
 
         public void PopulateStudent(StudentBO s)
         {
-            _form.txtFirstName.Text = s.firstName;
-            _form.txtLastName.Text = s.lastName;
-            _form.comboBoxGender.Text = s.gender;
-            _form.dateTimeBirthDate.DateTime = s.birthDate;
-            _form.txtEmail.Text = s.email;
-            _form.txtPhoneNumber.Text = s.phoneNumber;
-            _form.txtFaculty.Text = s.faculty;
-            _form.txtFacultyStartYear.Text = Convert.ToString(s.facultyStartYear);
-            _form.txtRemarks.Text = s.remarks;
+            _form.TxtFirstName.Text = s.firstName;
+            _form.TxtLastName.Text = s.lastName;
+            _form.ComboBoxGender.Text = s.gender;
+            _form.DateTimeBirthDate.DateTime = s.birthDate;
+            _form.TxtEmail.Text = s.email;
+            _form.TxtPhoneNumber.Text = s.phoneNumber;
+            _form.TxtFaculty.Text = s.faculty;
+            _form.TxtFacultyStartYear.Text = Convert.ToString(s.facultyStartYear);
+            _form.TxtRemarks.Text = s.remarks;
 
             student = s;
         }

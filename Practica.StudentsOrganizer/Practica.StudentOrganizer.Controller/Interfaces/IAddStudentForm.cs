@@ -12,15 +12,17 @@ namespace Practica.StudentOrganizer.Controller.Interfaces
     {
        // StudentBO Student { get; set; }
 
-        TextEdit txtFirstName { get; }
-        TextEdit txtLastName { get; }
-        ComboBoxEdit comboBoxGender { get; }
-        DateEdit dateTimeBirthDate { get; }
-        TextEdit txtEmail { get; }
-        TextEdit txtPhoneNumber { get; }
-        TextEdit txtFaculty { get; }
-        TextEdit txtFacultyStartYear { get; }
-        TextEdit txtRemarks { get; }
-        
+        TextEdit TxtFirstName { get; }
+        TextEdit TxtLastName { get; }
+        ComboBoxEdit ComboBoxGender { get; }
+        DateEdit DateTimeBirthDate { get; }
+        TextEdit TxtEmail { get; }
+        TextEdit TxtPhoneNumber { get; }
+        TextEdit TxtFaculty { get; }
+        TextEdit TxtFacultyStartYear { get; }
+        TextEdit TxtRemarks { get; }
+        void PopulateStudent(StudentBO s);
+
+
     }
 }
