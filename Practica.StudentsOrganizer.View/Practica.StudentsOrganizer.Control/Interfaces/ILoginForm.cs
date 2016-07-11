@@ -11,6 +11,6 @@ namespace Practica.StudentsOrganizer.Control.Interfaces
     {
         TextEdit _txtUsername { get; }
         TextEdit _txtPassword { get; }
-        //ButtonEdit _Login_Button { get; }
+        SimpleButton _Login_Button { get; }
     }
 }

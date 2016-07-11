@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer
 {
-    public partial class AddEditStudentForm : Form, IaddEditStudetsForm
+    public partial class AddEditStudentForm : Form, IAddEditStudentsForm
     {
         private CtrlAddEditStudentsForm Controler;
         public TextEdit _txtFirst_Name
@@ -102,7 +102,7 @@ namespace Practica.StudentsOrganizer
         Students_BO StudReceived;
         public AddEditStudentForm(Students_BO Stud)
         {
-            Controler = new CtrlAddEditStudentsForm();
+            Controler = new CtrlAddEditStudentsForm(this);
             StudReceived = Stud;
             InitializeComponent();
         }
@@ -196,6 +196,11 @@ namespace Practica.StudentsOrganizer
         }
 
         private void dateBirth_Date_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_EditValueChanged(object sender, EventArgs e)
         {
 
         }

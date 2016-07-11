@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Practica.StudentsOrganizer.Control.Interfaces
 {
-    public interface IaddEditStudetsForm
+    public interface IAddEditStudentsForm
     {
         TextEdit _txtFirst_Name { get; }
         TextEdit _txtLast_Name { get; }

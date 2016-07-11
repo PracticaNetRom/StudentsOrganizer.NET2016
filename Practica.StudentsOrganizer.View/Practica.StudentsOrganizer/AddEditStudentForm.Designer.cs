@@ -193,6 +193,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(217, 20);
             this.txtEmail.TabIndex = 28;
+            this.txtEmail.EditValueChanged += new System.EventHandler(this.txtEmail_EditValueChanged);
             // 
             // txtPhone
             // 

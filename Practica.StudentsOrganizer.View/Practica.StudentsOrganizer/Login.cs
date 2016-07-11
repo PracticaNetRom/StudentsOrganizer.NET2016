@@ -32,13 +32,13 @@ namespace Practica.StudentsOrganizer
                 return txtPassword;
             }
         }
-        //public ButtonEdit _Login_Button
-        //{
-        //    get
-        //    {
-        //        return Login_Button;
-        //    }
-        //}
+        public SimpleButton _Login_Button
+        {
+            get
+            {
+                return Login_Button;
+            }
+        }
 
         public Login()
         {

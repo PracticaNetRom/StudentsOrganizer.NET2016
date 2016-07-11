@@ -1,4 +1,8 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using Practica.StudentsOrganizer.Control.Interfaces;
+using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +20,9 @@ namespace Practica.StudentsOrganizer.Control
         SimpleButton _eventsButton { get; }
         SimpleButton _eOButton { get; }
         SimpleButton _sEOButton { get;}
-        //gridControl1
+        GridControl _gridControl1 { get; }
+        GridView _gridView1 { get; }
+        IAddEditStudentsForm CreateAdd(Students_BO STD);
 
     }
 }

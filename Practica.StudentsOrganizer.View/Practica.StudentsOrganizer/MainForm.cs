@@ -1,5 +1,9 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using Practica.StudentsOrganizer;
 using Practica.StudentsOrganizer.Control;
+using Practica.StudentsOrganizer.Control.Interfaces;
 using Practica.StudentsOrganizer.Model;
 using Practica.StudentsOrganizer.Model.DAO;
 using System;
@@ -17,7 +21,7 @@ namespace Practica.StudentsOrganizer
 {
     public partial class MainForm : Form, IMainForm
     {
-        private CtrlMainForm Controler;
+        private CtrlMainForm Controller;
         public SimpleButton _show_Students_Button
         {
             get
@@ -25,6 +29,7 @@ namespace Practica.StudentsOrganizer
                 return Show_Students_Button;
             }
         }
+
         public SimpleButton _add_Stud_Button
         {
             get
@@ -32,6 +37,7 @@ namespace Practica.StudentsOrganizer
                 return Add_Stud_Button;
             }
         }
+
         public SimpleButton _edit_Stud_Button
         {
             get
@@ -39,6 +45,7 @@ namespace Practica.StudentsOrganizer
                 return Edit_Stud_Button;
             }
         }
+
         public SimpleButton _del_Stud_Button
         {
             get
@@ -46,6 +53,7 @@ namespace Practica.StudentsOrganizer
                 return Del_Stud_Button;
             }
         }
+
         public SimpleButton _eventsButton
         {
             get
@@ -53,6 +61,7 @@ namespace Practica.StudentsOrganizer
                 return EventsButton;
             }
         }
+
         public SimpleButton _eOButton
         {
             get
@@ -60,6 +69,7 @@ namespace Practica.StudentsOrganizer
                 return EOButton;
             }
         }
+
         public SimpleButton _sEOButton
         {
             get
@@ -68,43 +78,68 @@ namespace Practica.StudentsOrganizer
             }
         }
 
+        public GridControl _gridControl1
+        {
+            get
+            {
+                return gridControl1;
+            }
+        }
+
+        public GridView _gridView1
+        {
+            get
+            {
+                return gridView1;
+            }
+        }
+
+        public IAddEditStudentsForm CreateAdd(Students_BO STD)
+        {
+            return new AddEditStudentForm(STD);
+        }
+
         public MainForm()
         {
-            Controler = new CtrlMainForm();
-
             InitializeComponent();
+            Controller = new CtrlMainForm(this);
         }
-        
+
         private void ShowStudentsForm_Load(object sender, EventArgs e)
         {
-            Students_DAO Std_DAO = new Students_DAO();
-            gridControl1.DataSource = Std_DAO.GetAllStudents();
+            //Students_DAO Std_DAO = new Students_DAO();
+            //gridControl1.DataSource = Std_DAO.GetAllStudents();
+            Controller.ShowAtLoadTime();
         }
-        
+
         private void Show_Students_Button_Click(object sender, EventArgs e)
         {
-            Students_DAO Std_DAO = new Students_DAO();
-            gridControl1.DataSource = Std_DAO.GetAllStudents();
+            //Students_DAO Std_DAO = new Students_DAO();
+            //gridControl1.DataSource = Std_DAO.GetAllStudents();
+            Controller.ShowStd();
         }
 
         private void Add_Stud_Button_Click(object sender, EventArgs e)
         {
-            AddEditStudentForm Add_Std_Form = new AddEditStudentForm(null);
-            Add_Std_Form.ShowDialog();
+            //AddEditStudentForm Add_Std_Form = new AddEditStudentForm(null);
+            //Add_Std_Form.ShowDialog();
+            Controller.Add_Std();
         }
 
         private void Edit_Stud_Button_Click(object sender, EventArgs e)
         {
-            AddEditStudentForm Add_Std_Form = new AddEditStudentForm((Students_BO)gridView1.GetFocusedRow());
-            Add_Std_Form.ShowDialog();
+            //AddEditStudentForm Add_Std_Form = new AddEditStudentForm((Students_BO)gridView1.GetFocusedRow());
+            //Add_Std_Form.ShowDialog();
+            Controller.Edit_Std();
         }
 
         private void Del_Stud_Button_Click(object sender, EventArgs e)
         {
-            Students_BO Del_Stud;
-            Del_Stud = ((Students_BO)gridView1.GetFocusedRow());
-            Students_DAO Del_Stud_DAO = new Students_DAO();
-            Del_Stud_DAO.DeleteStd_ByFirstName(Del_Stud);
+            //Students_BO Del_Stud;
+            //Del_Stud = ((Students_BO)gridView1.GetFocusedRow());
+            //Students_DAO Del_Stud_DAO = new Students_DAO();
+            //Del_Stud_DAO.DeleteStd_ByFirstName(Del_Stud);
+            Controller.Del_Stud();
         }
 
         private void EventsButton_Click(object sender, EventArgs e)
