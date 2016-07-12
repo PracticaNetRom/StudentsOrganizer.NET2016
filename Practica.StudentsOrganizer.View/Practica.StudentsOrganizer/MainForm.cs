@@ -99,6 +99,11 @@ namespace Practica.StudentsOrganizer
             return new AddEditStudentForm(STD);
         }
 
+        public IEventForm OpenEvents()
+        {
+            return new EventForm();
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -144,13 +149,13 @@ namespace Practica.StudentsOrganizer
 
         private void EventsButton_Click(object sender, EventArgs e)
         {
-            AddEventForm Add_Ev = new AddEventForm();
+            EventForm Add_Ev = new EventForm();
             Add_Ev.ShowDialog();
         }
 
         private void EOButton_Click(object sender, EventArgs e)
         {
-            TestEO EO = new TestEO();
+            EOForm EO = new EOForm();
             EO.ShowDialog();
         }
 

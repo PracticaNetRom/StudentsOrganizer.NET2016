@@ -92,6 +92,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 20);
             this.txtUsername.TabIndex = 8;
+            this.txtUsername.EditValueChanged += new System.EventHandler(this.txtUsername_EditValueChanged);
             // 
             // txtPassword
             // 

@@ -19,7 +19,7 @@ namespace Practica.StudentsOrganizer
 {
     public partial class AddEditStudentForm : Form, IAddEditStudentsForm
     {
-        private CtrlAddEditStudentsForm Controler;
+        private CtrlAddEditStudentsForm Controller;
         public TextEdit _txtFirst_Name
         {
             get
@@ -102,92 +102,101 @@ namespace Practica.StudentsOrganizer
         Students_BO StudReceived;
         public AddEditStudentForm(Students_BO Stud)
         {
-            Controler = new CtrlAddEditStudentsForm(this);
+            Controller = new CtrlAddEditStudentsForm(this);
             StudReceived = Stud;
             InitializeComponent();
         }
+        Students_DAO Student_DAO = new Students_DAO();
+        Students_BO Std = new Students_BO();
 
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
-            Events_DAO Ev_DAO = new Events_DAO();
-            List<Events_BO> events = Ev_DAO.GetAllEvents();
-            Event_Occurence_DAO EO_DAO = new Event_Occurence_DAO();
-            List<Event_Occurence_BO> EO_BO = EO_DAO.GetAllEO();
+            
+            Controller.Load(StudReceived);
 
-            //foreach(Events_BO ev in events)
+            //Events_DAO Ev_DAO = new Events_DAO();
+            //List<Events_BO> events = Ev_DAO.GetAllEvents();
+            //Event_Occurence_DAO EO_DAO = new Event_Occurence_DAO();
+            //List<Event_Occurence_BO> EO_BO = EO_DAO.GetAllEO();
+
+            ////foreach(Events_BO ev in events)
+            ////{
+            ////    comboBoxEdit1.Properties.Items.Add(ev);
+            ////}
+
+            //lookUpEdit1.Properties.DataSource = events;
+            //lookUpEdit2.Properties.DataSource = EO_BO;
+
+
+
+            //if (StudReceived != null)
             //{
-            //    comboBoxEdit1.Properties.Items.Add(ev);
+            //    txtFirst_Name.Text = StudReceived.First_Name;
+            //    txtLast_Name.Text = StudReceived.Last_Name;
+            //    comboGender.Text = StudReceived.Gender;
+            //    dateBirth_Date.DateTime = StudReceived.Birth_Date;
+            //    txtEmail.Text = StudReceived.Email;
+            //    txtPhone.Text = StudReceived.Phone_Number.ToString(); ;
+            //    txtFaculty.Text = StudReceived.Faculty.ToString(); ;
+            //    maskedFaculty_Start_Year.Text = StudReceived.Faculty_Start_Year.ToString();
+            //    txtRemarks.Text = StudReceived.Remarks;
             //}
 
-            lookUpEdit1.Properties.DataSource = events;
-            lookUpEdit2.Properties.DataSource = EO_BO;
-
-
-
-            if (StudReceived != null)
-            {
-                txtFirst_Name.Text = StudReceived.First_Name;
-                txtLast_Name.Text = StudReceived.Last_Name;
-                comboGender.Text = StudReceived.Gender;
-                dateBirth_Date.DateTime = StudReceived.Birth_Date;
-                txtEmail.Text = StudReceived.Email;
-                txtPhone.Text = StudReceived.Phone_Number.ToString(); ;
-                txtFaculty.Text = StudReceived.Faculty.ToString(); ;
-                maskedFaculty_Start_Year.Text = StudReceived.Faculty_Start_Year.ToString();
-                txtRemarks.Text = StudReceived.Remarks;
-
-            }
+            
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void SaveStudentButton_Click(object sender, EventArgs e)
         {
-            Students_DAO Student_DAO = new Students_DAO();
-            if (StudReceived == null)//Add
-            {
-                Students_BO NewStudent = new Students_BO();
-                
-                NewStudent.First_Name = txtFirst_Name.Text;
-                NewStudent.Last_Name = txtLast_Name.Text;
-                NewStudent.Gender = comboGender.Text;
-                NewStudent.Birth_Date = dateBirth_Date.DateTime;
-                NewStudent.Email = txtEmail.Text;
-                NewStudent.Phone_Number = txtPhone.Text;
-                NewStudent.Faculty = txtFaculty.Text;
-                NewStudent.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
-                NewStudent.Remarks = txtRemarks.Text;
-
-                Student_DAO.AddStudent(NewStudent);
-            }
-            else //Edit
-            {
-                
-                StudReceived.First_Name = txtFirst_Name.Text;
-                StudReceived.Last_Name = txtLast_Name.Text;
-                StudReceived.Gender = comboGender.Text;
-                StudReceived.Birth_Date = dateBirth_Date.DateTime;
-                StudReceived.Email = txtEmail.Text;
-                StudReceived.Phone_Number = txtPhone.Text;
-                StudReceived.Faculty = txtFaculty.Text;
-                StudReceived.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
-                StudReceived.Remarks = txtRemarks.Text;
-
-                Student_DAO.UpdateStud(StudReceived);
-            }
-            this.Close();
+                Controller.SaveStud(StudReceived);
         }
+        
+
+       
+
+            //Students_DAO Student_DAO = new Students_DAO();
+            //if (StudReceived == null)//Add
+            //{
+            //    Students_BO NewStudent = new Students_BO();
+                
+            //    NewStudent.First_Name = txtFirst_Name.Text;
+            //    NewStudent.Last_Name = txtLast_Name.Text;
+            //    NewStudent.Gender = comboGender.Text;
+            //    NewStudent.Birth_Date = dateBirth_Date.DateTime;
+            //    NewStudent.Email = txtEmail.Text;
+            //    NewStudent.Phone_Number = txtPhone.Text;
+            //    NewStudent.Faculty = txtFaculty.Text;
+            //    NewStudent.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
+            //    NewStudent.Remarks = txtRemarks.Text;
+
+            //    Student_DAO.AddStudent(NewStudent);
+            //}
+            //else //Edit
+            //{
+                
+            //    StudReceived.First_Name = txtFirst_Name.Text;
+            //    StudReceived.Last_Name = txtLast_Name.Text;
+            //    StudReceived.Gender = comboGender.Text;
+            //    StudReceived.Birth_Date = dateBirth_Date.DateTime;
+            //    StudReceived.Email = txtEmail.Text;
+            //    StudReceived.Phone_Number = txtPhone.Text;
+            //    StudReceived.Faculty = txtFaculty.Text;
+            //    StudReceived.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
+            //    StudReceived.Remarks = txtRemarks.Text;
+
+            //    Student_DAO.UpdateStud(StudReceived);
+            //}
+            //this.Close();
+        
 
         private void maskedFaculty_Start_Year_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8)
-            {
-                e.Handled = true;
-            }
+            //char ch = e.KeyChar;
+            //if (!Char.IsDigit(ch) && ch != 8)
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void ShowstudentsBtn_Click(object sender, EventArgs e)
@@ -195,14 +204,6 @@ namespace Practica.StudentsOrganizer
             this.Close();
         }
 
-        private void dateBirth_Date_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmail_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

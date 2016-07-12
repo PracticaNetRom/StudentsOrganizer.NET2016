@@ -22,7 +22,8 @@ namespace Practica.StudentsOrganizer.Control
         public void ShowAtLoadTime()
         {
             Students_DAO Std_DAO = new Students_DAO();
-            MF._gridControl1.DataSource = Std_DAO.GetAllStudents();
+            //MF._gridControl1.DataSource = Std_DAO.GetAllStudents();
+            MF._gridControl1.DataSource = Std_DAO.Join();
         }
         public void ShowStd()
         {
@@ -46,6 +47,12 @@ namespace Practica.StudentsOrganizer.Control
             Del_Stud = ((Students_BO)MF._gridView1.GetFocusedRow());
             Students_DAO Del_Stud_DAO = new Students_DAO();
             Del_Stud_DAO.DeleteStd_ByFirstName(Del_Stud);
+        }
+
+        public void Events()
+        {
+            IEventForm Ev_Form = MF.OpenEvents();
+            ((Form)Ev_Form).ShowDialog();
         }
     }
 }

@@ -56,11 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEventForm.cs">
+    <Compile Include="EventForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEventForm.Designer.cs">
-      <DependentUpon>AddEventForm.cs</DependentUpon>
+    <Compile Include="EventForm.Designer.cs">
+      <DependentUpon>EventForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddEditStudentForm.cs">
       <SubType>Form</SubType>
@@ -88,11 +88,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestEO.cs">
+    <Compile Include="EOForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestEO.Designer.cs">
-      <DependentUpon>TestEO.cs</DependentUpon>
+    <Compile Include="EOForm.Designer.cs">
+      <DependentUpon>EOForm.cs</DependentUpon>
     </Compile>
     <Compile Include="testSEOForm.cs">
       <SubType>Form</SubType>
@@ -100,8 +100,8 @@
     <Compile Include="testSEOForm.Designer.cs">
       <DependentUpon>testSEOForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddEventForm.resx">
-      <DependentUpon>AddEventForm.cs</DependentUpon>
+    <EmbeddedResource Include="EventForm.resx">
+      <DependentUpon>EventForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditStudentForm.resx">
       <DependentUpon>AddEditStudentForm.cs</DependentUpon>
@@ -126,8 +126,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestEO.resx">
-      <DependentUpon>TestEO.cs</DependentUpon>
+    <EmbeddedResource Include="EOForm.resx">
+      <DependentUpon>EOForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="testSEOForm.resx">
       <DependentUpon>testSEOForm.cs</DependentUpon>

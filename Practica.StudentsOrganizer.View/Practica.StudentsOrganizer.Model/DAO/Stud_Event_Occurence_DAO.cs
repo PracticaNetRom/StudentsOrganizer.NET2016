@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Practica.StudentsOrganizer.Model.DAO
 {
@@ -88,13 +89,35 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.ExecuteNonQuery();
 
         }
+
+        public void DeleteSEO_ById(Stud_Event_Occurence_BO DelSEO)
+        {
+
+            SqlCommand cmd;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = Connection.ConnValue;
+            conn.Close();
+            cmd = new SqlCommand("DELETE FROM Stud_Event_Occurence WHERE ID = @ID", conn);
+            conn.Open();
+
+            //Students_BO DelStud = new Students_BO();
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = DelSEO.ID;
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                MessageBox.Show("Successful.");
+            }
+            conn.Close();
+
+        }
+
     }
 
 
-        
-       
-       
-   
 
-   
+
+
+
+
+
 }

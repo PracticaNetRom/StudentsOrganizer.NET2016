@@ -1,6 +1,6 @@
 ﻿namespace Practica.StudentsOrganizer
 {
-    partial class AddEventForm
+    partial class EventForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,20 +38,20 @@
             this.txtEvName = new DevExpress.XtraEditors.TextEdit();
             this.Edit_Ev_Button = new DevExpress.XtraEditors.SimpleButton();
             this.Add_Ev_Button = new DevExpress.XtraEditors.SimpleButton();
-            this.txtTechnology = new DevExpress.XtraEditors.TextEdit();
             this.txtTask = new DevExpress.XtraEditors.TextEdit();
             this.Del_Ev_Button = new DevExpress.XtraEditors.SimpleButton();
+            this.comboTechnology = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEvName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTechnology.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTask.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTechnology.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 117);
+            this.label3.Location = new System.Drawing.Point(177, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 25;
@@ -60,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(177, 94);
+            this.label2.Location = new System.Drawing.Point(177, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 24;
@@ -69,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(177, 73);
+            this.label1.Location = new System.Drawing.Point(177, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 23;
@@ -113,9 +113,9 @@
             // 
             // txtEvName
             // 
-            this.txtEvName.Location = new System.Drawing.Point(300, 74);
+            this.txtEvName.Location = new System.Drawing.Point(282, 74);
             this.txtEvName.Name = "txtEvName";
-            this.txtEvName.Size = new System.Drawing.Size(100, 20);
+            this.txtEvName.Size = new System.Drawing.Size(118, 20);
             this.txtEvName.TabIndex = 45;
             // 
             // Edit_Ev_Button
@@ -136,18 +136,11 @@
             this.Add_Ev_Button.Text = "Add Event";
             this.Add_Ev_Button.Click += new System.EventHandler(this.Add_Ev_Button_Click);
             // 
-            // txtTechnology
-            // 
-            this.txtTechnology.Location = new System.Drawing.Point(300, 100);
-            this.txtTechnology.Name = "txtTechnology";
-            this.txtTechnology.Size = new System.Drawing.Size(100, 20);
-            this.txtTechnology.TabIndex = 52;
-            // 
             // txtTask
             // 
-            this.txtTask.Location = new System.Drawing.Point(300, 126);
+            this.txtTask.Location = new System.Drawing.Point(282, 126);
             this.txtTask.Name = "txtTask";
-            this.txtTask.Size = new System.Drawing.Size(100, 20);
+            this.txtTask.Size = new System.Drawing.Size(118, 20);
             this.txtTask.TabIndex = 53;
             // 
             // Del_Ev_Button
@@ -159,14 +152,26 @@
             this.Del_Ev_Button.Text = "Delete";
             this.Del_Ev_Button.Click += new System.EventHandler(this.Del_Ev_Button_Click);
             // 
+            // comboTechnology
+            // 
+            this.comboTechnology.Location = new System.Drawing.Point(282, 100);
+            this.comboTechnology.Name = "comboTechnology";
+            this.comboTechnology.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboTechnology.Properties.Items.AddRange(new object[] {
+            "Java",
+            "C#"});
+            this.comboTechnology.Size = new System.Drawing.Size(118, 20);
+            this.comboTechnology.TabIndex = 55;
+            // 
             // AddEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 282);
+            this.Controls.Add(this.comboTechnology);
             this.Controls.Add(this.Del_Ev_Button);
             this.Controls.Add(this.txtTask);
-            this.Controls.Add(this.txtTechnology);
             this.Controls.Add(this.SaveEv_Button);
             this.Controls.Add(this.txtEvName);
             this.Controls.Add(this.Edit_Ev_Button);
@@ -182,8 +187,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEvName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTechnology.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTask.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboTechnology.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,8 +205,8 @@
         private DevExpress.XtraEditors.TextEdit txtEvName;
         private DevExpress.XtraEditors.SimpleButton Edit_Ev_Button;
         private DevExpress.XtraEditors.SimpleButton Add_Ev_Button;
-        private DevExpress.XtraEditors.TextEdit txtTechnology;
         private DevExpress.XtraEditors.TextEdit txtTask;
         private DevExpress.XtraEditors.SimpleButton Del_Ev_Button;
+        private DevExpress.XtraEditors.ComboBoxEdit comboTechnology;
     }
 }

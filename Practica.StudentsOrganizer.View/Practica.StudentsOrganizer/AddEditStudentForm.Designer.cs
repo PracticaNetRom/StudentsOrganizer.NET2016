@@ -74,7 +74,7 @@
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name *";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -185,7 +185,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateBirth_Date.Size = new System.Drawing.Size(217, 20);
             this.dateBirth_Date.TabIndex = 27;
-            this.dateBirth_Date.EditValueChanged += new System.EventHandler(this.dateBirth_Date_EditValueChanged);
+            //this.dateBirth_Date.EditValueChanged += new System.EventHandler(this.dateBirth_Date_EditValueChanged);
             // 
             // txtEmail
             // 
@@ -193,7 +193,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(217, 20);
             this.txtEmail.TabIndex = 28;
-            this.txtEmail.EditValueChanged += new System.EventHandler(this.txtEmail_EditValueChanged);
+            //this.txtEmail.EditValueChanged += new System.EventHandler(this.txtEmail_EditValueChanged);
             // 
             // txtPhone
             // 

@@ -12,5 +12,6 @@ namespace Practica.StudentsOrganizer.Control.Interfaces
         TextEdit _txtUsername { get; }
         TextEdit _txtPassword { get; }
         SimpleButton _Login_Button { get; }
+        IMainForm OpenMain();
     }
 }

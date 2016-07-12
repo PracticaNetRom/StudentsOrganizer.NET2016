@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using Practica.StudentsOrganizer.Model.BO;
 
 namespace Practica.StudentsOrganizer.Model.DAO
 {
@@ -83,9 +84,6 @@ namespace Practica.StudentsOrganizer.Model.DAO
             }
 
             return ListToReturn;
-
-
-
         }
 
         
@@ -117,8 +115,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
                                       @Remarks)";
 
               cmd.Connection = conn;
-
-
+            
               cmd.Parameters.Add("@First_Name", SqlDbType.VarChar, 30).Value = StudI.First_Name;
               cmd.Parameters.Add("@Last_Name", SqlDbType.VarChar, 30).Value = StudI.Last_Name;
               cmd.Parameters.Add("@Gender", SqlDbType.VarChar, 15).Value = StudI.Gender;
@@ -128,15 +125,10 @@ namespace Practica.StudentsOrganizer.Model.DAO
               cmd.Parameters.Add("@Faculty", SqlDbType.VarChar, 100 ).Value = StudI.Faculty;
               cmd.Parameters.Add("@Faculty_Start_Year", SqlDbType.Int).Value = StudI.Faculty_Start_Year;
               cmd.Parameters.Add("@Remarks", SqlDbType.VarChar, 100).Value = StudI.Remarks;
-
-
+            
               conn.Open();
               cmd.ExecuteNonQuery();
-
-
-
-
-
+            
           }
 
           public void DeleteStd_ByFirstName (Students_BO DelStud)
@@ -192,6 +184,71 @@ namespace Practica.StudentsOrganizer.Model.DAO
             conn.Open();
             cmd.ExecuteNonQuery();
 
+        }
+        public List<Students_BO> Join()
+        {
+            List<Students_BO> ListToReturn = new List<Students_BO>();
+            
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = Connection.ConnValue;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"SELECT  
+                                Students.ID,
+                                Students.First_Name , 
+                                Students.Last_Name, 
+                                Students.Gender, 
+                                Students.Birth_Date, 
+                                Students.Email, 
+                                Students.Phone_number, 
+                                Students.Faculty, 
+                                Students.Faculty_Start_Year,
+                                Students.Remarks, 
+                                Events.Event_name ,
+                                Events.Technology,
+                                Events.Task, 
+                                Event_Occurence.Start,
+                                Event_Occurence.Finish 
+                                FROM  Students
+                                JOIN Stud_Event_Occurence
+                                ON Students.ID = Stud_Event_Occurence.StudentsId
+                                JOIN Event_Occurence
+                                ON Stud_Event_Occurence.Event_OccurenceId = Event_Occurence.EventsId
+                                JOIN Events
+                                ON Event_Occurence.EventsId = Events.ID";
+            cmd.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            //reader.Read() true a reusit sa citeasca, false nu a gasit informatii
+            while (reader.Read())
+            {
+                if (reader.HasRows)
+                {
+                    Students_BO Student = new Students_BO();
+                    Events_BO Event = new Events_BO();
+                    Event_Occurence_BO Ev_Occ = new Event_Occurence_BO();
+                    Student.ID = Convert.ToInt32(reader["ID"]);
+                    Student.First_Name = reader["First_Name"].ToString();
+                    Student.Last_Name = reader["Last_Name"].ToString();
+                    Student.Gender = reader["Gender"].ToString();
+                    Student.Birth_Date = Convert.ToDateTime(reader["Birth_Date"]);
+                    Student.Email = reader["Email"].ToString();
+                    Student.Phone_Number = reader["Phone_Number"].ToString();
+                    Student.Faculty = reader["Faculty"].ToString();
+                    Student.Faculty_Start_Year = Convert.ToInt32(reader["Faculty_Start_Year"]);
+                    Student.Remarks = reader["Remarks"].ToString();
+                 
+                    Event.Event_Name = reader["Event_Name"].ToString();
+                    Event.Technology = reader["Technology"].ToString();
+                    Event.Task = reader["Task"].ToString();
+                    
+                    Ev_Occ.Start = Convert.ToDateTime(reader["Start"]);
+                    Ev_Occ.Finish = Convert.ToDateTime(reader["Finish"]);
+
+                    ListToReturn.Add(Student);
+                }
+            }
+
+            return ListToReturn;
         }
     }
 }

@@ -45,9 +45,13 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Controlers\CtrlAddEditStudentsForm.cs" />
+    <Compile Include="Controlers\CtrlEOForm.cs" />
+    <Compile Include="Controlers\CtrlEventForm.cs" />
     <Compile Include="Controlers\CtrlLogin.cs" />
     <Compile Include="Controlers\CtrlMainForm.cs" />
     <Compile Include="Interfaces\IAddEditStudentsForm.cs" />
+    <Compile Include="Interfaces\IEOForm.cs" />
+    <Compile Include="Interfaces\IEventForm.cs" />
     <Compile Include="Interfaces\ILoginForm.cs" />
     <Compile Include="Interfaces\IMainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

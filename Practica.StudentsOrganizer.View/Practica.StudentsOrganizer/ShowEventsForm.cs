@@ -40,7 +40,7 @@ namespace Practica.StudentsOrganizer
 
         private void Add_Event_Button_Click(object sender, EventArgs e)
         {
-            AddEventForm EvForm = new AddEventForm();
+            EventForm EvForm = new EventForm();
             EvForm.Show();
         }
     }

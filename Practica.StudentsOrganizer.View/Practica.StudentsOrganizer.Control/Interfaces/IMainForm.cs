@@ -23,6 +23,6 @@ namespace Practica.StudentsOrganizer.Control
         GridControl _gridControl1 { get; }
         GridView _gridView1 { get; }
         IAddEditStudentsForm CreateAdd(Students_BO STD);
-
+        IEventForm OpenEvents();
     }
 }
