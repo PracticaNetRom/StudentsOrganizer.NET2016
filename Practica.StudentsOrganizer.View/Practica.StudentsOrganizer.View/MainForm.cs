@@ -37,9 +37,12 @@ namespace Practica.StudentsOrganizer.View
 
         private void btnEditStudent_Click(object sender, EventArgs e)
         {
-            studentBO student = (studentBO)gridView1.GetFocusedRow();
-            StudentForm btnEditStudent = new StudentForm(student);
-            btnEditStudent.ShowDialog();
+            
+                StudentForm Add_Std_Form = new StudentForm((studentBO)gridView1.GetFocusedRow());
+                Add_Std_Form.ShowDialog();
+               // studentBO student = (studentBO)gridView1.GetFocusedRow();
+           // StudentForm btnEditStudent = new StudentForm(student);
+            //btnEditStudent.ShowDialog();
         }
 
         private void btnDeleteStudent_Click(object sender, EventArgs e)
@@ -57,6 +60,13 @@ namespace Practica.StudentsOrganizer.View
             List<studentBO> students = ListStudentDAO.GetAllStudent();
 
             gridControlStudent.DataSource = students;
+        }
+
+        private void btnEvents_Click(object sender, EventArgs e)
+        {
+            ShowEventForm Add_Ev = new ShowEventForm();
+            Add_Ev.ShowDialog();
+
         }
     }
 }

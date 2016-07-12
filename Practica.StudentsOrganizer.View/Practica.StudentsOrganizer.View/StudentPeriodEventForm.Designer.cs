@@ -28,78 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textIdStud = new System.Windows.Forms.TextBox();
-            this.textIdOcc = new System.Windows.Forms.TextBox();
-            this.Save = new System.Windows.Forms.Button();
+            this.addIdStudent = new DevExpress.XtraEditors.TextEdit();
+            this.editIdStudent = new DevExpress.XtraEditors.TextEdit();
+            this.addIdStudentOc = new DevExpress.XtraEditors.TextEdit();
+            this.editIdStudentOc = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.btnAddSPE = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEditSPE = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeleteSPE = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.addIdStudent.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editIdStudent.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addIdStudentOc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editIdStudentOc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // addIdStudent
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "IdStudent";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.addIdStudent.Location = new System.Drawing.Point(147, 189);
+            this.addIdStudent.Name = "addIdStudent";
+            this.addIdStudent.Size = new System.Drawing.Size(100, 20);
+            this.addIdStudent.TabIndex = 0;
             // 
-            // label2
+            // editIdStudent
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "IdStudentOccurence";
+            this.editIdStudent.Location = new System.Drawing.Point(253, 189);
+            this.editIdStudent.Name = "editIdStudent";
+            this.editIdStudent.Size = new System.Drawing.Size(100, 20);
+            this.editIdStudent.TabIndex = 1;
             // 
-            // textIdStud
+            // addIdStudentOc
             // 
-            this.textIdStud.Location = new System.Drawing.Point(139, 29);
-            this.textIdStud.Name = "textIdStud";
-            this.textIdStud.Size = new System.Drawing.Size(225, 20);
-            this.textIdStud.TabIndex = 3;
+            this.addIdStudentOc.Location = new System.Drawing.Point(147, 148);
+            this.addIdStudentOc.Name = "addIdStudentOc";
+            this.addIdStudentOc.Size = new System.Drawing.Size(100, 20);
+            this.addIdStudentOc.TabIndex = 2;
             // 
-            // textIdOcc
+            // editIdStudentOc
             // 
-            this.textIdOcc.Location = new System.Drawing.Point(139, 55);
-            this.textIdOcc.Name = "textIdOcc";
-            this.textIdOcc.Size = new System.Drawing.Size(225, 20);
-            this.textIdOcc.TabIndex = 4;
-            this.textIdOcc.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.editIdStudentOc.Location = new System.Drawing.Point(253, 148);
+            this.editIdStudentOc.Name = "editIdStudentOc";
+            this.editIdStudentOc.Size = new System.Drawing.Size(100, 20);
+            this.editIdStudentOc.TabIndex = 3;
             // 
-            // Save
+            // labelControl1
             // 
-            this.Save.Location = new System.Drawing.Point(267, 262);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(97, 54);
-            this.Save.TabIndex = 5;
-            this.Save.Text = "SAVE";
-            this.Save.UseVisualStyleBackColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(42, 155);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(99, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "IdStudentOccurence";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(42, 196);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(48, 13);
+            this.labelControl2.TabIndex = 5;
+            this.labelControl2.Text = "IdStudent";
+            // 
+            // btnAddSPE
+            // 
+            this.btnAddSPE.Location = new System.Drawing.Point(147, 28);
+            this.btnAddSPE.Name = "btnAddSPE";
+            this.btnAddSPE.Size = new System.Drawing.Size(100, 23);
+            this.btnAddSPE.TabIndex = 6;
+            this.btnAddSPE.Text = "Add";
+            this.btnAddSPE.Click += new System.EventHandler(this.btnAddSPE_Click);
+            // 
+            // btnEditSPE
+            // 
+            this.btnEditSPE.Location = new System.Drawing.Point(253, 28);
+            this.btnEditSPE.Name = "btnEditSPE";
+            this.btnEditSPE.Size = new System.Drawing.Size(100, 23);
+            this.btnEditSPE.TabIndex = 7;
+            this.btnEditSPE.Text = "Edit";
+            this.btnEditSPE.Click += new System.EventHandler(this.btnEditSPE_Click);
+            // 
+            // btnDeleteSPE
+            // 
+            this.btnDeleteSPE.Location = new System.Drawing.Point(407, 293);
+            this.btnDeleteSPE.Name = "btnDeleteSPE";
+            this.btnDeleteSPE.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteSPE.TabIndex = 8;
+            this.btnDeleteSPE.Text = "Delete";
+            this.btnDeleteSPE.Click += new System.EventHandler(this.btnDeleteSPE_Click);
             // 
             // StudentPeriodEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 328);
-            this.Controls.Add(this.Save);
-            this.Controls.Add(this.textIdOcc);
-            this.Controls.Add(this.textIdStud);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnDeleteSPE);
+            this.Controls.Add(this.btnEditSPE);
+            this.Controls.Add(this.btnAddSPE);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.editIdStudentOc);
+            this.Controls.Add(this.addIdStudentOc);
+            this.Controls.Add(this.editIdStudent);
+            this.Controls.Add(this.addIdStudent);
             this.Name = "StudentPeriodEventForm";
             this.Text = "StudentPeriodEventForm";
+            this.Load += new System.EventHandler(this.StudentPeriodEventForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.addIdStudent.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editIdStudent.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addIdStudentOc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editIdStudentOc.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textIdStud;
-        private System.Windows.Forms.TextBox textIdOcc;
-        private System.Windows.Forms.Button Save;
+
+        private DevExpress.XtraEditors.TextEdit addIdStudent;
+        private DevExpress.XtraEditors.TextEdit editIdStudent;
+        private DevExpress.XtraEditors.TextEdit addIdStudentOc;
+        private DevExpress.XtraEditors.TextEdit editIdStudentOc;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.SimpleButton btnAddSPE;
+        private DevExpress.XtraEditors.SimpleButton btnEditSPE;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteSPE;
     }
 }

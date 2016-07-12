@@ -23,16 +23,23 @@ namespace Practica.StudentsOrganizer.View
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void StudentPeriodEventForm_Load(object sender, EventArgs e)
         {
-            student_period_eventBO NewStudentEventOccurenceBO = new student_period_eventBO();
-            student_period_eventDAO NewStudentEventOccurenceDAO = new student_period_eventDAO();
 
+        }
 
-            NewStudentEventOccurenceBO.IdStudent = Convert.ToInt32(textIdStud.Text);
-            NewStudentEventOccurenceBO.IdStudentOccurence = Convert.ToInt32(textIdOcc.Text);
+        private void btnAddSPE_Click(object sender, EventArgs e)
+        {
 
-            NewStudentEventOccurenceDAO.AddStudent_period_eventDAO(NewStudentEventOccurenceBO);
+        }
+
+        private void btnEditSPE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteSPE_Click(object sender, EventArgs e)
+        {
 
         }
     }

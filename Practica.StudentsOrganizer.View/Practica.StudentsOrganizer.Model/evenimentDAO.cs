@@ -12,11 +12,12 @@ namespace Practica.StudentsOrganizer.Model
     {
         public evenimentBO Event(int Id)
         {
-            SqlConnection conn = new SqlConnection();
+            //SqlConnection conn = new SqlConnection();
             /*  conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
               "Initial Catalog=NetRom.Practice5;" +
               "Integrated Security=SSPI;";
               */
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "select IdEvent.eveniment,EventName.eveniment,Departament.eveniment,Task.eveniment from eveniment where IdEvent=" + Id;
@@ -126,6 +127,24 @@ namespace Practica.StudentsOrganizer.Model
 
         }
 
+        public void DeleteEvent(evenimentBO DelEvent)
+        {
+            SqlConnection conn = new SqlConnection();
+            // conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+            //"Initial Catalog=NetRom.Practice5;" +
+            //"Integrated Security=SSPI;";
+            conn.ConnectionString = Connection.ConValue;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"Delete from student where IdEvent=@IdEvent";
+            cmd.Connection = conn;
+            conn.Open();
+
+            cmd.Parameters.Add("@IdEvent", SqlDbType.Int).Value = DelEvent.IdEvent;
+
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
     }
