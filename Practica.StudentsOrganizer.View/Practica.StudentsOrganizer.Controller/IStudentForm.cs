@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
 using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,9 @@ namespace Practica.StudentsOrganizer.Controller
         TextEdit TxtRemarks { get;  }
         ComboBoxEdit gender { get;  }
         DateEdit birthDate { get;  }
-
+        LookUpEdit LookUpEditEvent { get; }
+        LookUpEdit LookUpEditOccurence { get; }
+        GridControl GridControlEvent { get; }
+        GridView GridViewEvent { get; }
     }
 }

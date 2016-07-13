@@ -55,9 +55,9 @@ namespace Practica.StudentsOrganizer.View
             }
 
 
-            dao.AddEvent(ev);
+          //  dao.AddEvent(ev);
 
-            MessageBox.Show("Event successfully added!");
+           // MessageBox.Show("Event successfully added!");
         }
 
     }

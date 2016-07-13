@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -43,28 +44,43 @@ namespace Practica.StudentsOrganizer.Model
             return event_occ;
         }
 
-        public void AddEvent_Occurence(Event_OccurenceBO ev_occ)
-        {
+        /* public void AddEvent_Occurence(Event_OccurenceBO ev_occ)
+         {
 
-            //conexiunea cu baza de date
+             //conexiunea cu baza de date
+             SqlConnection conn = new SqlConnection();
+             conn.ConnectionString = ConnectionString.Value;
+             //conn.Open();
+
+             //sql command
+             SqlCommand cmd = new SqlCommand();
+
+             //conexiunea la command
+             cmd.Connection = conn;
+
+             cmd.CommandText = "INSERT INTO dbo.Event_Occurence (ID_event, StartDate, EndDate] VALUES (@Id_ev, @StartDate, @EndDate)";
+
+             cmd.Parameters.AddWithValue("@Id_ev", ev_occ.Id_event);
+             cmd.Parameters.AddWithValue("@StartDate", ev_occ.StartDate);
+             cmd.Parameters.AddWithValue("@EndDate", ev_occ.EndDate);
+
+             conn.Open();
+             cmd.ExecuteNonQuery();
+         }*/
+        public DataTable GetAllEventOccurence(int id)
+        {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnectionString.Value;
-            //conn.Open();
 
-            //sql command
-            SqlCommand cmd = new SqlCommand();
+            DataTable item = new DataTable();
 
-            //conexiunea la command
-            cmd.Connection = conn;
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Event_occurence WHERE ID_event=" + id, conn);
 
-            cmd.CommandText = "INSERT INTO dbo.Event_Occurence (ID_event, StartDate, EndDate] VALUES (@Id_ev, @StartDate, @EndDate)";
+            adapter.Fill(item);
 
-            cmd.Parameters.AddWithValue("@Id_ev", ev_occ.Id_event);
-            cmd.Parameters.AddWithValue("@StartDate", ev_occ.StartDate);
-            cmd.Parameters.AddWithValue("@EndDate", ev_occ.EndDate);
+            return item;
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
+
         }
     }
 }

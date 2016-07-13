@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -45,30 +46,47 @@ namespace Practica.StudentsOrganizer.Model
             return e;
         }
 
-    public void AddEvent(EventBO ev)
-    {
+        /* public void AddEvent(EventBO ev)
+         {
 
-        //conexiunea cu baza de date
-        SqlConnection conn = new SqlConnection();
+             //conexiunea cu baza de date
+             SqlConnection conn = new SqlConnection();
+                 conn.ConnectionString = ConnectionString.Value;
+                 //conn.Open();
+
+                 //sql command
+                 SqlCommand cmd = new SqlCommand();
+
+             //conexiunea la command
+             cmd.Connection = conn;
+
+             cmd.CommandText = "INSERT INTO dbo.Event (Name,Task,Department/Technology) VALUES (@Name, @Task, @Dep_Tech)";
+
+             cmd.Parameters.AddWithValue("@Name", ev.Name);
+             cmd.Parameters.AddWithValue("@Task", ev.Task);
+             cmd.Parameters.AddWithValue("@Dep_Tech", ev.Department_Technology);
+
+             conn.Open();
+             cmd.ExecuteNonQuery();
+         }*/
+
+        public DataTable GetAllEvents()
+        {
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnectionString.Value;
-            //conn.Open();
 
-            //sql command
-            SqlCommand cmd = new SqlCommand();
+            DataTable item = new DataTable();
 
-        //conexiunea la command
-        cmd.Connection = conn;
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Event", conn);
 
-        cmd.CommandText = "INSERT INTO dbo.Event (Name,Task,Department/Technology) VALUES (@Name, @Task, @Dep_Tech)";
+            adapter.Fill(item);
 
-        cmd.Parameters.AddWithValue("@Name", ev.Name);
-        cmd.Parameters.AddWithValue("@Task", ev.Task);
-        cmd.Parameters.AddWithValue("@Dep_Tech", ev.Department_Technology);
+            return item;
+
+        }
         
-        conn.Open();
-        cmd.ExecuteNonQuery();
+
     }
-}
 }
 
 

@@ -155,5 +155,37 @@ namespace Practica.StudentsOrganizer.Model
             conn.Open();
             cmd.ExecuteNonQuery();
         }
+        public void SelectEventAndEventOccurence(int Id)
+        {
+            StudentBO student = new StudentBO();
+            
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = ConnectionString.Value;
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+
+           
+            cmd.Connection = conn;
+
+            cmd.CommandText = @"select 
+                                seo.ID as SudentEventOcurrenceID,
+                                eo.ID as EventOcurrenceID,
+                                e.Name as EventName,
+                                eo.StartDate,
+                                eo.EndDate
+                            from	
+	                            Student_Event_Occurence seo inner join 
+	                            Event_occurence eo on seo.ID_event_occurence = eo.ID inner join
+	                            Event e on eo.ID_Event = e.ID
+
+                                where seo.ID_student =  " + Id;
+
+
+ 
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
     }
 }

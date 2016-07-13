@@ -42,7 +42,7 @@ namespace Practica.StudentsOrganizer.View
 
             ev_occ.EndDate = EndDate.Value;
 
-            dao.AddEvent_Occurence(ev_occ);
+           // dao.AddEvent_Occurence(ev_occ);
 
             MessageBox.Show("Event_Occurence successfully added!");
         }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Data;
 
 namespace Practica.StudentsOrganizer.Controller
 {
@@ -18,7 +19,7 @@ namespace Practica.StudentsOrganizer.Controller
             _form = form;
         }
 
-       
+
         public void Add_Update()
         {
             StudentBO std = new StudentBO();
@@ -196,6 +197,30 @@ namespace Practica.StudentsOrganizer.Controller
         private void Close()
         {
             throw new NotImplementedException();
+        }
+        public void LoadEvents()
+        {
+            EventDAO dao = new EventDAO();
+            DataTable dt = dao.GetAllEvents();
+            _form.LookUpEditEvent.Properties.DataSource = dt;
+            _form.LookUpEditEvent.Properties.DisplayMember = "Name";
+            _form.LookUpEditEvent.Properties.ValueMember = "ID";
+        }
+        public void LoadEventOccurence()
+        {
+            int idEvent;
+            idEvent = Convert.ToInt32(_form.LookUpEditEvent.EditValue);
+
+            Event_OccurenceDAO dao = new Event_OccurenceDAO();
+            DataTable dt = dao.GetAllEventOccurence(idEvent);
+            _form.LookUpEditOccurence.Properties.DataSource = dt;
+            _form.LookUpEditOccurence.Properties.DisplayMember = "StartDate";
+            _form.LookUpEditOccurence.Properties.ValueMember = "ID";
+        }
+        public void GridControlEvents()
+        {
+            
+
         }
     }
 }
