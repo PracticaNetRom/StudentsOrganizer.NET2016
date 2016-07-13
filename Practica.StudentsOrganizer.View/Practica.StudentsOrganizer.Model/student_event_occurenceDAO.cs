@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Practica.StudentsOrganizer.Model;
 
 namespace Practica.StudentsOrganizer.Model
 {
   public  class student_event_occurenceDAO
     {
+        public int IdEvent { get; private set; }
+
         public student_event_occurenceBO Stud_Event_Occurence(int Id)
         {
             SqlConnection conn = new SqlConnection();
@@ -29,18 +32,51 @@ namespace Practica.StudentsOrganizer.Model
             {
                 if (reader.HasRows)//intoarce daca sunt sau nu randuri de citit
                 {
-                    student_event_occurenceBO Stud_Event_Occurence = new student_event_occurenceBO();
-                    Stud_Event_Occurence.Id = Convert.ToInt32(reader["Id"]);
-                    Stud_Event_Occurence.IdEvent = Convert.ToInt32(reader["IdEvent"]);
-                    Stud_Event_Occurence.DataStart= Convert.ToDateTime(reader["DataStart"]);
-                    Stud_Event_Occurence.DataEnd = Convert.ToDateTime(reader["DataEnd"]);
-                    return Stud_Event_Occurence;
+                    student_event_occurenceBO Stud_Events_Occurence = new student_event_occurenceBO();
+                    Stud_Events_Occurence.Id = Convert.ToInt32(reader["Id"]);
+                    Stud_Events_Occurence.IdEvent = Convert.ToInt32(reader["IdEvent"]);
+                    Stud_Events_Occurence.DataStart= Convert.ToDateTime(reader["DataStart"]);
+                    Stud_Events_Occurence.DataEnd = Convert.ToDateTime(reader["DataEnd"]);
+
+                    return Stud_Events_Occurence;
                 }
             }
             return null;
 
         }
 
+        public List<student_event_occurenceBO> Select_Student_Event(int idEvent)
+        {
+            List<student_event_occurenceBO> ListToReturn = new List<student_event_occurenceBO>();
+
+
+            SqlConnection conn = new SqlConnection();
+            /*  conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" +
+              "Initial Catalog=NetRom.Practice5;" +
+              "Integrated Security=SSPI;";
+              */
+            conn.ConnectionString = Connection.ConValue;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"Select Id,IdEvent,DateStart,DateEnd from student_event_occurence where IdEvent=" + idEvent;
+            cmd.Connection = conn;
+            conn.Open();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                if (reader.HasRows)
+                {
+                    student_event_occurenceBO SEO = new student_event_occurenceBO();
+                    SEO.Id = Convert.ToInt32(reader["Id"]);
+                    SEO.IdEvent = Convert.ToInt32(reader["IdEvent"]);
+                    SEO.DataStart = Convert.ToDateTime(reader["DateStart"]);
+                    SEO.DataEnd = Convert.ToDateTime(reader["DateEnd"]);                
+                    ListToReturn.Add(SEO);
+                }
+
+            }
+            return ListToReturn;
+        }
 
         public void AddStudent_event_occurence(student_event_occurenceBO student_event_occurenceAdd)
         {
@@ -103,7 +139,7 @@ namespace Practica.StudentsOrganizer.Model
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"Select ID, EventsId, Start, Finish from Event_Occurence";
+            cmd.CommandText = @"Select Id, IdEvent, DateStart, DateEnd from student_event_occurence";
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
@@ -112,10 +148,10 @@ namespace Practica.StudentsOrganizer.Model
                 if (reader.HasRows)
                 {
                     student_event_occurenceBO EO = new student_event_occurenceBO();
-                    EO.Id = Convert.ToInt32(reader["ID"]);
-                    EO.IdEvent = Convert.ToInt32(reader["EventsId"]);
-                    EO.DataStart = Convert.ToDateTime(reader["Start"]);
-                    EO.DataEnd = Convert.ToDateTime(reader["Finish"]);
+                    EO.Id = Convert.ToInt32(reader["Id"]);
+                    EO.IdEvent = Convert.ToInt32(reader["IdEvent"]);
+                    EO.DataStart = Convert.ToDateTime(reader["DateStart"]);
+                    EO.DataEnd = Convert.ToDateTime(reader["DateEnd"]);
 
                     ListToReturn.Add(EO);
                 }

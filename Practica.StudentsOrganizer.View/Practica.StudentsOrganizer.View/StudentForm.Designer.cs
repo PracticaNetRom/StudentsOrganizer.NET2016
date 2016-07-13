@@ -50,6 +50,13 @@
             this.textFaculty = new DevExpress.XtraEditors.TextEdit();
             this.textRemarks = new DevExpress.XtraEditors.TextEdit();
             this.newstud = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.gridControlEvent = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnAddChage = new DevExpress.XtraEditors.SimpleButton();
+            this.lookUpEditEvent = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookUpEditEventOc = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.textFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textGender.Properties)).BeginInit();
@@ -61,6 +68,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.textFacultyStartYear.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFaculty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textRemarks.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEvent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEvent.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEventOc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -155,7 +166,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(320, 519);
+            this.btnSave.Location = new System.Drawing.Point(641, 540);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 42);
             this.btnSave.TabIndex = 21;
@@ -164,21 +175,21 @@
             // 
             // textFirstName
             // 
-            this.textFirstName.Location = new System.Drawing.Point(177, 85);
+            this.textFirstName.Location = new System.Drawing.Point(235, 85);
             this.textFirstName.Name = "textFirstName";
             this.textFirstName.Size = new System.Drawing.Size(206, 20);
             this.textFirstName.TabIndex = 22;
             // 
             // textLastName
             // 
-            this.textLastName.Location = new System.Drawing.Point(177, 110);
+            this.textLastName.Location = new System.Drawing.Point(235, 110);
             this.textLastName.Name = "textLastName";
             this.textLastName.Size = new System.Drawing.Size(206, 20);
             this.textLastName.TabIndex = 23;
             // 
             // textGender
             // 
-            this.textGender.Location = new System.Drawing.Point(177, 136);
+            this.textGender.Location = new System.Drawing.Point(235, 136);
             this.textGender.Name = "textGender";
             this.textGender.Size = new System.Drawing.Size(206, 20);
             this.textGender.TabIndex = 24;
@@ -186,7 +197,7 @@
             // textBirthDate
             // 
             this.textBirthDate.EditValue = null;
-            this.textBirthDate.Location = new System.Drawing.Point(177, 162);
+            this.textBirthDate.Location = new System.Drawing.Point(235, 162);
             this.textBirthDate.Name = "textBirthDate";
             this.textBirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -197,28 +208,28 @@
             // 
             // textEmail
             // 
-            this.textEmail.Location = new System.Drawing.Point(177, 188);
+            this.textEmail.Location = new System.Drawing.Point(235, 188);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(206, 20);
             this.textEmail.TabIndex = 26;
             // 
             // textPhoneNumbers
             // 
-            this.textPhoneNumbers.Location = new System.Drawing.Point(177, 219);
+            this.textPhoneNumbers.Location = new System.Drawing.Point(235, 219);
             this.textPhoneNumbers.Name = "textPhoneNumbers";
             this.textPhoneNumbers.Size = new System.Drawing.Size(206, 20);
             this.textPhoneNumbers.TabIndex = 27;
             // 
             // textPhoneHomeNumbers
             // 
-            this.textPhoneHomeNumbers.Location = new System.Drawing.Point(177, 246);
+            this.textPhoneHomeNumbers.Location = new System.Drawing.Point(235, 246);
             this.textPhoneHomeNumbers.Name = "textPhoneHomeNumbers";
             this.textPhoneHomeNumbers.Size = new System.Drawing.Size(206, 20);
             this.textPhoneHomeNumbers.TabIndex = 28;
             // 
             // textFacultyStartYear
             // 
-            this.textFacultyStartYear.Location = new System.Drawing.Point(177, 272);
+            this.textFacultyStartYear.Location = new System.Drawing.Point(235, 272);
             this.textFacultyStartYear.Name = "textFacultyStartYear";
             this.textFacultyStartYear.Properties.Mask.EditMask = "d";
             this.textFacultyStartYear.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -229,14 +240,14 @@
             // 
             // textFaculty
             // 
-            this.textFaculty.Location = new System.Drawing.Point(177, 299);
+            this.textFaculty.Location = new System.Drawing.Point(235, 299);
             this.textFaculty.Name = "textFaculty";
             this.textFaculty.Size = new System.Drawing.Size(206, 20);
             this.textFaculty.TabIndex = 30;
             // 
             // textRemarks
             // 
-            this.textRemarks.Location = new System.Drawing.Point(177, 326);
+            this.textRemarks.Location = new System.Drawing.Point(235, 326);
             this.textRemarks.Name = "textRemarks";
             this.textRemarks.Size = new System.Drawing.Size(206, 20);
             this.textRemarks.TabIndex = 31;
@@ -249,11 +260,80 @@
             this.newstud.TabIndex = 32;
             this.newstud.Text = "New Student";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(49, 368);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(55, 13);
+            this.labelControl1.TabIndex = 35;
+            this.labelControl1.Text = "EventName";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(49, 421);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(79, 13);
+            this.labelControl2.TabIndex = 36;
+            this.labelControl2.Text = "EventOccurence";
+            // 
+            // gridControlEvent
+            // 
+            this.gridControlEvent.Location = new System.Drawing.Point(235, 352);
+            this.gridControlEvent.MainView = this.gridView1;
+            this.gridControlEvent.Name = "gridControlEvent";
+            this.gridControlEvent.Size = new System.Drawing.Size(400, 200);
+            this.gridControlEvent.TabIndex = 37;
+            this.gridControlEvent.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControlEvent;
+            this.gridView1.Name = "gridView1";
+            // 
+            // btnAddChage
+            // 
+            this.btnAddChage.Location = new System.Drawing.Point(48, 490);
+            this.btnAddChage.Name = "btnAddChage";
+            this.btnAddChage.Size = new System.Drawing.Size(100, 48);
+            this.btnAddChage.TabIndex = 38;
+            this.btnAddChage.Text = "AddChange";
+            this.btnAddChage.Click += new System.EventHandler(this.btnAddChage_Click);
+            // 
+            // lookUpEditEvent
+            // 
+            this.lookUpEditEvent.Location = new System.Drawing.Point(48, 387);
+            this.lookUpEditEvent.Name = "lookUpEditEvent";
+            this.lookUpEditEvent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditEvent.Properties.DisplayMember = "EventName";
+            this.lookUpEditEvent.Properties.ValueMember = "IdEvent";
+            this.lookUpEditEvent.Size = new System.Drawing.Size(181, 20);
+            this.lookUpEditEvent.TabIndex = 39;
+            this.lookUpEditEvent.EditValueChanged += new System.EventHandler(this.lookUpEditEvent_EditValueChanged);
+            // 
+            // lookUpEditEventOc
+            // 
+            this.lookUpEditEventOc.Location = new System.Drawing.Point(48, 440);
+            this.lookUpEditEventOc.Name = "lookUpEditEventOc";
+            this.lookUpEditEventOc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditEventOc.Properties.DisplayMember = "DateStart";
+            this.lookUpEditEventOc.Properties.ValueMember = "Id";
+            this.lookUpEditEventOc.Size = new System.Drawing.Size(181, 20);
+            this.lookUpEditEventOc.TabIndex = 40;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 573);
+            this.ClientSize = new System.Drawing.Size(728, 594);
+            this.Controls.Add(this.lookUpEditEventOc);
+            this.Controls.Add(this.lookUpEditEvent);
+            this.Controls.Add(this.btnAddChage);
+            this.Controls.Add(this.gridControlEvent);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.newstud);
             this.Controls.Add(this.textRemarks);
             this.Controls.Add(this.textFaculty);
@@ -290,6 +370,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.textFacultyStartYear.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFaculty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textRemarks.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEvent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEvent.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEventOc.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,5 +402,12 @@
         private DevExpress.XtraEditors.TextEdit textFaculty;
         private DevExpress.XtraEditors.TextEdit textRemarks;
         private DevExpress.XtraEditors.LabelControl newstud;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraGrid.GridControl gridControlEvent;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SimpleButton btnAddChage;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEditEvent;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEditEventOc;
     }
 }

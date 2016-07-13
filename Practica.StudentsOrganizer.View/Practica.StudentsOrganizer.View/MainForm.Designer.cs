@@ -81,6 +81,7 @@
             this.gridControlStudent.TabIndex = 3;
             this.gridControlStudent.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControlStudent.Click += new System.EventHandler(this.gridControlStudent_Click);
             // 
             // gridView1
             // 
@@ -103,7 +104,6 @@
             this.btnEvents.Size = new System.Drawing.Size(171, 48);
             this.btnEvents.TabIndex = 5;
             this.btnEvents.Text = "Events";
-            this.btnEvents.Click += new System.EventHandler(this.btnEvents_Click);
             // 
             // MainForm
             // 

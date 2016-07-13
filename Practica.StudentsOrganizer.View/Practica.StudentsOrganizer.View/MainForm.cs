@@ -62,11 +62,16 @@ namespace Practica.StudentsOrganizer.View
             gridControlStudent.DataSource = students;
         }
 
-        private void btnEvents_Click(object sender, EventArgs e)
+        private void gridControlStudent_Click(object sender, EventArgs e)
         {
-            ShowEventForm Add_Ev = new ShowEventForm();
-            Add_Ev.ShowDialog();
 
         }
+
+        // private void btnEvents_Click(object sender, EventArgs e)
+        // {
+        //    ShowEventForm Add_Ev = new ShowEventForm();
+        //   Add_Ev.ShowDialog();
+
+        //  }
     }
 }

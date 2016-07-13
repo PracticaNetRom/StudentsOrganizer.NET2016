@@ -55,7 +55,18 @@ namespace Practica.StudentsOrganizer.View
             if (this.student != null)
             {
                 CopyObjectInData(student);
+
             }
+
+            evenimentDAO ListEventDAO = new evenimentDAO();
+            List<evenimentBO> events = ListEventDAO.GetAllEvents();
+            lookUpEditEvent.Properties.DataSource= events;
+
+
+            student_event_occurenceDAO ListEventOcc = new student_event_occurenceDAO();
+            List<student_event_occurenceBO> eventOcc = ListEventOcc.GetAllEO();
+            lookUpEditEventOc.Properties.DataSource=eventOcc;
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -81,6 +92,33 @@ namespace Practica.StudentsOrganizer.View
         private void textFacultyStartYear_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddChage_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void lookUpEditEvent_EditValueChanged(object sender, EventArgs e)
+        {
+            //Selected event from lookupEdit1
+
+            evenimentBO selectedEvent =new evenimentBO();
+            selectedEvent = (evenimentBO)lookUpEditEvent.GetSelectedDataRow();
+
+
+            //Create EventOcurrence DAO and get all event ocurrences for selectedEvent.ID
+
+            student_event_occurenceDAO selectedEventDAO = new student_event_occurenceDAO();
+            List<student_event_occurenceBO> EventSelect = selectedEventDAO.Select_Student_Event(selectedEvent.IdEvent);
+
+
+
+
+            //Populate retrieved List of event ocurrences into lookupEdit2
+
+            lookUpEditEventOc.Properties.DataSource = EventSelect;
         }
     }
 }

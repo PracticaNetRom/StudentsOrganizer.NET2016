@@ -57,12 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEventForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddEventForm.Designer.cs">
-      <DependentUpon>AddEventForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,33 +65,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="showEventForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="showEventForm.Designer.cs">
-      <DependentUpon>showEventForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StudentEventOccurenceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StudentEventOccurenceForm.Designer.cs">
-      <DependentUpon>StudentEventOccurenceForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentPeriodEventForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StudentPeriodEventForm.Designer.cs">
-      <DependentUpon>StudentPeriodEventForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddEventForm.resx">
-      <DependentUpon>AddEventForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,17 +85,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="showEventForm.resx">
-      <DependentUpon>showEventForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StudentEventOccurenceForm.resx">
-      <DependentUpon>StudentEventOccurenceForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StudentPeriodEventForm.resx">
-      <DependentUpon>StudentPeriodEventForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -134,9 +98,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Practica.StudentsOrganizer.Control\Practica.StudentsOrganizer.Control.csproj">

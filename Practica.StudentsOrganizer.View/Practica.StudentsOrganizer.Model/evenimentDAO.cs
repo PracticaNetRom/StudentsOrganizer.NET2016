@@ -103,7 +103,7 @@ namespace Practica.StudentsOrganizer.Model
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.ConValue;
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"Select ID, Event_Name, Technology, Task from Events ";
+            cmd.CommandText = @"Select IdEvent, EventName, Departament, Task from eveniment ";
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
@@ -113,9 +113,9 @@ namespace Practica.StudentsOrganizer.Model
                 if (reader.HasRows)
                 {
                     evenimentBO Event = new evenimentBO();
-                    Event.IdEvent = Convert.ToInt32(reader["ID"]);
-                    Event.EventName = reader["Event_Name"].ToString();
-                    Event.Departament = reader["Technology"].ToString();
+                    Event.IdEvent = Convert.ToInt32(reader["IdEvent"]);
+                    Event.EventName = reader["EventName"].ToString();
+                    Event.Departament = reader["Departament"].ToString();
                     Event.Task = reader["Task"].ToString();
 
 
