@@ -12,5 +12,10 @@ namespace Practica.StudentsOrganizer.Model.BO
         public int idEvent { get; set; }
         public DateTime startData { get; set; }
         public DateTime endData { get; set; }
+        
+        public string DisplayValue
+        {
+            get { return string.Format("({0})-({1})", startData , endData); }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using Practica.StudentOrganizer.Controller.Controllers;
 using Practica.StudentOrganizer.Controller.Interfaces;
 using Practica.StudentsOrganizer.Model;
@@ -95,19 +96,27 @@ namespace Practica.StudentsOrganizer.View
             }
         }
 
-        public ComboBoxEdit ComboBoxEvtOccur
+        public LookUpEdit ComboBoxEvtOccur
         {
             get
             {
-                return ComboBoxEvtOccur;
+                return comboBoxEvtOccur;
             }
         }
 
-        public ComboBoxEdit ComboBoxEventName
+        public LookUpEdit ComboBoxEventName
         {
             get
             {
-                return ComboBoxEventName;
+                return comboBoxEventName;
+            }
+        }
+
+        public GridView GridAddEvent
+        {
+            get
+            {
+                return gridView1;
             }
         }
 
@@ -130,24 +139,33 @@ namespace Practica.StudentsOrganizer.View
             dateTimeBirthDate.Properties.MinValue = DateTime.Now.AddYears(-50);
         }
 
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             controllerStd.AddOrUpdate();
         }
+
 
         public void PopulateStudent(StudentBO s)
         {
             controllerStd.PopulateStudent(s);
         }
 
-        private void comboBoxEventName_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void AddStudentForm_Load(object sender, EventArgs e)
         {
+            controllerStd.PopulateEvents();
 
         }
 
-        private void comboBoxEvtOccur_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxEventName_EditValueChanged(object sender, EventArgs e)
         {
+            controllerStd.PopulateEventOccurence();
+        }
 
+        private void ButtonAddEven_Click(object sender, EventArgs e)
+        {
+            controllerStd.AddEvent();
         }
     }
 }

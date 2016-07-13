@@ -74,7 +74,9 @@ INSERT INTO EventOccurence(idEvent, startData, endData)
 		VALUES ('7', '12/8/2015', '8/10/2015');
 INSERT INTO EventOccurence(idEvent, startData, endData) 
 		VALUES ('8', '9/11/2015', '2/12/2015');
-     
+INSERT INTO EventOccurence(idEvent, startData, endData) 
+		VALUES ('1', '9/11/2015', '2/12/2015');
+          
 
 INSERT INTO StudentEventOccurence(idStudent, idEventOccurence) VALUES('1', '8');
 INSERT INTO StudentEventOccurence(idStudent, idEventOccurence) VALUES('2', '9');

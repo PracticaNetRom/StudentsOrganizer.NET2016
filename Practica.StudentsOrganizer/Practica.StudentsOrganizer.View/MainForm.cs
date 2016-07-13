@@ -113,7 +113,7 @@ namespace Practica.StudentsOrganizer.View
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            
+            controllerMain.LogOut();
         }
     }
 }

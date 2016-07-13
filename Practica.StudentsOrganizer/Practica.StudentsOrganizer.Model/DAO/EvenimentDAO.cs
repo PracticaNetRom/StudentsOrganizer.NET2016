@@ -1,6 +1,7 @@
 ﻿using Practica.StudentsOrganizer.Model.BO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,20 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.Parameters.AddWithValue("@paramDepartamentOrTehnology", evenimentAdd.departamentOrTehnology);
 
             cmd.ExecuteNonQuery();
+        }
+
+
+        public DataTable GetAllEvents()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = ConnString.Value;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapetr = new SqlDataAdapter("SELECT * FROM Eveniment", conn);
+
+            adapetr.Fill(dt);
+
+            return dt;
         }
 
     }

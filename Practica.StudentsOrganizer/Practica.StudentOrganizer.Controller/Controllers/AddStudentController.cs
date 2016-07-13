@@ -1,8 +1,10 @@
 ﻿using Practica.StudentOrganizer.Controller.Interfaces;
 using Practica.StudentsOrganizer.Model;
+using Practica.StudentsOrganizer.Model.BO;
 using Practica.StudentsOrganizer.Model.DAO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -146,6 +148,13 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             stdForm.TxtRemarks.Text = string.Empty;
         }
 
+        public void AddEvent()
+        {
+            string ev = stdForm.ComboBoxEventName.Text;
+
+            EventOccurenceBO evo = (EventOccurenceBO)(stdForm.ComboBoxEvtOccur.GetSelectedDataRow());
+        }
+
         public StudentBO student;
 
 
@@ -163,5 +172,46 @@ namespace Practica.StudentOrganizer.Controller.Controllers
 
             student = s;
         }
+
+
+        public void PopulateEvents()
+        {
+            EvenimentDAO eventselectDAO = new EvenimentDAO ();
+
+            DataTable dtEven = eventselectDAO.GetAllEvents();
+
+            stdForm.ComboBoxEventName.Properties.DataSource = dtEven ;
+
+            stdForm.ComboBoxEventName.Properties.DisplayMember = "eventName";
+            stdForm.ComboBoxEventName.Properties.ValueMember = "id";
+
+        }
+
+        public void PopulateEventOccurence()
+        {
+            int id = Convert.ToInt32(stdForm.ComboBoxEventName.EditValue);
+
+            EventOccurenceDAO eventselectDAO = new EventOccurenceDAO();
+
+            List<EventOccurenceBO> dtEven = eventselectDAO.GetEventOccurence(id);
+
+            stdForm.ComboBoxEvtOccur.Properties.DataSource = dtEven;
+
+            stdForm.ComboBoxEvtOccur.Properties.DisplayMember = "DisplayValue";
+            stdForm.ComboBoxEvtOccur.Properties.ValueMember = "id";
+        }
+
+        /*
+        public void RefreshEvent()
+        {
+            EvenimentDAO eventdDAO = new EvenimentDAO();
+
+            DataTable dtret = new DataTable();
+            dtret = eventdDAO.GetAllEvents();
+
+            stdForm. .DataSource = dtret;
+        }
+
+        */
     }
 }

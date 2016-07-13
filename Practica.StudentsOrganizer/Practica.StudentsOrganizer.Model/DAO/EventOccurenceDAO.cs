@@ -11,19 +11,21 @@ namespace Practica.StudentsOrganizer.Model.DAO
 {
     public class EventOccurenceDAO
     {
-        public EventOccurenceBO GetEventOccurence (int id)
+        public List<EventOccurenceBO> GetEventOccurence (int id)
         {
+            List<EventOccurenceBO> list = new List<EventOccurenceBO>();
+
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = " Select id, idEvent, startData, endData from EventOccurence where ID = " + id;
+            cmd.CommandText = " Select id, idEvent, startData, endData from EventOccurence where idEvent = " + id;
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
 
-            if (reader.Read() == true)
+
+            while (reader.Read() == true)
             {
                 if (reader.HasRows)
                 {
@@ -33,11 +35,12 @@ namespace Practica.StudentsOrganizer.Model.DAO
                     eventOccurence.startData = Convert.ToDateTime(reader["startData"]);
                     eventOccurence.endData = Convert.ToDateTime(reader["endData"]);
 
-                    return eventOccurence;
+                    list.Add(eventOccurence);
+
                 }
             }
 
-            return null;
+            return list;
         }
 
 
