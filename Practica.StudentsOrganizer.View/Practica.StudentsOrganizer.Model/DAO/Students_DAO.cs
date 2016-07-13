@@ -185,7 +185,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
             cmd.ExecuteNonQuery();
 
         }
-        public List<Students_BO> Join()
+        public List<Students_BO> GetStudAndEvents()
         {
             List<Students_BO> ListToReturn = new List<Students_BO>();
             

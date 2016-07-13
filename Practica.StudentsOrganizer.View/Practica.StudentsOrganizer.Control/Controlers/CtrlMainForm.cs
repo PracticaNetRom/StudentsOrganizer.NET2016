@@ -23,7 +23,7 @@ namespace Practica.StudentsOrganizer.Control
         {
             Students_DAO Std_DAO = new Students_DAO();
             //MF._gridControl1.DataSource = Std_DAO.GetAllStudents();
-            MF._gridControl1.DataSource = Std_DAO.Join();
+            MF._gridControl1.DataSource = Std_DAO.GetStudAndEvents();
         }
         public void ShowStd()
         {
