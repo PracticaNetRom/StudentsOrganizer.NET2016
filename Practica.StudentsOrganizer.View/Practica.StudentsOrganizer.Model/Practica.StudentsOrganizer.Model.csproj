@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BO\Add_BO.cs" />
+    <Compile Include="BO\LinkStudEv_BO.cs" />
     <Compile Include="BO\Events_BO.cs" />
     <Compile Include="BO\Event_Occurence_BO.cs" />
     <Compile Include="BO\Stud_Event_Occurence_BO.cs" />

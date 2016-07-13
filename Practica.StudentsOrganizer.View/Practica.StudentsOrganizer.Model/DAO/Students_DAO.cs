@@ -254,7 +254,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
             return ListToReturn;
         }
-        public List<Stud_Event_Occurence_BO> SelEv_ById(Students_BO Stud)
+        public List<Stud_Event_Occurence_BO> LinkEv_ById(int ID)
         {
             List<Stud_Event_Occurence_BO> ListToReturn = new List<Stud_Event_Occurence_BO>();
             Stud_Event_Occurence_BO Std = new Stud_Event_Occurence_BO();

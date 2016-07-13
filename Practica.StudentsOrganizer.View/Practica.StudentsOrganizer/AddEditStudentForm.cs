@@ -117,6 +117,7 @@ namespace Practica.StudentsOrganizer
         Students_BO StudReceived;
         Students_DAO Student_DAO = new Students_DAO();
         Students_BO Std = new Students_BO();
+
         public AddEditStudentForm(Students_BO Stud)
         {
             Controller = new CtrlAddEditStudentsForm(this);
@@ -126,93 +127,25 @@ namespace Practica.StudentsOrganizer
         
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
-            
             Controller.Load(StudReceived);
-            
-            //Events_DAO Ev_DAO = new Events_DAO();
-            //List<Events_BO> events = Ev_DAO.GetAllEvents();
-            //Event_Occurence_DAO EO_DAO = new Event_Occurence_DAO();
-            //List<Event_Occurence_BO> EO_BO = EO_DAO.GetAllEO();
-
-            ////foreach(Events_BO ev in events)
-            ////{
-            ////    comboBoxEdit1.Properties.Items.Add(ev);
-            ////}
-
-            //lookUpEdit1.Properties.DataSource = events;
-            //lookUpEdit2.Properties.DataSource = EO_BO;
-
-
-
-            //if (StudReceived != null)
-            //{
-            //    txtFirst_Name.Text = StudReceived.First_Name;
-            //    txtLast_Name.Text = StudReceived.Last_Name;
-            //    comboGender.Text = StudReceived.Gender;
-            //    dateBirth_Date.DateTime = StudReceived.Birth_Date;
-            //    txtEmail.Text = StudReceived.Email;
-            //    txtPhone.Text = StudReceived.Phone_Number.ToString(); ;
-            //    txtFaculty.Text = StudReceived.Faculty.ToString(); ;
-            //    maskedFaculty_Start_Year.Text = StudReceived.Faculty_Start_Year.ToString();
-            //    txtRemarks.Text = StudReceived.Remarks;
-            //}
-
-            
         }
 
       
-
         private void SaveStudentButton_Click(object sender, EventArgs e)
         {
-                Controller.SaveStud(StudReceived);
+            Controller.SaveStud(StudReceived);
+            this.Close();
         }
         
 
-       
-
-            //Students_DAO Student_DAO = new Students_DAO();
-            //if (StudReceived == null)//Add
-            //{
-            //    Students_BO NewStudent = new Students_BO();
-                
-            //    NewStudent.First_Name = txtFirst_Name.Text;
-            //    NewStudent.Last_Name = txtLast_Name.Text;
-            //    NewStudent.Gender = comboGender.Text;
-            //    NewStudent.Birth_Date = dateBirth_Date.DateTime;
-            //    NewStudent.Email = txtEmail.Text;
-            //    NewStudent.Phone_Number = txtPhone.Text;
-            //    NewStudent.Faculty = txtFaculty.Text;
-            //    NewStudent.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
-            //    NewStudent.Remarks = txtRemarks.Text;
-
-            //    Student_DAO.AddStudent(NewStudent);
-            //}
-            //else //Edit
-            //{
-                
-            //    StudReceived.First_Name = txtFirst_Name.Text;
-            //    StudReceived.Last_Name = txtLast_Name.Text;
-            //    StudReceived.Gender = comboGender.Text;
-            //    StudReceived.Birth_Date = dateBirth_Date.DateTime;
-            //    StudReceived.Email = txtEmail.Text;
-            //    StudReceived.Phone_Number = txtPhone.Text;
-            //    StudReceived.Faculty = txtFaculty.Text;
-            //    StudReceived.Faculty_Start_Year = Convert.ToInt32(maskedFaculty_Start_Year.Text);
-            //    StudReceived.Remarks = txtRemarks.Text;
-
-            //    Student_DAO.UpdateStud(StudReceived);
-            //}
-            //this.Close();
-        
-
-        private void maskedFaculty_Start_Year_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //char ch = e.KeyChar;
-            //if (!Char.IsDigit(ch) && ch != 8)
-            //{
-            //    e.Handled = true;
-            //}
-        }
+        //private void maskedFaculty_Start_Year_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    //char ch = e.KeyChar;
+        //    //if (!Char.IsDigit(ch) && ch != 8)
+        //    //{
+        //    //    e.Handled = true;
+        //    //}
+        //}
 
         private void ShowstudentsBtn_Click(object sender, EventArgs e)
         {
@@ -228,7 +161,6 @@ namespace Practica.StudentsOrganizer
         {
             Controller.AddEvent();
 
-            //Controller.Load_Grid();
         }
     }
 }

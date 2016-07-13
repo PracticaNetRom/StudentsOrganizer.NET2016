@@ -24,16 +24,8 @@ namespace Practica.StudentsOrganizer.Control.Controlers
         {
             Stud_Received = Stud;
             Events_DAO Ev_DAO = new Events_DAO();
-            List<Events_BO> events = Ev_DAO.GetAllEvents();
-            form._lookUpEdit1.Properties.DataSource = events;
-
-            //List<Event_Occurence_BO> EO = new List<Event_Occurence_BO>();
-            //form._gridControl1.DataSource = EO;
-
-            //foreach(Events_BO ev in events)
-            //{
-            //    comboBoxEdit1.Properties.Items.Add(ev);
-            //}
+            List<Events_BO> events;
+            Students_DAO Std_DAO = new Students_DAO();
 
             if (Stud_Received != null)
             {
@@ -47,20 +39,31 @@ namespace Practica.StudentsOrganizer.Control.Controlers
                 form._maskedFaculty_Start_Year.Text = Stud_Received.Faculty_Start_Year.ToString();
                 form._txtRemarks.Text = Stud_Received.Remarks;
 
+                events = Ev_DAO.GetEvent_ById(Stud_Received.ID);
+                form._lookUpEdit1.Properties.DataSource = events;
+
+                form._gridControl1.DataSource = Std_DAO.LinkEv_ById(Stud_Received.ID);
             }
+            else
+            {
+                events = Ev_DAO.GetAllEvents();
+                form._lookUpEdit1.Properties.DataSource = events;
+                _addLink = new List<LinkStudEv_BO>();
 
-            _addBo = new List<Add_BO>();
-
-            form._gridControl1.DataSource = _addBo;
+                form._gridControl1.DataSource = _addLink;
+            }
+            
         }
 
         public void SaveStud(Students_BO Stud)
         {
             Stud_Received = Stud;
+            Students_BO NewStudent = new Students_BO();
             Students_DAO Student_DAO = new Students_DAO();
             if (Stud_Received == null)//Add
             {
-                Students_BO NewStudent = new Students_BO();
+                
+                
 
                 NewStudent.First_Name = form._txtFirst_Name.Text;
                 NewStudent.Last_Name = form._txtLast_Name.Text;
@@ -73,6 +76,8 @@ namespace Practica.StudentsOrganizer.Control.Controlers
                 NewStudent.Remarks = form._txtRemarks.Text;
 
                 Student_DAO.AddStudent(NewStudent);
+                
+                
             }
             else //Edit
             {
@@ -89,7 +94,30 @@ namespace Practica.StudentsOrganizer.Control.Controlers
 
                 Student_DAO.UpdateStud(Stud_Received);
             }
-            //this.Close();
+
+            LinkStudEv_BO link = new LinkStudEv_BO();
+            if (link.Stud_Event_OccurenceId == 0)
+            {
+                Stud_Event_Occurence_BO NewSEO = new Stud_Event_Occurence_BO();
+                Stud_Event_Occurence_DAO SEO_DAO = new Stud_Event_Occurence_DAO();
+
+                Events_BO Ev = (Events_BO)form._lookUpEdit1.GetSelectedDataRow();
+
+                Event_Occurence_BO eo = (Event_Occurence_BO)form._lookUpEdit2.GetSelectedDataRow();
+
+                LinkStudEv_BO bo = new LinkStudEv_BO();
+
+                bo.Event_Name = Ev.Event_Name;
+                bo.Start = eo.Start;
+                bo.Finish = eo.Finish;
+
+                
+                NewSEO.Event_OccurenceId = bo.Event_OccurenceId;
+                SEO_DAO.AddSEO(NewSEO);
+                
+            }
+           
+            
         }
 
         public void Load_EO()
@@ -106,14 +134,8 @@ namespace Practica.StudentsOrganizer.Control.Controlers
             }
         }
 
-        public void Load_Grid()
-        {
-            Students_BO Stud_BO = new Students_BO();
-            Students_DAO Stud_DAO = new Students_DAO();
-            form._gridControl1.DataSource = Stud_DAO.SelEv_ById(Stud_BO);
-        }
-
-        private List<Add_BO> _addBo;
+        
+        private List<LinkStudEv_BO> _addLink;
 
         public void AddEvent()
         {
@@ -121,13 +143,13 @@ namespace Practica.StudentsOrganizer.Control.Controlers
 
             Event_Occurence_BO eo = (Event_Occurence_BO)form._lookUpEdit2.GetSelectedDataRow();
 
-            Add_BO bo = new Add_BO();
+            LinkStudEv_BO bo = new LinkStudEv_BO();
 
             bo.Event_Name = Ev.Event_Name;
             bo.Start = eo.Start;
             bo.Finish = eo.Finish;
 
-            _addBo.Add(bo);
+            _addLink.Add(bo);
             form._gridControl1.RefreshDataSource();
 
         }

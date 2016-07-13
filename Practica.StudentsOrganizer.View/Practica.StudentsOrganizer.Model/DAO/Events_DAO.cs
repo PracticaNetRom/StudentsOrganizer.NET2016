@@ -12,12 +12,13 @@ namespace Practica.StudentsOrganizer.Model.DAO
 {
     public class Events_DAO
     {
-        public Events_BO GetEvent_ById(int ID)
+        public List<Events_BO> GetEvent_ById(int ID)
         {
+            List<Events_BO> ListToReturn = new List<Events_BO>();
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "Select Event_Name Technology Task from Events where ID = " + ID;
+            cmd.CommandText = "Select ID, Event_Name, Technology, Task from Events where ID = " + ID;
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
@@ -28,21 +29,22 @@ namespace Practica.StudentsOrganizer.Model.DAO
                 if (reader.HasRows)
                 {
                     Events_BO Event = new Events_BO();
+                    Event.ID = Convert.ToInt32(reader["ID"]);
                     Event.Event_Name = reader["Event_Name"].ToString();
                     Event.Technology = reader["Technology"].ToString();
                     Event.Task = reader["Task"].ToString();
                     
-                    return Event;
+                    ListToReturn.Add(Event);
                 }
             }
 
-            return null;
+            return ListToReturn;
 
         }
         public List<Events_BO> GetAllEvents()
         {
-            List<Events_BO> ListToReturn = new List<Events_BO>();
 
+            List<Events_BO> ListToReturn = new List<Events_BO>();
 
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.ConnValue;
