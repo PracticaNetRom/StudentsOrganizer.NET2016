@@ -14,7 +14,9 @@ namespace Practica.StudentOrganizer.Controller.Interfaces
         SimpleButton ButtInsertStd { get; }
         SimpleButton ButtonUpdateStd { get; }
         SimpleButton ButtDeleteStd { get; }
+        SimpleButton ButtonLogOut { get; }
         IAddStudentForm CreateAddForm();
+        ILoginForm createLoginForm();
         GridView GridView { get; }
         GridControl GrdCtrlStudents { get; }
     }

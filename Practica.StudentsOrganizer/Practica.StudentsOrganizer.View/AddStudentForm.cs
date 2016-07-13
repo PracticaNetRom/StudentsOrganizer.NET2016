@@ -20,7 +20,7 @@ namespace Practica.StudentsOrganizer.View
 {
     public partial class AddStudentForm : Form, IAddStudentForm
     {
-        private AddStudentController controlerStd;
+        private AddStudentController controllerStd;
 
 
         public TextEdit TxtFirstName
@@ -95,44 +95,59 @@ namespace Practica.StudentsOrganizer.View
             }
         }
 
+        public ComboBoxEdit ComboBoxEvtOccur
+        {
+            get
+            {
+                return ComboBoxEvtOccur;
+            }
+        }
+
+        public ComboBoxEdit ComboBoxEventName
+        {
+            get
+            {
+                return ComboBoxEventName;
+            }
+        }
+
+        public SimpleButton ButtonSave
+        {
+            get
+            {
+                return ButtonSave;
+            }
+        }
+
 
         public AddStudentForm()
         {
             InitializeComponent();
+
+            controllerStd = new AddStudentController(this);
+
             dateTimeBirthDate.Properties.MaxValue = DateTime.Now;
             dateTimeBirthDate.Properties.MinValue = DateTime.Now.AddYears(-50);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            controlerStd.AddOrUpdate();
+            controllerStd.AddOrUpdate();
         }
 
         public void PopulateStudent(StudentBO s)
         {
-            controlerStd.PopulateStudent(s);
+            controllerStd.PopulateStudent(s);
         }
 
-       // StudentBO student;
-
-       /* 
-        public void PopulateStudent(StudentBO s)
+        private void comboBoxEventName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFirstName.Text = s.firstName;
-            txtLastName.Text = s.lastName;
-            comboBoxGender.Text = s.gender;
-            dateTimeBirthDate.DateTime = s.birthDate;
-            txtEmail.Text = s.email;
-            txtPhoneNumber.Text = s.phoneNumber;
-            txtFaculty.Text = s.faculty;
-            txtFacultyStartYear.Text = Convert.ToString(s.facultyStartYear);
-            txtRemarks.Text = s.remarks;
-
-            student = s;
 
         }
-        
-      */  
 
+        private void comboBoxEvtOccur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

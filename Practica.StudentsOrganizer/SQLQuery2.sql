@@ -38,7 +38,12 @@ CREATE TABLE StudentEventOccurence(
 	idStudent integer,
 	idEventOccurence integer);
 
-DECLARE @firstName VARCHAR(40) = 'ion'
+
+DROP TABLE loginTable;
+CREATE TABLE loginTable(
+	id INT PRIMARY KEY IDENTITY(1,1),
+	userName varchar(60),
+	passwordL varchar(60) );
 
 
 INSERT INTO Student(firstName, lastName, gender, birthDate, email, phoneNumber, faculty, facultyStartYear, remarks)
@@ -52,11 +57,13 @@ INSERT INTO Student(firstName, lastName, gender, birthDate, email, phoneNumber, 
 
 
 INSERT INTO Eveniment(eventName, task, departamentOrTehnology) 
-		VALUES('Practica', 'Aplicatie', 'C');
+		VALUES('Code Golf', 'Application - Aircraft', 'C');
 INSERT INTO Eveniment(eventName, task, departamentOrTehnology)
-		VALUES('Intership', 'Program', 'C++');
+		VALUES('NetRom {Summer} Camp', 'Application - Students Organizer', 'C#');
 INSERT INTO Eveniment(eventName, task, departamentOrTehnology) 
-		VALUES('Academie', 'Training', 'C#');
+		VALUES('Intership', 'Application - Calendar ', 'C++');
+INSERT INTO Eveniment(eventName, task, departamentOrTehnology) 
+		VALUES('NetRom Software Academy', 'Training', 'Java');
 
 
 INSERT INTO EventOccurence(idEvent, startData, endData)

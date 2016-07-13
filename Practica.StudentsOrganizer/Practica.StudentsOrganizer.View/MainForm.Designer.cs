@@ -35,6 +35,7 @@
             this.grdCtrlStudents = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonLogOut = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdCtrlStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -43,11 +44,10 @@
             // 
             this.buttInsertStd.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttInsertStd.Appearance.Options.UseFont = true;
-            this.buttInsertStd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.buttInsertStd.Image = ((System.Drawing.Image)(resources.GetObject("buttInsertStd.Image")));
-            this.buttInsertStd.Location = new System.Drawing.Point(31, 73);
+            this.buttInsertStd.Location = new System.Drawing.Point(186, 45);
             this.buttInsertStd.Name = "buttInsertStd";
-            this.buttInsertStd.Size = new System.Drawing.Size(141, 47);
+            this.buttInsertStd.Size = new System.Drawing.Size(128, 36);
             this.buttInsertStd.TabIndex = 0;
             this.buttInsertStd.Text = "Insert Student";
             this.buttInsertStd.Click += new System.EventHandler(this.buttInsertStd_Click);
@@ -57,11 +57,10 @@
             this.buttonUpdateStd.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonUpdateStd.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdateStd.Appearance.Options.UseFont = true;
-            this.buttonUpdateStd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.buttonUpdateStd.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdateStd.Image")));
-            this.buttonUpdateStd.Location = new System.Drawing.Point(221, 73);
+            this.buttonUpdateStd.Location = new System.Drawing.Point(32, 45);
             this.buttonUpdateStd.Name = "buttonUpdateStd";
-            this.buttonUpdateStd.Size = new System.Drawing.Size(136, 47);
+            this.buttonUpdateStd.Size = new System.Drawing.Size(130, 36);
             this.buttonUpdateStd.TabIndex = 1;
             this.buttonUpdateStd.Text = "Update Student";
             this.buttonUpdateStd.Click += new System.EventHandler(this.buttonUpdateStd_Click);
@@ -71,11 +70,10 @@
             this.buttDeleteStd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttDeleteStd.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttDeleteStd.Appearance.Options.UseFont = true;
-            this.buttDeleteStd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.buttDeleteStd.Image = ((System.Drawing.Image)(resources.GetObject("buttDeleteStd.Image")));
-            this.buttDeleteStd.Location = new System.Drawing.Point(416, 73);
+            this.buttDeleteStd.Location = new System.Drawing.Point(336, 45);
             this.buttDeleteStd.Name = "buttDeleteStd";
-            this.buttDeleteStd.Size = new System.Drawing.Size(136, 47);
+            this.buttDeleteStd.Size = new System.Drawing.Size(130, 36);
             this.buttDeleteStd.TabIndex = 2;
             this.buttDeleteStd.Text = "Delete Student";
             this.buttDeleteStd.Click += new System.EventHandler(this.buttDeleteStd_Click);
@@ -85,10 +83,10 @@
             this.grdCtrlStudents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdCtrlStudents.Location = new System.Drawing.Point(12, 138);
+            this.grdCtrlStudents.Location = new System.Drawing.Point(12, 98);
             this.grdCtrlStudents.MainView = this.gridView1;
             this.grdCtrlStudents.Name = "grdCtrlStudents";
-            this.grdCtrlStudents.Size = new System.Drawing.Size(568, 236);
+            this.grdCtrlStudents.Size = new System.Drawing.Size(596, 286);
             this.grdCtrlStudents.TabIndex = 3;
             this.grdCtrlStudents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -102,19 +100,30 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(193, 18);
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
+            this.label1.Location = new System.Drawing.Point(216, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 20);
+            this.label1.Size = new System.Drawing.Size(151, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Details of Students";
+            this.label1.Text = "Manage Students";
+            // 
+            // buttonLogOut
+            // 
+            this.buttonLogOut.Image = ((System.Drawing.Image)(resources.GetObject("buttonLogOut.Image")));
+            this.buttonLogOut.Location = new System.Drawing.Point(527, 12);
+            this.buttonLogOut.Name = "buttonLogOut";
+            this.buttonLogOut.Size = new System.Drawing.Size(82, 36);
+            this.buttonLogOut.TabIndex = 5;
+            this.buttonLogOut.Text = "Log Out";
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(592, 386);
+            this.ClientSize = new System.Drawing.Size(620, 396);
+            this.Controls.Add(this.buttonLogOut);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grdCtrlStudents);
             this.Controls.Add(this.buttDeleteStd);
@@ -138,5 +147,6 @@
         private DevExpress.XtraGrid.GridControl grdCtrlStudents;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton buttonLogOut;
     }
 }

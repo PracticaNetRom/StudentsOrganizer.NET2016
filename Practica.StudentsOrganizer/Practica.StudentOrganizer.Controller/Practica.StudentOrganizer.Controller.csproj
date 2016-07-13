@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Controllers\AddStudentController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainFormController.cs" />
     <Compile Include="Interfaces\IAddStudentForm.cs" />
+    <Compile Include="Interfaces\ILoginForm.cs" />
     <Compile Include="Interfaces\IMainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

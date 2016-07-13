@@ -46,6 +46,14 @@ namespace Practica.StudentsOrganizer.View
             }
         }
 
+        public SimpleButton ButtonLogOut
+        {
+            get
+            {
+                return ButtonLogOut;
+            }
+        }
+
         public GridView GridView
         {
             get
@@ -64,14 +72,20 @@ namespace Practica.StudentsOrganizer.View
 
 
         public MainForm()
-        {
-          
+        { 
             InitializeComponent();
+
+            controllerMain = new MainFormController(this);
         }
 
         public IAddStudentForm CreateAddForm()
         {
             return new AddStudentForm();
+        }
+
+        public ILoginForm createLoginForm()
+        {
+            return new LoginForm();
         }
 
         private void buttonUpdateStd_Click(object sender, EventArgs e)
@@ -81,7 +95,7 @@ namespace Practica.StudentsOrganizer.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            RefreshData();
+            controllerMain.RefreshData();
 
         }
 
@@ -97,18 +111,9 @@ namespace Practica.StudentsOrganizer.View
             controllerMain.Delete();           
         }
 
-
-      /*  
-        private void RefreshData()
+        private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            StudentDAO studDAO = new StudentDAO();
-
-            DataTable dtret = new DataTable();
-            dtret = studDAO.GetAllStudents();
-
-            grdCtrlStudents.DataSource = dtret;
+            
         }
-        */
-        
     }
 }

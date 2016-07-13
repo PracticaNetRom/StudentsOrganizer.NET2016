@@ -21,8 +21,9 @@ namespace Practica.StudentOrganizer.Controller.Interfaces
         TextEdit TxtFaculty { get; }
         TextEdit TxtFacultyStartYear { get; }
         TextEdit TxtRemarks { get; }
+        ComboBoxEdit ComboBoxEventName { get; }
+        ComboBoxEdit ComboBoxEvtOccur { get; }
         void PopulateStudent(StudentBO s);
-
-
+        SimpleButton ButtonSave { get; }
     }
 }

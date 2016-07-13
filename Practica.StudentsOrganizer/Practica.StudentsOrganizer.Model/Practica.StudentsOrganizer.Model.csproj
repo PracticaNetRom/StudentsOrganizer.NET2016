@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BO\EvenimentBO.cs" />
     <Compile Include="BO\EventOccurenceBO.cs" />
+    <Compile Include="BO\LoginBO.cs" />
     <Compile Include="BO\StudentEventOccurenceBO.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ConnString.cs" />

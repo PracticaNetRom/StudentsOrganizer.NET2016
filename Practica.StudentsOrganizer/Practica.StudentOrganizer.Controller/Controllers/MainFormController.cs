@@ -70,7 +70,16 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             DataTable dtret = new DataTable();
             dtret = studDAO.GetAllStudents();
 
-            grdCtrlStudents.DataSource = dtret;
+            mainForm.GrdCtrlStudents.DataSource = dtret;
         }
+
+
+        public void LogOut()
+        {
+            //this.Hide();
+            ILoginForm frm = mainForm.createLoginForm();
+            ((Form)frm).ShowDialog();
+        }
+
     }
 }
