@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practica.StudentsOrganizer.Model.BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,12 @@ namespace Practica.StudentsOrganizer.Model
         public string Faculty { get; set; }
         public int Faculty_Start_Year { get; set; }
         public string Remarks { get; set; }
+        public List<Event_Occurence_BO> Event_Occurences { get; set; }
 
+        public Students_BO()
+        {
+            Event_Occurences = new List<Event_Occurence_BO>();
+        }
 
     }
 }

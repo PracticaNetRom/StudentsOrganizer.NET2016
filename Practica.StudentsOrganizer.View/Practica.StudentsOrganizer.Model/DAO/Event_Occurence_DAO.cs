@@ -12,30 +12,32 @@ namespace Practica.StudentsOrganizer.Model.DAO
 {
     public class Event_Occurence_DAO
     {
-        public Event_Occurence_BO GetEvOcc_ById(int ID)
+        public List <Event_Occurence_BO> GetEvOcc_ById(int ID)
         {
+            List<Event_Occurence_BO> ListToReturn = new List<Event_Occurence_BO>();
+
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.ConnValue;
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "Select EventsId Start Finish from Event_Occurence where ID = " + ID;
+            cmd.CommandText = "Select EventsId, Start, Finish from Event_Occurence where ID = " + ID;
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             //reader.Read() true a reusit sa citeasca, false nu a gasit informatii
-            if (reader.Read())
+            while (reader.Read())
             {
                 if (reader.HasRows)
                 {
                     Event_Occurence_BO Ev_Occ = new Event_Occurence_BO();
-                    Ev_Occ.EventsId = Convert.ToInt32(reader["EventId"]);
+                    Ev_Occ.EventsId = Convert.ToInt32(reader["EventsId"]);
                     Ev_Occ.Start = Convert.ToDateTime(reader["Start"]);
                     Ev_Occ.Finish = Convert.ToDateTime(reader["Finish"]);
 
-                    return Ev_Occ;
+                    ListToReturn.Add(Ev_Occ); 
                 }
             }
 
-            return null;
+            return ListToReturn;
 
         }
 

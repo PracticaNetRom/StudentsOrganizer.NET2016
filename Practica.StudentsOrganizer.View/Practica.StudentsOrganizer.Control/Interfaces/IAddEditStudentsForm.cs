@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace Practica.StudentsOrganizer.Control.Interfaces
         TextEdit _txtRemarks { get; }
         LookUpEdit _lookUpEdit1 { get; }
         LookUpEdit _lookUpEdit2 { get; }
-        
+        GridControl _gridControl1 { get; }
+        SimpleButton _AddEOButton { get; }
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using Practica.StudentsOrganizer.Control.Controlers;
 using Practica.StudentsOrganizer.Control.Interfaces;
 using Practica.StudentsOrganizer.Model;
@@ -20,6 +21,7 @@ namespace Practica.StudentsOrganizer
     public partial class AddEditStudentForm : Form, IAddEditStudentsForm
     {
         private CtrlAddEditStudentsForm Controller;
+
         public TextEdit _txtFirst_Name
         {
             get
@@ -97,23 +99,36 @@ namespace Practica.StudentsOrganizer
                 return lookUpEdit2;
             }
         }
-
+        public GridControl _gridControl1
+        {
+            get
+            {
+                return gridControl1;
+            }
+        }
+        public SimpleButton _AddEOButton
+        {
+            get
+            {
+                return AddEOButton;
+            }
+        }
 
         Students_BO StudReceived;
+        Students_DAO Student_DAO = new Students_DAO();
+        Students_BO Std = new Students_BO();
         public AddEditStudentForm(Students_BO Stud)
         {
             Controller = new CtrlAddEditStudentsForm(this);
             StudReceived = Stud;
             InitializeComponent();
         }
-        Students_DAO Student_DAO = new Students_DAO();
-        Students_BO Std = new Students_BO();
-
+        
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
             
             Controller.Load(StudReceived);
-
+            
             //Events_DAO Ev_DAO = new Events_DAO();
             //List<Events_BO> events = Ev_DAO.GetAllEvents();
             //Event_Occurence_DAO EO_DAO = new Event_Occurence_DAO();
@@ -203,7 +218,17 @@ namespace Practica.StudentsOrganizer
         {
             this.Close();
         }
-
         
+        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            Controller.Load_EO();
+        }
+
+        private void AddEOButton_Click(object sender, EventArgs e)
+        {
+            Controller.AddEvent();
+
+            //Controller.Load_Grid();
+        }
     }
 }

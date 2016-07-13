@@ -207,7 +207,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
                                 Events.Technology,
                                 Events.Task, 
                                 Event_Occurence.Start,
-                                Event_Occurence.Finish 
+                                Event_Occurence.Finish
+                               
                                 FROM  Students
                                 JOIN Stud_Event_Occurence
                                 ON Students.ID = Stud_Event_Occurence.StudentsId
@@ -226,6 +227,15 @@ namespace Practica.StudentsOrganizer.Model.DAO
                     Students_BO Student = new Students_BO();
                     Events_BO Event = new Events_BO();
                     Event_Occurence_BO Ev_Occ = new Event_Occurence_BO();
+                                    
+                    Event.Event_Name = reader["Event_Name"].ToString();
+                    Event.Technology = reader["Technology"].ToString();
+                    Event.Task = reader["Task"].ToString();
+                    
+                    Ev_Occ.Start = Convert.ToDateTime(reader["Start"]);
+                    Ev_Occ.Finish = Convert.ToDateTime(reader["Finish"]);
+                    Ev_Occ.EventDetails = Event;
+
                     Student.ID = Convert.ToInt32(reader["ID"]);
                     Student.First_Name = reader["First_Name"].ToString();
                     Student.Last_Name = reader["Last_Name"].ToString();
@@ -236,18 +246,64 @@ namespace Practica.StudentsOrganizer.Model.DAO
                     Student.Faculty = reader["Faculty"].ToString();
                     Student.Faculty_Start_Year = Convert.ToInt32(reader["Faculty_Start_Year"]);
                     Student.Remarks = reader["Remarks"].ToString();
-                 
-                    Event.Event_Name = reader["Event_Name"].ToString();
-                    Event.Technology = reader["Technology"].ToString();
-                    Event.Task = reader["Task"].ToString();
-                    
-                    Ev_Occ.Start = Convert.ToDateTime(reader["Start"]);
-                    Ev_Occ.Finish = Convert.ToDateTime(reader["Finish"]);
+                    Student.Event_Occurences.Add(Ev_Occ);
 
                     ListToReturn.Add(Student);
                 }
             }
 
+            return ListToReturn;
+        }
+        public List<Stud_Event_Occurence_BO> SelEv_ById(Students_BO Stud)
+        {
+            List<Stud_Event_Occurence_BO> ListToReturn = new List<Stud_Event_Occurence_BO>();
+            Stud_Event_Occurence_BO Std = new Stud_Event_Occurence_BO();
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = Connection.ConnValue;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"SELECT  
+                                Stud_Event_Occurence.ID,
+                                Event_Occurence.ID,
+                                Events.Event_name ,
+                                Event_Occurence.Start,
+                                Event_Occurence.Finish
+                               
+                                FROM  Stud_Event_Occurence
+                                JOIN Event_Occurence
+                                ON Stud_Event_Occurence.Event_OccurenceId = Event_Occurence.ID 
+                                JOIN Events
+                                ON Event_Occurence.EventsId = Events.ID 
+                                WHERE Stud_Event_Occurence.StudentsId = @StudentsId";
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.Parameters.Add("StudentsId", SqlDbType.Int).Value = Std.ID;
+            SqlDataReader reader = cmd.ExecuteReader();
+            //reader.Read() true a reusit sa citeasca, false nu a gasit informatii
+            
+            while (reader.Read())
+            {
+                if (reader.HasRows)
+                {
+                    Stud_Event_Occurence_BO SEO = new Stud_Event_Occurence_BO();
+                    Events_BO Event = new Events_BO();
+                    Event_Occurence_BO Ev_Occ = new Event_Occurence_BO();
+
+                    SEO.StudentsId = Convert.ToInt32(reader["StudentsIs"]);
+                    SEO.Event_OccurenceId = Convert.ToInt32(reader["Event_OccurenceId"]);
+
+                    Event.Event_Name = reader["Event_Name"].ToString();
+                    Event.Technology = reader["Technology"].ToString();
+                    Event.Task = reader["Task"].ToString();
+
+                    Ev_Occ.Start = Convert.ToDateTime(reader["Start"]);
+                    Ev_Occ.Finish = Convert.ToDateTime(reader["Finish"]);
+                    Ev_Occ.EventDetails = Event;
+
+                  
+
+                    ListToReturn.Add(SEO);
+                }
+            }
             return ListToReturn;
         }
     }

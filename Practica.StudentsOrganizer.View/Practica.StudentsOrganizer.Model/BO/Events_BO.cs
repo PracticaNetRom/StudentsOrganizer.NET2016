@@ -13,6 +13,7 @@ namespace Practica.StudentsOrganizer.Model.BO
         public string Event_Name { get; set; }
         public string Technology { get; set; }
         public string Task { get; set; }
+        
 
         public override string ToString()
         {

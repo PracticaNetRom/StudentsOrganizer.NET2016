@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Practica.StudentsOrganizer.Model.BO
 {
-    public class Stud_Event_Occurence_BO
+    public class Add_BO
     {
-        public int ID { get; set; }
+        public int Stud_Event_OccurenceId { get; set; }
         public int Event_OccurenceId { get; set; }
-        public int StudentsId { get; set; }
-       // public Event_Occurence_BO Ev_Occ { get; set; }
+        public string Event_Name { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime Finish { get; set; }
+
     }
 }

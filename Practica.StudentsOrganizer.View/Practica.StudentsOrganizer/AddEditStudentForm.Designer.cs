@@ -52,6 +52,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.AddEOButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirst_Name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLast_Name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboGender.Properties)).BeginInit();
@@ -64,6 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +79,6 @@
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name *";
-            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -185,7 +189,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateBirth_Date.Size = new System.Drawing.Size(217, 20);
             this.dateBirth_Date.TabIndex = 27;
-            //this.dateBirth_Date.EditValueChanged += new System.EventHandler(this.dateBirth_Date_EditValueChanged);
             // 
             // txtEmail
             // 
@@ -193,7 +196,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(217, 20);
             this.txtEmail.TabIndex = 28;
-            //this.txtEmail.EditValueChanged += new System.EventHandler(this.txtEmail_EditValueChanged);
             // 
             // txtPhone
             // 
@@ -230,9 +232,9 @@
             // Cancel
             // 
             this.Cancel.Image = global::Practica.StudentsOrganizer.Properties.Resources.delete;
-            this.Cancel.Location = new System.Drawing.Point(349, 430);
+            this.Cancel.Location = new System.Drawing.Point(372, 554);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(73, 33);
+            this.Cancel.Size = new System.Drawing.Size(73, 22);
             this.Cancel.TabIndex = 34;
             this.Cancel.Text = "Cancel";
             this.Cancel.Click += new System.EventHandler(this.ShowstudentsBtn_Click);
@@ -240,9 +242,9 @@
             // SaveStudentButton
             // 
             this.SaveStudentButton.Image = global::Practica.StudentsOrganizer.Properties.Resources.save;
-            this.SaveStudentButton.Location = new System.Drawing.Point(272, 430);
+            this.SaveStudentButton.Location = new System.Drawing.Point(295, 554);
             this.SaveStudentButton.Name = "SaveStudentButton";
-            this.SaveStudentButton.Size = new System.Drawing.Size(71, 33);
+            this.SaveStudentButton.Size = new System.Drawing.Size(71, 22);
             this.SaveStudentButton.TabIndex = 33;
             this.SaveStudentButton.Text = "Save";
             this.SaveStudentButton.Click += new System.EventHandler(this.SaveStudentButton_Click);
@@ -273,6 +275,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit1.Size = new System.Drawing.Size(346, 20);
             this.lookUpEdit1.TabIndex = 40;
+            this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
             // 
             // lookUpEdit2
             // 
@@ -283,11 +286,37 @@
             this.lookUpEdit2.Size = new System.Drawing.Size(346, 20);
             this.lookUpEdit2.TabIndex = 41;
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(22, 336);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(400, 200);
+            this.gridControl1.TabIndex = 42;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
+            // AddEOButton
+            // 
+            this.AddEOButton.Location = new System.Drawing.Point(22, 554);
+            this.AddEOButton.Name = "AddEOButton";
+            this.AddEOButton.Size = new System.Drawing.Size(75, 23);
+            this.AddEOButton.TabIndex = 43;
+            this.AddEOButton.Text = "Add";
+            this.AddEOButton.Click += new System.EventHandler(this.AddEOButton_Click);
+            // 
             // AddEditStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 475);
+            this.ClientSize = new System.Drawing.Size(457, 588);
+            this.Controls.Add(this.AddEOButton);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.lookUpEdit2);
             this.Controls.Add(this.lookUpEdit1);
             this.Controls.Add(this.label11);
@@ -327,6 +356,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,5 +389,8 @@
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SimpleButton AddEOButton;
     }
 }

@@ -12,5 +12,10 @@ namespace Practica.StudentsOrganizer.Model.BO
         public int EventsId { get; set; }
         public DateTime Start { get; set; }
         public DateTime Finish { get; set; }
+        public Events_BO EventDetails { get; set; }
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}", Start.ToShortDateString(), Finish.ToShortDateString());
+        }
     }
 }
