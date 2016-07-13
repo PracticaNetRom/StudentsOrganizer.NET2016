@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
 using Practica.StudentsOrganizer.Controller;
 using Practica.StudentsOrganizer.Model;
 using System;
@@ -70,6 +72,38 @@ namespace Practica.StudentsOrganizer.View
             get
             {
                 return txtRemarks;
+            }
+        }
+
+        public LookUpEdit LookUpEdit1
+        {
+            get
+            {
+                return lookUpEdit1;
+            }
+        }
+
+        public LookUpEdit LookUpEdit2
+        {
+            get
+            {
+                return lookUpEdit2;
+            }
+        }
+
+        public GridControl GridControlEvent
+        {
+            get
+            {
+                return gridControlEvent;
+            }
+        }
+
+        public GridView GridViewEvent
+        {
+            get
+            {
+                return gridViewEvent;
             }
         }
 
@@ -263,8 +297,11 @@ namespace Practica.StudentsOrganizer.View
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-
+            
             controller.LoadStudentForm();
+            controller.PopulateEventDropDown();
+            
+
 
             //if (Student != null)
             //{
@@ -278,6 +315,19 @@ namespace Practica.StudentsOrganizer.View
             //    txtFacultyStartYear.Text = Convert.ToString(Student.FacultyStartYear);
             //    txtRemarks.Text = Student.Remarks;
             //}
+        }
+
+        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            controller.PopulateEvent_OccurenceDropDown();
+        }
+
+
+
+        private void btnAddEvent_Click(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }

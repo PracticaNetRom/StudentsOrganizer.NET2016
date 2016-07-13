@@ -52,6 +52,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.gridControlEvent = new DevExpress.XtraGrid.GridControl();
+            this.gridViewEvent = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnAddEvent = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BirthDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -64,6 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEvent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEvent)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -236,7 +241,7 @@
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(141, 420);
+            this.btnAddStudent.Location = new System.Drawing.Point(166, 695);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(75, 23);
             this.btnAddStudent.TabIndex = 33;
@@ -267,8 +272,15 @@
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 33, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name", 37, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Departament/Technology", "Departament/Technology", 132, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            this.lookUpEdit1.Properties.DisplayMember = "Name";
+            this.lookUpEdit1.Properties.ValueMember = "Id";
             this.lookUpEdit1.Size = new System.Drawing.Size(100, 20);
             this.lookUpEdit1.TabIndex = 38;
+            this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
             // 
             // lookUpEdit2
             // 
@@ -279,11 +291,37 @@
             this.lookUpEdit2.Size = new System.Drawing.Size(100, 20);
             this.lookUpEdit2.TabIndex = 39;
             // 
+            // gridControlEvent
+            // 
+            this.gridControlEvent.Location = new System.Drawing.Point(17, 428);
+            this.gridControlEvent.MainView = this.gridViewEvent;
+            this.gridControlEvent.Name = "gridControlEvent";
+            this.gridControlEvent.Size = new System.Drawing.Size(400, 200);
+            this.gridControlEvent.TabIndex = 40;
+            this.gridControlEvent.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewEvent});
+            // 
+            // gridViewEvent
+            // 
+            this.gridViewEvent.GridControl = this.gridControlEvent;
+            this.gridViewEvent.Name = "gridViewEvent";
+            // 
+            // btnAddEvent
+            // 
+            this.btnAddEvent.Location = new System.Drawing.Point(543, 374);
+            this.btnAddEvent.Name = "btnAddEvent";
+            this.btnAddEvent.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEvent.TabIndex = 41;
+            this.btnAddEvent.Text = "Add Event";
+            this.btnAddEvent.Click += new System.EventHandler(this.btnAddEvent_Click);
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 488);
+            this.ClientSize = new System.Drawing.Size(712, 758);
+            this.Controls.Add(this.btnAddEvent);
+            this.Controls.Add(this.gridControlEvent);
             this.Controls.Add(this.lookUpEdit2);
             this.Controls.Add(this.lookUpEdit1);
             this.Controls.Add(this.label12);
@@ -323,6 +361,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEvent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEvent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +393,8 @@
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
+        private DevExpress.XtraGrid.GridControl gridControlEvent;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewEvent;
+        private DevExpress.XtraEditors.SimpleButton btnAddEvent;
     }
 }

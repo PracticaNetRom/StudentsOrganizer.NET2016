@@ -1,6 +1,7 @@
 ﻿using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace Practica.StudentsOrganizer.Controller
         {
             _form = form;
         }
+
 
         public void Add_Update()
         {
@@ -191,6 +193,7 @@ namespace Practica.StudentsOrganizer.Controller
 
         public void LoadStudentForm()
         {
+
             if (_form.Student != null)
             {
                 _form.TxtFirstName.Text = _form.Student.FirstName;
@@ -203,6 +206,27 @@ namespace Practica.StudentsOrganizer.Controller
                 _form.TxtFacultyStartYear.Text = Convert.ToString(_form.Student.FacultyStartYear);
                 _form.TxtRemarks.Text = _form.Student.Remarks;
             }
+        }
+
+        public void PopulateEventDropDown()
+        {
+            EventDAO ev_dao = new EventDAO();
+            _form.LookUpEdit1.Properties.DataSource = ev_dao.GetAllEvents();
+
+        }
+
+        public void PopulateEvent_OccurenceDropDown()
+        {
+            int id = Convert.ToInt32(_form.LookUpEdit1.EditValue);          
+            Event_OccurenceDAO ev_occ_dao = new Event_OccurenceDAO();            
+            _form.LookUpEdit2.Properties.DataSource = ev_occ_dao.GetAllEvent_Occurences(id);
+            _form.LookUpEdit2.Properties.DisplayMember = "Start date";
+        }
+
+
+        public void GridControlEvent()
+        {
+            
         }
 
     }

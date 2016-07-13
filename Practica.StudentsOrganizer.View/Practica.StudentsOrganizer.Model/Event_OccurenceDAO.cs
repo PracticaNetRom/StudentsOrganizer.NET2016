@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -65,6 +66,21 @@ namespace Practica.StudentsOrganizer.Model
 
             conn.Open();
             cmd.ExecuteNonQuery();
+        }
+
+        public DataTable GetAllEvent_Occurences(int Id_ev)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = ConnectionString.Value;
+
+            DataTable item = new DataTable();           
+           
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM dbo.Event_Occurence WHERE Id_event=" + Id_ev, conn);
+
+            adapter.Fill(item);
+
+            return item;
+
         }
     }
 }

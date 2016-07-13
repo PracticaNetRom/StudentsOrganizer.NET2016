@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
 using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,10 @@ namespace Practica.StudentsOrganizer.Controller
         TextEdit TxtFaculty { get; }
         TextEdit TxtFacultyStartYear { get; }
         TextEdit TxtRemarks { get; }
+        LookUpEdit LookUpEdit1 { get; }
+        LookUpEdit LookUpEdit2 { get; }
+        GridControl GridControlEvent { get; }
+        GridView GridViewEvent { get; }
         
     }
 }
