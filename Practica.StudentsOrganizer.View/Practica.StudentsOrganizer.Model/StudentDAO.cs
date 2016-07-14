@@ -155,13 +155,14 @@ namespace Practica.StudentsOrganizer.Model
             conn.Open();
             cmd.ExecuteNonQuery();
         }
-        public void SelectEventAndEventOccurence(int Id)
+        public List<Std_Event_OccurenceBO> SelectEventAndEventOccurence(int Id)
         {
             StudentBO student = new StudentBO();
-            
+            List<Std_Event_OccurenceBO> ListToReturn = new List<Std_Event_OccurenceBO>();
+            Std_Event_OccurenceBO Std = new Std_Event_OccurenceBO();
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnectionString.Value;
-            conn.Open();
+            
 
             SqlCommand cmd = new SqlCommand();
 
@@ -186,6 +187,36 @@ namespace Practica.StudentsOrganizer.Model
 
             conn.Open();
             cmd.ExecuteNonQuery();
+            cmd.Parameters.Add("StudentsId", SqlDbType.Int).Value = Std.Id;
+            SqlDataReader reader = cmd.ExecuteReader();
+            
+
+            while (reader.Read())
+            {
+                if (reader.HasRows)
+                {
+                    Std_Event_OccurenceBO Seo = new Std_Event_OccurenceBO();
+                    EventBO Event = new EventBO();
+                    Event_OccurenceBO Ev_Occ = new Event_OccurenceBO();
+
+
+                    Seo.Id_Student = Convert.ToInt32(reader["ID_student"]);
+                    Seo.Id_Event = Convert.ToInt32(reader["ID_event"]);
+
+                    Event.Name = reader["Name"].ToString();
+                    Event.Department_Technology = reader["Departament/Technology"].ToString();
+                    Event.Task = reader["Task"].ToString();
+
+                    Ev_Occ.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                    Ev_Occ.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                 
+
+
+
+                    ListToReturn.Add(Seo);
+                }
+            }
+            return ListToReturn;
         }
     }
 }
