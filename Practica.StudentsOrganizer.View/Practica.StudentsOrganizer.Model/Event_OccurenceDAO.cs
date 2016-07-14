@@ -15,7 +15,7 @@ namespace Practica.StudentsOrganizer.Model
             Event_OccurenceBO event_occ = new Event_OccurenceBO();
             //conexiunea cu baza de date
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+            conn.ConnectionString = ConnectionString.Value;
             conn.Open();
 
             //sql command
@@ -49,7 +49,7 @@ namespace Practica.StudentsOrganizer.Model
 
             //conexiunea cu baza de date
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+            conn.ConnectionString = ConnectionString.Value;
             //conn.Open();
 
             //sql command

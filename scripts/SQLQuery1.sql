@@ -1,6 +1,6 @@
 --DELETE FROM dbo.Event;
 --DELETE FROM dbo.Event_Occurence;
-DELETE FROM dbo.Std_Event_Occurence;
+--DELETE FROM dbo.Std_Event_Occurence;
 --DELETE FROM dbo.Students;
 
 INSERT dbo.Students ( [First name], [Last name], Gender, [Birth date], Email, [Phone number],
@@ -27,9 +27,9 @@ INSERT dbo.Event_Occurence ( Id_event, [Start date], [End date]) VALUES ( 1, '20
 INSERT dbo.Event_Occurence ( Id_event, [Start date], [End date]) VALUES ( 2, '2016-09-15', 
 '2016-12-15')
 
---INSERT dbo.Std_Event_Occurence (Id_Student, Id_Event_Occurence) VALUES (1,1)
---INSERT dbo.Std_Event_Occurence (Id_Student, Id_Event_Occurence) VALUES (2,1)
---INSERT dbo.Std_Event_Occurence (Id_Student, Id_Event_Occurence) VALUES (3,2)
+INSERT dbo.Std_Event_Occurence (Id_Student, Id_Event_Occurence) VALUES (1,1)
+INSERT dbo.Std_Event_Occurence (Id_Student, Id_Event_Occurence) VALUES (2,1)
+INSERT dbo.Std_Event_Occurence (Id_Student, Id_Event_Occurence) VALUES (3,2)
 
 
  

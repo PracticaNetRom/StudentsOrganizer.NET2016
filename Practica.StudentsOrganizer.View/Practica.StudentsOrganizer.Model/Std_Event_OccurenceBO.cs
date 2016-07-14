@@ -12,7 +12,7 @@ namespace Practica.StudentsOrganizer.Model
 
         public int Id_Student { get; set; }
 
-        public int Id_Event { get; set; }
+        public int Id_Event_Occurence { get; set; }
 
     }
 }

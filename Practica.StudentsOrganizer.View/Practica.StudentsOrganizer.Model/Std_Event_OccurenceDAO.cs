@@ -14,7 +14,7 @@ namespace Practica.StudentsOrganizer.Model
             Std_Event_OccurenceBO std_ev_occ = new Std_Event_OccurenceBO();
             //conexiunea cu baza de date
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+            conn.ConnectionString = ConnectionString.Value;
             conn.Open();
 
             //sql command
@@ -23,7 +23,7 @@ namespace Practica.StudentsOrganizer.Model
             //conexiunea la command
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT Id_Student, Id_Event FROM dbo.Std_Event_Occurence WHERE Id= " + Id;
+            cmd.CommandText = "SELECT Id_Student, Id_Event_Occurence FROM dbo.Std_Event_Occurence WHERE Id= " + Id;
 
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -36,7 +36,7 @@ namespace Practica.StudentsOrganizer.Model
 
 
                     std_ev_occ.Id_Student = reader.GetInt32(reader.GetOrdinal("Id_Student"));
-                    std_ev_occ.Id_Event = reader.GetInt32(reader.GetOrdinal("Id_Event"));
+                    std_ev_occ.Id_Event_Occurence = reader.GetInt32(reader.GetOrdinal("Id_Event"));
 
                 }
             }
@@ -49,7 +49,7 @@ namespace Practica.StudentsOrganizer.Model
 
             //conexiunea cu baza de date
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=netsrv-db01\\sql2014;" + "Initial Catalog=NetRom.Practice1;" + "Integrated Security=SSPI;";
+            conn.ConnectionString = ConnectionString.Value;
             //conn.Open();
 
             //sql command
@@ -58,10 +58,10 @@ namespace Practica.StudentsOrganizer.Model
             //conexiunea la command
             cmd.Connection = conn;
 
-            cmd.CommandText = "INSERT INTO dbo.Std_Event_Occurence (Id_Student, Id_Event) VALUES (@Id_Student, @Id_Event)";
+            cmd.CommandText = "INSERT INTO dbo.Std_Event_Occurence (Id_Student, Id_Event_Occurence) VALUES (@Id_Student, @Id_Event_Occurence)";
 
             cmd.Parameters.AddWithValue("@Id_Student", std_ev_occ.Id_Student);
-            cmd.Parameters.AddWithValue("@Id_Event", std_ev_occ.Id_Event);
+            cmd.Parameters.AddWithValue("@Id_Event_Occurence", std_ev_occ.Id_Event_Occurence);
             
 
             conn.Open();

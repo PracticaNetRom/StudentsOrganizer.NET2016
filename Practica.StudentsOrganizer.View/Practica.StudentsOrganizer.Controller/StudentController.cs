@@ -221,12 +221,23 @@ namespace Practica.StudentsOrganizer.Controller
             Event_OccurenceDAO ev_occ_dao = new Event_OccurenceDAO();            
             _form.LookUpEdit2.Properties.DataSource = ev_occ_dao.GetAllEvent_Occurences(id);
             _form.LookUpEdit2.Properties.DisplayMember = "Start date";
+            _form.LookUpEdit2.Properties.ValueMember = "Id";
+
         }
 
 
         public void GridControlEvent()
         {
-            
+            StudentDAO dao = new StudentDAO();
+            Std_Event_OccurenceDAO dao_seo = new Std_Event_OccurenceDAO();
+            Std_Event_OccurenceBO seo = new Std_Event_OccurenceBO();
+            int id = _form.Student.Id;
+            seo.Id_Student = id;
+            seo.Id_Event_Occurence = ((int)_form.LookUpEdit2.EditValue);
+            dao_seo.AddStd_Event_Occurence(seo);
+            //int id = _form.Student.Id;
+            DataTable dt = dao.SelectEventsAndOccurences(id);
+            _form.GridControlEvent.DataSource = dt;
         }
 
     }
