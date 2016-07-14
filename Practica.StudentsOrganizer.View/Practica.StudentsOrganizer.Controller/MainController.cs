@@ -55,11 +55,13 @@ namespace Practica.StudentsOrganizer.Controller
             int selectedRow = ((GridView)_form.GridControl1.MainView).FocusedRowHandle;
             int Id = Convert.ToInt32(((GridView)_form.GridControl1.MainView).GetRowCellValue(selectedRow, "Id"));
 
+            Std_Event_OccurenceDAO dao_seo = new Std_Event_OccurenceDAO();
+            dao_seo.DeleteStd_Event_OccurenceByStudentId(Id);
+
             StudentDAO dao = new StudentDAO();
             dao.DeleteStudent(Id);
 
-            //Std_Event_OccurenceDAO dao_seo = new Std_Event_OccurenceDAO();
-            //dao_seo.DeleteStd_Event_OccurenceByStudentId(Id);
+            
 
             RefreshStudents();
         }
