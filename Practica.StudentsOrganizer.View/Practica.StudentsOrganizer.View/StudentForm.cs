@@ -121,7 +121,7 @@ namespace Practica.StudentsOrganizer.View
         {
 
             controller.Add_Update();
-            Close();
+            //Close();
 
             //StudentBO std = new StudentBO();
             //StudentDAO dao = new StudentDAO();
@@ -327,7 +327,22 @@ namespace Practica.StudentsOrganizer.View
         private void btnAddEvent_Click(object sender, EventArgs e)
         {
 
-            controller.GridControlEvent();
+            controller.AddEventsAndOccurences();
+        }
+
+        private void btnDeleteEvent_Click(object sender, EventArgs e)
+        {
+            controller.DeleteStd_Event_Occ();
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            controller.RefreshEvents();
         }
     }
 }

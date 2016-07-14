@@ -1,4 +1,5 @@
-﻿using Practica.StudentsOrganizer.Model;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using Practica.StudentsOrganizer.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -225,19 +226,39 @@ namespace Practica.StudentsOrganizer.Controller
 
         }
 
-
-        public void GridControlEvent()
+        public void RefreshEvents()
         {
             StudentDAO dao = new StudentDAO();
+            int id = _form.Student.Id;
+            DataTable dt = dao.SelectEventsAndOccurences(id);
+            _form.GridControlEvent.DataSource = dt;
+        }
+
+
+        public void AddEventsAndOccurences()
+        {
+            
             Std_Event_OccurenceDAO dao_seo = new Std_Event_OccurenceDAO();
             Std_Event_OccurenceBO seo = new Std_Event_OccurenceBO();
-            int id = _form.Student.Id;
+            int id = this._form.Student.Id;
             seo.Id_Student = id;
             seo.Id_Event_Occurence = ((int)_form.LookUpEdit2.EditValue);
             dao_seo.AddStd_Event_Occurence(seo);
-            //int id = _form.Student.Id;
-            DataTable dt = dao.SelectEventsAndOccurences(id);
-            _form.GridControlEvent.DataSource = dt;
+
+            RefreshEvents();
+            
+        }
+
+
+        public void DeleteStd_Event_Occ()
+        {
+            int selectedRow = ((GridView)_form.GridControlEvent.MainView).FocusedRowHandle;
+            int Id = Convert.ToInt32(((GridView)_form.GridControlEvent.MainView).GetRowCellValue(selectedRow, "Id"));
+
+            Std_Event_OccurenceDAO dao = new Std_Event_OccurenceDAO();
+            dao.DeleteStd_Event_Occurence(Id);
+
+            RefreshEvents();
         }
 
     }

@@ -58,6 +58,9 @@ namespace Practica.StudentsOrganizer.Controller
             StudentDAO dao = new StudentDAO();
             dao.DeleteStudent(Id);
 
+            //Std_Event_OccurenceDAO dao_seo = new Std_Event_OccurenceDAO();
+            //dao_seo.DeleteStd_Event_OccurenceByStudentId(Id);
+
             RefreshStudents();
         }
     }

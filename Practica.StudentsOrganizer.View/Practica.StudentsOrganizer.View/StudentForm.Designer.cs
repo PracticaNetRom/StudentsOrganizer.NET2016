@@ -55,6 +55,9 @@
             this.gridControlEvent = new DevExpress.XtraGrid.GridControl();
             this.gridViewEvent = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnAddEvent = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeleteEvent = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDone = new DevExpress.XtraEditors.SimpleButton();
+            this.btnShow = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BirthDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -241,7 +244,7 @@
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(166, 695);
+            this.btnAddStudent.Location = new System.Drawing.Point(166, 383);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(75, 23);
             this.btnAddStudent.TabIndex = 33;
@@ -251,7 +254,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(11, 380);
+            this.label11.Location = new System.Drawing.Point(11, 450);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 13);
             this.label11.TabIndex = 36;
@@ -260,7 +263,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(261, 380);
+            this.label12.Location = new System.Drawing.Point(261, 450);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 13);
             this.label12.TabIndex = 37;
@@ -268,7 +271,7 @@
             // 
             // lookUpEdit1
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(141, 377);
+            this.lookUpEdit1.Location = new System.Drawing.Point(141, 447);
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -284,7 +287,7 @@
             // 
             // lookUpEdit2
             // 
-            this.lookUpEdit2.Location = new System.Drawing.Point(356, 377);
+            this.lookUpEdit2.Location = new System.Drawing.Point(356, 447);
             this.lookUpEdit2.Name = "lookUpEdit2";
             this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -293,7 +296,7 @@
             // 
             // gridControlEvent
             // 
-            this.gridControlEvent.Location = new System.Drawing.Point(17, 428);
+            this.gridControlEvent.Location = new System.Drawing.Point(17, 498);
             this.gridControlEvent.MainView = this.gridViewEvent;
             this.gridControlEvent.Name = "gridControlEvent";
             this.gridControlEvent.Size = new System.Drawing.Size(400, 200);
@@ -308,18 +311,48 @@
             // 
             // btnAddEvent
             // 
-            this.btnAddEvent.Location = new System.Drawing.Point(543, 374);
+            this.btnAddEvent.Location = new System.Drawing.Point(543, 444);
             this.btnAddEvent.Name = "btnAddEvent";
             this.btnAddEvent.Size = new System.Drawing.Size(75, 23);
             this.btnAddEvent.TabIndex = 41;
             this.btnAddEvent.Text = "Add Event";
             this.btnAddEvent.Click += new System.EventHandler(this.btnAddEvent_Click);
             // 
+            // btnDeleteEvent
+            // 
+            this.btnDeleteEvent.Location = new System.Drawing.Point(543, 546);
+            this.btnDeleteEvent.Name = "btnDeleteEvent";
+            this.btnDeleteEvent.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteEvent.TabIndex = 42;
+            this.btnDeleteEvent.Text = "Delete Event";
+            this.btnDeleteEvent.Click += new System.EventHandler(this.btnDeleteEvent_Click);
+            // 
+            // btnDone
+            // 
+            this.btnDone.Location = new System.Drawing.Point(166, 723);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(75, 23);
+            this.btnDone.TabIndex = 43;
+            this.btnDone.Text = "Done";
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+            // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(543, 621);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(75, 23);
+            this.btnShow.TabIndex = 44;
+            this.btnShow.Text = "Show Events";
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 758);
+            this.Controls.Add(this.btnShow);
+            this.Controls.Add(this.btnDone);
+            this.Controls.Add(this.btnDeleteEvent);
             this.Controls.Add(this.btnAddEvent);
             this.Controls.Add(this.gridControlEvent);
             this.Controls.Add(this.lookUpEdit2);
@@ -396,5 +429,8 @@
         private DevExpress.XtraGrid.GridControl gridControlEvent;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewEvent;
         private DevExpress.XtraEditors.SimpleButton btnAddEvent;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteEvent;
+        private DevExpress.XtraEditors.SimpleButton btnDone;
+        private DevExpress.XtraEditors.SimpleButton btnShow;
     }
 }

@@ -67,5 +67,43 @@ namespace Practica.StudentsOrganizer.Model
             conn.Open();
             cmd.ExecuteNonQuery();
         }
+
+        public void DeleteStd_Event_Occurence(int Id)
+        {
+            //conexiunea cu baza de date
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = ConnectionString.Value;
+            //conn.Open();
+
+            //sql command
+            SqlCommand cmd = new SqlCommand();
+
+            //conexiunea la command
+            cmd.Connection = conn;
+
+            cmd.CommandText = "DELETE FROM dbo.Std_Event_Occurence WHERE Id=" + Id;
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteStd_Event_OccurenceByStudentId(int Id_std)
+        {
+            //conexiunea cu baza de date
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = ConnectionString.Value;
+            //conn.Open();
+
+            //sql command
+            SqlCommand cmd = new SqlCommand();
+
+            //conexiunea la command
+            cmd.Connection = conn;
+
+            cmd.CommandText = "DELETE FROM dbo.Std_Event_Occurence WHERE Id_Student=" + Id_std;
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
     }
 }
