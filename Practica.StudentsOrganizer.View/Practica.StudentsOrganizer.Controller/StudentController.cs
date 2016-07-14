@@ -253,7 +253,7 @@ namespace Practica.StudentsOrganizer.Controller
         public void DeleteStd_Event_Occ()
         {
             int selectedRow = ((GridView)_form.GridControlEvent.MainView).FocusedRowHandle;
-            int Id = Convert.ToInt32(((GridView)_form.GridControlEvent.MainView).GetRowCellValue(selectedRow, "Student Event Occ Id"));
+            int Id = Convert.ToInt32(((GridView)_form.GridControlEvent.MainView).GetRowCellValue(selectedRow, "StudentEventOccId"));
 
             Std_Event_OccurenceDAO dao = new Std_Event_OccurenceDAO();
             dao.DeleteStd_Event_Occurence(Id);
