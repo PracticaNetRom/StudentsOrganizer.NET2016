@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using Practica.StudentsOrganizer.Model;
 using System;
@@ -11,8 +12,6 @@ namespace Practica.StudentOrganizer.Controller.Interfaces
 {
     public interface IAddStudentForm
     {
-       // StudentBO Student { get; set; }
-
         TextEdit TxtFirstName { get; }
         TextEdit TxtLastName { get; }
         ComboBoxEdit ComboBoxGender { get; }
@@ -26,6 +25,11 @@ namespace Practica.StudentOrganizer.Controller.Interfaces
         LookUpEdit ComboBoxEvtOccur { get; }
         void PopulateStudent(StudentBO s);
         SimpleButton ButtonSave { get; }
-        GridView GridAddEvent { get; }
+        GridControl GridControlEvent { get; }
+        GridView GridViewEvent { get; }
+        SimpleButton ButtonAddEven
+        {
+            get;
+        }
     }
 }

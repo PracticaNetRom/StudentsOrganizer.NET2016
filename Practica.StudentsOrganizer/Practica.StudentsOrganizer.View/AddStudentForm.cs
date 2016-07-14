@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using Practica.StudentOrganizer.Controller.Controllers;
 using Practica.StudentOrganizer.Controller.Interfaces;
@@ -22,7 +23,6 @@ namespace Practica.StudentsOrganizer.View
     public partial class AddStudentForm : Form, IAddStudentForm
     {
         private AddStudentController controllerStd;
-
 
         public TextEdit TxtFirstName
         {
@@ -112,11 +112,27 @@ namespace Practica.StudentsOrganizer.View
             }
         }
 
-        public GridView GridAddEvent
+        public GridControl GridControlEvent
         {
             get
             {
-                return gridView1;
+                return gridControlEvent;
+            }
+        }
+
+        public GridView GridViewEvent
+        {
+            get
+            {
+                return gridViewEvent;
+            }
+        }
+
+        public SimpleButton ButtonAddEven
+        {
+            get
+            {
+                return buttonAddEven;
             }
         }
 
@@ -129,8 +145,12 @@ namespace Practica.StudentsOrganizer.View
         }
 
 
-        public AddStudentForm()
+        private bool IsUpdateForm { get; set; }
+
+        public AddStudentForm( bool isUpdateForm = false)
         {
+            IsUpdateForm = isUpdateForm;
+
             InitializeComponent();
 
             controllerStd = new AddStudentController(this);
@@ -143,6 +163,7 @@ namespace Practica.StudentsOrganizer.View
         private void buttonSave_Click(object sender, EventArgs e)
         {
             controllerStd.AddOrUpdate();
+            if(IsUpdateForm)this.Close();
         }
 
 
@@ -155,13 +176,14 @@ namespace Practica.StudentsOrganizer.View
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
             controllerStd.PopulateEvents();
-
         }
+
 
         private void comboBoxEventName_EditValueChanged(object sender, EventArgs e)
         {
             controllerStd.PopulateEventOccurence();
         }
+
 
         private void ButtonAddEven_Click(object sender, EventArgs e)
         {

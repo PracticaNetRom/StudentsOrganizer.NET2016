@@ -21,7 +21,6 @@ namespace Practica.StudentsOrganizer.View
     { 
         private MainFormController controllerMain;
 
-
         public SimpleButton ButtInsertStd
         {
             get
@@ -78,25 +77,28 @@ namespace Practica.StudentsOrganizer.View
             controllerMain = new MainFormController(this);
         }
 
+
         public IAddStudentForm CreateAddForm()
         {
-            return new AddStudentForm();
+            return new AddStudentForm(true);
         }
+
 
         public ILoginForm createLoginForm()
         {
             return new LoginForm();
         }
 
+
         private void buttonUpdateStd_Click(object sender, EventArgs e)
         {
             controllerMain.Update();
         }
 
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             controllerMain.RefreshData();
-
         }
 
 
@@ -110,6 +112,7 @@ namespace Practica.StudentsOrganizer.View
         {
             controllerMain.Delete();           
         }
+
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {

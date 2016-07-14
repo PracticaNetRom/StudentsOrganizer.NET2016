@@ -24,7 +24,6 @@ namespace Practica.StudentsOrganizer.Model.DAO
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
-
             while (reader.Read() == true)
             {
                 if (reader.HasRows)
@@ -36,10 +35,8 @@ namespace Practica.StudentsOrganizer.Model.DAO
                     eventOccurence.endData = Convert.ToDateTime(reader["endData"]);
 
                     list.Add(eventOccurence);
-
                 }
             }
-
             return list;
         }
 

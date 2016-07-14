@@ -17,45 +17,11 @@ namespace Practica.StudentsOrganizer.View
         [STAThread]
         static void Main()
         {
-            
-            /*
-            StudentBO stdBO = new StudentBO();
-            stdBO.id = 5;
-            stdBO.firstName = "Cristina";
-            stdBO.lastName = "Popescu";
-            stdBO.gender = "F";
-            stdBO.birthDate = new DateTime(2016, 4, 2);
-            stdBO.email = "popescu@yahoo.com";
-            stdBO.phoneNumber = "0936312";
-            stdBO.faculty = "ACE";
-            stdBO.facultyStartYear = 2014;
-            stdBO.remarks = "good!";
 
-            StudentDAO stdDAO = new StudentDAO();
-            stdDAO.AddStudent(stdBO);
-
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source = netsrv-db01\\sql2014;" +
-            "Initial Catalog = NetRom.Practice3;" +
-            "Integrated Security = SSPI;";
-     
-            conn.Open();
-
-            if (conn.State == System.Data.ConnectionState.Open)
-            {
-                MessageBox.Show("S-a conectat cu succes!");
-            }
-            else
-            {
-                MessageBox.Show("Eroare!");
-            }
-            */
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new LoginForm());
-            Application.Run(new MainForm());
+            Application.Run(new LoginForm());
+            //Application.Run(new MainForm());
            
         }
     }

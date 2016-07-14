@@ -39,12 +39,14 @@ CREATE TABLE StudentEventOccurence(
 	idEventOccurence integer);
 
 
-DROP TABLE loginTable;
+DROP TABLE LoginTable;
 CREATE TABLE loginTable(
 	id INT PRIMARY KEY IDENTITY(1,1),
 	userName varchar(60),
 	passwordL varchar(60) );
 
+INSERT INTO LoginTable(userName, passwordL)
+		VALUES('camelia', 'parola');
 
 INSERT INTO Student(firstName, lastName, gender, birthDate, email, phoneNumber, faculty, facultyStartYear, remarks)
 		VALUES('Ion', 'Popescu', 'M', '2/4/1995', 'popescu@yahoo.com', '0251765398', 'Automatica', '2014', 'Abilitati de dezvoltare personala rapida');
@@ -67,15 +69,13 @@ INSERT INTO Eveniment(eventName, task, departamentOrTehnology)
 
 
 INSERT INTO EventOccurence(idEvent, startData, endData)
-		VALUES ('5', '3/6/2013', '9/7/2013');
+		VALUES ('1', '5/4/2013', '2/5/2013');
 INSERT INTO EventOccurence(idEvent, startData, endData)
-		VALUES ('6', '6/8/2014', '3/10/2014');
+		VALUES ('2', '7/6/2014', '10/7/2014');
 INSERT INTO EventOccurence(idEvent, startData, endData) 
-		VALUES ('7', '12/8/2015', '8/10/2015');
+		VALUES ('3', '8/8/2015', '12/9/2015');
 INSERT INTO EventOccurence(idEvent, startData, endData) 
-		VALUES ('8', '9/11/2015', '2/12/2015');
-INSERT INTO EventOccurence(idEvent, startData, endData) 
-		VALUES ('1', '9/11/2015', '2/12/2015');
+		VALUES ('4', '9/11/2015', '2/12/2015');
           
 
 INSERT INTO StudentEventOccurence(idStudent, idEventOccurence) VALUES('1', '8');

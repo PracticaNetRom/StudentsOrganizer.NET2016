@@ -11,11 +11,11 @@ namespace Practica.StudentsOrganizer.Model.DAO
 {
     public class EvenimentDAO
     {
-        public EvenimentBO GetEveniment (int id)
-            {
+        public EvenimentBO GetEveniment(int id)
+        {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = ConnString.Value;
-   
+
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = " Select id, eventName, task, departamentOrTehnology from Eveniment where ID = " + id;
             cmd.Connection = conn;
@@ -32,11 +32,10 @@ namespace Practica.StudentsOrganizer.Model.DAO
                     eveniment.eventName = reader["eventName"].ToString();
                     eveniment.task = reader["task"].ToString();
                     eveniment.departamentOrTehnology = reader["departamentOrTehnology"].ToString();
-                    
+
                     return eveniment;
                 }
             }
-
             return null;
         }
 
@@ -78,6 +77,5 @@ namespace Practica.StudentsOrganizer.Model.DAO
 
             return dt;
         }
-
     }
 }

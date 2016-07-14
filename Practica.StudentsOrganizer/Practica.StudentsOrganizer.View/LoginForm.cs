@@ -31,7 +31,7 @@ namespace Practica.StudentsOrganizer.View
         {
             get
             {
-                return TextPassword;
+                return textPassword;
             }
         }
 
@@ -51,6 +51,7 @@ namespace Practica.StudentsOrganizer.View
             controllerLogin = new LoginController(this);
         }
 
+
         public IMainForm createMainForm()
         {
             return new MainForm();
@@ -60,6 +61,7 @@ namespace Practica.StudentsOrganizer.View
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             controllerLogin.Login();
+            this.Close();
         }
     }
 }

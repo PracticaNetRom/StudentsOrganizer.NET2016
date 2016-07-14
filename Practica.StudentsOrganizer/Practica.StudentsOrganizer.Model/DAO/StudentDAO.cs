@@ -17,7 +17,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
             conn.ConnectionString = ConnString.Value;
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = " Select id, firstName, lastName, gender, birthDate, email,phoneNumber, faculty, facultyStartYear, remarks from Student where ID = " + id;
+            cmd.CommandText = "Select id, firstName, lastName, gender, birthDate, email,phoneNumber, faculty, facultyStartYear, remarks from Student where ID = " + id;
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
@@ -152,9 +152,7 @@ namespace Practica.StudentsOrganizer.Model.DAO
             deleteCmd.CommandText = "DELETE FROM Student WHERE id =" +id;
 
             deleteCmd.Connection = conn;
-
             deleteCmd.ExecuteNonQuery();
         }
     }
-
 }

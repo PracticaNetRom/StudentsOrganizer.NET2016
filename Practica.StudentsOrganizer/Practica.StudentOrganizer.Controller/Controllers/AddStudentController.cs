@@ -28,7 +28,6 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             StudentBO stdBO = new StudentBO();
             StudentDAO stdDAO = new StudentDAO();
             
-
             stdBO.firstName = stdForm.TxtFirstName.Text;
             stdBO.lastName = stdForm.TxtLastName.Text;
             stdBO.gender = stdForm.ComboBoxGender.Text;
@@ -38,9 +37,7 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             stdBO.faculty = stdForm.TxtFaculty.Text;
             stdBO.facultyStartYear = Convert.ToInt32(stdForm.TxtFacultyStartYear.Text);
             stdBO.remarks = stdForm.TxtRemarks.Text;
-
-
-
+            
             if (student == null)  //Add
             {
                 stdBO = new StudentBO();
@@ -51,7 +48,7 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             }
 
 
-            if (string.IsNullOrEmpty(stdForm.TxtFirstName.Text))
+            if (string.IsNullOrEmpty(stdForm.TxtFirstName.Text) || stdForm.TxtFirstName.Text.Length < 2)
             {
                 MessageBox.Show("Please enter student's FIRST NAME!");
                 return;
@@ -61,8 +58,7 @@ namespace Practica.StudentOrganizer.Controller.Controllers
                 stdBO.firstName = stdForm.TxtFirstName.Text;
             }
 
-
-            if (string.IsNullOrEmpty(stdForm.TxtLastName.Text))
+            if (string.IsNullOrEmpty(stdForm.TxtLastName.Text) || stdForm.TxtLastName.Text.Length < 2 )
             {
                 MessageBox.Show("Please enter student's LAST NAME!");
                 return;
@@ -72,9 +68,7 @@ namespace Practica.StudentOrganizer.Controller.Controllers
                 stdBO.lastName = stdForm.TxtLastName.Text;
             }
 
-
             stdBO.gender = stdForm.ComboBoxGender.Text;
-
 
             if (string.IsNullOrEmpty(stdForm.DateTimeBirthDate.Text))
             {
@@ -86,7 +80,7 @@ namespace Practica.StudentOrganizer.Controller.Controllers
                 stdBO.birthDate = Convert.ToDateTime(stdForm.DateTimeBirthDate.Text);
             }
 
-            if (string.IsNullOrEmpty(stdForm.TxtEmail.Text))
+            if (string.IsNullOrEmpty(stdForm.TxtEmail.Text) || stdForm.TxtEmail.Text.Length < 10)
             {
                 MessageBox.Show("Please enter student's EMAIL");
                 return;
@@ -96,11 +90,9 @@ namespace Practica.StudentOrganizer.Controller.Controllers
                 stdBO.email = stdForm.TxtEmail.Text;
             }
 
-
             stdBO.phoneNumber = stdForm.TxtPhoneNumber.Text;
 
-
-            if (string.IsNullOrEmpty(stdForm.TxtFaculty.Text))
+            if (string.IsNullOrEmpty(stdForm.TxtFaculty.Text) || stdForm.TxtFaculty.Text.Length < 3)
             {
                 MessageBox.Show("Please enter student's FACULTY!");
                 return;
@@ -109,7 +101,6 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             {
                 stdBO.faculty = stdForm.TxtFaculty.Text;
             }
-
 
             if (string.IsNullOrEmpty(stdForm.TxtFacultyStartYear.Text))
             {
@@ -133,7 +124,6 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             {
                 stdDAO.updateStudent(stdBO);
                 MessageBox.Show("Student successfully updated!");
-                // this.Close();
             }
 
             stdForm.TxtFirstName.Text = string.Empty;
@@ -148,12 +138,14 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             stdForm.TxtRemarks.Text = string.Empty;
         }
 
+
         public void AddEvent()
         {
             string ev = stdForm.ComboBoxEventName.Text;
 
             EventOccurenceBO evo = (EventOccurenceBO)(stdForm.ComboBoxEvtOccur.GetSelectedDataRow());
         }
+
 
         public StudentBO student;
 
@@ -184,8 +176,8 @@ namespace Practica.StudentOrganizer.Controller.Controllers
 
             stdForm.ComboBoxEventName.Properties.DisplayMember = "eventName";
             stdForm.ComboBoxEventName.Properties.ValueMember = "id";
-
         }
+
 
         public void PopulateEventOccurence()
         {
@@ -201,17 +193,5 @@ namespace Practica.StudentOrganizer.Controller.Controllers
             stdForm.ComboBoxEvtOccur.Properties.ValueMember = "id";
         }
 
-        /*
-        public void RefreshEvent()
-        {
-            EvenimentDAO eventdDAO = new EvenimentDAO();
-
-            DataTable dtret = new DataTable();
-            dtret = eventdDAO.GetAllEvents();
-
-            stdForm. .DataSource = dtret;
-        }
-
-        */
     }
 }

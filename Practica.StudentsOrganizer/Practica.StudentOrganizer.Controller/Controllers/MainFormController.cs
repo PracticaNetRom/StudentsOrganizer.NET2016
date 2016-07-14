@@ -12,9 +12,9 @@ using System.Windows.Forms;
 namespace Practica.StudentOrganizer.Controller.Controllers
 {
     public class MainFormController
-    {
-
+    { 
         private IMainForm mainForm;
+
 
         public MainFormController(IMainForm form)
         {
@@ -34,13 +34,19 @@ namespace Practica.StudentOrganizer.Controller.Controllers
         {
             int selectedRow = mainForm.GridView.FocusedRowHandle;
             int id = Convert.ToInt32(mainForm.GridView.GetRowCellValue(selectedRow, "id"));
+            
+            if (selectedRow == 0)
+            {
+                MessageBox.Show("Please select a student to delete!");
+            }
+            else
+            {
+                StudentDAO stdDelete = new StudentDAO();
+                stdDelete.DeleteStudent(id);
 
-            StudentDAO stdDelete = new StudentDAO();
-            stdDelete.DeleteStudent(id);
-
-            MessageBox.Show("Student successfully deleted!");
-
-            RefreshData();
+                MessageBox.Show("Student successfully deleted!");
+                RefreshData();
+            }
         }
 
 
@@ -50,16 +56,23 @@ namespace Practica.StudentOrganizer.Controller.Controllers
 
             StudentDAO stdselectDAO = new StudentDAO();
 
+            int selectedRow = mainForm.GridView.FocusedRowHandle;
             int idSelect;
-            idSelect = Convert.ToInt32(mainForm.GridView.GetRowCellValue(mainForm.GridView.FocusedRowHandle, "id"));
+            idSelect = Convert.ToInt32(mainForm.GridView.GetRowCellValue(selectedRow, "id"));
 
-            StudentBO stdSelectBO = stdselectDAO.GetStudent(idSelect);
+            if (selectedRow == 0)
+            {
+                MessageBox.Show("Please select a student to update!");
+            }
+            else
+            {
+                StudentBO stdSelectBO = stdselectDAO.GetStudent(idSelect);
 
-            updateForm.PopulateStudent(stdSelectBO);
+                updateForm.PopulateStudent(stdSelectBO);
 
-           ((Form)updateForm).ShowDialog();
-
-            RefreshData();
+                ((Form)updateForm).ShowDialog();
+                RefreshData();
+            }
         }
 
 
@@ -76,7 +89,6 @@ namespace Practica.StudentOrganizer.Controller.Controllers
 
         public void LogOut()
         {
-            //this.Hide();
             ILoginForm frm = mainForm.createLoginForm();
             ((Form)frm).ShowDialog();
         }

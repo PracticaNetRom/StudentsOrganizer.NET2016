@@ -13,5 +13,10 @@ namespace Practica.StudentsOrganizer.Model.BO
         public string task { get; set; }
         public string departamentOrTehnology { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format("{0} {1} {2}", eventName, departamentOrTehnology, task);
+        }
+
     }
 }

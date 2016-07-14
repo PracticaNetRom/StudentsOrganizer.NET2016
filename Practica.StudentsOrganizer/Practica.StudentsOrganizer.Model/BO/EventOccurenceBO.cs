@@ -15,7 +15,7 @@ namespace Practica.StudentsOrganizer.Model.BO
         
         public string DisplayValue
         {
-            get { return string.Format("({0})-({1})", startData , endData); }
+            get { return string.Format("({0}) - ({1})", startData.ToShortDateString(), endData.ToShortDateString()); }
         }
     }
 }
