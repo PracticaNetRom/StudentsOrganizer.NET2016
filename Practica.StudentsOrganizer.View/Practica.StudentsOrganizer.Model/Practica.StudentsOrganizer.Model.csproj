@@ -43,6 +43,8 @@
     <Compile Include="Connection.cs" />
     <Compile Include="evenimentBO.cs" />
     <Compile Include="evenimentDAO.cs" />
+    <Compile Include="LoginBO.cs" />
+    <Compile Include="LoginDAO.cs" />
     <Compile Include="studentBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentDAO.cs" />
